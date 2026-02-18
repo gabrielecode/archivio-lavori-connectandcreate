@@ -1,1 +1,61 @@
-<h1>Test Archivio Lacus Design</h1>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lacus Design | Archivio Progetti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3D4A3E;    /* Verde Salvia */
+            --accent: #D4A373;     /* Terracotta */
+            --bg: #F1EFE7;         /* Panna */
+            --text: #2B2B2B; 
+        }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg); 
+            color: var(--text); 
+            margin: 0; padding: 40px 20px;
+            display: flex; flex-direction: column; align-items: center; 
+            text-align: center;
+        }
+        h1 { font-family: 'Cinzel', serif; color: var(--primary); font-size: 2rem; margin-bottom: 10px; }
+        p { max-width: 600px; opacity: 0.8; margin-bottom: 40px; }
+        
+        .grid { display: grid; gap: 20px; width: 100%; max-width: 800px; }
+        
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(61, 74, 62, 0.1);
+            transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        
+        .card:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>LACUS DESIGN</h1>
+    <p>Archivio digitale delle finiture e dei progetti d'interni. Seleziona un progetto per visualizzare i dettagli tecnici.</p>
+
+    <div class="grid">
+        <a href="NOME-CARTELLA-1/" class="card">Progetto Resina Bagno</a>
+        <a href="NOME-CARTELLA-2/" class="card">Villa Morcote</a>
+    </div>
+
+</body>
+</html>
