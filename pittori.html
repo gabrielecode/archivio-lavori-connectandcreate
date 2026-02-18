@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Lacus Atelier | Architettura delle Superfici Lugano | Resine & Design Ticino</title>
+    <meta name="description" content="Lacus Atelier a Lugano: specialisti in finiture sartoriali, resine e microcemento in Canton Ticino. Design contemporaneo e precisione svizzera per immobili di lusso.">
+    <meta name="keywords" content="Lacus Atelier, Resine Lugano, Microcemento Ticino, Pittura Lusso Mendrisio, Design d'interni Bellinzona, Superfici Materiche Locarno">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Lacus Atelier Lugano",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Nassa 2",
+        "addressLocality": "Lugano",
+        "postalCode": "6900",
+        "addressCountry": "CH"
+      },
+      "telephone": "+41919230000",
+      "url": "https://lacusdesign.ch"
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: '#14171A', // Midnight Pearl
+                        silk: '#FAF9F6',     // Silk White
+                        sand: '#C5A08C',     // Warm Sand
+                        stone: '#2A2D30',    // Secondary UI
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Cursor Logic */
+        * { cursor: none; }
+        .cursor-dot { width: 8px; height: 8px; background: #C5A08C; position: fixed; border-radius: 50%; pointer-events: none; z-index: 10000; transform: translate(-50%, -50%); }
+        .cursor-outline { width: 40px; height: 40px; border: 1px solid #C5A08C; position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: all 0.15s ease-out; }
+        
+        /* Timeline Mask */
+        .timeline-mask {
+            mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+        }
+        
+        /* Smooth Scroll Fix for Safari */
+        html { scroll-behavior: smooth; }
+        body { -webkit-overflow-scrolling: touch; }
+    </style>
+</head>
+<body class="bg-midnight text-silk font-sans selection:bg-sand selection:text-midnight overflow-x-hidden">
+
+    <div class="cursor-dot" id="dot"></div>
+    <div class="cursor-outline" id="outline"></div>
+
+    <a href="https://wa.me/41919230000?text=Buongiorno%20Lacus,%20desidero%20maggiori%20informazioni." 
+       class="fixed bottom-8 right-8 z-[1001] bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl transition-transform hover:scale-110">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header class="fixed top-0 w-full z-[1000] p-8 flex justify-between items-center mix-blend-difference">
+        <a href="#" class="font-serif text-2xl font-bold tracking-[4px]">LACUS</a>
+        <nav class="hidden md:flex gap-10 text-[10px] uppercase tracking-[3px]">
+            <a href="#chisiamo" class="hover:text-sand transition-colors">Chi Siamo</a>
+            <a href="#metodo" class="hover:text-sand transition-colors">Metodo</a>
+            <a href="#storia" class="hover:text-sand transition-colors">Evoluzione</a>
+            <a href="#clienti" class="hover:text-sand transition-colors">Clienti</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="h-screen relative flex items-center justify-center overflow-hidden">
+            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-30 grayscale-[30%]">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-white-stucco-wall-texture-close-up-33392-large.mp4" type="video/mp4">
+            </video>
+            <div class="relative z-10 text-center px-4">
+                <h1 class="font-serif text-6xl md:text-[8rem] uppercase leading-tight mb-4 tracking-tighter">Atmosfere<br>Materiche.</h1>
+                <p class="font-serif italic text-xl md:text-3xl text-sand">Architettura delle superfici a Lugano.</p>
+            </div>
+        </section>
+
+        <section id="chisiamo" class="py-32 container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-24 items-center">
+                <div class="space-y-10">
+                    <span class="text-sand uppercase tracking-[3px] text-xs font-bold">L&apos;identità di Lacus</span>
+                    <h2 class="font-serif text-5xl md:text-7xl">Eccellenza nel Sottoceneri.</h2>
+                    <div class="space-y-6 text-lg opacity-80 font-light leading-relaxed">
+                        <p>Fondata nel cuore pulsante di <strong>Lugano</strong>, Lacus Atelier rappresenta l'unione definitiva tra l'ingegneria dei materiali svizzera e la sensibilità estetica mediterranea. Siamo artigiani del <strong>Ticino</strong>, dedicati alla trasformazione di immobili di pregio attraverso superfici sartoriali.</p>
+                        <p>Dalle ville storiche che si affacciano sul Ceresio ai moderni loft di <strong>Bellinzona</strong> e <strong>Mendrisio</strong>, la nostra missione è garantire una qualità esecutiva che superi le mode, offrendo soluzioni in resina e microcemento certificate e durature.</p>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200" alt="Chi Siamo Lacus Atelier" class="rounded-sm shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-1000">
+                </div>
+            </div>
+        </section>
+
+        <section id="metodo" class="py-32 bg-stone/20 relative">
+            <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-20 items-start">
+                <div class="space-y-12">
+                    <div class="space-y-6">
+                        <span class="text-sand uppercase tracking-[3px] text-xs font-bold">— Il Nostro Credo Tecnico</span>
+                        <h2 class="font-serif text-4xl md:text-6xl leading-tight">Oltre la bidimensionalità del colore.</h2>
+                        <p class="text-xl opacity-70 leading-relaxed">
+                            A <strong>Lugano</strong>, non copriamo le pareti: le vestiamo. Il nostro approccio unisce la scienza dei materiali con un'estetica da atelier. Ogni progetto in <strong>Canton Ticino</strong> inizia con un'analisi spettrofotometrica per comprendere come la luce interagisce con la materia, terminando con una posa artigianale che vibra al tatto.
+                        </p>
+                    </div>
+
+                    <div class="bg-stone p-12 border-l-4 border-sand shadow-2xl">
+                        <h3 class="font-serif text-3xl text-sand mb-6">Precisione Svizzera</h3>
+                        <p class="opacity-90 italic text-lg leading-relaxed">
+                            I nostri cantieri sono sale operatorie. Applichiamo una protezione maniacale degli arredi, protocolli <strong>VOC-free</strong> per la salute degli ambienti e un rispetto assoluto dei tempi. Il lusso è anche non accorgersi della nostra presenza, se non per il risultato straordinario.
+                        </p>
+                    </div>
+                </div>
+                <div class="h-[80vh] sticky top-32 overflow-hidden shadow-2xl rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1595846519845-68e298c2edd8?q=80&w=1200" alt="Metodo Lacus" class="w-full h-full object-cover" id="parallax-img">
+                </div>
+            </div>
+        </section>
+
+        <section id="storia" class="py-32 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-10 mb-20">
+                <h2 class="font-serif text-5xl md:text-8xl mb-6 uppercase tracking-tighter">Evoluzione</h2>
+                <p class="text-sand text-lg italic max-w-md">Una cronologia di innovazione materica tra Lugano e Locarno.</p>
+            </div>
+
+            <div class="relative max-w-7xl mx-auto pb-40" id="timeline-body">
+                <div class="absolute md:left-12 left-8 top-0 overflow-hidden w-[2px] h-full bg-stone timeline-mask">
+                    <div id="timeline-progress" class="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-sand via-silk to-transparent rounded-full h-0"></div>
+                </div>
+
+                <div class="flex justify-start pt-20 md:gap-20 relative">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs md:w-full">
+                        <div class="h-10 absolute left-3 md:left-7 w-10 rounded-full bg-midnight border border-sand/30 flex items-center justify-center">
+                            <div class="h-4 w-4 rounded-full bg-sand shadow-[0_0_15px_#C5A08C]"></div>
+                        </div>
+                        <h3 class="hidden md:block text-6xl font-bold text-silk/5 md:pl-32">2026</h3>
+                    </div>
+                    <div class="relative pl-24 pr-4 md:pl-10 w-full space-y-10">
+                        <h3 class="md:hidden block text-4xl font-bold text-sand mb-4">2026</h3>
+                        <p class="text-silk/80 text-2xl font-serif">Protocollo VOC-Zero Certificato.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=600" class="rounded-sm shadow-xl hover:scale-[1.02] transition-transform duration-700 grayscale hover:grayscale-0">
+                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=600" class="rounded-sm shadow-xl hover:scale-[1.02] transition-transform duration-700 grayscale hover:grayscale-0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-start pt-40 md:gap-20 relative">
+                    <div class="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs md:w-full">
+                        <div class="h-10 absolute left-3 md:left-7 w-10 rounded-full bg-midnight border border-sand/30 flex items-center justify-center">
+                            <div class="h-4 w-4 rounded-full bg-sand/30"></div>
+                        </div>
+                        <h3 class="hidden md:block text-6xl font-bold text-silk/5 md:pl-32">2024</h3>
+                    </div>
+                    <div class="relative pl-24 pr-4 md:pl-10 w-full space-y-10">
+                        <h3 class="md:hidden block text-4xl font-bold text-sand/30 mb-4">2024</h3>
+                        <p class="text-silk/80 text-2xl font-serif">Espansione nel Sopraceneri.</p>
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200" class="rounded-sm shadow-xl grayscale">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="clienti" class="py-32 bg-silk text-midnight">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-24 space-y-4">
+                    <span class="text-sand uppercase tracking-[4px] text-xs font-bold">Riprova Sociale</span>
+                    <h2 class="font-serif text-5xl md:text-7xl">I nostri clienti in Ticino.</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-16">
+                    <div class="space-y-8 group">
+                        <i class="fas fa-quote-left text-sand text-4xl"></i>
+                        <p class="font-serif italic text-2xl leading-relaxed group-hover:text-sand transition-colors duration-500 italic">"Hanno trasformato il mio immobile a Lugano in un'opera d'arte tattile. Professionalità svizzera vera."</p>
+                        <div class="pt-6 border-t border-midnight/10 uppercase text-[10px] tracking-widest font-bold">Arch. G. Fontana, Lugano</div>
+                    </div>
+                    <div class="space-y-8 group">
+                        <i class="fas fa-quote-left text-sand text-4xl"></i>
+                        <p class="font-serif italic text-2xl leading-relaxed group-hover:text-sand transition-colors duration-500 italic">"Resine perfette e cantiere pulitissimo. Un partner affidabile per la nostra villa a Locarno."</p>
+                        <div class="pt-6 border-t border-midnight/10 uppercase text-[10px] tracking-widest font-bold">Famiglia Weber, Locarno</div>
+                    </div>
+                    <div class="space-y-8 group">
+                        <i class="fas fa-quote-left text-sand text-4xl"></i>
+                        <p class="font-serif italic text-2xl leading-relaxed group-hover:text-sand transition-colors duration-500 italic">"Competenza tecnica eccellente sulle analisi luce. Il risultato finale a Mendrisio è oltre le aspettative."</p>
+                        <div class="pt-6 border-t border-midnight/10 uppercase text-[10px] tracking-widest font-bold">Studio Design, Mendrisio</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-midnight py-24 border-t border-stone">
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-20">
+            <div class="space-y-10">
+                <span class="font-serif text-4xl font-bold tracking-[6px]">LACUS</span>
+                <p class="opacity-40 text-sm leading-relaxed max-w-xs font-light">L'Atelier delle superfici a Lugano. Analisi, materia e cura sartoriale per immobili di pregio in tutto il Canton Ticino.</p>
+            </div>
+            <div class="space-y-8">
+                <h4 class="text-sand uppercase text-[11px] tracking-[4px] font-bold">Sede Operativa</h4>
+                <div class="text-sm opacity-60 space-y-3 font-light">
+                    <p>Via Nassa 2, 6900 Lugano, Svizzera</p>
+                    <p>T. +41 91 923 00 00</p>
+                    <a href="mailto:info@lacusdesign.ch" class="block hover:text-sand transition-colors underline decoration-sand/30 underline-offset-8">info@lacusdesign.ch</a>
+                </div>
+            </div>
+            <div class="space-y-8">
+                <h4 class="text-sand uppercase text-[11px] tracking-[4px] font-bold">Dati Legali</h4>
+                <div class="text-sm opacity-60 space-y-3 font-light">
+                    <p>LACUS DESIGN ATELIER SA</p>
+                    <p>CHE-123.456.789 IVA</p>
+                    <div class="flex gap-8 pt-8 text-xl">
+                        <a href="#" class="hover:text-sand"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-sand"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-24 pt-10 border-t border-stone flex flex-col md:flex-row justify-between text-[10px] uppercase tracking-[3px] opacity-30 font-light">
+            <span>© 2026 LACUS ATELIER SA. Tutti i diritti riservati.</span>
+            <span>Swiss Made • Local SEO Ticino Optimized</span>
+        </div>
+    </footer>
+
+    <script>
+        /**
+         * @class LacusLuxuryEngine
+         * @description Controller per UX Interattiva, Timeline e Cursor Logic.
+         */
+        class LacusLuxuryEngine {
+            constructor() {
+                this.dot = document.getElementById('dot');
+                this.outline = document.getElementById('outline');
+                this.timelineBody = document.getElementById('timeline-body');
+                this.progressLine = document.getElementById('timeline-progress');
+                this.parallaxImg = document.getElementById('parallax-img');
+                
+                this.init();
+            }
+
+            init() {
+                // Eventi Mouse
+                window.addEventListener('mousemove', (e) => this.handleCursor(e));
+                
+                // Eventi Scroll
+                window.addEventListener('scroll', () => {
+                    this.handleTimeline();
+                    this.handleParallax();
+                });
+                
+                // Analytics Sim
+                setTimeout(() => console.info("SaaS Analytics: Activation moment reached via SEO content."), 8000);
+            }
+
+            handleCursor(e) {
+                const { clientX: x, clientY: y } = e;
+                this.dot.style.left = `${x}px`;
+                this.dot.style.top = `${y}px`;
+                
+                this.outline.animate({
+                    left: `${x}px`,
+                    top: `${y}px`
+                }, { duration: 400, fill: "forwards" });
+
+                if (e.target.closest('a, button, .precision-card')) {
+                    this.outline.style.transform = 'translate(-50%, -50%) scale(1.6)';
+                    this.outline.style.background = 'rgba(197, 160, 140, 0.15)';
+                } else {
+                    this.outline.style.transform = 'translate(-50%, -50%) scale(1)';
+                    this.outline.style.background = 'transparent';
+                }
+            }
+
+            handleTimeline() {
+                if (!this.timelineBody) return;
+                const rect = this.timelineBody.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Calcolo progresso dinamico (Aceternity style)
+                let progress = (windowHeight * 0.1 - rect.top) / (rect.height - windowHeight * 0.4);
+                progress = Math.max(0, Math.min(1, progress));
+                
+                this.progressLine.style.height = `${progress * 100}%`;
+                this.progressLine.style.opacity = progress > 0.05 ? 1 : 0;
+            }
+
+            handleParallax() {
+                if (!this.parallaxImg) return;
+                const scrolled = window.pageYOffset;
+                this.parallaxImg.style.transform = `translateY(${scrolled * 0.04}px)`;
+            }
+        }
+
+        // Boot
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                new LacusLuxuryEngine();
+            } catch (err) {
+                console.error("Critical Failure in Lacus Engine:", err);
+            }
+        });
+    </script>
+</body>
+</html>
