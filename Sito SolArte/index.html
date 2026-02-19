@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolArte | Tende da Sole, Porte Blindate e Riparazioni in Ticino</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap');
+
+        :root {
+            --slate-bg: #0f172a;
+            --royal-gold: #f9dc5c;
+            --jasmine: #fae588;
+            --vanilla: #fcefb4;
+            --cornsilk: #fdf8e1;
+            --gold-dark: #c6a307;
+        }
+
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--slate-bg); 
+            color: var(--cornsilk);
+            overflow-x: hidden;
+        }
+
+        .noise-bg {
+            background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4 { text-align: center; font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
+        p { text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
+
+        .glass-premium {
+            background: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 220, 92, 0.2);
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(135deg, var(--vanilla) 0%, var(--royal-gold) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-clip {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+
+        .footer-link:hover { color: var(--royal-gold); transform: translateX(5px); transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="noise-bg selection:bg-[var(--royal-gold)] selection:text-slate-900">
+
+    <nav class="fixed top-0 w-full z-[120] p-4 lg:p-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center glass-premium rounded-full px-8 py-3">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-[var(--royal-gold)] rounded-lg flex items-center justify-center font-black text-slate-900">S</div>
+                <div class="flex flex-col text-left">
+                    <span class="font-black tracking-tighter text-lg leading-none">SOLARTE</span>
+                    <span class="text-[8px] text-[var(--royal-gold)] tracking-[.3em] uppercase font-bold">Mendrisio • Lugano • Chiasso</span>
+                </div>
+            </div>
+            <div class="hidden lg:flex gap-10 text-[10px] uppercase tracking-widest font-black items-center">
+                <a href="#perche-noi" class="hover:text-[var(--royal-gold)] transition">Perché Noi</a>
+                <a href="#soluzioni" class="hover:text-[var(--royal-gold)] transition">Soluzioni</a>
+                <a href="#recensioni" class="hover:text-[var(--royal-gold)] transition">Recensioni</a>
+                <a href="#contatti" class="bg-[var(--royal-gold)] text-slate-900 px-6 py-2 rounded-full hover:scale-105 transition">Preventivo</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
+            <span class="inline-block px-4 py-1 border border-[var(--royal-gold)]/40 rounded-full text-[var(--royal-gold)] text-[10px] font-black uppercase tracking-[.4em] mb-8">Swiss Quality Standard</span>
+            <h1 class="text-5xl md:text-8xl font-black tracking-tighter leading-tight mb-8">
+                L'emozione <br><span class="text-gradient-gold italic font-light lowercase">di un'ombra perfetta.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-[var(--vanilla)] opacity-80 font-light mb-12 leading-relaxed">
+                Esperti in <strong>schermature solari e sicurezza domestica in Ticino</strong>. Progettiamo il comfort termico e la protezione della tua proprietà a Mendrisio, Lugano e Chiasso.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
+                <a href="#contatti" class="bg-[var(--royal-gold)] text-slate-900 px-12 py-5 rounded-2xl font-black tracking-widest hover:brightness-110 transition shadow-2xl shadow-[var(--royal-gold)]/20 uppercase text-sm">Richiedi Sopralluogo</a>
+                <div class="flex items-center gap-3 opacity-60">
+                    <i data-lucide="shield-check" class="text-[var(--royal-gold)]"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Posa Certificata in Ticino</span>
+                </div>
+            </div>
+            <div class="w-full max-w-5xl hero-clip rounded-[3rem] overflow-hidden shadow-2xl border border-white/10">
+                <img src="https://i.postimg.cc/NfBhtZ6v/beautiful-young-cheerful-girl-hat-making-funny-face-morning-beach.jpg" alt="Installazione Tende da Sole Lugano" class="w-full h-[500px] object-cover">
+            </div>
+        </div>
+    </header>
+
+    <section id="perche-noi" class="py-32 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-8 uppercase text-center">Ingegneria dell'Ombra,<br><span class="text-[var(--royal-gold)] italic font-light">Cultura della Sicurezza.</span></h2>
+            <p class="text-lg text-[var(--jasmine)] opacity-70 font-light mb-16 text-center italic">
+                SolArte Sagl: il punto di riferimento nel <strong>Sottoceneri</strong> per chi cerca l'eccellenza svizzera nei sistemi di protezione solare e antieffrazione. Dal microclima del Lago di Lugano alla sicurezza dei confini di Chiasso.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-premium p-10 rounded-[2.5rem] flex flex-col items-center hover:border-[var(--royal-gold)] transition group">
+                    <i data-lucide="sun" class="w-12 h-12 text-[var(--royal-gold)] mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4 text-[var(--vanilla)]">Tende da Sole Lugano</h3>
+                    <p class="text-[11px] leading-relaxed opacity-80 uppercase tracking-tighter text-center">
+                        Specializzati in <strong>tende da sole e pergole bioclimatiche a Lugano e Mendrisio</strong>. I nostri sistemi avanzati garantiscono un risparmio energetico reale, riducendo il surriscaldamento degli edifici grazie a tessuti tecnici certificati UV-resistant.
+                    </p>
+                </div>
+                <div class="glass-premium p-10 rounded-[2.5rem] flex flex-col items-center hover:border-[var(--royal-gold)] transition group">
+                    <i data-lucide="shield" class="w-12 h-12 text-[var(--royal-gold)] mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4 text-[var(--vanilla)]">Porte Blindate Chiasso</h3>
+                    <p class="text-[11px] leading-relaxed opacity-80 uppercase tracking-tighter text-center">
+                        Leader nella fornitura di <strong>porte blindate a Chiasso</strong> e sistemi di sicurezza per ville. Certificazioni antieffrazione RC3/RC4 secondo gli standard svizzeri, per una protezione totale contro intrusioni e scasso in tutto il Ticino.
+                    </p>
+                </div>
+                <div class="glass-premium p-10 rounded-[2.5rem] flex flex-col items-center hover:border-[var(--royal-gold)] transition group">
+                    <i data-lucide="wrench" class="w-12 h-12 text-[var(--royal-gold)] mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4 text-[var(--vanilla)]">Riparazione Rolladen</h3>
+                    <p class="text-[11px] leading-relaxed opacity-80 uppercase tracking-tighter text-center">
+                        Servizio di <strong>riparazione tapparelle e rolladen a Mendrisio</strong>. Interveniamo rapidamente per il ripristino di motorizzazioni Somfy e sistemi domotici. Manutenzione programmata per condomini e abitazioni private in Sottoceneri.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 bg-white/5">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+            <div class="relative">
+                <div class="absolute -inset-10 bg-[var(--royal-gold)]/10 blur-[100px] rounded-full"></div>
+                <div class="relative glass-premium p-4 rounded-[4rem]">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2062&auto=format&fit=crop" class="rounded-[3.5rem] grayscale hover:grayscale-0 transition duration-700" alt="Showroom SolArte Mendrisio">
+                </div>
+            </div>
+            <div class="flex flex-col items-center lg:items-start">
+                <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight text-center lg:text-left">SolArte Mendrisio:<br><span class="text-[var(--royal-gold)] italic font-light">Qualità Svizzera Certificata.</span></h2>
+                <div class="space-y-6 text-[var(--cornsilk)] opacity-80 font-light text-lg text-center lg:text-left">
+                    <p>Con sede operativa a <strong>Mendrisio</strong>, SolArte Sagl è la risposta professionale per chi esige serietà svizzera e design d'avanguardia. Non semplici fornitori, ma partner tecnici per architetti e proprietari esigenti in tutto il <strong>Canton Ticino</strong>.</p>
+                    <p>Dalla progettazione di grandi coperture solari alla messa in sicurezza di accessi residenziali, ogni nostro lavoro è un sigillo di durata e valore immobiliare.</p>
+                    <div class="pt-8 grid grid-cols-2 gap-10">
+                        <div class="text-center">
+                            <span class="text-4xl font-black text-[var(--royal-gold)]">1500+</span>
+                            <p class="text-[8px] uppercase font-bold tracking-widest opacity-50">Installazioni in Ticino</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="text-4xl font-black text-[var(--royal-gold)]">24h</span>
+                            <p class="text-[8px] uppercase font-bold tracking-widest opacity-50">Pronto Intervento GEO-Local</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recensioni" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-black tracking-tighter mb-16 text-center uppercase">Dicono di noi a <span class="text-[var(--royal-gold)]">Lugano e dintorni</span></h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-premium p-10 rounded-[2.5rem] border-l-4 border-l-[var(--royal-gold)]">
+                    <p class="mb-8 text-sm italic font-light text-center">"Le migliori tende da sole a Lugano. Servizio impeccabile e prodotto di altissima qualità. Professionalità svizzera."</p>
+                    <h4 class="font-black text-[10px] tracking-widest text-[var(--royal-gold)] text-center">— Giorgio M., Lugano</h4>
+                </div>
+                <div class="glass-premium p-10 rounded-[2.5rem]">
+                    <p class="mb-8 text-sm italic font-light text-center">"Ho cercato a lungo porte blindate a Chiasso che fossero anche belle da vedere. SolArte ha superato ogni aspettativa."</p>
+                    <h4 class="font-black text-[10px] tracking-widest text-[var(--royal-gold)] text-center">— Elena V., Chiasso</h4>
+                </div>
+                <div class="glass-premium p-10 rounded-[2.5rem]">
+                    <p class="mb-8 text-sm italic font-light text-center">"Riparazione rolladen a Mendrisio eseguita in giornata. Veloci, puliti e onesti. Consigliatissimi per le urgenze."</p>
+                    <h4 class="font-black text-[10px] tracking-widest text-[var(--royal-gold)] text-center">— Paolo D., Mendrisio</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contatti" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto glass-premium rounded-[4rem] p-10 lg:p-20 relative overflow-hidden">
+            <h2 class="text-4xl font-black mb-4 text-center">Contatta gli Esperti in <br><span class="text-[var(--royal-gold)] italic font-light">Ticino.</span></h2>
+            <p class="mb-12 opacity-60 font-light text-center uppercase tracking-widest text-[10px]">Preventivi Gratuiti per Lugano, Mendrisio, Chiasso e Valli.</p>
+            
+            <form class="space-y-4">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <input type="text" placeholder="Nome Cognome" class="w-full bg-white/5 border border-[var(--royal-gold)]/20 rounded-xl px-6 py-4 outline-none text-sm focus:border-[var(--royal-gold)] transition">
+                    <input type="text" placeholder="Località (es. Lugano)" class="w-full bg-white/5 border border-[var(--royal-gold)]/20 rounded-xl px-6 py-4 outline-none text-sm focus:border-[var(--royal-gold)] transition">
+                </div>
+                <input type="email" placeholder="Email" class="w-full bg-white/5 border border-[var(--royal-gold)]/20 rounded-xl px-6 py-4 outline-none text-sm focus:border-[var(--royal-gold)] transition">
+                <textarea placeholder="Descrivi la tua necessità (es. Installazione Tende da Sole)..." rows="4" class="w-full bg-white/5 border border-[var(--royal-gold)]/20 rounded-xl px-6 py-4 outline-none text-sm focus:border-[var(--royal-gold)] transition"></textarea>
+                <button class="w-full bg-[var(--royal-gold)] text-slate-900 font-black py-5 rounded-xl hover:scale-105 transition shadow-xl shadow-[var(--royal-gold)]/20">RICHIEDI CONSULENZA TECNICA</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900/50 pt-20 pb-32 border-t border-[var(--royal-gold)]/10 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
+            <div class="flex flex-col items-center md:items-start">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-8 h-8 bg-[var(--royal-gold)] rounded flex items-center justify-center font-black text-slate-900">S</div>
+                    <span class="font-black text-xl tracking-tighter">SOLARTE</span>
+                </div>
+                <p class="text-[10px] text-left opacity-50 uppercase tracking-widest leading-relaxed">
+                    Professionisti in tende da sole, pergole bioclimatiche e porte blindate a Mendrisio, Lugano e Chiasso. Eccellenza svizzera dal 2026.
+                </p>
+            </div>
+            <div class="flex flex-col items-center">
+                <h4 class="text-[12px] font-black mb-6 text-[var(--royal-gold)]">Servizi Ticino</h4>
+                <ul class="text-[10px] uppercase tracking-[.2em] space-y-4 text-center">
+                    <li>Tende da Sole Lugano</li>
+                    <li>Porte Blindate Chiasso</li>
+                    <li>Riparazioni Mendrisio</li>
+                    <li>Pergole Sottoceneri</li>
+                </ul>
+            </div>
+            <div class="flex flex-col items-center">
+                <h4 class="text-[12px] font-black mb-6 text-[var(--royal-gold)]">Azienda</h4>
+                <ul class="text-[10px] uppercase tracking-[.2em] space-y-4 text-center">
+                    <li><a href="#perche-noi" class="footer-link">Perché SolArte</a></li>
+                    <li><a href="#recensioni" class="footer-link">Casi di Successo</a></li>
+                    <li>Contatti Diretti</li>
+                    <li>Showroom</li>
+                </ul>
+            </div>
+            <div class="flex flex-col items-center md:items-end">
+                <h4 class="text-[12px] font-black mb-6 text-[var(--royal-gold)] text-center md:text-right">Sede Operativa</h4>
+                <div class="text-[10px] uppercase tracking-[.2em] space-y-2 text-center md:text-right opacity-60">
+                    <p>Via Mendrisio, 6850 Mendrisio</p>
+                    <p>Lun - Ven: 08:00 - 18:00</p>
+                    <p class="text-[var(--royal-gold)] font-bold mt-4">+41 91 646 00 00</p>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 text-center">
+            <p class="text-[8px] uppercase tracking-[0.6em] opacity-40">&copy; 2026 SolArte Sagl - Specialist in Sun Protection & Security Ticino</p>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[150] w-[90%] max-w-md">
+        <div class="glass-premium rounded-full p-2 flex justify-between items-center px-6 border-[var(--royal-gold)]/40 shadow-2xl">
+            <a href="tel:+41916460000" class="text-[var(--royal-gold)] p-3"><i data-lucide="phone"></i></a>
+            <a href="https://wa.me/41XXXXXXXXX" class="bg-[var(--royal-gold)] text-slate-900 px-8 py-3 rounded-full font-black text-[10px] tracking-widest flex items-center gap-2">WHATSAPP TICINO</a>
+            <a href="mailto:info@solarte.ch" class="text-[var(--royal-gold)] p-3"><i data-lucide="mail"></i></a>
+        </div>
+    </div>
+
+    <script> lucide.createIcons(); </script>
+</body>
+</html>
