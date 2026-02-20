@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{brand_name}} | Luxury Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-gold: #c5a059;
+            --deep-black: #0a0a0a;
+            --soft-white: #f5f5f5;
+            --font-main: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --transition-fluid: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        body {
+            background-color: var(--deep-black);
+            font-family: var(--font-sans);
+            color: var(--soft-white);
+            overflow-x: hidden;
+        }
+
+        /* --- HERO CONTAINER CON VIDEO --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Video Background */
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Riempie lo schermo senza deformarsi */
+            z-index: 1;
+        }
+
+        /* Overlay Scuro per Leggibilità */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                rgba(0,0,0,0.4) 0%, 
+                rgba(0,0,0,0.2) 50%, 
+                rgba(0,0,0,0.6) 100%);
+            z-index: 2;
+        }
+
+        /* --- CONTENT --- */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .brand-name {
+            font-size: 0.9rem;
+            letter-spacing: 7px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: block;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 0.5s;
+        }
+
+        .hero-title {
+            font-family: var(--font-main);
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero-title span {
+            display: block;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: revealUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        .hero-title .italic {
+            font-style: italic;
+            font-weight: 300;
+            color: var(--primary-gold);
+        }
+
+        /* --- CTA --- */
+        .cta-wrapper {
+            margin-top: 2rem;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 1.2s;
+        }
+
+        .cta-button {
+            position: relative;
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            color: var(--soft-white);
+            text-decoration: none;
+            border: 1px solid var(--primary-gold);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.75rem;
+            transition: var(--transition-fluid);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-gold);
+            color: var(--deep-black);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(197, 160, 89, 0.3);
+        }
+
+        /* --- CUSTOM CURSOR --- */
+        #custom-cursor {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--primary-gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* --- ANIMAZIONI --- */
+        @keyframes revealUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            #custom-cursor { display: none; }
+            * { cursor: auto; }
+            .hero-title { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="custom-cursor"></div>
+
+    <header class="hero">
+        <video class="video-bg" autoplay muted loop playsinline poster="fallback-image.jpg">
+            <source src="hero barbiere.mp4" type="video/mp4">
+            Il tuo browser non supporta i video.
+        </video>
+        
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <span class="brand-name">{{brand_name}}</span>
+            
+            <h1 class="hero-title" id="interactive-title">
+                <span style="animation-delay: 0.6s;">Varchi la soglia,</span>
+                <span class="italic" style="animation-delay: 0.8s;">riveli la tua</span>
+                <span style="animation-delay: 1s;">Eccellenza</span>
+            </h1>
+
+            <div class="cta-wrapper">
+                <a href="#booking" class="cta-button">
+                    Prenota un posto in poltrona
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        const cursor = document.getElementById('custom-cursor');
+        const title = document.getElementById('interactive-title');
+
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            cursor.style.transform = `translate(${x - 20}px, ${y - 20}px)`;
+
+            // Micro-parallasse del testo per dare profondità
+            if(window.innerWidth > 768) {
+                const moveX = (window.innerWidth / 2 - x) / 60;
+                const moveY = (window.innerHeight / 2 - y) / 60;
+                title.style.transform = `translateX(${moveX}px) translateY(${moveY}px)`;
+            }
+        });
+
+        // Ingresso fluido al click/hover
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('mouseenter', () => cursor.style.transform += ' scale(2)');
+            link.addEventListener('mouseleave', () => cursor.style.transform = cursor.style.transform.replace(' scale(2)', ''));
+        });
+    </script>
+</body>
+</html>
