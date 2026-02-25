@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>NOMAD | Esplorazione Globale as a Service</title>
+    
+    <meta name="description" content="La prima piattaforma SaaS per l'esplorazione globale. Abbonati a Nomad per avere un Travel Concierge AI e itinerari curati.">
+    <meta name="theme-color" content="#f6f5f1">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.nomad-experiences.com">
+
+    <script type="application/ld+json">
+    [{
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Nomad Experiences",
+      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+      "priceRange": "$$$$"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Nomad Platform",
+      "applicationCategory": "TravelApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "299",
+        "highPrice": "999",
+        "priceCurrency": "EUR"
+      }
+    }]
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <script defer src="https://d3js.org/d3.v7.min.js"></script>
+
+    <style>
+        /* === VARIABILI E RESET === */
+        :root {
+            --bg-color: #f6f5f1; 
+            --text-color: #111111;
+            --text-muted: #777777;
+            --border-color: #dcdad2;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --transition-slow: 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+            --transition-fast: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color); color: var(--text-color);
+            font-family: var(--font-sans); font-weight: 300; line-height: 1.6;
+            -webkit-font-smoothing: antialiased; overflow-x: hidden; cursor: none;
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            body { cursor: auto; }
+            .custom-cursor { display: none !important; }
+        }
+
+        h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 400; }
+        .subtitle { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); display: block; margin-bottom: 0.5rem; }
+
+        /* === UI GLOBALE === */
+        .preloader { position: fixed; inset: 0; background: var(--text-color); color: var(--bg-color); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.8s ease, visibility 0.8s; }
+        .preloader.is-hidden { opacity: 0; visibility: hidden; }
+        .loader-text { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1rem; }
+        .progress-bar { width: 200px; height: 1px; background: rgba(255,255,255,0.2); position: relative; }
+        .progress-fill { position: absolute; top: 0; left: 0; height: 100%; background: #fff; width: 0%; transition: width 1.5s ease; }
+
+        .custom-cursor { position: fixed; top: 0; left: 0; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background-color: var(--text-color); pointer-events: none; z-index: 10000; transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, margin 0.3s ease; mix-blend-mode: difference; will-change: transform; }
+        .custom-cursor.hovering { width: 60px; height: 60px; margin: -30px 0 0 -30px; background-color: #ffffff; }
+
+        .site-header { position: fixed; top: 0; width: 100%; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; mix-blend-mode: difference; color: #fff; }
+        .logo { font-size: 1.2rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+        .menu-toggle { background: none; border: none; color: inherit; font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: none; }
+
+        .nav-overlay { position: fixed; inset: 0; background: var(--text-color); color: var(--bg-color); display: flex; align-items: center; justify-content: center; transform: translateY(-100%); transition: var(--transition-slow); z-index: 900; }
+        .nav-overlay.is-active { transform: translateY(0); }
+        .nav-list { list-style: none; text-align: center; }
+        .nav-list a { display: block; font-family: var(--font-serif); font-size: clamp(3rem, 8vw, 6rem); color: var(--bg-color); text-decoration: none; cursor: none; margin: 1rem 0; }
+
+        /* Utilità Animazione Scroll */
+        .card { opacity: 0; transform: translateY(40px); transition: var(--transition-slow); will-change: opacity, transform; }
+        .card.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* === HERO & GLOBE === */
+        .hero { position: relative; height: 100vh; display: flex; align-items: center; padding: 0 5%; overflow: hidden; }
+        .hero-content { position: relative; z-index: 10; width: 100%; max-width: 600px; pointer-events: none; margin-top: -15vh; }
+        .hero h1 { font-size: clamp(3.5rem, 10vw, 8rem); line-height: 0.9; margin-bottom: 2rem; }
+        .hero h1 em { font-style: italic; color: var(--text-muted); }
+        .geo-context { font-size: 0.9rem; border-left: 1px solid var(--text-color); padding-left: 1.5rem; }
+        
+        .globe-container { position: absolute; top: 30vh; right: -20vw; width: 140vw; height: 70vh; opacity: 0; transition: opacity 2s ease; display: flex; align-items: center; justify-content: center; }
+        .globe-container.is-loaded { opacity: 0.3; }
+        canvas { cursor: none; pointer-events: auto; }
+
+        @media (min-width: 768px) {
+            .hero-content { margin-top: 0; }
+            .geo-context { font-size: 1rem; }
+            .globe-container { top: 0; right: -10vw; width: 70vw; height: 100vh; }
+            .globe-container.is-loaded { opacity: 1; }
+        }
+
+        /* === MANIFESTO (Espanso) === */
+        .philosophy { padding: 15vh 5%; }
+        .philosophy-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto; }
+        .philosophy h2 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; grid-column: 1 / -1; margin-bottom: 2rem; }
+        .philosophy-text p { font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-muted); max-width: 500px; }
+        .philosophy-text p strong { color: var(--text-color); font-weight: 500; }
+        
+        @media (min-width: 768px) {
+            .philosophy-grid { grid-template-columns: repeat(12, 1fr); }
+            .philosophy h2 { grid-column: 2 / span 9; }
+            .philosophy-text { grid-column: 6 / span 6; }
+        }
+
+        /* === IL PROCESSO === */
+        .process { padding: 5vh 5% 15vh; max-width: 1200px; margin: 0 auto; }
+        .process-list { display: grid; grid-template-columns: 1fr; gap: 2rem; border-top: 1px solid var(--border-color); padding-top: 3rem; }
+        .process-item { display: flex; flex-direction: column; gap: 1rem; }
+        .process-item h4 { font-size: 1.5rem; }
+        .process-item p { font-size: 0.9rem; color: var(--text-muted); }
+        
+        @media (min-width: 768px) {
+            .process-list { grid-template-columns: repeat(3, 1fr); gap: 4rem; }
+        }
+
+        /* === ESPERIENZE === */
+        .experiences { padding: 0 5% 15vh; display: grid; gap: 4rem; grid-template-columns: 1fr; }
+        .card-img { width: 100%; aspect-ratio: 4/5; overflow: hidden; background: #ddd; margin-bottom: 1.5rem; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.5s ease, filter 1s ease; filter: grayscale(20%) contrast(1.1); will-change: transform; }
+        @media (hover: hover) { .card:hover .card-img img { transform: scale(1.05); filter: grayscale(0%) contrast(1); } }
+        .card h3 { font-size: 2rem; margin-top: 0.5rem; }
+
+        @media (min-width: 768px) {
+            .experiences { grid-template-columns: repeat(12, 1fr); gap: 2rem; }
+            .card { margin-bottom: 0; }
+            .card:nth-child(1) { grid-column: 1 / span 6; }
+            .card:nth-child(2) { grid-column: 8 / span 5; margin-top: 25vh; }
+            .card:nth-child(3) { grid-column: 3 / span 7; margin-top: 15vh; }
+        }
+
+        /* === TESTIMONIANZE (Social Proof) === */
+        .testimonials { padding: 10vh 5%; background-color: #eae8e1; color: var(--text-color); }
+        .testimonials-container { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 4rem; }
+        blockquote { font-family: var(--font-serif); font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1.3; font-style: italic; position: relative; }
+        blockquote::before { content: '"'; position: absolute; left: -1.5rem; top: -0.5rem; color: var(--text-muted); opacity: 0.3; font-size: 4rem; font-family: var(--font-sans); }
+        .author { display: block; margin-top: 1.5rem; font-family: var(--font-sans); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; font-style: normal; color: var(--text-muted); }
+        
+        @media (min-width: 768px) {
+            .testimonials-container { grid-template-columns: repeat(2, 1fr); }
+            blockquote:nth-child(2) { margin-top: 10vh; }
+        }
+
+        /* === PRICING SAAS === */
+        .pricing { padding: 15vh 5%; }
+        .pricing-header { text-align: center; margin-bottom: 4rem; }
+        .pricing-header h2 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        .pricing-grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+        @media (min-width: 768px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); max-width: 1000px; margin: 0 auto; } }
+        
+        .tier-card { border: 1px solid var(--border-color); padding: 3rem; background: transparent; transition: var(--transition-fast); display: flex; flex-direction: column; }
+        .tier-card:hover { transform: translateY(-5px); background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.03); }
+        .tier-card.dark { background: var(--text-color); color: var(--bg-color); }
+        .tier-card.dark:hover { background: #000; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+        .tier-card h3 { font-size: 2rem; margin-bottom: 1rem; }
+        .price { font-size: 3rem; font-family: var(--font-sans); font-weight: 300; margin-bottom: 2rem; line-height: 1; }
+        .price span { font-size: 1rem; color: var(--text-muted); }
+        .tier-features { list-style: none; margin-bottom: 3rem; flex-grow: 1; }
+        .tier-features li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; font-size: 0.9rem; }
+        .tier-features li::before { content: '→'; position: absolute; left: 0; opacity: 0.5; }
+        
+        .btn { display: inline-block; padding: 1rem; border-radius: 50px; text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; cursor: none; text-align: center; width: 100%; transition: background 0.3s; }
+        .btn-outline { border: 1px solid var(--text-color); color: var(--text-color); }
+        .btn-outline:hover { background: var(--text-color); color: var(--bg-color); }
+        .btn-solid { background: var(--bg-color); color: var(--text-color); }
+
+        /* === ONBOARDING === */
+        .onboarding { background: var(--text-color); color: var(--bg-color); padding: 15vh 5%; }
+        .onboarding-container { max-width: 800px; margin: 0 auto; }
+        .onboarding h2 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 3rem; line-height: 1.1; }
+        .form-group { margin-bottom: 2.5rem; }
+        .form-group label { display: block; font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1rem; color: rgba(255,255,255,0.7); }
+        .form-control { width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 1.2rem; padding: 0.5rem 0; outline: none; transition: border-color 0.3s; font-family: var(--font-sans); font-weight: 300; cursor: none; border-radius: 0;}
+        .form-control:focus { border-color: #fff; }
+        .btn-submit { background: #fff; color: var(--text-color); border: none; padding: 1.2rem 2.5rem; font-size: 0.9rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.1em; cursor: none; transition: transform 0.3s; }
+        
+        /* === FOOTER OTTIMIZZATO === */
+        .site-footer { padding: 10vh 5% 5vh; background-color: var(--text-color); color: var(--bg-color); }
+        .footer-top { margin-bottom: 8vh; }
+        .footer-top h2 { font-size: clamp(3rem, 8vw, 6rem); line-height: 1; max-width: 800px; }
+        .footer-top h2 em { font-style: italic; color: rgba(255,255,255,0.5); }
+        
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; padding-bottom: 5vh; border-bottom: 1px solid rgba(255,255,255,0.2); }
+        @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; } }
+        
+        .footer-col h5 { font-family: var(--font-sans); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 0.8rem; }
+        .footer-col a, .footer-col p { color: var(--bg-color); text-decoration: none; font-size: 0.9rem; transition: opacity 0.3s; cursor: none; font-weight: 300; }
+        .footer-col a:hover { opacity: 0.5; }
+        
+        .footer-bottom { display: flex; flex-direction: column; gap: 1rem; padding-top: 3vh; font-size: 0.8rem; color: rgba(255,255,255,0.5); font-family: var(--font-sans); }
+        @media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; } }
+        
+        .footer-status { display: flex; align-items: center; gap: 0.5rem; }
+        .status-dot { width: 8px; height: 8px; background-color: #4ade80; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px rgba(74, 222, 128, 0.4); animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <div class="preloader" id="preloader">
+        <div class="loader-text">Inizializzazione</div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <div class="custom-cursor" id="cursor"></div>
+
+    <header class="site-header">
+        <div class="logo">Nomad</div>
+        <button class="menu-toggle hover-target" id="menuBtn" aria-label="Apri menu">Menu</button>
+    </header>
+
+    <nav class="nav-overlay" id="navOverlay">
+        <ul class="nav-list">
+            <li><a href="#filosofia" class="hover-target">Il Manifesto</a></li>
+            <li><a href="#destinazioni" class="hover-target">Catalogo Rotte</a></li>
+            <li><a href="#membership" class="hover-target">Membership</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="globe-container" id="globeWrapper">
+                <canvas id="globeCanvas" class="hover-target"></canvas>
+            </div>
+            <div class="hero-content">
+                <h1>Il mondo, <br><em>su abbonamento.</em></h1>
+                <div class="geo-context">
+                    <span class="subtitle" id="geoSubtitle">Calibrazione Spaziale...</span>
+                    <p id="geoText">Trascina per esplorare. Un concierge AI e l'invisibile a portata di mano, direttamente dalla tua posizione.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="philosophy" id="filosofia">
+            <div class="philosophy-grid">
+                <h2 class="card">L'era del turismo di massa è terminata. Inizia l'era dell'esplorazione profonda.</h2>
+                <div class="philosophy-text card">
+                    <p><strong>Non vendiamo biglietti o pacchetti pre-confezionati.</strong> Nomad è un ecosistema chiuso, una membership esclusiva creata per coloro che cercano di riappropriarsi del tempo e dello spazio.</p>
+                    <p>Crediamo che il vero lusso moderno non sia l'eccesso di servizi, ma l'assenza assoluta di attrito cognitivo. Uniamo la precisione predittiva dell'Intelligenza Artificiale con la sensibilità curatoriale dei migliori Travel Designer umani.</p>
+                    <p>Il risultato? Spazi temporali disegnati su misura per la tua psiche, in cui perderti per poterti ritrovare.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="process card">
+            <span class="subtitle">Architettura del Viaggio</span>
+            <div class="process-list">
+                <div class="process-item">
+                    <span class="subtitle">01. Sincronizzazione</span>
+                    <h4>L'Ascolto dell'AI</h4>
+                    <p>Il nostro algoritmo neurale analizza le tue preferenze, i ritmi circadiani e le aspirazioni latenti, estrapolando la destinazione perfetta prima ancora che tu la desideri.</p>
+                </div>
+                <div class="process-item">
+                    <span class="subtitle">02. Forgiatura</span>
+                    <h4>Il Tocco Umano</h4>
+                    <p>I nostri Architetti del Viaggio prendono i dati grezzi e li trasformano in narrativa. Scelgono guide locali, architetture segrete e accessi privati fuori dai circuiti commerciali.</p>
+                </div>
+                <div class="process-item">
+                    <span class="subtitle">03. Immersione</span>
+                    <h4>L'Esperienza Pura</h4>
+                    <p>Parti senza dover pensare a nulla. Logistica, visti, trasferimenti e prenotazioni sono gestiti invisibilmente in background. Tu devi solo esistere nel momento.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="experiences" id="destinazioni">
+            <article class="card">
+                <div class="card-img hover-target"><img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=75" alt="Paesaggio Vietnam" loading="lazy" decoding="async"></div>
+                <span class="subtitle">Asia / Rotta Sbloccabile</span><h3>Sinfonia d'Oriente</h3>
+            </article>
+            <article class="card">
+                <div class="card-img hover-target"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=75" alt="Dune del deserto" loading="lazy" decoding="async"></div>
+                <span class="subtitle">Africa / Rotta Sbloccabile</span><h3>Silenzi d'Ocra</h3>
+            </article>
+            <article class="card">
+                <div class="card-img hover-target"><img src="https://images.unsplash.com/photo-1531816458010-fb7685eecbcb?auto=format&fit=crop&w=800&q=75" alt="Ghiacciai" loading="lazy" decoding="async"></div>
+                <span class="subtitle">Artico / Rotta Sbloccabile</span><h3>L'Estetica del Gelo</h3>
+            </article>
+        </section>
+
+        <section class="testimonials">
+            <div class="testimonials-container">
+                <blockquote class="card hover-target">
+                    È come avere un regista privato per la propria vita. Hanno organizzato un accesso notturno al Louvre che ha ridefinito il mio concetto di esclusività.
+                    <cite class="author">Membro #042 — Architetto, Milano</cite>
+                </blockquote>
+                <blockquote class="card hover-target">
+                    L'AI ha predetto che avevo bisogno di isolamento prima ancora che me ne rendessi conto. La spedizione in Islanda è stata una cura per l'anima.
+                    <cite class="author">Membro #108 — Imprenditore, Zurigo</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="pricing" id="membership">
+            <div class="pricing-header card">
+                <span class="subtitle">Piani di Accesso</span><h2>Seleziona la tua orbita</h2>
+            </div>
+            <div class="pricing-grid">
+                <article class="tier-card card">
+                    <h3>Nomad Explorer</h3>
+                    <div class="price" id="priceTier1">€299<span>/mese</span></div>
+                    <ul class="tier-features">
+                        <li>Accesso al catalogo di 50+ itinerari digitali</li>
+                        <li>Concierge AI disponibile 24/7</li>
+                        <li>Gestione logistica di base</li>
+                    </ul>
+                    <a href="#onboarding" class="btn btn-outline hover-target">Seleziona Piano</a>
+                </article>
+                <article class="tier-card dark card">
+                    <h3>Nomad Infinite</h3>
+                    <div class="price" id="priceTier2">€999<span>/mese</span></div>
+                    <ul class="tier-features" style="color: rgba(255,255,255,0.8)">
+                        <li>Tutto il piano Explorer</li>
+                        <li>Travel Designer umano dedicato</li>
+                        <li>Visti e logistica complessa automatizzati</li>
+                        <li>Accesso a lounge ed eventi segreti privati</li>
+                    </ul>
+                    <a href="#onboarding" class="btn btn-solid hover-target">Richiedi Accesso</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="onboarding" id="onboarding">
+            <div class="onboarding-container card">
+                <span class="subtitle" style="color: rgba(255,255,255,0.5);">Inizia il Viaggio</span>
+                <h2>Prepariamo le coordinate.</h2>
+                <form id="saasForm" onsubmit="event.preventDefault();">
+                    <div class="form-group">
+                        <label for="dest">Cosa stai cercando di fuggire o di trovare?</label>
+                        <input type="text" id="dest" class="form-control hover-target" placeholder="Es. Cerco il silenzio assoluto, o il caos di Tokyo..." required>
+                    </div>
+                    <button type="submit" class="btn-submit hover-target">Sottoponi Profilo</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="footer-top card scroll-reveal">
+            <h2>L'invisibile <br><em>ti attende.</em></h2>
+        </div>
+        
+        <div class="footer-grid">
+            <div class="footer-col card scroll-reveal" style="transition-delay: 0.1s;">
+                <h5>Headquarters</h5>
+                <p style="opacity: 0.8;">
+                    Nomad Platform<br>
+                    Bahnhofstrasse 10<br>
+                    8001 Zürich, CH
+                </p>
+            </div>
+            
+            <div class="footer-col card scroll-reveal" style="transition-delay: 0.2s;">
+                <h5>Ecosistema</h5>
+                <ul>
+                    <li><a href="#filosofia" class="hover-target">Il Manifesto</a></li>
+                    <li><a href="#destinazioni" class="hover-target">Catalogo Rotte</a></li>
+                    <li><a href="#membership" class="hover-target">Membership TaaS</a></li>
+                    <li><a href="#" class="hover-target">Journal Editoriale</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col card scroll-reveal" style="transition-delay: 0.3s;">
+                <h5>Connessioni</h5>
+                <ul>
+                    <li><a href="#" class="hover-target">Concierge Privato</a></li>
+                    <li><a href="#" class="hover-target">Instagram</a></li>
+                    <li><a href="#" class="hover-target">LinkedIn</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col card scroll-reveal" style="transition-delay: 0.4s;">
+                <h5>Legale</h5>
+                <ul>
+                    <li><a href="#" class="hover-target">Privacy Policy</a></li>
+                    <li><a href="#" class="hover-target">Termini di Servizio</a></li>
+                    <li><a href="#" class="hover-target">Gestione Dati</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-status">
+                <span class="status-dot"></span> AI Concierge System: <strong style="color: #fff; font-weight: 400;">Operativo</strong>
+            </div>
+            <div>© 2026 Nomad Forge. Travel as a Service.</div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- PRELOADER ---
+            const preloader = document.getElementById('preloader');
+            const progressFill = document.getElementById('progressFill');
+            setTimeout(() => { progressFill.style.width = '100%'; }, 50);
+            
+            window.addEventListener('load', () => {
+                setTimeout(() => { 
+                    preloader.classList.add('is-hidden'); 
+                    if(typeof d3 !== 'undefined') { startGlobeLogic(); } 
+                    else { 
+                        const d3Check = setInterval(() => {
+                            if(typeof d3 !== 'undefined') { clearInterval(d3Check); startGlobeLogic(); }
+                        }, 200);
+                    }
+                }, 800);
+            });
+
+            // --- CURSORE ---
+            const cursor = document.getElementById('cursor');
+            let mouseX = window.innerWidth / 2; let mouseY = window.innerHeight / 2;
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX; mouseY = e.clientY;
+                cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+            }, { passive: true });
+            document.querySelectorAll('.hover-target').forEach(t => {
+                t.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+                t.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+            });
+
+            // --- SCROLL REVEAL E MENU ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => { 
+                    if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } 
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.card').forEach(el => observer.observe(el));
+
+            const menuBtn = document.getElementById('menuBtn');
+            const navOverlay = document.getElementById('navOverlay');
+            menuBtn.addEventListener('click', () => {
+                navOverlay.classList.toggle('is-active');
+                menuBtn.textContent = navOverlay.classList.contains('is-active') ? 'Chiudi' : 'Menu';
+            });
+            document.querySelectorAll('.nav-list a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navOverlay.classList.remove('is-active');
+                    menuBtn.textContent = 'Menu';
+                });
+            });
+
+            // --- LOGICA GLOBO D3 ---
+            function startGlobeLogic() {
+                const canvas = document.getElementById('globeCanvas');
+                const wrapper = document.getElementById('globeWrapper');
+                const context = canvas.getContext('2d');
+                
+                let width, height, radius, projection, path;
+                let landFeatures = null; let allDots = [];
+                let rotation = [0, 0]; let autoRotate = true;
+
+                const initGlobe = () => {
+                    width = wrapper.clientWidth; height = wrapper.clientHeight;
+                    radius = Math.min(width, height) / 2.2;
+                    const dpr = Math.min(window.devicePixelRatio || 1, 2); 
+                    canvas.width = width * dpr; canvas.height = height * dpr;
+                    canvas.style.width = `${width}px`; canvas.style.height = `${height}px`;
+                    context.scale(dpr, dpr);
+
+                    projection = d3.geoOrthographic().scale(radius).translate([width / 2, height / 2]).clipAngle(90);
+                    path = d3.geoPath().projection(projection).context(context);
+                };
+
+                const pointInPolygon = (point, polygon) => {
+                    const [x, y] = point; let inside = false;
+                    for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+                        const [xi, yi] = polygon[i]; const [xj, yj] = polygon[j];
+                        if (yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) inside = !inside;
+                    }
+                    return inside;
+                };
+
+                const pointInFeature = (point, feature) => {
+                    const geometry = feature.geometry;
+                    if (geometry.type === "Polygon") {
+                        if (!pointInPolygon(point, geometry.coordinates[0])) return false;
+                        for (let i = 1; i < geometry.coordinates.length; i++) {
+                            if (pointInPolygon(point, geometry.coordinates[i])) return false;
+                        }
+                        return true;
+                    } else if (geometry.type === "MultiPolygon") {
+                        for (const polygon of geometry.coordinates) {
+                            if (pointInPolygon(point, polygon[0])) {
+                                let inHole = false;
+                                for (let i = 1; i < polygon.length; i++) {
+                                    if (pointInPolygon(point, polygon[i])) { inHole = true; break; }
+                                }
+                                if (!inHole) return true;
+                            }
+                        }
+                    }
+                    return false;
+                };
+
+                const generateDots = (feature) => {
+                    const dots = []; const bounds = d3.geoBounds(feature);
+                    const [[minLng, minLat], [maxLng, maxLat]] = bounds;
+                    const step = (window.innerWidth < 768 ? 20 : 16) * 0.08; 
+                    for (let lng = minLng; lng <= maxLng; lng += step) {
+                        for (let lat = minLat; lat <= maxLat; lat += step) {
+                            if (pointInFeature([lng, lat], feature)) dots.push({lng, lat});
+                        }
+                    }
+                    return dots;
+                };
+
+                const renderGlobe = () => {
+                    context.clearRect(0, 0, width, height);
+                    const scaleFactor = projection.scale() / radius;
+
+                    context.beginPath(); context.arc(width / 2, height / 2, projection.scale(), 0, 2 * Math.PI);
+                    context.strokeStyle = "rgba(17, 17, 17, 0.1)"; context.lineWidth = 1 * scaleFactor;
+                    context.stroke();
+
+                    if (landFeatures) {
+                        const graticule = d3.geoGraticule();
+                        context.beginPath(); path(graticule());
+                        context.strokeStyle = "rgba(17, 17, 17, 0.05)"; context.lineWidth = 0.5 * scaleFactor;
+                        context.stroke();
+
+                        context.fillStyle = "#222222";
+                        allDots.forEach(dot => {
+                            const p = projection([dot.lng, dot.lat]);
+                            if (p && p[0] >= 0 && p[0] <= width && p[1] >= 0 && p[1] <= height) {
+                                context.beginPath(); context.arc(p[0], p[1], 1.2 * scaleFactor, 0, 2 * Math.PI); context.fill();
+                            }
+                        });
+                    }
+                };
+
+                const fetchGlobeData = async () => {
+                    try {
+                        const res = await fetch("https://raw.githubusercontent.com/martynafford/natural-earth-geojson/refs/heads/master/110m/physical/ne_110m_land.json");
+                        landFeatures = await res.json();
+                        
+                        setTimeout(() => {
+                            landFeatures.features.forEach(feat => allDots.push(...generateDots(feat)));
+                            wrapper.classList.add('is-loaded');
+                            
+                            d3.timer(() => {
+                                if (autoRotate) {
+                                    rotation[0] += 0.2; projection.rotate(rotation); renderGlobe();
+                                }
+                            });
+                        }, 100);
+                    } catch (err) { console.error("Globe Error", err); }
+                };
+
+                let resizeTimer;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(() => { initGlobe(); renderGlobe(); }, 200);
+                }, { passive: true });
+
+                let startX, startY, startRot;
+                const onDown = (clientX, clientY) => { autoRotate = false; startX = clientX; startY = clientY; startRot = [...rotation]; };
+                const onMove = (clientX, clientY) => {
+                    if(autoRotate) return;
+                    rotation[0] = startRot[0] + (clientX - startX) * 0.5;
+                    rotation[1] = Math.max(-90, Math.min(90, startRot[1] - (clientY - startY) * 0.5));
+                    projection.rotate(rotation); renderGlobe();
+                };
+                const onUp = () => { setTimeout(() => autoRotate = true, 1500); };
+
+                canvas.addEventListener('mousedown', (e) => onDown(e.clientX, e.clientY));
+                document.addEventListener('mousemove', (e) => { if(!autoRotate) onMove(e.clientX, e.clientY); }, {passive: true});
+                document.addEventListener('mouseup', onUp);
+                
+                canvas.addEventListener('touchstart', (e) => onDown(e.touches[0].clientX, e.touches[0].clientY), {passive: true});
+                document.addEventListener('touchmove', (e) => { if(!autoRotate) onMove(e.touches[0].clientX, e.touches[0].clientY); }, {passive: true});
+                document.addEventListener('touchend', onUp);
+
+                initGlobe(); fetchGlobeData();
+            }
+        });
+    </script>
+</body>
+</html>
