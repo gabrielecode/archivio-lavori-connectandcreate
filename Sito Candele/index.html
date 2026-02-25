@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO & GEO Optimization -->
+    <title>Lume di Mendrisio | Esperienza Rituale di Luce Artigianale</title>
+    <meta name="description"
+        content="Immergiti nel rituale di Lume. Candele in pura cera d'api prodotte a Mendrisio. Un'esperienza sensoriale unica tra natura, artigianato e benessere nel Mendrisiotto.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #c5a059;
+            /* Gold Muted */
+            --primary-bright: #e5c185;
+            --bg-deep: #0a0a0a;
+            --bg-surface: #121212;
+            --text-gold: #c5a059;
+            --text-light: #f4f4f4;
+            --text-muted: #a0a0a0;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --transition-slow: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-light);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -0.01em;
+            font-weight: 400;
+        }
+
+        /* Custom Cursor */
+        #cursor {
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.15s ease-out;
+        }
+
+        #cursor-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 0;
+            z-index: 1000;
+            transition: var(--transition-fast);
+        }
+
+        nav.scrolled {
+            padding: 20px 0;
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(30px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: var(--text-gold);
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: var(--transition-fast);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-gold);
+        }
+
+        /* Hero Immersivo */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://i.postimg.cc/8kttc47k/hero-candele.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            opacity: 0;
+            transform: translateY(60px);
+            animation: heroReveal 2s forwards 0.3s;
+        }
+
+        @keyframes heroReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 7rem;
+            margin-bottom: 15px;
+            line-height: 0.9;
+        }
+
+        .hero h1 span {
+            color: var(--text-gold);
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            font-weight: 200;
+            letter-spacing: 1px;
+        }
+
+        .btn-luxury {
+            padding: 22px 55px;
+            background: var(--primary);
+            color: var(--bg-deep);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-radius: 0;
+            transition: var(--transition-fast);
+            display: inline-block;
+        }
+
+        .btn-luxury:hover {
+            background: var(--primary-bright);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(197, 160, 89, 0.2);
+        }
+
+        /* Section Intro-Geo */
+        .intro-geo {
+            padding: 200px 0;
+            background: var(--bg-deep);
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 120px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 4rem;
+            margin-bottom: 40px;
+            line-height: 1.1;
+        }
+
+        .intro-text p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .intro-image-container {
+            position: relative;
+            height: 700px;
+        }
+
+        .intro-image {
+            width: 100%;
+            height: 100%;
+            background: url(https://i.postimg.cc/ZRfpbfVH/mani-mendrisio.jpg);
+            background-size: cover;
+            background-position: center;
+            border: 1px solid var(--glass-border);
+            filter: grayscale(0.2);
+            transition: var(--transition-slow);
+        }
+
+        .intro-image:hover {
+            filter: grayscale(0);
+            transform: scale(1.02);
+        }
+
+        /* Products Immersive Gallery */
+        .gallery {
+            padding: 150px 0;
+            background: var(--bg-surface);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 550px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition-fast);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h3 {
+            font-size: 2rem;
+            color: var(--text-gold);
+        }
+
+        /* SaaS Membership Section */
+        .membership {
+            padding: 200px 0;
+            background: var(--bg-deep);
+            text-align: center;
+        }
+
+        .membership-header {
+            margin-bottom: 100px;
+        }
+
+        .membership-header h2 {
+            font-size: 5rem;
+            line-height: 1;
+            margin-top: 10px;
+        }
+
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .tier-card {
+            background: var(--bg-surface);
+            padding: 70px 40px;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition-fast);
+        }
+
+        .tier-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-15px);
+        }
+
+        .tier-card.featured {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+
+        .tier-card.featured::before {
+            content: "PIÙ SCELTO";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--bg-deep);
+            padding: 5px 15px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .price {
+            font-size: 4rem;
+            font-weight: 200;
+            margin: 40px 0;
+            color: var(--text-gold);
+        }
+
+        .price span {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .feature-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 50px;
+        }
+
+        .feature-list li {
+            padding: 15px 0;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--glass-border);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 150px 0;
+            background: var(--bg-surface);
+        }
+
+        .faq-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .faq-trigger {
+            padding: 30px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.5rem;
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition-fast);
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .faq-item.active .faq-content {
+            max-height: 200px;
+            padding-bottom: 30px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 120px 0 60px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 80px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-gold);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--text-light);
+            padding-left: 10px;
+        }
+
+        /* Simple reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition-slow);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile */
+        @media (max-width: 1000px) {
+            .hero h1 {
+                font-size: 4.5rem;
+            }
+
+            .intro-grid,
+            .gallery-grid,
+            .tier-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-image-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="cursor"></div>
+    <div id="cursor-dot"></div>
+
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="logo">LUME.</a>
+            <ul class="nav-links">
+                <li><a href="#home">Inizio</a></li>
+                <li><a href="#storia">Origine</a></li>
+                <li><a href="#collezione">Collezione</a></li>
+                <li><a href="#membership">Rituali</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sezione HERO -->
+    <header class="hero" id="home">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-content">
+            <h4
+                style="letter-spacing: 8px; font-weight: 200; margin-bottom: 20px; color: var(--text-gold); text-transform: uppercase; font-size: 0.8rem;">
+                Estetica & Intenzione</h4>
+            <h1>L'Anima del <span>Fuoco</span>.</h1>
+            <p>Candele artigianali in pura cera d'api del Ticino. Un rituale olfattivo e visivo nato a Mendrisio.</p>
+            <a href="#collezione" class="btn-luxury">Esplora il Rituale</a>
+        </div>
+    </header>
+
+    <!-- Sezione ORIGINE / GEO -->
+    <section class="intro-geo" id="storia">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-text reveal">
+                    <h4 style="color: var(--text-gold); letter-spacing: 4px; margin-bottom: 20px;">IL NOSTRO BORGO</h4>
+                    <h2>Un tributo alla terra di <span>Mendrisio</span>.</h2>
+                    <p>Ai piedi del Monte Generoso, dove il tempo rallenta e l'artigianato diventa meditazione.
+                        Recuperiamo la cera vergine dagli apicoltori locali del Mendrisiotto per creare sculture di luce
+                        uniche.</p>
+                    <p>Ogni pezzo è colato a mano nel nostro atelier storico, rispettando i cicli della natura e la
+                        purezza dell'ingrediente principe: la cera d'api ticinese.</p>
+                </div>
+                <div class="intro-image-container reveal">
+                    <div class="intro-image"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione COLLEZIONE PRODOTTI (Galleria) -->
+    <section class="gallery" id="collezione">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 80px;" class="reveal">
+                <h4 style="color: var(--text-gold); letter-spacing: 5px;">COLLEZIONE</h4>
+                <h2 style="font-size: 4rem;">Pezzi di Design <span>Unico</span></h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal">
+                    <img src="https://i.postimg.cc/sfk40g0Q/candela-piramidale.jpg" alt="Prodotto Luxury 1">
+                    <div class="gallery-overlay">
+                        <h3>Piramide Rituale</h3>
+                        <p>Incisioni mistiche e calore dorato.</p>
+                    </div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="https://i.postimg.cc/zGcB0V0j/set-lusso-candele.jpg" alt="Prodotto Luxury 2">
+                    <div class="gallery-overlay">
+                        <h3>Set Armonia</h3>
+                        <p>Trilogia di luce per i tuoi spazi.</p>
+                    </div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="https://i.postimg.cc/FHMvYcP9/notturna-lusso.jpg" alt="Prodotto Luxury 3">
+                    <div class="gallery-overlay">
+                        <h3>Zenith Glow</h3>
+                        <p>L'essenza minima del benessere.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione SAAS MEMBERSHIP -->
+    <section class="membership" id="membership">
+        <div class="container">
+            <div class="membership-header reveal">
+                <h4 style="color: var(--text-gold); letter-spacing: 6px;">SUBSCRIPTION RITUAL</h4>
+                <h2>Abbonati alla <span>Luce</span>.</h2>
+                <p style="margin-top: 20px; color: var(--text-muted);">Non restare mai senza il tuo momento di pace.
+                    Piani mensili curati per te.</p>
+            </div>
+            <div class="tier-grid">
+                <div class="tier-card reveal">
+                    <h3>Minimo</h3>
+                    <div class="price">35 <span>CHF / mese</span></div>
+                    <ul class="feature-list">
+                        <li>1 Candela artigianale mensile</li>
+                        <li>Spedizione gratuita Ticino</li>
+                        <li>Playlist rituale dedicata</li>
+                    </ul>
+                    <a href="#" class="btn-outline"
+                        style="padding: 15px 40px; display: block; text-decoration: none; color: white; border: 1px solid var(--glass-border);">Scegli
+                        Piano</a>
+                </div>
+                <div class="tier-card featured reveal">
+                    <h3>Santuario</h3>
+                    <div class="price">65 <span>CHF / mese</span></div>
+                    <ul class="feature-list">
+                        <li>3 Candele in cera d'api</li>
+                        <li>Accesso a workshop esclusivi</li>
+                        <li>Incenso locale incluso</li>
+                        <li>Packaging in legno di lusso</li>
+                    </ul>
+                    <a href="#" class="btn-luxury" style="display: block;">Inizia Ora</a>
+                </div>
+                <div class="tier-card reveal">
+                    <h3>Zenith</h3>
+                    <div class="price">120 <span>CHF / mese</span></div>
+                    <ul class="feature-list">
+                        <li>Collezione stagionale completa</li>
+                        <li>Workshop privato a Mendrisio</li>
+                        <li>Personal shopper dedicato</li>
+                    </ul>
+                    <a href="#" class="btn-outline"
+                        style="padding: 15px 40px; display: block; text-decoration: none; color: white; border: 1px solid var(--glass-border);">Contattaci</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione FAQ -->
+    <section class="faq" id="faq">
+        <div class="container faq-inner">
+            <div style="margin-bottom: 60px;" class="reveal">
+                <h4 style="color: var(--text-gold); letter-spacing: 5px;">DOMANDE</h4>
+                <h2 style="font-size: 3rem;">Chiedi al <span>Maestro</span></h2>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-trigger">Perché scegliere la cera d'api ticinese? <span>+</span></div>
+                <div class="faq-content">La cera d'api del Ticino è una delle più pure al mondo. A differenza delle
+                    candele industriali, purifica l'aria rilasciando ioni negativi e non emette sostanze tossiche.</div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-trigger">Dove si trova il vostro atelier? <span>+</span></div>
+                <div class="faq-content">Siamo nel cuore del Borgo di Mendrisio. Riceviamo su appuntamento per visite
+                    guidate e workshop di creazione candele rituali.</div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-trigger">Come cancello il mio abbonamento? <span>+</span></div>
+                <div class="faq-content">Puoi gestire, sospendere o cancellare il tuo abbonamento in qualsiasi momento
+                    dalla tua area personale con un clic. Massima flessibilità, zero vincoli.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo">LUME.</a>
+                    <p style="margin-top: 25px; color: var(--text-muted); font-size: 0.9rem;">L'arte della luce rituale
+                        nel Mendrisiotto. Sostenibilità, artigianato e lusso naturale.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Tutta la Collezione</a></li>
+                        <li><a href="#">Cera d'Api Vergine</a></li>
+                        <li><a href="#">Workshop</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Azienda</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">La Nostra Origine</a></li>
+                        <li><a href="#">Sostenibilità</a></li>
+                        <li><a href="#">Contatti</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>News Ritual</h4>
+                    <input type="email" placeholder="Inserisci Email"
+                        style="width: 100%; padding: 15px; background: transparent; border: 1px solid var(--glass-border); color: white; margin-bottom: 20px;">
+                    <button class="btn-luxury"
+                        style="padding: 12px 30px; font-size: 0.7rem; width: 100%;">Iscriviti</button>
+                </div>
+            </div>
+            <div
+                style="margin-top: 100px; text-align: center; color: var(--text-muted); font-size: 0.75rem; letter-spacing: 2px;">
+                &copy; 2024 LUME DI MENDRISIO. MADE WITH INTENTION IN TICINO.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestione Mouse Personalizzato
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursor-dot');
+        document.addEventListener('mousemove', (e) => {
+            cursor.animate({ left: e.clientX + 'px', top: e.clientY + 'px' }, { duration: 400, fill: 'forwards' });
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+
+        // Gestione Navbar allo Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 80) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+
+            // Parallax Hero
+            const heroBg = document.getElementById('heroBg');
+            heroBg.style.transform = `translateY(${window.scrollY * 0.4}px)`;
+        });
+
+        // Animazione Apparizione al Scroll (Reveal)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Gestione FAQ
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-trigger').addEventListener('click', () => {
+                item.classList.toggle('active');
+                const span = item.querySelector('span');
+                span.textContent = item.classList.contains('active') ? '-' : '+';
+            });
+        });
+    </script>
+</body>
+
+</html>
