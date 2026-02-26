@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA Minimal | L'Anima Silenziosa del Design ad Ascona</title>
+
+    <!-- SEO & Metadata -->
+    <meta name="description"
+        content="Non un semplice ufficio, ma un rifugio per il tuo genio. Scopri l'arredo minimalista emozionale ad Ascona. Design che respira, materiali che sussurrano eccellenza.">
+    <meta name="keywords"
+        content="arredo ufficio emozionale, design sensoriale Ascona, mobili ufficio lusso Ticino, interior design benessere, scrivanie artigianali Svizzera">
+
+    <!-- GEO Tags -->
+    <meta name="geo.region" content="CH-TI">
+    <meta name="geo.placename" content="Ascona">
+    <meta name="geo.position" content="46.1542;8.7735">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Warm Minimal Design Tokens */
+        :root {
+            --bg-color: #fcfaf7;
+            /* Warm Paper */
+            --text-color: #1a1817;
+            /* Deep Espresso */
+            --text-muted: #6e6864;
+            --accent: #b5a48d;
+            /* Muted Gold/Oak */
+            --border: rgba(26, 24, 23, 0.08);
+            --glass: rgba(252, 250, 247, 0.85);
+            --transition-smooth: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-heading: 'Cormorant Garamond', serif;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121110;
+            --text-color: #e8e4e1;
+            --text-muted: #a39c97;
+            --accent: #d4c1a5;
+            --border: rgba(232, 228, 225, 0.1);
+            --glass: rgba(18, 17, 16, 0.85);
+        }
+
+        /* Essential Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+            transition: background-color 0.8s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom Organic Cursor */
+        #custom-cursor {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: var(--text-color);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s ease-out;
+        }
+
+        #cursor-aura {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .cursor-hover #custom-cursor {
+            transform: scale(3);
+            background: var(--accent);
+            opacity: 0.5;
+        }
+
+        .cursor-hover #cursor-aura {
+            transform: scale(1.5);
+            opacity: 0;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-heading);
+            font-weight: 300;
+            line-height: 1.1;
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 12vw, 8.5rem);
+            letter-spacing: -0.02em;
+            font-style: italic;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            margin-bottom: 2rem;
+            line-height: 1;
+        }
+
+        p {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            max-width: 500px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            background: var(--glass);
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            letter-spacing: 0.05em;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 400;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.5;
+        }
+
+        /* Mobile Menu */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 1px;
+            background: var(--text-color);
+            transition: 0.4s ease;
+        }
+
+        .nav-active .mobile-toggle span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .nav-active .mobile-toggle span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-active .mobile-toggle span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            transform: translateY(-100%);
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .mobile-overlay.active {
+            transform: translateY(0);
+        }
+
+        .mobile-overlay a {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            text-decoration: none;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-title-reveal {
+            overflow: hidden;
+            display: block;
+        }
+
+        .hero-title-reveal span {
+            display: block;
+            transform: translateY(110%);
+            transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .hero-title-reveal.visible span {
+            transform: translateY(0);
+        }
+
+        .hero-image-parallax {
+            position: absolute;
+            top: 15vh;
+            right: 5%;
+            width: 45vw;
+            height: 70vh;
+            z-index: 1;
+            overflow: hidden;
+            border-top-left-radius: 500px;
+            box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.03);
+        }
+
+        .hero-image-parallax img {
+            width: 100%;
+            height: 120%;
+            object-fit: cover;
+            filter: sepia(0.2) contrast(1.05);
+            transition: transform 0.2s linear;
+        }
+
+        /* Buttons */
+        .btn-organic {
+            margin-top: 4rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            color: var(--text-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+            position: relative;
+            transition: var(--transition-smooth);
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .btn-organic::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: var(--text-color);
+            transition: width 0.5s ease;
+        }
+
+        .btn-organic:hover::after {
+            width: 100%;
+        }
+
+        /* Sections and Layout */
+        section {
+            padding: 20vh 5%;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10vw;
+            align-items: center;
+        }
+
+        /* Collection Items */
+        .collection-item {
+            margin-bottom: 30vh;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 8vw;
+            align-items: center;
+        }
+
+        .collection-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .collection-item:nth-child(even) * {
+            direction: ltr;
+        }
+
+        .img-reveal-wrapper {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            border-radius: 5px;
+        }
+
+        .img-reveal-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.2);
+            transition: transform 2.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .visible .img-reveal-wrapper img {
+            transform: scale(1);
+        }
+
+        /* Designer Members */
+        .designer-card {
+            text-align: center;
+        }
+
+        .designer-img {
+            aspect-ratio: 1/1;
+            border-radius: 50% 50% 5px 5px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            filter: grayscale(1);
+            transition: filter 0.8s ease;
+        }
+
+        .designer-card:hover .designer-img {
+            filter: grayscale(0);
+        }
+
+        /* Form Inputs */
+        input,
+        textarea,
+        select {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1.5rem 0;
+            color: white;
+            font-family: var(--font-main);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            outline: none;
+            transition: border-color 0.4s ease;
+            appearance: none;
+        }
+
+        select option {
+            background-color: var(--text-color);
+            color: white;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--accent);
+        }
+
+        /* Background Effects */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("https://grainy-gradients.vercel.app/noise.svg");
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .ambient-light {
+            position: fixed;
+            width: 80vw;
+            height: 80vw;
+            background: radial-gradient(circle, rgba(181, 164, 141, 0.08) 0%, transparent 70%);
+            top: -20vw;
+            right: -20vw;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Animations */
+        .reveal-text {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal-text.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Adjustments - Full Scale */
+        @media (max-width: 1024px) {
+            * {
+                cursor: auto !important;
+            }
+
+            #custom-cursor,
+            #cursor-aura {
+                display: none !important;
+            }
+
+            nav {
+                padding: 1.5rem 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            section {
+                padding: 10vh 5%;
+            }
+
+            .grid-2,
+            .collection-item {
+                grid-template-columns: 1fr;
+                gap: 8vh;
+            }
+
+            h1 {
+                font-size: 3.2rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+                max-width: 100%;
+            }
+
+            .hero {
+                text-align: center;
+                height: auto;
+                padding: 15vh 5% 10vh;
+            }
+
+            .hero-image-parallax {
+                display: none;
+            }
+
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero div {
+                flex-direction: column;
+                gap: 1rem !important;
+            }
+
+            .order-mobile-1 {
+                order: 1;
+            }
+
+            .order-mobile-2 {
+                order: 2;
+            }
+
+            .collection-item {
+                margin-bottom: 12vh;
+                text-align: center;
+            }
+
+            .collection-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .collection-item div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .img-reveal-wrapper {
+                border-radius: 12px !important;
+            }
+
+            footer {
+                text-align: center;
+            }
+
+            footer .grid-2 div:last-child {
+                text-align: center;
+                margin-top: 3rem;
+            }
+
+            footer div:last-child div {
+                justify-content: center !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="custom-cursor"></div>
+    <div id="cursor-aura"></div>
+    <div class="noise"></div>
+    <div class="ambient-light"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">AURA</div>
+        <div class="nav-links">
+            <a href="#filosofia">Filosofia</a>
+            <a href="#designer">Designer</a>
+            <a href="#capitoli">Capitoli</a>
+            <a href="#contatti">Contatti</a>
+        </div>
+        <div class="mobile-toggle" id="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div id="theme-toggle" class="hover-target"
+            style="font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; cursor: pointer;">Intensità
+        </div>
+    </nav>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay">
+        <a href="#filosofia" class="mobile-link">Filosofia</a>
+        <a href="#designer" class="mobile-link">Designer</a>
+        <a href="#capitoli" class="mobile-link">Capitoli</a>
+        <a href="#contatti" class="mobile-link">Contatti</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-title-reveal" id="hero-reveal-1">
+                <span>Respira.</span>
+            </span>
+            <span class="hero-title-reveal" id="hero-reveal-2">
+                <span
+                    style="font-family: var(--font-main); font-weight: 200; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.6em; margin-top: 1.5rem;">L'Anima
+                    del tuo spazio.</span>
+            </span>
+            <p class="reveal-text"
+                style="margin-top: 3.5rem; font-style: italic; font-family: var(--font-heading); font-size: 1.6rem; line-height: 1.3;">
+                "Oltre la frenesia, esiste un silenzio dove l'ispirazione ha il coraggio di nascere."
+            </p>
+            <div style="display: flex; gap: 3rem;">
+                <a href="#contatti" class="btn-organic hover-target">
+                    Inizia il Progetto
+                </a>
+                <a href="#filosofia" class="btn-organic hover-target" style="opacity: 0.5;">
+                    Scopri di più
+                </a>
+            </div>
+        </div>
+        <div class="hero-image-parallax" id="hero-parallax">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80"
+                alt="Arredo ufficio emozionale ad Ascona">
+        </div>
+    </header>
+
+    <!-- Filosofia Section -->
+    <section id="filosofia">
+        <div class="grid-2">
+            <div class="reveal-text">
+                <h2
+                    style="font-family: var(--font-main); font-weight: 300; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.4em; color: var(--accent); margin-bottom: 2rem;">
+                    La Filosofia</h2>
+                <h2>L'Essenza <br>del Sottrare.</h2>
+                <p>La nostra filosofia non è uno stile, è una disciplina. Ad Ascona, dove il tempo sembra scorrere con
+                    una dignità diversa, abbiamo imparato che la bellezza non risiede nell'aggiunta, ma
+                    nell'eliminazione di tutto ciò che è superfluo.</p>
+                <p style="margin-top: 2rem;">Uno spazio minimalista non è vuoto; è un invito. Un invito alla chiarezza,
+                    alla profondità e alla focalizzazione assoluta.</p>
+            </div>
+            <div class="reveal-text">
+                <div class="img-reveal-wrapper" style="border-radius: 5px 200px 5px 200px;">
+                    <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=800&q=80"
+                        alt="Filosofia minimalista">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Passione Section -->
+    <section id="passione" style="background-color: rgba(181, 164, 141, 0.03);">
+        <div class="grid-2">
+            <div class="reveal-text order-mobile-2">
+                <div class="img-reveal-wrapper" style="border-radius: 200px 5px 200px 5px;">
+                    <img src="https://images.unsplash.com/photo-1490971588422-52f6262a237a?auto=format&fit=crop&w=800&q=80"
+                        alt="La nostra passione">
+                </div>
+            </div>
+            <div class="reveal-text order-mobile-1">
+                <h2
+                    style="font-family: var(--font-main); font-weight: 300; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.4em; color: var(--accent); margin-bottom: 2rem;">
+                    La Passione</h2>
+                <h2>Il Tocco <br>dell'Anima.</h2>
+                <p>Ogni fibra di legno che selezioniamo, ogni lastra di pietra alpina che levighiamo, porta con sé la
+                    nostra passione per la perfezione invisibile. Non ci accontentiamo di creare arredi; cerchiamo di
+                    catturare l'armonia.</p>
+                <p style="margin-top: 2rem;">I nostri occhi brillano quando vediamo uno spazio trasformarsi in un
+                    santuario della produttività, dove ogni dettaglio è lì perché ha un'anima, non solo una funzione.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Designer Section -->
+    <section id="designer">
+        <div class="reveal-text" style="text-align: center; margin-bottom: 12vh;">
+            <h2
+                style="font-family: var(--font-main); font-weight: 300; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.4em; color: var(--accent);">
+                Creativi</h2>
+            <h2>Visionari del Silenzio.</h2>
+        </div>
+
+        <div class="grid-2" style="grid-template-columns: repeat(2, 1fr); gap: 6vw;">
+            <div class="designer-card reveal-text">
+                <div class="designer-img">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
+                        alt="Designer Marco Vuerich">
+                </div>
+                <h3>Marco Vuerich</h3>
+                <p style="margin: 1.5rem auto; font-size: 0.95rem;">Maestro della materia. La sua mano guida la
+                    trasformazione del rovere in poesia funzionale.</p>
+            </div>
+            <div class="designer-card reveal-text" style="transition-delay: 0.2s;">
+                <div class="designer-img">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80"
+                        alt="Designer Elena Rossi">
+                </div>
+                <h3>Elena Rossi</h3>
+                <p style="margin: 1.5rem auto; font-size: 0.95rem;">Curatrice della luce e delle proporzioni. Convinta
+                    che il design sia una forma di meditazione visiva.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materials Section -->
+    <section id="materiali" style="background-color: rgba(181, 164, 141, 0.03);">
+        <div class="reveal-text" style="text-align: center; margin-bottom: 12vh;">
+            <h2
+                style="font-family: var(--font-main); font-weight: 300; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.4em; color: var(--accent);">
+                La Materia</h2>
+            <h2>Texture che narrano.</h2>
+        </div>
+
+        <div class="grid-2 materials-container" style="grid-template-columns: repeat(3, 1fr); gap: 4rem;">
+            <div class="reveal-text" style="text-align: center;">
+                <div class="img-reveal-wrapper"
+                    style="aspect-ratio: 1/1; border-radius: 50% 50% 0 0; margin-bottom: 2.5rem;">
+                    <img src="https://images.unsplash.com/photo-1544450614-77128038bd4c?auto=format&fit=crop&w=800&q=80"
+                        alt="Legno pregiato">
+                </div>
+                <h3 style="font-size: 2rem; font-style: italic;">Rovere Fossile</h3>
+            </div>
+            <div class="reveal-text" style="text-align: center; transition-delay: 0.2s;">
+                <div class="img-reveal-wrapper"
+                    style="aspect-ratio: 1/1; border-radius: 50% 50% 0 0; margin-bottom: 2.5rem;">
+                    <img src="https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?auto=format&fit=crop&w=800&q=80"
+                        alt="Marmo e pietra">
+                </div>
+                <h3 style="font-size: 2rem; font-style: italic;">Pietra Alpina</h3>
+            </div>
+            <div class="reveal-text" style="text-align: center; transition-delay: 0.4s;">
+                <div class="img-reveal-wrapper"
+                    style="aspect-ratio: 1/1; border-radius: 50% 50% 0 0; margin-bottom: 2.5rem;">
+                    <img src="https://images.unsplash.com/photo-1574634534894-89d7576c8259?auto=format&fit=crop&w=800&q=80"
+                        alt="Tessuti organici">
+                </div>
+                <h3 style="font-size: 2rem; font-style: italic;">Lino Crudo</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Section -->
+    <section id="capitoli">
+        <div class="collection-item reveal-text">
+            <div class="img-reveal-wrapper" style="border-radius: 400px 400px 0 0;">
+                <img src="https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?auto=format&fit=crop&w=800&q=80"
+                    alt="Scrivania Lumina">
+            </div>
+            <div>
+                <h3 style="font-size: 4rem; margin-bottom: 2.5rem;">Lumina <br><i>La Chiarezza</i></h3>
+                <p>Una scrivania che accoglie la luce. Realizzata in rovere sbiancato a mano ad Ascona.</p>
+                <a href="#contatti" class="btn-organic hover-target">Inizia il Dialogo</a>
+            </div>
+        </div>
+
+        <div class="collection-item reveal-text">
+            <div class="img-reveal-wrapper" style="border-radius: 0 0 400px 400px;">
+                <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80"
+                    alt="Seduta Aura">
+            </div>
+            <div>
+                <h3 style="font-size: 4rem; margin-bottom: 2.5rem;">Aura <br><i>L'Abbraccio</i></h3>
+                <p>Un supporto quasi invisibile che sostiene il tuo corpo senza costringerlo.</p>
+                <a href="#contatti" class="btn-organic hover-target">Accomodati</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contatti Section -->
+    <section id="contatti" style="background-color: var(--text-color); color: var(--bg-color); padding: 20vh 5%;">
+        <div class="grid-2">
+            <div class="reveal-text">
+                <h2 style="color: var(--bg-color);">Scriviamo il tuo <br><i>prossimo capitolo.</i></h2>
+                <p style="color: rgba(255,255,255,0.6); margin-top: 3rem; max-width: 400px;">Siamo pronti ad ascoltare.
+                </p>
+
+                <div style="margin-top: 6rem;">
+                    <p
+                        style="font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.3em; margin-bottom: 1rem;">
+                        Contatti Diretti</p>
+                    <p
+                        style="color: var(--bg-color); font-size: 1.8rem; font-family: var(--font-heading); font-style: italic;">
+                        +41 78 123 45 67</p>
+                </div>
+            </div>
+
+            <div class="reveal-text" style="transition-delay: 0.3s;">
+                <form onsubmit="event.preventDefault(); alert('Grazie. Il nostro dialogo ha inizio.')">
+                    <div style="margin-bottom: 3rem;">
+                        <input type="text" placeholder="IL TUO NOME" required>
+                    </div>
+                    <div style="margin-bottom: 3rem;">
+                        <input type="email" placeholder="LA TUA EMAIL" required>
+                    </div>
+                    <div style="margin-bottom: 3rem;">
+                        <select required>
+                            <option value="" disabled selected>OBIETTIVO?</option>
+                            <option value="pezzo-unico">Pezzo Unico</option>
+                            <option value="corporate">Corporate</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 4rem;">
+                        <textarea placeholder="MESSAGGIO..." rows="4" style="resize: none;"></textarea>
+                    </div>
+                    <button type="submit" class="btn-organic hover-target" style="color: white; padding: 0;">
+                        Invia
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="opacity: 0.9;">
+        <div class="grid-2">
+            <div>
+                <div class="logo" style="margin-bottom: 2rem;">AURA</div>
+                <p style="font-style: italic; font-family: var(--font-heading); font-size: 1.3rem;">"Il design è l'anima
+                    che diventa visibile."</p>
+            </div>
+            <div style="text-align: right;">
+                <p style="margin-left: auto; letter-spacing: 0.05em;">Via Borgo, 6612 Ascona</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- MOBILE MENU LOGIC ---
+        const menuBtn = document.getElementById('menu-btn');
+        const overlay = document.getElementById('mobile-overlay');
+        const links = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            document.body.classList.toggle('nav-active');
+            overlay.classList.toggle('active');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                document.body.classList.remove('nav-active');
+                overlay.classList.remove('active');
+            });
+        });
+
+        // --- ORGANIC CURSOR ---
+        const cursor = document.getElementById('custom-cursor');
+        const aura = document.getElementById('cursor-aura');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            aura.animate({
+                left: (e.clientX - 20) + 'px',
+                top: (e.clientY - 20) + 'px'
+            }, { duration: 600, fill: 'forwards', easing: 'ease-out' });
+        });
+
+        // --- REVEAL ON SCROLL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    entry.target.parentElement.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
+
+        // --- ENTRANCE ---
+        window.addEventListener('load', () => {
+            setTimeout(() => document.getElementById('hero-reveal-1').classList.add('visible'), 600);
+            setTimeout(() => document.getElementById('hero-reveal-2').classList.add('visible'), 1400);
+        });
+
+        // --- THEME ---
+        const themeBtn = document.getElementById('theme-toggle');
+        themeBtn.addEventListener('click', () => {
+            document.body.getAttribute('data-theme') === 'dark' ?
+                document.body.removeAttribute('data-theme') :
+                document.body.setAttribute('data-theme', 'dark');
+        });
+
+        // --- PARALLAX ---
+        window.addEventListener('scroll', () => {
+            const img = document.querySelector('#hero-parallax img');
+            if (img) img.style.transform = `translateY(${window.pageYOffset * 0.12}px)`;
+        });
+    </script>
+</body>
+
+</html>
