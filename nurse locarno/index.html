@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servizi Infermieristici Locarno | Cure a Domicilio Premium & Spitex Privato</title>
+    <meta name="description" content="Assistenza infermieristica privata di eccellenza a Locarno e nel Canton Ticino. Infermieri qualificati, piani di cura personalizzati e supporto domiciliare 24/7.">
+    <meta name="keywords" content="Servizi infermieristici Locarno, cure a domicilio Ticino, infermiere privato Locarno, assistenza anziani Locarno, Spitex privato Ticino, cure palliative a casa">
+    <meta name="author" content="Locarno Care Studio">
+    
+    <meta property="og:title" content="L'Arte della Cura | Servizi Infermieristici Locarno">
+    <meta property="og:description" content="Assistenza domiciliare premium nel cuore del Ticino. Oltre il protocollo clinico, offriamo dedizione assoluta.">
+    <meta property="og:image" content="servizio infermiere locarno.webp">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           CSS VARIABLES & THEME SETUP
+           ========================================================================== */
+        :root {
+            /* Light Theme (Editorial Print Vibe) */
+            --bg-primary: #f4f4f0;
+            --bg-secondary: #eaeaeb;
+            --text-primary: #121212;
+            --text-secondary: #4a4a4a;
+            --accent: #1e3d33; /* Deep sophisticated medical green */
+            --border: #d1d1cf;
+            
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            --transition-smooth: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: all 0.3s ease;
+            
+            --spacing-section: 12vmax 5vw;
+        }
+
+        body.dark {
+            /* Dark Theme (Immersive & Clinical) */
+            --bg-primary: #0a0a0c;
+            --bg-secondary: #161618;
+            --text-primary: #f4f4f0;
+            --text-secondary: #a0a0a0;
+            --accent: #86b9a4;
+            --border: #2a2a2c;
+        }
+
+        /* ==========================================================================
+           RESET & BASE
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        ::selection {
+            background-color: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* ==========================================================================
+           TYPOGRAPHY (EDITORIAL MASSIVE SCALE)
+           ========================================================================== */
+        h1, h2, h3, h4, .serif {
+            font-family: var(--font-serif);
+            font-weight: 800;
+        }
+
+        .huge-text {
+            font-size: clamp(3rem, 11vw, 12rem);
+            line-height: 0.85;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 6rem);
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--text-primary);
+            padding-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .drop-cap::first-letter {
+            font-family: var(--font-serif);
+            font-size: 6.5rem;
+            float: left;
+            line-height: 0.7;
+            padding-right: 0.15em;
+            padding-top: 0.1em;
+            color: var(--accent);
+        }
+
+        .lead-text {
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        /* ==========================================================================
+           LAYOUT & GRIDS (UNCONVENTIONAL)
+           ========================================================================== */
+        .container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 5vw;
+        }
+
+        section {
+            padding: var(--spacing-section);
+            position: relative;
+        }
+
+        /* Skewed Containers for Editorial Edge */
+        .skew-wrapper {
+            transform: skewY(-4deg);
+            overflow: hidden;
+            background: var(--bg-secondary);
+            margin: 5vmax 0;
+        }
+        
+        .skew-content {
+            transform: skewY(4deg);
+            padding: 8vmax 5vw;
+        }
+
+        /* ==========================================================================
+           COMPONENTS
+           ========================================================================== */
+        
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            mix-blend-mode: difference;
+            color: #fff; /* Forces white text that inverses based on background */
+            pointer-events: none; /* Let clicks pass through empty areas */
+        }
+        header * {
+            pointer-events: auto;
+        }
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+            border: none;
+            cursor: pointer;
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: var(--transition-smooth);
+        }
+        .theme-toggle-btn:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+        .theme-toggle-btn svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            fill: currentColor;
+            transition: var(--transition-fast);
+        }
+        body.dark .icon-sun { display: block; }
+        body.dark .icon-moon { display: none; }
+        body:not(.dark) .icon-sun { display: none; }
+        body:not(.dark) .icon-moon { display: block; }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: 10vh;
+            position: relative;
+        }
+        .hero-img-container {
+            position: absolute;
+            top: 15%;
+            right: 5%;
+            width: 50vw;
+            height: 70vh;
+            z-index: -1;
+            overflow: hidden;
+            filter: grayscale(20%) contrast(110%);
+        }
+        .hero-img-container img {
+            width: 100%;
+            height: 100%;
+            object-position: center 20%;
+            transform: scale(1.05);
+            transition: transform 1.5s ease-out;
+        }
+        .hero-text-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+        .hero .indent {
+            margin-left: 15vw;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--text-primary);
+        }
+        .hero-meta {
+            margin-top: 3rem;
+            max-width: 400px;
+            font-size: 1.1rem;
+            border-left: 2px solid var(--accent);
+            padding-left: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .hero-img-container {
+                width: 90vw;
+                height: 50vh;
+                top: 25%;
+                opacity: 0.6;
+            }
+            .hero .indent { margin-left: 0; -webkit-text-stroke: 0; color: var(--text-primary); }
+        }
+
+        /* About / Intro */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .about-text p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .about-img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            transform: skewY(2deg);
+        }
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .about-img { transform: none; }
+        }
+
+        /* Services (Staggered Grid) */
+        .services-wrapper {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+            margin-top: 5rem;
+        }
+        .service-card {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            position: relative;
+        }
+        .service-card:nth-child(1) { grid-column: 1 / 7; }
+        .service-card:nth-child(2) { grid-column: 6 / 13; margin-top: 8rem; }
+        .service-card:nth-child(3) { grid-column: 2 / 8; margin-top: 2rem; }
+        .service-card:nth-child(4) { grid-column: 7 / 13; margin-top: 10rem; }
+        
+        .service-num {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            color: var(--accent);
+            line-height: 1;
+            position: absolute;
+            top: -2.5rem;
+            right: 0;
+            opacity: 0.3;
+        }
+        .service-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+        @media (max-width: 900px) {
+            .services-wrapper { display: flex; flex-direction: column; gap: 4rem; }
+            .service-card { margin-top: 0 !important; }
+        }
+
+        /* Testimonials (Magazine Quotes) */
+        .testimonials {
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 10vmax 5vw;
+        }
+        .testimonials .section-title {
+            border-bottom-color: var(--bg-primary);
+        }
+        .quote-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+        .quote-card {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.4;
+        }
+        .quote-author {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-style: normal;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 2rem;
+            display: block;
+            color: var(--accent);
+        }
+
+        /* Pricing (Editorial Table) */
+        .pricing-list {
+            margin-top: 4rem;
+            border-top: 2px solid var(--text-primary);
+        }
+        .pricing-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--border);
+            align-items: center;
+        }
+        .pricing-row h4 {
+            font-size: 2rem;
+        }
+        .pricing-row p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            padding: 0 2rem;
+        }
+        .pricing-row .price {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            text-align: right;
+            color: var(--accent);
+        }
+        @media (max-width: 768px) {
+            .pricing-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 2rem 0;
+            }
+            .pricing-row p { padding: 0; }
+            .pricing-row .price { text-align: left; }
+        }
+
+        /* FAQ (Minimal Accordion) */
+        .faq-container {
+            max-width: 800px;
+            margin: 4rem auto 0;
+        }
+        details {
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+        }
+        summary {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            position: relative;
+            padding-right: 2rem;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-sans);
+            font-size: 2rem;
+            font-weight: 300;
+            transition: transform 0.3s;
+        }
+        details[open] summary::after {
+            transform: translateY(-50%) rotate(45deg);
+        }
+        details p {
+            margin-top: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--accent);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+        .contact-info h3 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .contact-info p {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .input-group {
+            position: relative;
+        }
+        input, textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--text-primary);
+            padding: 1rem 0;
+            font-family: var(--font-sans);
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            outline: none;
+            border-radius: 0;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        input:focus, textarea:focus {
+            border-bottom-color: var(--accent);
+        }
+        .btn-submit {
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 1.5rem 3rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            align-self: flex-start;
+            transition: var(--transition-fast);
+        }
+        .btn-submit:hover {
+            background-color: var(--accent);
+        }
+        @media (max-width: 900px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5vw;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ==========================================================================
+           ANIMATIONS (DRAMATIC ENTRY)
+           ========================================================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px) skewY(3deg);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0) skewY(0);
+        }
+        .delay-1 { transition-delay: 0.2s; }
+        .delay-2 { transition-delay: 0.4s; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Locarno Care</div>
+        <nav class="nav-links">
+            <a href="#about">Filosofia</a>
+            <a href="#services">Servizi</a>
+            <a href="#pricing">Tariffe</a>
+            <a href="#contact">Contatti</a>
+        </nav>
+    </header>
+
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Attiva/Disattiva Dark Mode">
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+    </button>
+
+    <main>
+        <section class="hero container">
+            <div class="hero-img-container reveal">
+                <img src="servizio infermiere locarno.webp" alt="Infermiera privata qualificata per assistenza a domicilio a Locarno Ticino">
+            </div>
+            <div class="hero-text-wrapper">
+                <h1 class="huge-text reveal delay-1">L'Arte</h1>
+                <h1 class="huge-text indent reveal delay-2">Della Cura.</h1>
+                <div class="hero-meta reveal delay-2">
+                    <p>Servizi infermieristici domiciliari d'eccellenza. Presenza, competenza clinica e profonda umanità nel cuore del Canton Ticino, a Locarno.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <h2 class="section-title">Oltre il Protocollo</h2>
+                    <p class="drop-cap lead-text">La salute non è una formula matematica, è un'esperienza umana. Nel nostro approccio all'assistenza domiciliare a Locarno, combiniamo il rigore scientifico della medicina moderna con un'empatia radicale.</p>
+                    <p>Sappiamo che la complessità delle cure a domicilio richiede non solo tecnica, ma capacità di ascolto. Che si tratti di un recupero post-operatorio o della gestione di patologie croniche, il nostro team di infermieri diplomati trasforma la tua casa in un ambiente clinico sicuro, senza mai farti perdere il calore del tuo focolare.</p>
+                </div>
+                <div class="about-img-wrapper reveal delay-1">
+                    <img class="about-img" src="medico locarno.webp" alt="Medico e infermiere collaborano per le cure a domicilio a Locarno">
+                </div>
+            </div>
+        </section>
+
+        <div class="skew-wrapper">
+            <div class="skew-content">
+                <div class="container text-center reveal">
+                    <h3 class="serif" style="font-size: clamp(2rem, 4vw, 4rem); text-align: center; max-width: 1000px; margin: 0 auto; line-height: 1.2;">
+                        "L'assistenza domiciliare nel Ticino sta evolvendo. Noi ne definiamo il nuovo standard qualitativo."
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <section id="services" class="container">
+            <h2 class="section-title reveal">I Nostri Servizi</h2>
+            <div class="services-wrapper">
+                
+                <article class="service-card reveal">
+                    <span class="service-num">01</span>
+                    <h3>Cure Base & Avanzate</h3>
+                    <p>Dalla somministrazione di terapie farmacologiche complesse alla gestione di infusioni endovenose, garantiamo protocolli clinici rigorosi eseguiti da infermieri specializzati direttamente al tuo domicilio a Locarno e dintorni.</p>
+                </article>
+
+                <article class="service-card reveal delay-1">
+                    <span class="service-num">02</span>
+                    <h3>Supporto Post-Operatorio</h3>
+                    <p>Il rientro a casa dopo un intervento richiede monitoraggio costante. Gestiamo la cura delle ferite chirurgiche, la prevenzione di infezioni e ti accompagniamo nel percorso di riabilitazione fisica e psicologica.</p>
+                </article>
+
+                <article class="service-card reveal">
+                    <span class="service-num">03</span>
+                    <h3>Assistenza Notturna & Continuativa</h3>
+                    <p>La tranquillità non ha orari. Offriamo presenza infermieristica notturna per pazienti che necessitano di monitoraggio continuo, garantendo riposo sicuro al paziente e serenità ai familiari curanti.</p>
+                </article>
+
+                <article class="service-card reveal delay-1">
+                    <span class="service-num">04</span>
+                    <h3>Cure Palliative</h3>
+                    <p>Un accompagnamento empatico e altamente professionale per la gestione del dolore e dei sintomi complessi. Il nostro obiettivo è preservare la massima qualità di vita e la dignità della persona, nel rispetto delle sue volontà.</p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title reveal">Voci di Fiducia</h2>
+                <div class="quote-grid">
+                    <div class="quote-card reveal">
+                        "La competenza tecnica è indiscutibile, ma è l'umanità del team che ha fatto la differenza per mia madre durante la sua convalescenza a Locarno. Un servizio impeccabile."
+                        <span class="quote-author">— Famiglia Bernasconi, Ascona</span>
+                    </div>
+                    <div class="quote-card reveal delay-1">
+                        "Avere un infermiere privato che comprende la complessità del piano terapeutico e si coordina con il medico curante ci ha tolto un peso enorme. Eccellenza pura."
+                        <span class="quote-author">— Dott. M. Rossi, Locarno</span>
+                    </div>
+                    <div class="quote-card reveal delay-2">
+                        "Gestione del dolore e supporto notturno gestiti con una delicatezza e professionalità rare. Non è solo un servizio Spitex, è un vero e proprio care management."
+                        <span class="quote-author">— Elena T., Tenero</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="container">
+            <h2 class="section-title reveal">Piani & Tariffe</h2>
+            <p class="lead-text reveal" style="max-width: 700px;">Trasparenza assoluta. Le nostre tariffe riflettono l'alta qualifica del personale e l'esclusività del servizio dedicato (riconosciuto dalle casse malati svizzere secondo LAMal).</p>
+            
+            <div class="pricing-list">
+                <div class="pricing-row reveal">
+                    <h4>Valutazione Iniziale</h4>
+                    <p>Analisi clinica domiciliare, colloquio con i familiari e stesura del piano di cura personalizzato (Assessment OPre).</p>
+                    <div class="price">CHF 120</div>
+                </div>
+                <div class="pricing-row reveal">
+                    <h4>Cure Infermieristiche Base</h4>
+                    <p>Preparazione farmaci, controllo parametri vitali, iniezioni sottocutanee, supporto igienico-sanitario.</p>
+                    <div class="price">Da CHF 52.60<span>/h</span></div>
+                </div>
+                <div class="pricing-row reveal">
+                    <h4>Cure Specialistiche Complesse</h4>
+                    <p>Gestione cateteri venosi centrali (CVC/Port-a-cath), nutrizione parenterale, medicazioni avanzate.</p>
+                    <div class="price">Da CHF 76.90<span>/h</span></div>
+                </div>
+                <div class="pricing-row reveal">
+                    <h4>Assistenza Notturna Privata</h4>
+                    <p>Presenza costante dalle 22:00 alle 07:00 per monitoraggio continuo e interventi al bisogno.</p>
+                    <div class="price">Su Preventivo</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="container">
+            <h2 class="section-title reveal">Domande Frequenti</h2>
+            <div class="faq-container">
+                <details class="reveal">
+                    <summary>I vostri servizi sono riconosciuti dalle Casse Malati?</summary>
+                    <p>Sì, il nostro servizio è riconosciuto nel Canton Ticino. Le prestazioni infermieristiche prescritte dal medico curante sono coperte dall'assicurazione di base (LAMal), dedotta la franchigia e l'aliquota percentuale a carico del paziente.</p>
+                </details>
+                <details class="reveal">
+                    <summary>Operate solo a Locarno?</summary>
+                    <p>La nostra sede operativa è a Locarno, ma copriamo l'intero distretto del Locarnese, includendo Ascona, Losone, Tenero, Minusio e le valli limitrofe. Per casi complessi, valutiamo trasferte in tutto il Sopraceneri.</p>
+                </details>
+                <details class="reveal">
+                    <summary>Quali sono i tempi di attivazione del servizio?</summary>
+                    <p>Per le urgenze e le dimissioni ospedaliere, garantiamo una prima visita di valutazione entro 24 ore dalla richiesta. La presa a carico operativa è solitamente immediata a seguito dell'assessment.</p>
+                </details>
+                <details class="reveal">
+                    <summary>Offrite anche servizi di economia domestica?</summary>
+                    <p>Il nostro core business è l'eccellenza clinica infermieristica. Tuttavia, collaboriamo con reti di professionisti fidati sul territorio per integrare, se necessario, servizi di pulizia e supporto domestico generale nel piano di cura.</p>
+                </details>
+            </div>
+        </section>
+
+        <section id="contact" class="container" style="margin-bottom: 5vmax;">
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h2 class="section-title" style="border:none; margin-bottom: 1rem;">Parliamone.</h2>
+                    <p class="lead-text" style="margin-bottom: 3rem;">Siamo a disposizione per consulenze, valutazioni a domicilio o semplicemente per rispondere alle tue domande sul percorso di cura.</p>
+                    
+                    <h3 class="serif">Locarno Care Studio</h3>
+                    <p>Piazza Grande 12</p>
+                    <p>6600 Locarno, Svizzera (CH)</p>
+                    <br>
+                    <p><strong>Emergenze & Info:</strong> +41 91 000 00 00</p>
+                    <p><strong>Email:</strong> direzione@locarnocare.ch</p>
+                </div>
+                
+                <form class="contact-form reveal delay-1" onsubmit="event.preventDefault(); alert('Messaggio inviato. Verrai ricontattato a breve.');">
+                    <div class="input-group">
+                        <input type="text" placeholder="Nome e Cognome *" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" placeholder="Numero di Telefono *" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" placeholder="Indirizzo Email">
+                    </div>
+                    <div class="input-group">
+                        <textarea placeholder="Descrivi brevemente le tue necessità (es. assistenza post-operatoria, supporto anziani)..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Richiedi Consulto</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            &copy; 2026 Locarno Care Studio. <br> Tutti i diritti riservati.
+        </div>
+        <div style="text-align: right;">
+            Design Vibe: Editorial / Medical Prestige<br>
+            Locarno, CH
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check local storage for theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            if (body.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Intersection Observer for Scroll Animations (Dramatic Entry)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Run once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
