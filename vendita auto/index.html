@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concessionaria Auto Bellinzona | Vendita Auto Nuove e Usate Ticino</title>
+    <meta name="description" content="La tua concessionaria auto di fiducia a Bellinzona, in Svizzera. Vendita auto nuove e d'occasione, leasing vantaggiosi, e acquisto auto in contanti in Ticino. Scopri le nostre offerte!">
+    <meta name="keywords" content="vendita auto Bellinzona, concessionaria auto Ticino, auto usate Bellinzona, garage Bellinzona, acquisto auto contanti, auto nuove Svizzera">
+    <meta name="author" content="Bellinzona Motors">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #E63946;
+            --primary-hover: #D62828;
+            --bg-light: #FFFFFF;
+            --bg-alt-light: #F8F9FA;
+            --text-dark: #1D3557;
+            --text-muted: #457B9D;
+            --border-light: #E0E0E0;
+            
+            --bg-dark: #121212;
+            --bg-alt-dark: #1E1E1E;
+            --text-light: #F1FAEE;
+            --text-muted-dark: #A8DADC;
+            --border-dark: #333333;
+
+            --transition: all 0.3s ease-in-out;
+            --font-main: 'Inter', system-ui, sans-serif;
+            --max-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Dark Mode Classes */
+        body.dark {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        body.dark .section-alt { background-color: var(--bg-alt-dark); }
+        body.dark .card { background-color: var(--bg-dark); border-color: var(--border-dark); }
+        body.dark header { background-color: rgba(18, 18, 18, 0.95); border-bottom: 1px solid var(--border-dark); }
+        body.dark .text-muted { color: var(--text-muted-dark); }
+        body.dark input, body.dark textarea { background-color: var(--bg-dark); color: var(--text-light); border-color: var(--border-dark); }
+        body.dark details { background-color: var(--bg-alt-dark); border-color: var(--border-dark); }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* Typography */
+        h1, h2, h3 { font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: 1.5rem; }
+        p { margin-bottom: 1rem; }
+        .text-muted { color: var(--text-muted); }
+        .text-center { text-align: center; }
+
+        /* Layout */
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 5rem 0;
+        }
+
+        .section-alt { background-color: var(--bg-alt-light); transition: var(--transition); }
+
+        /* Header (Morphed from Source) */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo svg { width: 30px; height: 30px; fill: currentColor; }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .social-icons a {
+            color: var(--text-muted);
+            display: flex;
+        }
+
+        .social-icons a:hover { color: var(--primary); }
+
+        @media (max-width: 768px) {
+            .nav-links, .social-icons { display: none; } /* Simplified for mobile */
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #fff !important;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+        }
+
+        .btn-outline {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: #fff !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1562426509-5044a121aa49?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: #fff;
+        }
+
+        .hero-content {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            color: #E0E0E0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover { transform: translateY(-10px); }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(230, 57, 70, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .feature-icon svg { width: 30px; height: 30px; }
+
+        /* Inventory / Services */
+        .inventory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-content { padding: 1.5rem; }
+        .card-content h3 { margin-bottom: 0.5rem; }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            padding: 2rem;
+            border-left: 4px solid var(--primary);
+            background-color: var(--bg-light);
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        body.dark .testimonial-card { background-color: var(--bg-dark); }
+
+        .testimonial-text { font-style: italic; margin-bottom: 1rem; }
+        .testimonial-author { font-weight: 600; color: var(--primary); }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        details {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 1rem 1.5rem;
+            transition: var(--transition);
+        }
+
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker { display: none; }
+        
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+        details[open] summary::after { transform: rotate(45deg); }
+        details[open] p { margin-top: 1rem; color: var(--text-muted); }
+        body.dark details[open] p { color: var(--text-muted-dark); }
+
+        /* Footer */
+        footer {
+            background-color: #0A1128;
+            color: #fff;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .footer-col h3 { color: #fff; margin-bottom: 1.5rem; font-size: 1.2rem; }
+        .footer-col ul li { margin-bottom: 0.8rem; }
+        .footer-col a { color: #A8DADC; }
+        .footer-col a:hover { color: var(--primary); }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #A8DADC;
+            font-size: 0.9rem;
+        }
+
+        /* Floating Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+            background-color: var(--primary-hover);
+        }
+
+        .dark-mode-toggle svg { width: 24px; height: 24px; fill: currentColor; }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                </svg>
+                BellinzonaMotors
+            </a>
+            <nav class="nav-links">
+                <a href="#parco-auto">Parco Auto</a>
+                <a href="#servizi">Servizi</a>
+                <a href="#chi-siamo">Chi Siamo</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+            <div class="social-icons">
+                <!-- Reusing source's social links concept but adapted for business -->
+                <a aria-label="Facebook" href="#"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></a>
+                <a aria-label="Instagram" href="#"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content animate-up">
+            <h1>L'Auto dei Tuoi Sogni,<br>a Bellinzona.</h1>
+            <p>La tua concessionaria di fiducia in Ticino. Scopri la nostra selezione di veicoli nuovi e d'occasione. Valutazione gratuita del tuo usato, pagamento immediato e leasing vantaggiosi.</p>
+            <div class="hero-buttons">
+                <a href="#parco-auto" class="btn btn-primary">Scopri il Parco Auto</a>
+                <a href="#valutazione" class="btn btn-outline" style="border-color: #fff; color: #fff;">Valuta la tua Auto</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features / Why Choose Us -->
+    <section id="chi-siamo" class="container">
+        <div class="text-center animate-up">
+            <h2 class="text-primary">Perché Scegliere Noi?</h2>
+            <p class="text-muted">Da oltre 20 anni garantiamo qualità e trasparenza sulle strade svizzere.</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card animate-up delay-1">
+                <div class="feature-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3>Collaudate e Garantite</h3>
+                <p class="text-muted">Tutte le nostre auto d'occasione superano rigorosi controlli di qualità e vengono consegnate con collaudo MFK e garanzia minima di 12 mesi.</p>
+            </div>
+            
+            <div class="feature-card animate-up delay-2">
+                <div class="feature-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3>Pagamento Immediato</h3>
+                <p class="text-muted">Acquistiamo la tua auto usata in contanti o tramite bonifico bancario istantaneo. Valutazione gratuita e senza alcun impegno d'acquisto.</p>
+            </div>
+            
+            <div class="feature-card animate-up delay-3">
+                <div class="feature-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3>Leasing Flessibile</h3>
+                <p class="text-muted">Offriamo soluzioni di finanziamento e leasing personalizzate a tassi agevolati, per permetterti di guidare subito l'auto che desideri.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inventory / Services -->
+    <section id="parco-auto" class="section-alt">
+        <div class="container">
+            <div class="text-center animate-up">
+                <h2>I Nostri Servizi & Parco Auto</h2>
+                <p class="text-muted">Trova la soluzione perfetta per le tue esigenze di mobilità in Ticino.</p>
+            </div>
+            
+            <div class="inventory-grid">
+                <!-- Card 1 -->
+                <div class="card animate-up delay-1">
+                    <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Auto Nuove Bellinzona" class="card-img">
+                    <div class="card-content">
+                        <h3>Auto Nuove</h3>
+                        <p class="text-muted">Scopri gli ultimi modelli dei migliori marchi. Tecnologie all'avanguardia, sicurezza svizzera e design inconfondibile.</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 1rem; width: 100%;">Vedi Offerte</a>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="card animate-up delay-2">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Auto d'Occasione Ticino" class="card-img">
+                    <div class="card-content">
+                        <h3>Auto d'Occasione</h3>
+                        <p class="text-muted">Un'ampia selezione di veicoli usati multimarca, rigorosamente controllati e collaudati per garantirti la massima affidabilità.</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 1rem; width: 100%;">Sfoglia Usato</a>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="card animate-up delay-3" id="valutazione">
+                    <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Compro Auto Bellinzona" class="card-img">
+                    <div class="card-content">
+                        <h3>Acquistiamo la tua Auto</h3>
+                        <p class="text-muted">Vuoi vendere la tua auto velocemente a Bellinzona? Ritiriamo veicoli in qualsiasi stato. Pagamento immediato garantito.</p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Richiedi Valutazione</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="container">
+        <div class="text-center animate-up">
+            <h2>Cosa Dicono i Nostri Clienti</h2>
+            <p class="text-muted">La soddisfazione dei nostri clienti in tutto il Ticino è il nostro miglior biglietto da visita.</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card animate-up delay-1">
+                <p class="testimonial-text">"Ho venduto la mia vecchia auto e comprato un'ottima occasione in meno di 48 ore. Servizio impeccabile, personale trasparente e professionale. Il miglior garage a Bellinzona!"</p>
+                <p class="testimonial-author">- Marco T., Giubiasco</p>
+            </div>
+            
+            <div class="testimonial-card animate-up delay-2">
+                <p class="testimonial-text">"Cercavo un'auto familiare sicura e ho trovato un leasing con un tasso davvero vantaggioso. L'auto mi è stata consegnata collaudata e lucidata a nuovo. Consigliatissimi."</p>
+                <p class="testimonial-author">- Laura S., Locarno</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-alt">
+        <div class="container">
+            <div class="text-center animate-up">
+                <h2>Domande Frequenti</h2>
+                <p class="text-muted">Tutto quello che devi sapere sui nostri servizi di compravendita auto.</p>
+            </div>
+            
+            <div class="faq-container animate-up delay-1">
+                <details>
+                    <summary>Acquistate auto in contanti a Bellinzona?</summary>
+                    <p>Sì! Offriamo un servizio di "Compro Auto" rapido e sicuro in tutto il Ticino. Valutiamo gratuitamente il tuo veicolo e garantiamo un pagamento immediato (in contanti o tramite bonifico bancario) al momento della consegna.</p>
+                </details>
+                
+                <details>
+                    <summary>Le vostre auto usate sono coperte da garanzia?</summary>
+                    <p>Assolutamente sì. Tutte le nostre auto d'occasione vengono sottoposte a rigorosi controlli meccanici, vendute con collaudo recente e includono una garanzia di almeno 12 mesi per viaggiare in totale serenità sulle strade svizzere.</p>
+                </details>
+                
+                <details>
+                    <summary>È possibile fare un leasing o un finanziamento?</summary>
+                    <p>Certamente. Collaboriamo con i principali istituti di credito svizzeri per offrirti soluzioni di leasing o finanziamento personalizzate, anche con anticipo zero. Contattaci per un preventivo gratuito.</p>
+                </details>
+                
+                <details>
+                    <summary>Ritirate auto da rottamare o sinistrate?</summary>
+                    <p>Sì, ritiriamo anche veicoli danneggiati, con problemi meccanici o da rottamare, offrendo comunque una valutazione equa in base ai pezzi di ricambio o al valore del metallo.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" style="color: #fff; margin-bottom: 1rem; display: inline-flex;">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: var(--primary);">
+                        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                    </svg>
+                    BellinzonaMotors
+                </a>
+                <p style="color: #A8DADC;">La tua concessionaria di fiducia per la vendita e l'acquisto di auto in Ticino, Svizzera.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Link Rapidi</h3>
+                <ul>
+                    <li><a href="#parco-auto">Auto Nuove</a></li>
+                    <li><a href="#parco-auto">Auto d'Occasione</a></li>
+                    <li><a href="#valutazione">Vendi la tua Auto</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contatti</h3>
+                <ul>
+                    <li>📍 Viale Portone 12, 6500 Bellinzona, Svizzera</li>
+                    <li>📞 <a href="tel:+41910000000">+41 91 000 00 00</a></li>
+                    <li>✉️ <a href="mailto:info@bellinzonamotors.ch">info@bellinzonamotors.ch</a></li>
+                    <li>🕒 Lun-Ven: 08:00 - 18:30<br>Sabato: 09:00 - 16:00</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bellinzona Motors SA. Tutti i diritti riservati. | Design & SEO Optimized for Automotive Vendita Ticino.</p>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle Button -->
+    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode">
+        <!-- Moon Icon -->
+        <svg id="moonIcon" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <!-- Sun Icon (Hidden by default) -->
+        <svg id="sunIcon" viewBox="0 0 24 24" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+
+    <script>
+        // Dark Mode Logic
+        const toggleBtn = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const moonIcon = document.getElementById('moonIcon');
+        const sunIcon = document.getElementById('sunIcon');
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            if (body.classList.contains('dark')) {
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+            } else {
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+            }
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-up').forEach((el) => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
