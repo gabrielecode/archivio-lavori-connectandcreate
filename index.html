@@ -152,11 +152,130 @@
             transform: translateX(5px);
         }
 
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .about-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+            opacity: 0.9;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .review-author {
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .contact-container {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.1);
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
         footer {
-            margin-top: 60px;
+            margin-top: 100px;
             text-align: center;
             font-size: 0.8rem;
             opacity: 0.6;
+            padding-bottom: 40px;
         }
     </style>
 </head>
@@ -320,29 +439,31 @@
             <div class="card-content">
                 <h3>L'assistenza che cura.</h3>
                 <p>Per questo progetto di cure domiciliari abbiamo creato un ponte digitale tra professionisti e
-                    famiglie.</p>
+                    famiglie. Assistenza domiciliare premium nel cuore del Ticino, oltre il protocollo clinico.</p>
                 <div class="cta-link">Guarda come abbiamo trasmesso fiducia.<i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
 
         <a href="aura-minimal-ascona/" class="card">
             <div class="card-image" style="background-image:url('aura-minimal-ascona/designer-arredamento.webp');">
-                <span class="category">Nuovo</span>
+                <span class="category">Minimal Design</span>
             </div>
             <div class="card-content">
-                <h3>Minimal Design</h3>
-                <p>Descrizione breve del progetto da inserire qui.</p>
+                <h3>AURA Minimal Design</h3>
+                <p>Interior Design studio ad Ascona specializzato in minimalismo sensoriale e architettura del silenzio.
+                </p>
                 <div class="cta-link">Esplora Progetto <i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
 
         <a href="sito-pasticceria/" class="card">
             <div class="card-image" style="background-image:url('sito-pasticceria/vetrina-pasticceria.webp');">
-                <span class="category">Nuovo</span>
+                <span class="category">Food & Drink</span>
             </div>
             <div class="card-content">
-                <h3>Vetrina per Pasticceri</h3>
-                <p>Descrizione breve del progetto da inserire qui.</p>
+                <h3>Pasticceria Dolce Incanto</h3>
+                <p>L'arte della pasticceria artigianale a Città del Sole. Torte su misura e dolci tradizionali di alta
+                    qualità.</p>
                 <div class="cta-link">Esplora Progetto <i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
@@ -358,29 +479,129 @@
             </div>
         </a>
 
-        <a href="palestra" class="card">
-            <div class="card-image" style="background-image:url(palestra/) #ddd;">
-                <span class="category">Nuovo</span>
+        <a href="palestra/" class="card">
+            <div class="card-image" style="background-image:url('palestra/card-palestra.webp');">
+                <span class="category">Fitness</span>
             </div>
             <div class="card-content">
                 <h3>Vetrina Palestra</h3>
-                <p>.</p>
+                <p>Energia e dinamismo per il tuo centro fitness. Un design che motiva all'azione.</p>
                 <div class="cta-link">Esplora Progetto <i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
 
-        <a href="SCRIVI QUI CARTELLA/" class="card">
-            <div class="card-image" style="background-color: #ddd;">
-                <span class="category">Nuovo</span>
+        <a href="goth-clothes/" class="card">
+            <div class="card-image"
+                style="background-image:url('https://images.unsplash.com/photo-1515347263539-75a7c9343048?auto=format&fit=crop&w=800&q=80');">
+                <span class="category">E-commerce</span>
             </div>
             <div class="card-content">
-                <h3>Titolo Progetto 15</h3>
-                <p>Descrizione breve del progetto da inserire qui.</p>
+                <h3>Goth & Alternative Shop</h3>
+                <p>Vetrina per abbigliamento alternativo e cultura goth. Estetica dark raffinata per un brand di
+                    nicchia.</p>
+                <div class="cta-link">Esplora Progetto <i class="fas fa-arrow-right"></i></div>
+            </div>
+        </a>
+
+        <a href="lugano-express-bici/" class="card">
+            <div class="card-image"
+                style="background-image:url('https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=80');">
+                <span class="category">Logistica</span>
+            </div>
+            <div class="card-content">
+                <h3>Lugano Express Bici</h3>
+                <p>Servizio di consegna rapida e sostenibile. Efficienza su due ruote per il cuore di Lugano.</p>
+                <div class="cta-link">Esplora Progetto <i class="fas fa-arrow-right"></i></div>
+            </div>
+        </a>
+
+        <a href="landing-candele-mendrisio/" class="card">
+            <div class="card-image" style="background-image:url('landing-candele-mendrisio/hero.png');">
+                <span class="category">Artigianato</span>
+            </div>
+            <div class="card-content">
+                <h3>Lume di Mendrisio</h3>
+                <p>Atmosfere di luce e design per candele artigianali di pregio. Eccellenza del fatto a mano.</p>
                 <div class="cta-link">Esplora Progetto <i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
 
     </div>
+
+    <!-- Sezione Chi Siamo -->
+    <section id="chi-siamo">
+        <div class="section-title">
+            <span class="subtitle">La nostra visione</span>
+            <h2>Oltre il Software, Creiamo Valore</h2>
+        </div>
+        <div class="about-text">
+            <p>Connect & Create è uno showroom digitale nato per dimostrare come ogni attività, dall'edilizia alla
+                logistica, meritino una presenza online d'impatto. Non ci limitiamo a costruire siti web; progettiamo
+                ponti tra le vostre idee e i vostri futuri clienti, unendo estetica premium e funzionalità svizzera.</p>
+        </div>
+    </section>
+
+    <!-- Sezione Recensioni -->
+    <section id="recensioni">
+        <div class="section-title">
+            <h2>Dicono di noi</h2>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <p class="review-text">"La capacità di trasformare un'idea vaga in una landing page così potente è
+                    straordinaria. Un partner affidabile per ogni progetto digitale."</p>
+                <div class="review-author">Marco Bernasconi</div>
+            </div>
+            <div class="review-card">
+                <p class="review-text">"Design minimale, pulito e intuitivo. Proprio quello che cercavo per dare un
+                    tocco di lusso alla mia agenzia."</p>
+                <div class="review-author">Elena Colombo</div>
+            </div>
+            <div class="review-card">
+                <p class="review-text">"Precisione e velocità nella consegna. La cura dei dettagli è ciò che fa la
+                    differenza rispetto a tutti gli altri."</p>
+                <div class="review-author">Luca Sartori</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Contatti -->
+    <section id="contatti">
+        <div class="section-title">
+            <h2>Iniziamo il tuo progetto</h2>
+            <p>Hai trovato un design che ti ispira? Parliamo di come personalizzarlo per te.</p>
+        </div>
+        <div class="contact-container">
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Messaggio inviato correttamente!');">
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" placeholder="Inserisci il tuo nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="la-tua@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="project">Progetto di interesse</label>
+                    <select id="project" style="padding: 12px; border-radius: 8px; border: 1px solid #ddd;">
+                        <option>Seleziona un progetto...</option>
+                        <option>Sito Pittori</option>
+                        <option>Sito Night Club</option>
+                        <option>Landing One Page</option>
+                        <option>Sito SolArte</option>
+                        <option>Minimal Design</option>
+                        <option>Vetrina Pasticceria</option>
+                        <option>Altro...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Messaggio</label>
+                    <textarea id="message" rows="5" placeholder="Parlaci della tua idea..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Invia Messaggio</button>
+            </form>
+        </div>
+    </section>
 
     <footer>
         &copy; 2026 Connect & Create | Archivio
