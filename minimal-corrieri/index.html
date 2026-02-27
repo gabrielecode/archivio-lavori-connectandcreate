@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corriere Documenti Confidenziali Bellinzona | Phantom Deliveries</title>
+    <meta name="description" content="Servizio di corriere espresso a Bellinzona. Specializzati in consegne sicure di pacchi e documenti confidenziali per aziende, fiduciarie, studi legali e privati in tutto il Canton Ticino.">
+    <meta name="keywords" content="corriere Bellinzona, consegna documenti confidenziali, spedizioni Ticino, corriere espresso Svizzera, logistica sicura, Phantom Deliveries">
+    <meta name="author" content="Phantom Deliveries">
+    
+    <!-- Schema.org per LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Phantom Deliveries - Servizio Corriere Bellinzona",
+      "image": "https://images.unsplash.com/photo-1586528116311-ad8ed3c84a0c?auto=format&fit=crop&w=1200&q=80",
+      "@id": "https://www.phantomdeliveries.ch",
+      "url": "https://www.phantomdeliveries.ch",
+      "telephone": "+4178123456",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Pratocarasso 68",
+        "addressLocality": "Bellinzona",
+        "postalCode": "6500",
+        "addressRegion": "TI",
+        "addressCountry": "CH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 46.2022,
+        "longitude": 9.0232
+      },
+      "description": "Servizio esclusivo di consegna pacchi e documenti confidenziali a Bellinzona e in tutto il Canton Ticino. Massima sicurezza e rapidità svizzera.",
+      "areaServed": "Canton Ticino",
+      "priceRange": "$$"
+    }
+    </script>
+
+    <!-- Google Fonts: Syncopate (Geometric headers) & Space Grotesk (Modern readable body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables & Theming */
+        :root {
+            --page-bg: #e5e6e1;
+            --main-bg: #f3f4ef;
+            --border-color: #111111;
+            --bauhaus-red: #E03C31;
+            --bauhaus-blue: #005A9B;
+            --bauhaus-yellow: #FFD500;
+        }
+
+        [data-theme="dark"] {
+            --page-bg: #050505;
+            --main-bg: #151515;
+            --border-color: #f3f4ef;
+        }
+
+        /* Base Resets */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 2rem 1rem;
+            background-color: var(--page-bg);
+            color: var(--border-color);
+            font-family: 'Space Grotesk', sans-serif;
+            transition: background-color 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, .logo, .syncopate-font {
+            font-family: 'Syncopate', sans-serif;
+            text-transform: uppercase;
+            margin: 0 0 1rem 0;
+            line-height: 1.1;
+            word-wrap: break-word;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 5rem); letter-spacing: -0.05em; }
+        h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); letter-spacing: -0.02em; }
+        h3 { font-size: clamp(1.2rem, 2vw, 1.8rem); }
+        p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem; }
+        a { color: inherit; text-decoration: none; }
+
+        /* Bauhaus Grid System */
+        .bauhaus-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 4px; /* Creates the thick visible grid lines */
+            background-color: var(--border-color);
+            border: 4px solid var(--border-color);
+            max-width: 1400px;
+            margin: 0 auto;
+            transition: background-color 0.4s ease, border-color 0.4s ease;
+        }
+
+        .box {
+            background-color: var(--main-bg);
+            color: var(--border-color);
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            z-index: 1;
+        }
+
+        .box.p-0 { padding: 0 !important; }
+        .box.p-huge { padding: 5rem 3rem; }
+        .box.flex-center { align-items: center; text-align: center; }
+
+        /* Color Utility Classes */
+        .bg-white { background-color: var(--main-bg); color: var(--border-color); }
+        .bg-black { background-color: var(--border-color); color: var(--main-bg); }
+        .bg-yellow { background-color: var(--bauhaus-yellow) !important; color: #111111 !important; }
+        .bg-red { background-color: var(--bauhaus-red) !important; color: #ffffff !important; }
+        .bg-blue { background-color: var(--bauhaus-blue) !important; color: #ffffff !important; }
+
+        /* Grid Spans */
+        .col-span-12 { grid-column: span 12; }
+        .col-span-10 { grid-column: span 10; }
+        .col-span-8 { grid-column: span 8; }
+        .col-span-7 { grid-column: span 7; }
+        .col-span-6 { grid-column: span 6; }
+        .col-span-5 { grid-column: span 5; }
+        .col-span-4 { grid-column: span 4; }
+        .col-span-2 { grid-column: span 2; }
+        .row-span-2 { grid-row: span 2; }
+
+        /* Responsive Grid */
+        @media (max-width: 1024px) {
+            .col-span-8 { grid-column: span 12; }
+            .col-span-4 { grid-column: span 12; }
+            .col-span-5 { grid-column: span 12; }
+            .col-span-7 { grid-column: span 12; }
+            .col-span-10 { grid-column: span 12; }
+            .col-span-2 { grid-column: span 12; }
+            .row-span-2 { grid-row: span 1; }
+        }
+        @media (max-width: 768px) {
+            .col-span-6 { grid-column: span 12; }
+            .box { padding: 2rem; }
+            .box.p-huge { padding: 3rem 2rem; }
+        }
+
+        /* Image Handling */
+        .img-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            transition: transform 0.6s ease;
+        }
+        .box:hover .img-wrapper {
+            transform: scale(1.05);
+        }
+
+        /* Abstract Geometric Elements (Bauhaus DNA) */
+        .content-relative { position: relative; z-index: 2; }
+        
+        .geo-circle {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background-color: var(--bauhaus-red);
+            top: -100px;
+            right: -100px;
+            z-index: 0;
+        }
+        .geo-square {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background-color: var(--bauhaus-blue);
+            bottom: -50px;
+            left: -50px;
+            transform: rotate(45deg);
+            z-index: 0;
+        }
+        .geo-half-circle {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background-color: var(--bauhaus-yellow);
+            border-top-left-radius: 100px;
+            border-top-right-radius: 100px;
+            bottom: 0;
+            right: 15%;
+            z-index: 0;
+        }
+
+        /* Buttons & CTA */
+        .bauhaus-btn {
+            display: inline-block;
+            background-color: var(--border-color);
+            color: var(--main-bg);
+            padding: 1.2rem 2.5rem;
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            border: 4px solid var(--border-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            width: max-content;
+            max-width: 100%;
+        }
+        .bauhaus-btn:hover {
+            background-color: transparent;
+            color: var(--border-color);
+        }
+        /* Button Variants */
+        .bg-red .bauhaus-btn {
+            background-color: #ffffff;
+            color: var(--bauhaus-red);
+            border-color: #ffffff;
+        }
+        .bg-red .bauhaus-btn:hover {
+            background-color: transparent;
+            color: #ffffff;
+        }
+        .bg-black .bauhaus-btn {
+            background-color: var(--main-bg);
+            color: var(--border-color);
+            border-color: var(--main-bg);
+        }
+        .bg-black .bauhaus-btn:hover {
+            background-color: transparent;
+            color: var(--main-bg);
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            font-weight: 700;
+            text-transform: uppercase;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background-color: var(--main-bg);
+            bottom: -8px;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Tables (Pricing) */
+        .bauhaus-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .bauhaus-table th, .bauhaus-table td {
+            border-bottom: 4px solid var(--border-color);
+            padding: 1.5rem;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+        .bauhaus-table th {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.2rem;
+            border-bottom-width: 6px;
+        }
+        .bauhaus-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* FAQ Accordion */
+        details {
+            border-bottom: 4px solid var(--border-color);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        details:last-child { border-bottom: none; margin-bottom: 0; }
+        summary {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 1.5rem 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after {
+            content: '+';
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+        details p {
+            padding-bottom: 1.5rem;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Testimonial Articles */
+        .testimonial-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        .testimonial-quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        .testimonial-author {
+            font-weight: 700;
+            font-family: 'Syncopate', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        /* Widgets (WhatsApp & Dark Mode) */
+        .wa-widget {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            background-color: #25D366;
+            color: #ffffff;
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--border-color);
+            z-index: 9999;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 8px 8px 0px 0px var(--border-color);
+        }
+        .wa-widget:hover { transform: scale(1.1) rotate(-5deg); }
+
+        .dm-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: var(--border-color);
+            color: var(--main-bg);
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--border-color);
+            cursor: pointer;
+            z-index: 9999;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 8px 8px 0px 0px var(--border-color);
+        }
+        .dm-widget:hover { transform: scale(1.1) rotate(15deg); }
+        [data-theme="dark"] .dm-widget {
+            box-shadow: 8px 8px 0px 0px #000000;
+        }
+        [data-theme="dark"] .wa-widget {
+            box-shadow: 8px 8px 0px 0px #000000;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: scale(0.96) translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        
+        /* Decorative vertical text */
+        .vertical-text {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 4rem;
+            margin: 0 auto;
+            opacity: 0.1;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="bauhaus-grid">
+        
+        <!-- HEADER -->
+        <header class="box col-span-12 bg-black flex-center reveal" style="flex-direction: row; justify-content: space-between; padding: 2rem 3rem;">
+            <div class="logo" style="margin: 0; font-size: 1.5rem;">PHANTOM.</div>
+            <nav class="nav-links">
+                <a href="#chi-siamo">Chi Siamo</a>
+                <a href="#servizi">Servizi</a>
+                <a href="#tariffe">Tariffe</a>
+                <a href="#recensioni">Recensioni</a>
+            </nav>
+        </header>
+
+        <!-- HERO SECTION -->
+        <section class="box col-span-8 bg-yellow row-span-2 reveal">
+            <div class="geo-circle"></div>
+            <div class="content-relative">
+                <h1>SICUREZZA<br>ASSOLUTA.</h1>
+                <p style="max-width: 80%; font-size: 1.4rem; font-weight: 600; margin-bottom: 2rem;">Il corriere di fiducia per i tuoi documenti più sensibili e pacchi urgenti a Bellinzona e nel Canton Ticino.</p>
+                <a href="https://wa.me/4178123456" class="bauhaus-btn">PRENOTA RITIRO ORA</a>
+            </div>
+        </section>
+
+        <!-- HERO IMAGE -->
+        <section class="box col-span-4 p-0 row-span-2 reveal">
+            <img src="https://i.postimg.cc/cJJ3TXZn/phantom-corriere.jpg" alt="Corriere Bellinzona Phantom Deliveries" class="img-wrapper">
+        </section>
+
+        <!-- TAGLINE -->
+        <section class="box col-span-12 bg-black reveal flex-center p-huge">
+            <h2 style="margin: 0; font-size: clamp(2rem, 4vw, 4rem); text-align: center;">LA TUA FIDUCIA. LA NOSTRA MISSIONE.</h2>
+        </section>
+
+        <!-- ABOUT US -->
+        <section class="box col-span-4 bg-white reveal p-0" id="chi-siamo">
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80" alt="Documenti Confidenziali Sicuri" class="img-wrapper">
+        </section>
+        <section class="box col-span-8 bg-white reveal">
+            <h2>IL VALORE DELLA SEGRETEZZA</h2>
+            <p>Operare nel settore legale, fiduciario o bancario in Svizzera richiede standard che non ammettono compromessi. <strong>Phantom Deliveries</strong> nasce a Bellinzona per rispondere a un'esigenza chiara: trasportare plichi, contratti originali e pacchi di valore con la massima discrezione e sicurezza antimanomissione.</p>
+            <p>I nostri corrieri non sono semplici autisti, ma professionisti formati e vincolati da rigorosi accordi di riservatezza (NDA). Dal prelievo nel tuo ufficio fino alla consegna nelle mani del destinatario, garantiamo tracciabilità totale e notifiche in tempo reale.</p>
+        </section>
+
+        <!-- SERVICES TITLE -->
+        <section class="box col-span-2 bg-blue reveal flex-center">
+            <div class="syncopate-font" style="font-size: 5rem;">+</div>
+        </section>
+        <section class="box col-span-10 bg-white reveal" id="servizi">
+            <h2 style="margin: 0;">SERVIZI SPECIALIZZATI</h2>
+        </section>
+
+        <!-- SERVICES CARDS -->
+        <section class="box col-span-4 bg-white reveal">
+            <h3>ATTI LEGALI & NOTARILI</h3>
+            <p>Gestione dedicata di procure, testamenti, atti giudiziari e contratti. Consegna con verifica d'identità del destinatario per studi legali e notarili in tutto il Ticino.</p>
+        </section>
+        <section class="box col-span-4 bg-red reveal">
+            <div class="geo-square"></div>
+            <div class="content-relative">
+                <h3>PACCHI URGENTI 2H</h3>
+                <p>Hai un'urgenza critica? Il nostro servizio Express garantisce il ritiro e la consegna entro 2 ore nel comprensorio di Bellinzona, Lugano e Locarno.</p>
+            </div>
+        </section>
+        <section class="box col-span-4 bg-blue reveal">
+            <h3>TRASPORTO VALORI</h3>
+            <p>Protocolli di sicurezza avanzati per il trasporto di beni sensibili, prototipi industriali e campioni medici. Scorta dedicata su richiesta.</p>
+        </section>
+
+        <!-- PRICING -->
+        <section class="box col-span-12 bg-black reveal" id="tariffe">
+            <h2>TARIFFE TRASPARENTI</h2>
+            <p style="max-width: 600px;">Nessun costo nascosto. La sicurezza svizzera con un listino chiaro. Per volumi aziendali, contattaci per convenzioni personalizzate.</p>
+        </section>
+        <section class="box col-span-12 bg-white p-0 reveal">
+            <div style="padding: 3rem; overflow-x: auto;">
+                <table class="bauhaus-table">
+                    <tr>
+                        <th>SERVIZIO</th>
+                        <th>ZONA DI COPERTURA</th>
+                        <th>TEMPISTICA</th>
+                        <th>PREZZO (CHF)</th>
+                    </tr>
+                    <tr>
+                        <td>Standard Confidenziale</td>
+                        <td>Urbano Bellinzona</td>
+                        <td>Entro le 18:00</td>
+                        <td>35.00</td>
+                    </tr>
+                    <tr>
+                        <td>Express Priority</td>
+                        <td>Bellinzona e dintorni</td>
+                        <td>Entro 2 Ore</td>
+                        <td>75.00</td>
+                    </tr>
+                    <tr>
+                        <td>Ticino Full Coverage</td>
+                        <td>Tutto il Canton Ticino</td>
+                        <td>In Giornata</td>
+                        <td>120.00</td>
+                    </tr>
+                    <tr>
+                        <td>Scorta Valori / Dedicato</td>
+                        <td>Svizzera (Nazionale)</td>
+                        <td>Personalizzata</td>
+                        <td>Su Preventivo</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS TITLE -->
+        <section class="box col-span-12 bg-red reveal" id="recensioni">
+            <div class="geo-circle" style="background-color: var(--bauhaus-yellow); top: 50%; right: 10%; width: 200px; height: 200px;"></div>
+            <div class="content-relative">
+                <h2>DICONO DI NOI</h2>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS MASONRY/GRID -->
+        <article class="box col-span-5 bg-white reveal testimonial-card">
+            <p class="testimonial-quote">"Un partner logistico insostituibile. Affidiamo a Phantom Deliveries i nostri atti legali più delicati. Consegne a Bellinzona e Lugano sempre puntuali e tracciate al millimetro."</p>
+            <p class="testimonial-author">— Avv. Marco R., Studio Legale Associato</p>
+        </article>
+        
+        <article class="box col-span-7 bg-blue reveal testimonial-card">
+            <div class="vertical-text syncopate-font">FIDUCIA</div>
+            <div class="content-relative">
+                <p class="testimonial-quote">"La privacy è fondamentale nel nostro settore. Phantom garantisce un servizio di corriere confidenziale impeccabile. Sigilli perfetti e massima discrezione. Consigliatissimo in tutto il Ticino."</p>
+                <p class="testimonial-author">— Elena F., Fiduciaria Locarno</p>
+            </div>
+        </article>
+
+        <article class="box col-span-4 bg-yellow reveal testimonial-card">
+            <p class="testimonial-quote">"Velocità e sicurezza assolute. Avevamo urgenza di trasferire contratti in originale da Locarno a Bellinzona in meno di 2 ore. Obiettivo raggiunto."</p>
+            <p class="testimonial-author">— Giorgio T., Direttore Commerciale</p>
+        </article>
+
+        <article class="box col-span-4 bg-white reveal testimonial-card">
+            <p class="testimonial-quote">"I loro corrieri sono professionisti formati. Non è il classico servizio di spedizione, ma una vera e propria scorta per i nostri documenti sensibili."</p>
+            <p class="testimonial-author">— Laura B., Studio Notarile Bellinzona</p>
+        </article>
+
+        <article class="box col-span-4 bg-black reveal testimonial-card">
+            <p class="testimonial-quote">"Per le consegne urgenti di campioni medici del nostro laboratorio, non ci affidiamo a nessun altro. Rispetto rigoroso delle tempistiche."</p>
+            <p class="testimonial-author">— Dr. Roberto C., Laboratorio Analisi</p>
+        </article>
+
+        <article class="box col-span-6 bg-white reveal testimonial-card">
+            <p class="testimonial-quote">"Ho utilizzato il servizio per recapitare un plico confidenziale personale di grande valore. Massima serietà, e la notifica di consegna in tempo reale è comodissima."</p>
+            <p class="testimonial-author">— Silvia M., Cliente Privato</p>
+        </article>
+
+        <article class="box col-span-6 bg-white reveal testimonial-card">
+            <p class="testimonial-quote">"Eccellenza ticinese. Tariffe chiare, servizio clienti sempre reperibile e la comodità di prenotare il ritiro direttamente via WhatsApp fa la differenza."</p>
+            <p class="testimonial-author">— Matteo S., Imprenditore</p>
+        </article>
+
+        <!-- FAQ SECTION -->
+        <section class="box col-span-4 bg-black reveal flex-center">
+            <h2 style="font-size: 5rem; margin: 0;">FAQ</h2>
+        </section>
+        <section class="box col-span-8 bg-white reveal" id="faq">
+            <details>
+                <summary>Come garantite la sicurezza e la privacy dei documenti?</summary>
+                <p>Utilizziamo plichi sigillati antimanomissione. Tutti i nostri corrieri sono assunti internamente, sottoposti a controlli rigorosi e firmano accordi di non divulgazione (NDA). Seguiamo protocolli di trasporto tracciati via GPS esclusivamente su veicoli aziendali sicuri.</p>
+            </details>
+            <details>
+                <summary>Quali sono le zone coperte dal servizio?</summary>
+                <p>La nostra sede operativa è a Bellinzona, il che ci permette di coprire capillarmente tutto il Canton Ticino (Lugano, Locarno, Mendrisio, Chiasso, Valli). Su richiesta preventiva, effettuiamo consegne dedicate in tutta la Svizzera.</p>
+            </details>
+            <details>
+                <summary>Consegnate anche pacchi voluminosi o solo documenti?</summary>
+                <p>Siamo specializzati nel recapito di plichi, documenti legali e piccoli colli/pacchi fino a 20 kg. Per spedizioni di volumi o pesi superiori, organizziamo trasporti dedicati su misura previo preventivo.</p>
+            </details>
+            <details>
+                <summary>È possibile tracciare la spedizione in tempo reale?</summary>
+                <p>Assolutamente sì. Forniamo un contatto diretto con il corriere assegnato e inviamo conferme di ritiro e consegna istantanee, includendo la firma digitale del destinatario per validità legale.</p>
+            </details>
+        </section>
+
+        <!-- CTA BANNER -->
+        <section class="box col-span-12 bg-blue reveal flex-center p-huge">
+            <h2 style="margin-bottom: 2rem;">IL TUO CORRIERE CONFIDENZIALE TI ASPETTA.</h2>
+            <a href="https://wa.me/4178123456" class="bauhaus-btn">CONTATTACI SU WHATSAPP</a>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="box col-span-12 bg-black reveal p-huge" style="position: relative;">
+            <div class="geo-half-circle"></div>
+            <div class="content-relative" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+                <div>
+                    <h2>PHANTOM<br>DELIVERIES.</h2>
+                    <p style="margin-top: 1rem; max-width: 400px;">Il partner logistico d'eccellenza per le aziende e i professionisti ticinesi che esigono privacy e puntualità.</p>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 1rem;">SEDE OPERATIVA</h3>
+                    <p>Via Pratocarasso 68<br>6500 Bellinzona<br>Canton Ticino, Svizzera</p>
+                    <p style="margin-top: 1rem;">
+                        <strong>Tel:</strong> +41 78 123 45 67<br>
+                        <strong>Email:</strong> info@phantomdeliveries.ch
+                    </p>
+                </div>
+            </div>
+            <div class="content-relative" style="margin-top: 4rem; padding-top: 2rem; border-top: 4px solid var(--main-bg); display: flex; justify-content: space-between; flex-wrap: wrap;">
+                <p style="font-size: 0.9rem;">&copy; 2026 Phantom Deliveries Sagl. Tutti i diritti riservati.</p>
+                <p style="font-size: 0.9rem; font-weight: bold;">Design by SitiTicino.ch</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- WHATSAPP WIDGET -->
+    <a href="https://wa.me/4178123456" class="wa-widget" target="_blank" rel="noopener noreferrer" aria-label="Contattaci su WhatsApp">
+        <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <!-- DARK MODE TOGGLE WIDGET -->
+    <button id="dark-mode-toggle" class="dm-widget" aria-label="Toggle Dark Mode">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+            <path d="M12 21.5c-5.24 0-9.5-4.26-9.5-9.5S6.76 2.5 12 2.5s9.5 4.26 9.5 9.5-4.26 9.5-9.5 9.5zm0-17C7.86 4.5 4.5 7.86 4.5 12s3.36 7.5 7.5 7.5V4.5z"/>
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Dark Mode Toggle Logic
+            const toggleBtn = document.getElementById('dark-mode-toggle');
+            const htmlTag = document.documentElement;
+
+            toggleBtn.addEventListener('click', () => {
+                const currentTheme = htmlTag.getAttribute('data-theme');
+                if (currentTheme === 'dark') {
+                    htmlTag.setAttribute('data-theme', 'light');
+                } else {
+                    htmlTag.setAttribute('data-theme', 'dark');
+                }
+            });
+
+            // Intersection Observer for Entrance Animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.05
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: stop observing once revealed
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
