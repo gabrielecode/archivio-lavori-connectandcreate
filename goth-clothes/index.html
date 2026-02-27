@@ -1,773 +1,365 @@
 <!DOCTYPE html>
 <html lang="en" class="dark" style="scroll-behavior: smooth;">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goth Clothes Milano | High-End Dark Alternative Fashion | Nocturna</title>
-    <meta name="description" content="Discover Nocturna Milano, the premier destination for luxury goth clothes, avant-garde streetwear, and dark alternative fashion in the heart of Italy. Shop corsets, footwear, and tailor-made shadows.">
-    <meta name="keywords" content="Goth clothes Milano, alternative fashion Italy, dark streetwear, gothic corsets, platform boots Milano, avant-garde clothing, dark aesthetic apparel">
-    
-    <!-- Google Fonts: Elegant, Gothic Vibe -->
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
-    <!-- JSON-LD Schema for Local Business / Store -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ClothingStore",
-      "name": "Nocturna Milano Goth Fashion",
-      "image": "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=1920",
-      "@id": "https://nocturna-milano.it",
-      "url": "https://nocturna-milano.it",
-      "telephone": "+39 02 1234 5678",
-      "priceRange": "$$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Via Torino, 42",
-        "addressLocality": "Milano",
-        "postalCode": "20123",
-        "addressCountry": "IT"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 45.4642,
-        "longitude": 9.1900
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "11:00",
-        "closes": "20:00"
-      },
-      "description": "High-end gothic clothing and dark alternative fashion boutique located in Milano, Italy."
-    }
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        cormorant: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#8b0000',
+                            foreground: '#ffffff',
+                        },
+                        accent: '#8b0000',
+                    }
+                }
+            }
+        }
     </script>
 
-    <style>
-        /* CSS Variables for Theming */
-        :root {
-            /* Light Theme (Parchment/Marble Gothic) */
-            --bg-color: #f0ebe1;
-            --surface-color: #e3dcd1;
-            --text-primary: #1a1818;
-            --text-secondary: #3a3535;
-            --accent-color: #7a0010; /* Deep Blood Red */
-            --accent-hover: #50000a;
-            --border-color: #c8c0b4;
-            --overlay: rgba(240, 235, 225, 0.85);
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --background: 0 0% 100%;
+                --foreground: 222.2 84% 4.9%;
+                --muted: 210 40% 96.1%;
+                --muted-foreground: 215.4 16.3% 46.9%;
+                --border: 214.3 31.8% 91.4%;
+                --input: 214.3 31.8% 91.4%;
+                --primary: 0 100% 27%;
+            }
+            .dark {
+                --background: 222.2 84% 4.9%;
+                --foreground: 210 40% 98.1%;
+                --muted: 217.2 32.6% 17.5%;
+                --muted-foreground: 215 20.2% 65.1%;
+                --border: 217.2 32.6% 17.5%;
+                --input: 217.2 32.6% 17.5%;
+                --primary: 0 100% 27%;
+            }
+            body {
+                @apply bg-white text-black dark:bg-[#050505] dark:text-[#e8e8e8] overflow-x-hidden transition-colors duration-300;
+                font-family: 'Cormorant Garamond', serif;
+            }
         }
-
-        html.dark {
-            /* Dark Theme (Classic Gothic) */
-            --bg-color: #050505;
-            --surface-color: #121212;
-            --text-primary: #e8e8e8;
-            --text-secondary: #a0a0a0;
-            --accent-color: #8b0000;
-            --accent-hover: #ff1a1a;
-            --border-color: #2a2a2a;
-            --overlay: rgba(5, 5, 5, 0.85);
+        @layer components {
+            .gothic-arch {
+                clip-path: polygon(50% 0%, 100% 15%, 100% 100%, 0% 100%, 0% 15%);
+            }
+            .gothic-border {
+                @apply border border-black/10 dark:border-white/10 p-1 relative;
+            }
+            .gothic-border::before {
+                content: '';
+                @apply absolute top-1 left-1 right-1 bottom-1 border border-black/10 dark:border-white/10 pointer-events-none;
+            }
         }
-
-        /* Reset & Base Setup */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.125rem;
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: background-color 0.5s ease, color 0.5s ease;
-            /* Subtle texture overlay */
-            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.03"/></svg>');
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cinzel', serif;
-            font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        a {
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        /* Layout & Typography */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .text-center { text-align: center; }
-        .mb-2 { margin-bottom: 2rem; }
-        .mb-4 { margin-bottom: 4rem; }
-        .mt-4 { margin-top: 4rem; }
-
-        /* Structural Artistic Element: The Pointed Arch */
-        .gothic-arch {
-            clip-path: polygon(50% 0%, 100% 15%, 100% 100%, 0% 100%, 0% 15%);
-        }
-
-        .gothic-border {
-            border: 1px solid var(--border-color);
-            padding: 2px;
-            position: relative;
-        }
-        .gothic-border::before {
-            content: '';
-            position: absolute;
-            top: 4px; left: 4px; right: 4px; bottom: 4px;
-            border: 1px solid var(--border-color);
-            pointer-events: none;
-        }
-
-        /* Buttons */
-        .cta-primary {
-            display: inline-block;
-            background: transparent;
-            color: var(--text-primary);
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            letter-spacing: 3px;
-            padding: 1rem 3rem;
-            border: 1px solid var(--accent-color);
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            text-transform: uppercase;
-        }
-
-        .cta-primary::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--accent-color);
-            z-index: -1;
-            transform: scaleY(0);
-            transform-origin: bottom;
-            transition: transform 0.4s ease;
-        }
-
-        .cta-primary:hover::before {
-            transform: scaleY(1);
-        }
-        .cta-primary:hover {
-            color: #fff;
-            border-color: var(--accent-hover);
-        }
-
-        /* --- Sections --- */
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            padding: 1.5rem 0;
-            z-index: 100;
-            background: var(--overlay);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-        }
-        .header-inner {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .logo {
-            font-family: 'Cinzel', serif;
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: 5px;
-            color: var(--accent-color);
-        }
-
-        /* Hero Section */
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding-top: 80px;
-        }
-        .hero-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            z-index: -2;
-            filter: grayscale(100%) contrast(1.2) brightness(0.6);
-        }
-        html.dark .hero-bg {
-            filter: grayscale(80%) contrast(1.2) brightness(0.3);
-        }
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            padding: 4rem 2rem;
-            background: var(--overlay);
-            backdrop-filter: blur(5px);
-            border: 1px solid var(--border-color);
-        }
-        .hero-title {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
-        .hero-subtitle {
-            font-size: 1.5rem;
-            font-style: italic;
-            margin-bottom: 2.5rem;
-            color: var(--text-secondary);
-        }
-
-        /* About / Intro */
-        .intro-section {
-            padding: 8rem 0;
-            text-align: center;
-            position: relative;
-        }
-        .tall-narrow-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .intro-text {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-        }
-        .divider {
-            width: 2px;
-            height: 100px;
-            background: var(--accent-color);
-            margin: 3rem auto;
-        }
-
-        /* Collections Grid */
-        .collections-section {
-            padding: 6rem 0;
-            background: var(--surface-color);
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-        .collection-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.4s ease;
-        }
-        .collection-card:hover {
-            transform: translateY(-10px);
-        }
-        .card-img-wrapper {
-            width: 100%;
-            aspect-ratio: 1 / 1.5;
-            overflow: hidden;
-            margin-bottom: 1.5rem;
-            background: var(--bg-color);
-        }
-        .card-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.7s ease, filter 0.5s ease;
-            filter: grayscale(60%);
-        }
-        .collection-card:hover img {
-            transform: scale(1.05);
-            filter: grayscale(0%);
-        }
-        .card-title {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            padding: 8rem 0;
-            position: relative;
-        }
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        .testimonial-card {
-            padding: 3rem 2rem;
-            background: var(--surface-color);
-            border-left: 2px solid var(--accent-color);
-            position: relative;
-        }
-        .testimonial-card::before {
-            content: '❝';
-            position: absolute;
-            top: 10px; right: 20px;
-            font-size: 4rem;
-            color: var(--border-color);
-            font-family: serif;
-            line-height: 1;
-        }
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: var(--text-secondary);
-        }
-        .testimonial-author {
-            font-family: 'Cinzel', serif;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        .testimonial-location {
-            font-size: 0.9rem;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            padding: 6rem 0;
-            background: var(--surface-color);
-        }
-        .faq-item {
-            border-bottom: 1px solid var(--border-color);
-            padding: 1.5rem 0;
-        }
-        .faq-question {
-            font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, margin-top 0.4s ease;
-            color: var(--text-secondary);
-        }
-        .faq-item.active .faq-answer {
-            max-height: 200px;
-            margin-top: 1rem;
-        }
-        .faq-icon {
-            transition: transform 0.3s ease;
-        }
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        /* Final CTA Section */
-        .final-cta {
-            padding: 10rem 0;
-            text-align: center;
-            background: linear-gradient(to top, var(--surface-color), var(--bg-color));
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-color);
-            border-top: 1px solid var(--border-color);
-            padding: 4rem 0 2rem;
-            text-align: center;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-            text-align: left;
-        }
-        .footer-col h4 {
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-        .footer-col p, .footer-col a {
-            color: var(--text-secondary);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        .footer-col a:hover {
-            color: var(--accent-color);
-        }
-        .footer-bottom {
-            border-top: 1px solid var(--border-color);
-            padding-top: 2rem;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        /* Floating Widgets */
-        .floating-widget {
-            position: fixed;
-            bottom: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
-        }
-        .floating-widget:hover {
-            transform: scale(1.1);
-        }
-
-        /* WhatsApp Widget */
-        .wa-widget {
-            left: 20px;
-            background-color: #25D366;
-            color: white;
-        }
-        .wa-widget svg {
-            width: 28px;
-            height: 28px;
-            fill: currentColor;
-        }
-
-        /* Theme Toggle */
-        .theme-toggle {
-            right: 20px;
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-        }
-        .theme-toggle svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-
-        /* Animations */
         .fade-in-up {
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
         }
         .fade-in-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            .hero-content { padding: 2rem 1rem; }
-            .gothic-arch { clip-path: polygon(50% 0%, 100% 10%, 100% 100%, 0% 100%, 0% 10%); }
+        /* Slideshow Styles */
+        .slideshow-box {
+            position: relative; width: 100%; height: 500px;
+            overflow: hidden; background: #000;
+        }
+        .slide-item {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            opacity: 0; visibility: hidden;
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .slide-item.active { opacity: 1; visibility: visible; }
+        .slide-item::after {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));
         }
     </style>
+
+    <!-- React & Dependencies CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.js"></script>
 </head>
+
 <body>
+    <div id="root"></div>
 
-    <!-- Header -->
-    <header>
-        <div class="container header-inner">
-            <a href="#" class="logo">NOCTURNA</a>
-        </div>
-    </header>
+    <script type="text/babel">
+        // Debugging logs to identify potential load issues
+        console.log("Loading Nocturna Scripts...");
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=1920" alt="Dark Gothic Fashion Milano" class="hero-bg">
-        <div class="container text-center">
-            <div class="hero-content gothic-border fade-in-up">
-                <h1 class="hero-title">Embrace the Elegance of the Abyss</h1>
-                <p class="hero-subtitle">Milano's Premier Sanctuary for Dark Haute Couture & Alternative Aesthetics.</p>
-                <a href="#collections" class="cta-primary">Shop the Shadows</a>
-            </div>
-        </div>
-    </section>
+        // Safely extract from globals
+        const { useState, useEffect, forwardRef, useMemo } = React;
 
-    <!-- Intro / Philosophy -->
-    <article class="intro-section container">
-        <div class="tall-narrow-container fade-in-up">
-            <h2>The Dark Heart of Italian Tailoring</h2>
-            <div class="divider"></div>
-            <p class="intro-text">
-                Situated in the historic, cobblestone shadows of Milano, Nocturna is more than a boutique; it is a manifestation of nocturnal elegance. We curate the finest gothic apparel, avant-garde streetwear, and uncompromising accessories. Here, traditional Milanese craftsmanship bleeds into dark alternative culture, offering garments that empower the soul and obscure the mundane.
-            </p>
-            <div class="divider"></div>
-        </div>
-    </article>
+        // Robust Framer Motion check
+        const motion = (window.Motion && window.Motion.motion) || (window.framerMotion && window.framerMotion.motion) || {
+            div: (props) => <div {...props} />,
+            img: (props) => <img {...props} />,
+            button: (props) => <button {...props} />,
+            header: (props) => <header {...props} />,
+            span: (props) => <span {...props} />
+        };
 
-    <!-- Collections Grid -->
-    <section id="collections" class="collections-section">
-        <div class="container">
-            <h2 class="text-center mb-4 fade-in-up">Our Cursed Curations</h2>
-            <div class="grid-container">
-                
-                <!-- Category 1 -->
-                <div class="collection-card fade-in-up">
-                    <div class="card-img-wrapper gothic-arch gothic-border">
-                        <img src="https://images.unsplash.com/photo-1512413914619-7589d891b241?auto=format&fit=crop&q=80&w=800" alt="Gothic Outerwear Milano" loading="lazy">
-                    </div>
-                    <h3 class="card-title">Outerwear & Cloaks</h3>
-                    <p class="text-center text-secondary">Drape yourself in structured wool and flowing velvet. Designed for the chilling Milanese fog.</p>
-                </div>
+        // Robust Lucide React check
+        const Lucide = window.LucideReact || {};
+        const {
+            Facebook = () => "FB",
+            Instagram = () => "IG",
+            Twitter = () => "TW",
+            Linkedin = () => "LN",
+            Moon = () => "M",
+            Sun = () => "S",
+            Send = () => ">"
+        } = Lucide;
 
-                <!-- Category 2 -->
-                <div class="collection-card fade-in-up" style="transition-delay: 0.2s;">
-                    <div class="card-img-wrapper gothic-arch gothic-border">
-                        <img src="https://images.unsplash.com/photo-1555274175-6cbf6f3b137b?auto=format&fit=crop&q=80&w=800" alt="Platform Boots & Footwear" loading="lazy">
-                    </div>
-                    <h3 class="card-title">Heavy Tread Footwear</h3>
-                    <p class="text-center text-secondary">From towering platforms to combat boots. Step with authority across the Piazza del Duomo.</p>
-                </div>
+        const cn = (...classes) => classes.filter(Boolean).join(' ');
 
-                <!-- Category 3 -->
-                <div class="collection-card fade-in-up" style="transition-delay: 0.4s;">
-                    <div class="card-img-wrapper gothic-arch gothic-border">
-                        <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&q=80&w=800" alt="Corsets and Accessories" loading="lazy">
-                    </div>
-                    <h3 class="card-title">Corsetry & Adornments</h3>
-                    <p class="text-center text-secondary">Steel-boned silhouettes and silver hardware. The quintessential architecture of the gothic form.</p>
-                </div>
+        // --- Components ---
 
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials-section container">
-        <h2 class="text-center mb-4 fade-in-up">Whispers from the Coven</h2>
-        <div class="testimonials-grid">
-            
-            <div class="testimonial-card fade-in-up">
-                <p class="testimonial-text">"Finding high-quality goth clothes in Milano that don't feel like cheap costumes used to be impossible. Nocturna offers genuine, beautifully tailored dark fashion. The velvet corset I purchased is a masterpiece of Italian craftsmanship."</p>
-                <div class="testimonial-author">Lucrezia V.</div>
-                <div class="testimonial-location">Brera, Milano</div>
-            </div>
-
-            <div class="testimonial-card fade-in-up" style="transition-delay: 0.1s;">
-                <p class="testimonial-text">"The atmosphere of the store is breathtaking. I bought a pair of platform boots that have survived countless nights out at local alternative clubs. Exceptional quality and unparalleled aesthetic."</p>
-                <div class="testimonial-author">Matteo D.</div>
-                <div class="testimonial-location">Navigli, Milano</div>
-            </div>
-
-            <div class="testimonial-card fade-in-up" style="transition-delay: 0.2s;">
-                <p class="testimonial-text">"As someone deeply embedded in the corporate world by day, Nocturna provides my weekend sanctuary. Their avant-garde coats blend high fashion with striking gothic undertones perfectly."</p>
-                <div class="testimonial-author">Elena S.</div>
-                <div class="testimonial-location">Porta Nuova, Milano</div>
-            </div>
-
-            <div class="testimonial-card fade-in-up" style="transition-delay: 0.3s;">
-                <p class="testimonial-text">"Finally, a brand that understands romantic goth. The lace detailing on their latest collection is exquisite. Their customer service via WhatsApp was incredibly helpful for sizing."</p>
-                <div class="testimonial-author">Camilla R.</div>
-                <div class="testimonial-location">Isola, Milano</div>
-            </div>
-
-            <div class="testimonial-card fade-in-up" style="transition-delay: 0.4s;">
-                <p class="testimonial-text">"I traveled from Torino just to visit their boutique. The selection of silver jewelry and hardware-heavy streetwear is unmatched in Northern Italy. A true institution."</p>
-                <div class="testimonial-author">Alessandro F.</div>
-                <div class="testimonial-location">Torino / Milano</div>
-            </div>
-
-            <div class="testimonial-card fade-in-up" style="transition-delay: 0.5s;">
-                <p class="testimonial-text">"The materials they use—heavy cottons, genuine leather, thick silks—justify every euro. This is 'slow fashion' for the children of the night."</p>
-                <div class="testimonial-author">Beatrice M.</div>
-                <div class="testimonial-location">Città Studi, Milano</div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container tall-narrow-container">
-            <h2 class="text-center mb-4 fade-in-up">Tomes of Knowledge (FAQ)</h2>
-            
-            <div class="faq-item fade-in-up">
-                <div class="faq-question">
-                    Do you offer international shipping?
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    While our soul resides in Milano, we ship our dark garments globally. Shipping costs and times are calculated at checkout based on your sanctuary's location.
-                </div>
-            </div>
-
-            <div class="faq-item fade-in-up">
-                <div class="faq-question">
-                    Are your corsets suitable for tightlacing?
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    Yes. Our premium corsets are constructed with authentic steel boning and high-tensile lacing, designed for both aesthetic appeal and serious waist training.
-                </div>
-            </div>
-
-            <div class="faq-item fade-in-up">
-                <div class="faq-question">
-                    Where is your Milano boutique located?
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    Our physical coven is located at Via Torino 42, 20123 Milano. We welcome visitors from Tuesday to Saturday, as the sun begins to set.
-                </div>
-            </div>
-
-            <div class="faq-item fade-in-up">
-                <div class="faq-question">
-                    Do you use vegan materials?
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    We offer a dedicated line of high-quality, durable vegan leathers and cruelty-free alternatives without compromising the heavy, dark aesthetic you seek.
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta">
-        <div class="container fade-in-up">
-            <h2>Claim Your Darkness</h2>
-            <p class="intro-text mb-4">Book a private styling session at our Milano boutique or explore our digital catacombs.</p>
-            <a href="https://wa.me/41789340702" target="_blank" class="cta-primary">Contact the Coven</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Nocturna Milano</h4>
-                    <p>Via Torino, 42</p>
-                    <p>20123 Milano, Italy</p>
-                    <p>Phone: +39 02 1234 5678</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Explore</h4>
-                    <a href="#">New Arrivals</a>
-                    <a href="#">Corsetry</a>
-                    <a href="#">Footwear</a>
-                    <a href="#">Gift Cards</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Return Policy</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Nocturna Goth Fashion Milano. All rights reserved.</p>
-                <p>Design by SitiTicino.ch</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Floating WhatsApp Widget -->
-    <a href="https://wa.me/41789340702" target="_blank" rel="noopener noreferrer" class="floating-widget wa-widget" aria-label="Chat on WhatsApp">
-        <svg viewBox="0 0 24 24">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z" fill-rule="evenodd" clip-rule="evenodd"/>
-        </svg>
-    </a>
-
-    <!-- Theme Toggle Widget -->
-    <div class="floating-widget theme-toggle" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
-        <!-- Moon Icon -->
-        <svg id="moon-icon" viewBox="0 0 24 24" style="display: block;">
-            <path d="M12.1,22c-5.1,0-9.2-4.1-9.2-9.2c0-4.7,3.5-8.7,8.1-9.2c0.3,0,0.5,0.3,0.4,0.6c-0.6,1.9-0.5,4,0.4,5.8 c1.2,2.3,3.3,4,5.8,4.6c0.3,0.1,0.5,0.4,0.4,0.7C17.4,20.2,14.9,22,12.1,22z"/>
-        </svg>
-        <!-- Sun Icon (Hidden by default) -->
-        <svg id="sun-icon" viewBox="0 0 24 24" style="display: none;">
-            <path d="M12,17c-2.8,0-5-2.2-5-5s2.2-5,5-5s5,2.2,5,5S14.8,17,12,17z M12,9c-1.7,0-3,1.3-3,3s1.3,3,3,3s3-1.3,3-3S13.7,9,12,9z"/>
-            <path d="M12,4V2M12,22v-2M4,12H2M22,12h-2M6.3,6.3L4.9,4.9M19.1,19.1l-1.4-1.4M6.3,17.7l-1.4,1.4M19.1,4.9l-1.4,1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-    </div>
-
-    <!-- Scripts -->
-    <script>
-        // Intersection Observer for scroll animations
-        document.addEventListener("DOMContentLoaded", () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15
+        const Button = forwardRef(({ className, variant = "default", size = "default", ...props }, ref) => {
+            const variants = {
+                default: "bg-[#8b0000] text-white hover:bg-[#a00000]",
+                outline: "border border-input bg-transparent hover:bg-muted dark:hover:bg-white/5",
+                ghost: "hover:bg-muted dark:hover:bg-white/5",
             };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.fade-in-up').forEach(el => {
-                observer.observe(el);
-            });
-
-            // FAQ Accordion Logic
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                question.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
-                    // Close all others
-                    faqItems.forEach(faq => faq.classList.remove('active'));
-                    // Toggle current
-                    if (!isActive) {
-                        item.classList.add('active');
-                    }
-                });
-            });
-
-            // Theme Toggle Logic
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            const htmlEl = document.documentElement;
-            const moonIcon = document.getElementById('moon-icon');
-            const sunIcon = document.getElementById('sun-icon');
-
-            themeToggleBtn.addEventListener('click', () => {
-                if (htmlEl.classList.contains('dark')) {
-                    htmlEl.classList.remove('dark');
-                    moonIcon.style.display = 'none';
-                    sunIcon.style.display = 'block';
-                } else {
-                    htmlEl.classList.add('dark');
-                    moonIcon.style.display = 'block';
-                    sunIcon.style.display = 'none';
-                }
-            });
+            const sizes = {
+                default: "h-10 px-4 py-2",
+                sm: "h-9 px-3 text-xs",
+                icon: "h-10 w-10 flex items-center justify-center",
+            };
+            return (
+                <button
+                    ref={ref}
+                    className={cn(
+                        "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium transition-colors focus:outline-none disabled:opacity-50",
+                        variants[variant],
+                        sizes[size],
+                        className
+                    )}
+                    {...props}
+                />
+            );
         });
+
+        const Input = forwardRef(({ className, ...props }, ref) => (
+            <input
+                ref={ref}
+                className={cn(
+                    "flex h-10 w-full rounded-lg border border-white/10 bg-black/20 px-4 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-[#8b0000]",
+                    className
+                )}
+                {...props}
+            />
+        ));
+
+        const Switch = ({ checked, onCheckedChange }) => (
+            <button
+                type="button"
+                onClick={() => onCheckedChange(!checked)}
+                className={cn(
+                    "relative inline-flex h-5 w-9 items-center rounded-full transition-colors",
+                    checked ? "bg-[#8b0000]" : "bg-zinc-700"
+                )}
+            >
+                <span className={cn(
+                    "inline-block h-4 w-4 transform rounded-full bg-white transition-transform",
+                    checked ? "translate-x-4" : "translate-x-1"
+                )} />
+            </button>
+        );
+
+        const MinimalistHero = ({ logoText, navLinks, mainText, readMoreLink, imageSrc, imageAlt, overlayText, locationText }) => (
+            <div className="relative flex min-h-screen w-full flex-col items-center justify-between bg-white dark:bg-[#050505] p-8 font-sans md:p-12 overflow-hidden">
+                <header className="z-30 flex w-full max-w-7xl items-center justify-between pt-4">
+                    <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="text-2xl font-bold tracking-[0.3em] font-cinzel text-[#8b0000]">{logoText}</motion.div>
+                    <div className="hidden space-x-12 md:flex">
+                        {navLinks.map((link) => (
+                            <a key={link.label} href={link.href} className="text-sm font-medium tracking-widest opacity-60 transition-all hover:opacity-100 font-cinzel hover:text-[#8b0000]">{link.label}</a>
+                        ))}
+                    </div>
+                </header>
+
+                <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 items-center md:grid-cols-3 py-12">
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }} className="z-20 text-center md:text-left order-2 md:order-1">
+                        <p className="mx-auto max-w-xs text-sm leading-relaxed text-zinc-500 md:mx-0">{mainText}</p>
+                        <a href={readMoreLink} className="mt-4 inline-block text-xs font-bold tracking-widest uppercase underline decoration-[#8b0000] underline-offset-8 hover:text-[#8b0000]">Read More</a>
+                    </motion.div>
+
+                    <div className="relative flex justify-center items-center order-1 md:order-2 h-full">
+                        <div className="absolute z-0 h-[300px] w-[300px] rounded-full bg-[#8b0000]/10 blur-3xl lg:h-[500px] lg:w-[500px]"></div>
+                        <motion.img initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} src={imageSrc} className="relative z-10 w-56 md:w-64 scale-[1.7] grayscale contrast-125" />
+                    </div>
+
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }} className="z-20 text-center md:text-left order-3">
+                        <h1 className="text-7xl lg:text-9xl font-black font-cinzel tracking-tighter leading-[0.8] uppercase">
+                            <span className="opacity-10 block">{overlayText.part1}</span>
+                            <span className="text-[#8b0000] block">{overlayText.part2}</span>
+                        </h1>
+                    </motion.div>
+                </div>
+            </div>
+        );
+
+        const CursedSlideshow = () => {
+            const slides = [
+                { img: "https://images.unsplash.com/photo-1515468381879-40d0ded81044?auto=format&fit=crop&q=80&w=1200", text: ["BETWEEN SHADOW", "AND LIGHT"] },
+                { img: "https://images.unsplash.com/photo-1549439602-43ebca2327af?auto=format&fit=crop&q=80&w=1200", text: ["SILENCE SPEAKS", "THROUGH FORM"] },
+                { img: "https://images.unsplash.com/photo-1512413914619-7589d891b241?auto=format&fit=crop&q=80&w=1200", text: ["ESSENCE BEYOND", "PERCEPTION"] }
+            ];
+            const [current, setCurrent] = useState(0);
+            useEffect(() => {
+                const timer = setInterval(() => setCurrent(s => (s + 1) % slides.length), 5000);
+                return () => clearInterval(timer);
+            }, []);
+            return (
+                <div className="slideshow-box rounded overflow-hidden gothic-border">
+                    {slides.map((slide, i) => (
+                        <div key={i} className={cn("slide-item", i === current && "active")} style={{ backgroundImage: `url(${slide.img})` }}>
+                            <div className="relative z-10 text-center px-4">
+                                {slide.text.map((t, j) => (
+                                    <span key={j} className="font-cinzel text-3xl md:text-5xl font-black text-white block opacity-0 active:opacity-100 transition-all uppercase">
+                                        {t}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                    <div className="absolute bottom-6 left-6 font-sans font-bold text-xs opacity-50 text-white">0{current + 1} / 0{slides.length}</div>
+                </div>
+            );
+        };
+
+        const Footer = () => {
+            const [isDarkMode, setIsDarkMode] = useState(true);
+            useEffect(() => {
+                if (isDarkMode) document.documentElement.classList.add("dark");
+                else document.documentElement.classList.remove("dark");
+            }, [isDarkMode]);
+
+            return (
+                <footer className="border-t border-black/5 dark:border-white/5 bg-white dark:bg-[#050505] py-16">
+                    <div className="container mx-auto px-8 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+                        <div>
+                            <h2 className="mb-4 text-3xl font-bold font-cinzel uppercase">Join the Coven</h2>
+                            <p className="mb-6 opacity-60 font-cormorant text-lg">Subscribe to our nocturnal dispatch for exclusive dark fashion drops.</p>
+                            <div className="flex gap-2">
+                                <Input type="email" placeholder="Your email" />
+                                <Button size="icon"><Send className="h-4 w-4" /></Button>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 className="mb-6 text-sm font-bold uppercase tracking-widest text-[#8b0000] font-cinzel">Sanctuary</h3>
+                            <nav className="space-y-4 text-sm opacity-60">
+                                <a href="#" className="block hover:text-[#8b0000]">Home</a>
+                                <a href="#story" className="block hover:text-[#8b0000]">Our Story</a>
+                                <a href="#collections" className="block hover:text-[#8b0000]">Collections</a>
+                            </nav>
+                        </div>
+                        <div>
+                            <h3 className="mb-6 text-sm font-bold uppercase tracking-widest text-[#8b0000] font-cinzel">The Boutique</h3>
+                            <div className="space-y-4 text-sm opacity-60">
+                                <p>Via Torino 42, Milano</p>
+                                <p>+39 02 1234 5678</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 className="mb-6 text-sm font-bold uppercase tracking-widest text-[#8b0000] font-cinzel">Shadows</h3>
+                            <div className="flex space-x-4 mb-8 text-black dark:text-white">
+                                <Button variant="outline" size="icon"><Facebook className="h-4 w-4" /></Button>
+                                <Button variant="outline" size="icon"><Instagram className="h-4 w-4" /></Button>
+                                <Button variant="outline" size="icon"><Twitter className="h-4 w-4" /></Button>
+                            </div>
+                            <div className="flex items-center space-x-3 bg-zinc-100 dark:bg-zinc-900 p-2 rounded-full w-fit">
+                                <Sun className={cn("h-4 w-4", !isDarkMode ? "text-yellow-500" : "opacity-20")} />
+                                <Switch checked={isDarkMode} onCheckedChange={setIsDarkMode} />
+                                <Moon className={cn("h-4 w-4", isDarkMode ? "text-[#8b0000]" : "opacity-20")} />
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            );
+        };
+
+        const App = () => {
+            useEffect(() => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+                }, { threshold: 0.1 });
+                document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+            }, []);
+
+            return (
+                <div className="min-h-screen">
+                    <MinimalistHero
+                        logoText="NOCTURNA"
+                        navLinks={[{ label: 'STORY', href: '#story' }, { label: 'COLLECTIONS', href: '#collections' }]}
+                        mainText="Milan's Premier Sanctuary for Dark Haute Couture. Bespoke tailoring for the nocturnal soul."
+                        readMoreLink="#story"
+                        imageSrc="https://images.unsplash.com/photo-1515468381879-40d0ded81044?auto=format&fit=crop&q=80&w=800"
+                        imageAlt="Goth Fashion Profile"
+                        overlayText={{ part1: 'dark is', part2: 'eternal.' }}
+                    />
+                    <section id="story" className="py-32 container mx-auto px-8 text-center max-w-3xl fade-in-up">
+                        <h2 className="font-cinzel text-5xl mb-8 tracking-widest text-[#8b0000]">THE DARK HEART</h2>
+                        <div className="w-[1px] h-24 bg-[#8b0000] mx-auto mb-8 opacity-50"></div>
+                        <p className="font-cormorant text-3xl italic opacity-60 leading-relaxed">
+                            Traditional Milanese craftsmanship bleeds into dark alternative culture.
+                        </p>
+                    </section>
+                    <section id="collections" className="py-24 bg-zinc-50 dark:bg-white/[0.02] fade-in-up">
+                        <div className="container mx-auto px-8 text-center">
+                            <h2 className="font-cinzel text-3xl mb-16 tracking-widest uppercase">CURSED CURATIONS</h2>
+                            <div className="max-w-4xl mx-auto">
+                                <CursedSlideshow />
+                            </div>
+                        </div>
+                    </section>
+                    <Footer />
+                </div>
+            );
+        };
+
+        // Final Mount
+        try {
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(<App />);
+            console.log("Nocturna Mounted Successfully.");
+        } catch (err) {
+            console.error("Mounting Error:", err);
+        }
     </script>
 </body>
+
 </html>
