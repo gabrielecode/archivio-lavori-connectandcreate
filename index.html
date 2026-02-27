@@ -1,40 +1,73 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect and Create | Showroom Digitale</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #3D4A3E;    /* Verde Salvia */
-            --accent: #D4A373;     /* Terracotta */
-            --bg: #F1EFE7;         /* Panna */
-            --text: #2B2B2B; 
+            --primary: #3D4A3E;
+            /* Verde Salvia */
+            --accent: #D4A373;
+            /* Terracotta */
+            --bg: #F1EFE7;
+            /* Panna */
+            --text: #2B2B2B;
             --white: #ffffff;
         }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg); 
-            color: var(--text); 
-            margin: 0; padding: 60px 20px;
-            display: flex; flex-direction: column; align-items: center; 
-        }
-        
-        .header { text-align: center; max-width: 700px; margin-bottom: 50px; }
-        h1 { font-family: 'Cinzel', serif; color: var(--primary); font-size: 2.5rem; margin: 0; letter-spacing: 3px; }
-        .subtitle { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 700; margin-bottom: 10px; display: block; }
-        p { opacity: 0.8; line-height: 1.6; }
 
-        .grid { 
-            display: grid; 
-            gap: 30px; 
-            width: 100%; 
-            max-width: 1000px; 
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .grid {
+            display: grid;
+            gap: 30px;
+            width: 100%;
+            max-width: 1000px;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
-        
+
         .card {
             background: var(--white);
             border-radius: 15px;
@@ -42,15 +75,15 @@
             color: var(--text);
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
-            border: 1px solid rgba(0,0,0,0.03);
+            border: 1px solid rgba(0, 0, 0, 0.03);
         }
-        
+
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         .card-image {
@@ -64,7 +97,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2));
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2));
         }
 
         .category {
@@ -81,15 +114,25 @@
             text-transform: uppercase;
         }
 
-        .card-content { padding: 25px; text-align: left; }
-        .card-content h3 { 
-            font-family: 'Cinzel', serif; 
-            margin: 0 0 10px 0; 
-            color: var(--primary); 
+        .card-content {
+            padding: 25px;
+            text-align: left;
+        }
+
+        .card-content h3 {
+            font-family: 'Cinzel', serif;
+            margin: 0 0 10px 0;
+            color: var(--primary);
             font-size: 1.2rem;
         }
-        .card-content p { font-size: 0.9rem; margin-bottom: 20px; height: 40px; overflow: hidden; }
-        
+
+        .card-content p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            height: 40px;
+            overflow: hidden;
+        }
+
         .cta-link {
             color: var(--accent);
             font-weight: 700;
@@ -100,13 +143,24 @@
             align-items: center;
             gap: 8px;
         }
-        
-        .cta-link i { transition: 0.3s; }
-        .card:hover .cta-link i { transform: translateX(5px); }
 
-        footer { margin-top: 60px; text-align: center; font-size: 0.8rem; opacity: 0.6; }
+        .cta-link i {
+            transition: 0.3s;
+        }
+
+        .card:hover .cta-link i {
+            transform: translateX(5px);
+        }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="header">
@@ -117,23 +171,29 @@
 
     <div class="grid">
         <a href="Sito Pittori/" class="card">
-            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80');">
+            <div class="card-image"
+                style="background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80');">
                 <span class="category">Business</span>
             </div>
             <div class="card-content">
                 <h3>Come trasformare un clic in un cantiere aperto.</h3>
-                <p>Per questa impresa di pittura abbiamo creato una pagina che non si limita a mostrare belle pareti, ma costruisce vera fiducia. Un design pensato per rassicurare chi deve rinnovare casa e spingerlo a chiedere un preventivo in modo naturale.</p>
+                <p>Per questa impresa di pittura abbiamo creato una pagina che non si limita a mostrare belle pareti, ma
+                    costruisce vera fiducia. Un design pensato per rassicurare chi deve rinnovare casa e spingerlo a
+                    chiedere un preventivo in modo naturale.</p>
                 <div class="cta-link">Guarda il progetto completo. <i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
 
         <a href="Sito Night Club/" class="card">
-            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?auto=format&fit=crop&w=800&q=80');">
+            <div class="card-image"
+                style="background-image: url('https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?auto=format&fit=crop&w=800&q=80');">
                 <span class="category">Entertainment</span>
             </div>
             <div class="card-content">
                 <h3>Night Club Luxury</h3>
-                <p>Un design dalle linee eleganti che mette la privacy al primo posto. Abbiamo costruito il perfetto biglietto da visita digitale per un locale che fa della massima discrezione il suo vero punto di forza</p>
+                <p>Un design dalle linee eleganti che mette la privacy al primo posto. Abbiamo costruito il perfetto
+                    biglietto da visita digitale per un locale che fa della massima discrezione il suo vero punto di
+                    forza</p>
                 <div class="cta-link">Apri la landing page.<i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
@@ -161,12 +221,15 @@
         </a>
 
         <a href="Sito SolArte/" class="card">
-            <div class="card-image" style="background-image: url(https://i.postimg.cc/NfBhtZ6v/beautiful_young_cheerful_girl_hat_making_funny_face_morning_beach.jpg);">
+            <div class="card-image"
+                style="background-image: url(https://i.postimg.cc/NfBhtZ6v/beautiful_young_cheerful_girl_hat_making_funny_face_morning_beach.jpg);">
                 <span class="category">Nuovo</span>
             </div>
             <div class="card-content">
                 <h3>SolArte sagl</h3>
-                <p>Tende, tapparelle e soluzioni per esterni presentate con un design moderno e professionale. Una landing page che comunica solidità e competenza, perfetta per chi vuole risultati concreti nell'edilizia</p>
+                <p>Tende, tapparelle e soluzioni per esterni presentate con un design moderno e professionale. Una
+                    landing page che comunica solidità e competenza, perfetta per chi vuole risultati concreti
+                    nell'edilizia</p>
                 <div class="cta-link">Apri l'anteprima del progetto.<i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
@@ -177,13 +240,16 @@
             </div>
             <div class="card-content">
                 <h3>Tutto il mondo dei gatti in un'unica pagina.</h3>
-                <p>Perché accontentarsi di un negozio generico? Questa landing page dimostra come una comunicazione mirata e un'estetica a tema possano catturare l'attenzione di un pubblico specifico, trasformando un semplice sito vetrina in una community fedele.</p>
+                <p>Perché accontentarsi di un negozio generico? Questa landing page dimostra come una comunicazione
+                    mirata e un'estetica a tema possano catturare l'attenzione di un pubblico specifico, trasformando un
+                    semplice sito vetrina in una community fedele.</p>
                 <div class="cta-link">Esplora Progetto <i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
 
         <a href="Hero Animata BarberShop/" class="card">
-            <div class="card-image" style="background-image:url(https://i.postimg.cc/N09T25wq/Electric-Hair-Clipper.png);">
+            <div class="card-image"
+                style="background-image:url(https://i.postimg.cc/N09T25wq/Electric-Hair-Clipper.png);">
                 <span class="category">Nuovo</span>
             </div>
             <div class="card-content">
@@ -199,7 +265,9 @@
             </div>
             <div class="card-content">
                 <h3>NL'eccellenza artigiana merita una vetrina che brilla di luce propria.</h3>
-                <p>Per questo progetto abbiamo creato un'atmosfera di puro lusso, dove ogni candela non è solo un oggetto, ma un'emozione. Un design minimale ed elegante, studiato per esaltare l'unicità dei prodotti fatti a mano e trasmettere subito il valore del brand.</p>
+                <p>Per questo progetto abbiamo creato un'atmosfera di puro lusso, dove ogni candela non è solo un
+                    oggetto, ma un'emozione. Un design minimale ed elegante, studiato per esaltare l'unicità dei
+                    prodotti fatti a mano e trasmettere subito il valore del brand.</p>
                 <div class="cta-link">Lasciati ispirare dal progetto.<i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
@@ -210,18 +278,23 @@
             </div>
             <div class="card-content">
                 <h3>Dove il talento incontra l'obiettivo perfetto</h3>
-                <p>Abbiamo creato uno spazio digitale dove ogni scatto parla di eccellenza. Una struttura elegante e d’impatto, progettata per dare risalto ai volti e ai portfolio delle modelle, garantendo all'agenzia un'immagine internazionale e altamente professionale.</p>
+                <p>Abbiamo creato uno spazio digitale dove ogni scatto parla di eccellenza. Una struttura elegante e
+                    d’impatto, progettata per dare risalto ai volti e ai portfolio delle modelle, garantendo all'agenzia
+                    un'immagine internazionale e altamente professionale.</p>
                 <div class="cta-link">Entra nel mondo del visual branding.<i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
 
-       <a href="agenzia viaggi " class="card">
+        <a href="agenzia viaggi " class="card">
             <div class="card-image" style="background-image:url(https://i.postimg.cc/s2ZDJL3Q/agenzia-viaggi.jpg);">
                 <span class="category">Nuovo</span>
             </div>
             <div class="card-content">
                 <h3>Il viaggio inizia molto prima di preparare le valigie.</h3>
-                <p>Per questa agenzia abbiamo progettato un'esperienza immersiva che trasporta l'utente verso la sua prossima meta. Grazie a un layout visivo d'impatto e sezioni dedicate a destinazioni da sogno, questo sito trasforma il desiderio di partire in una prenotazione reale, comunicando sicurezza e professionalità.</p>
+                <p>Per questa agenzia abbiamo progettato un'esperienza immersiva che trasporta l'utente verso la sua
+                    prossima meta. Grazie a un layout visivo d'impatto e sezioni dedicate a destinazioni da sogno,
+                    questo sito trasforma il desiderio di partire in una prenotazione reale, comunicando sicurezza e
+                    professionalità.</p>
                 <div class="cta-link">Esplora l'anteprima del viaggio.<i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
@@ -232,7 +305,10 @@
             </div>
             <div class="card-content">
                 <h3>La strada verso la tua prossima auto inizia qui.</h3>
-                <p>In questo progetto abbiamo unito estetica e funzionalità per creare un salone digitale dove la fiducia è al primo posto. Una struttura chiara che permette di valorizzare ogni veicolo con schede dettagliate e un design che comunica solidità, fondamentale per trasformare un visitatore in un potenziale acquirente.</p>
+                <p>In questo progetto abbiamo unito estetica e funzionalità per creare un salone digitale dove la
+                    fiducia è al primo posto. Una struttura chiara che permette di valorizzare ogni veicolo con schede
+                    dettagliate e un design che comunica solidità, fondamentale per trasformare un visitatore in un
+                    potenziale acquirente.</p>
                 <div class="cta-link">Guarda il progetto completo.<i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
@@ -243,7 +319,8 @@
             </div>
             <div class="card-content">
                 <h3>L'assistenza che cura.</h3>
-                <p>Per questo progetto di cure domiciliari abbiamo creato un ponte digitale tra professionisti e famiglie.</p>
+                <p>Per questo progetto di cure domiciliari abbiamo creato un ponte digitale tra professionisti e
+                    famiglie.</p>
                 <div class="cta-link">Guarda come abbiamo trasmesso fiducia.<i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
@@ -276,7 +353,7 @@
             </div>
             <div class="card-content">
                 <h3>Vetrina Corrieri</h3>
-                <p>Sito Minimala colorato per corrieri locali</p>
+                <p>Sito Minimal colorato per corrieri locali</p>
                 <div class="cta-link">Esplora Progetto <i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
@@ -306,8 +383,9 @@
     </div>
 
     <footer>
-        &copy; 2026 Connect & Create |  Archivio
+        &copy; 2026 Connect & Create | Archivio
     </footer>
 
 </body>
+
 </html>
