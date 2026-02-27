@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="it-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Terme & Fitness | Spa di Lusso a Brissago, Ticino</title>
+    <meta name="description" content="Scopri Aura, l'esclusivo centro fitness e spa termale a Brissago. Rilassati con vista sul Lago Maggiore, allenati in una palestra premium e rigenera corpo e mente.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthAndBeautyBusiness",
+      "name": "Aura Terme & Fitness",
+      "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+      "@id": "",
+      "url": "https://www.auratermebrissago.ch",
+      "telephone": "+41078123456",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Lago Maggiore 1",
+        "addressLocality": "Brissago",
+        "postalCode": "6614",
+        "addressCountry": "CH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 46.1206,
+        "longitude": 8.7111
+      },
+      "description": "Centro fitness esclusivo e spa termale di lusso situato a Brissago, sulle sponde del Lago Maggiore.",
+      "priceRange": "$$$"
+    }
+    </script>
+
+    <style>
+        /* CSS Variables - Luxury Theme */
+        :root {
+            /* Light Mode (Warm off-white, Gold, Charcoal) */
+            --bg-primary: #F9F7F2;
+            --bg-secondary: #F0EBE1;
+            --text-primary: #1A1A1A;
+            --text-secondary: #4A4A4A;
+            --accent-gold: #C5A059;
+            --accent-gold-hover: #A88746;
+            --border-color: #E2DAC8;
+            --nav-bg: rgba(249, 247, 242, 0.95);
+            
+            /* Typography */
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            
+            /* Layout */
+            --container-padding: 0 5%;
+            --section-spacing: 8rem 0;
+        }
+
+        /* Dark Mode Variables */
+        [data-theme="dark"] {
+            --bg-primary: #121212;
+            --bg-secondary: #1E1E1E;
+            --text-primary: #F0EBE1;
+            --text-secondary: #B0B0B0;
+            --accent-gold: #D4AF37;
+            --accent-gold-hover: #F1D570;
+            --border-color: #333333;
+            --nav-bg: rgba(18, 18, 18, 0.95);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--container-padding);
+        }
+
+        /* Utilities */
+        .text-center { text-align: center; }
+        .gold-text { color: var(--accent-gold); }
+        .section-subtitle {
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid var(--accent-gold);
+            background: transparent;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-gold);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+
+        .btn:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .btn:hover {
+            color: #fff;
+        }
+
+        .btn-solid {
+            background: var(--accent-gold);
+            color: #fff;
+        }
+
+        .btn-solid::before {
+            background: var(--text-primary);
+        }
+
+        /* Navigation */
+        header.navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        header.navbar.scrolled {
+            background: var(--nav-bg);
+            padding: 1rem 5%;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+            transform: scale(1.05);
+            animation: slowZoom 20s infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: #fff;
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        .vertical-text {
+            position: absolute;
+            left: 2%;
+            top: 50%;
+            transform: translateY(-50%);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.8rem;
+            z-index: 1;
+        }
+
+        /* About Section */
+        .about {
+            padding: var(--section-spacing);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-img-mask {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 40% 40% 0 0; /* Elegant Arch */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-text h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--bg-secondary);
+            padding: var(--section-spacing);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: var(--bg-primary);
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            border-color: var(--accent-gold);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-family: var(--font-serif);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: var(--section-spacing);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .benefits-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .benefit-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--accent-gold);
+            line-height: 1;
+            opacity: 0.5;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--bg-secondary);
+            padding: var(--section-spacing);
+            overflow: hidden;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 2rem 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .testimonial-slider::-webkit-scrollbar {
+            display: none; /* Chrome */
+        }
+
+        .testimonial-card {
+            flex: 0 0 400px;
+            scroll-snap-align: center;
+            background: var(--bg-primary);
+            padding: 3rem;
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+        }
+
+        .quote-mark {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            color: var(--accent-gold);
+            line-height: 0;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            font-family: var(--font-serif);
+        }
+
+        .testimonial-author {
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: var(--section-spacing);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .price-card {
+            border: 1px solid var(--border-color);
+            padding: 4rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .price-card.featured {
+            background: var(--bg-secondary);
+            border-color: var(--accent-gold);
+            transform: scale(1.05);
+        }
+
+        .price-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .price-amount {
+            font-size: 3rem;
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            margin-bottom: 2rem;
+        }
+
+        .price-amount span {
+            font-size: 1rem;
+            font-family: var(--font-sans);
+            color: var(--text-secondary);
+        }
+
+        .price-features {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .price-features li {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: var(--bg-secondary);
+            padding: var(--section-spacing);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 1.5rem 0;
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            color: var(--text-secondary);
+        }
+
+        .faq-answer p {
+            padding-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0A0A0A;
+            color: #F9F7F2;
+            padding: 5rem 5% 2rem;
+            font-family: var(--font-sans);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        .footer-col p, .footer-col a {
+            color: #A0A0A0;
+            margin-bottom: 0.8rem;
+            display: block;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        /* Mandatory Elements */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            z-index: 9999;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-widget:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-widget svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about, .benefits-content {
+                grid-template-columns: 1fr;
+            }
+            .about-img-mask {
+                height: 400px;
+            }
+            .price-card.featured {
+                transform: scale(1);
+            }
+            .nav-links {
+                display: none; /* Simplification for mobile, usually a hamburger menu goes here */
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .section-spacing {
+                padding: 4rem 0;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="logo">AURA.</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about">La Spa</a></li>
+                <li><a href="#services">Servizi</a></li>
+                <li><a href="#pricing">Tariffe</a></li>
+                <li><a href="#testimonials">Recensioni</a></li>
+                <li><a href="#contact">Contatti</a></li>
+            </ul>
+        </nav>
+        <a href="#pricing" class="btn btn-solid" style="padding: 0.8rem 1.5rem; font-size: 0.8rem;">Prenota Ora</a>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="vertical-text">Brissago - Svizzera</div>
+            <div class="hero-content reveal">
+                <span class="section-subtitle" style="color: #fff;">Esclusività & Benessere</span>
+                <h1>Il Tuo Rifugio di Lusso sul Lago Maggiore</h1>
+                <p>Scopri Aura Terme & Fitness a Brissago. Un'oasi di pace dove l'acqua termale incontra l'eccellenza del fitness, per rigenerare corpo, mente e spirito.</p>
+                <a href="#about" class="btn">Scopri l'Esperienza</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about container">
+            <div class="about-image reveal">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Piscina termale di lusso" class="about-img-mask">
+            </div>
+            <div class="about-text reveal">
+                <span class="section-subtitle">La Nostra Filosofia</span>
+                <h2>L'Arte del Benessere a Brissago</h2>
+                <p>Incastonato tra le maestose Alpi e le acque cristalline del Lago Maggiore, Aura Terme & Fitness rappresenta l'apice del lusso olistico nel Canton Ticino.</p>
+                <p>Non siamo solo una palestra o una spa. Siamo un santuario dedicato al tuo equilibrio. Dalle nostre piscine termali ricche di minerali alle attrezzature fitness di ultima generazione, ogni dettaglio è curato per offrirti un'esperienza trasformativa.</p>
+                <a href="#services" class="btn" style="margin-top: 1.5rem;">I Nostri Percorsi</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="text-center reveal">
+                    <span class="section-subtitle">Eccellenza dei Servizi</span>
+                    <h2>Cura del Corpo e della Mente</h2>
+                </div>
+                <div class="services-grid">
+                    <article class="service-card reveal">
+                        <div class="service-icon">I</div>
+                        <h3>Terme & Spa</h3>
+                        <p>Immergiti nelle nostre piscine termali riscaldate. Percorsi Kneipp, saune finlandesi, bagni turchi e stanze del sale per una purificazione profonda.</p>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="service-icon">II</div>
+                        <h3>Premium Fitness</h3>
+                        <p>Allenati ammirando il lago. Macchinari Technogym Artis, pesi liberi e personal trainer dedicati per raggiungere i tuoi obiettivi con stile.</p>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="service-icon">III</div>
+                        <h3>Massaggi & Ritual</h3>
+                        <p>Trattamenti esclusivi con oli essenziali botanici svizzeri. Dai massaggi decontratturanti ai rituali viso anti-age personalizzati.</p>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="service-icon">IV</div>
+                        <h3>Yoga & Pilates</h3>
+                        <p>Ritrova la flessibilità e la pace interiore nelle nostre sale olistiche panoramiche, guidato da maestri certificati a livello internazionale.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits container">
+            <div class="text-center reveal">
+                <span class="section-subtitle">Perché Scegliere Aura</span>
+                <h2>Un'Esperienza Senza Paragoni</h2>
+            </div>
+            <div class="benefits-content">
+                <div class="benefit-item reveal">
+                    <div class="benefit-number">01</div>
+                    <div>
+                        <h4 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Acqua Termale Pura</h4>
+                        <p style="color: var(--text-secondary);">Le nostre vasche sono alimentate da sorgenti termali naturali, note per le loro proprietà terapeutiche e rigeneranti per la pelle e le articolazioni.</p>
+                    </div>
+                </div>
+                <div class="benefit-item reveal">
+                    <div class="benefit-number">02</div>
+                    <div>
+                        <h4 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Location Esclusiva</h4>
+                        <p style="color: var(--text-secondary);">Situati nel cuore di Brissago, offriamo un ambiente intimo e riservato, lontano dal caos, con una vista ininterrotta sul Lago Maggiore.</p>
+                    </div>
+                </div>
+                <div class="benefit-item reveal">
+                    <div class="benefit-number">03</div>
+                    <div>
+                        <h4 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Approccio Su Misura</h4>
+                        <p style="color: var(--text-secondary);">Dal piano di allenamento al percorso spa, i nostri esperti creano protocolli personalizzati basati sulle tue specifiche esigenze.</p>
+                    </div>
+                </div>
+                <div class="benefit-item reveal">
+                    <div class="benefit-number">04</div>
+                    <div>
+                        <h4 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Design & Comfort</h4>
+                        <p style="color: var(--text-secondary);">Spazi disegnati da architetti di fama internazionale, che combinano materiali naturali, luce soffusa e un'acustica perfetta per il relax.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <div class="text-center reveal">
+                    <span class="section-subtitle">Dicono di Noi</span>
+                    <h2>Esperienze dei Nostri Ospiti</h2>
+                </div>
+                <div class="testimonial-slider reveal">
+                    <div class="testimonial-card">
+                        <div class="quote-mark">"</div>
+                        <p class="testimonial-text">Un'oasi di pace assoluta. Le piscine termali offrono una vista mozzafiato sul lago. Il personale è di un'eleganza e cortesia rare. Tornerò sicuramente.</p>
+                        <p class="testimonial-author">Giulia R. — Ascona</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-mark">"</div>
+                        <p class="testimonial-text">Palestra attrezzatissima con macchinari di ultima generazione. Allenarsi qui, guardando l'alba sul lago, dà una motivazione incredibile. Top in Ticino.</p>
+                        <p class="testimonial-author">Marco T. — Locarno</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-mark">"</div>
+                        <p class="testimonial-text">Il massaggio rilassante 'Aura Signature' con oli essenziali ticinesi è un'esperienza sensoriale indimenticabile. L'area saune è immacolata.</p>
+                        <p class="testimonial-author">Sophie L. — Zurigo</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-mark">"</div>
+                        <p class="testimonial-text">Ho sottoscritto l'abbonamento VIP e vale ogni singolo franco. L'esclusività del club e la competenza dei personal trainer hanno cambiato il mio stile di vita.</p>
+                        <p class="testimonial-author">Andrea M. — Bellinzona</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-mark">"</div>
+                        <p class="testimonial-text">Abbiamo trascorso un weekend romantico perfetto. Il percorso Kneipp e la stanza del sale ci hanno rigenerati. Un vero gioiello a Brissago.</p>
+                        <p class="testimonial-author">Francesca & Luca — Milano</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="pricing" class="pricing container">
+            <div class="text-center reveal">
+                <span class="section-subtitle">Membership & Ingressi</span>
+                <h2>Scegli il Tuo Percorso</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="price-card reveal">
+                    <h3 class="price-title">Day Spa</h3>
+                    <div class="price-amount">95 <span>CHF</span></div>
+                    <ul class="price-features">
+                        <li>Accesso intera giornata (Spa & Gym)</li>
+                        <li>Kit di benvenuto (Accappatoio, Teli)</li>
+                        <li>Accesso alle piscine termali</li>
+                        <li>Area Saune e Bagno Turco</li>
+                        <li>Tisane e frutta fresca illimitate</li>
+                    </ul>
+                    <a href="#contact" class="btn">Prenota Ingresso</a>
+                </div>
+                <div class="price-card featured reveal">
+                    <h3 class="price-title">Premium Member</h3>
+                    <div class="price-amount">250 <span>CHF / mese</span></div>
+                    <ul class="price-features">
+                        <li>Accesso illimitato Gym & Spa</li>
+                        <li>1 Personal Training mensile</li>
+                        <li>10% di sconto sui massaggi</li>
+                        <li>Classi Yoga & Pilates incluse</li>
+                        <li>Armadietto privato</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-solid">Diventa Membro</a>
+                </div>
+                <div class="price-card reveal">
+                    <h3 class="price-title">Ritual VIP</h3>
+                    <div class="price-amount">350 <span>CHF</span></div>
+                    <ul class="price-features">
+                        <li>Ingresso Day Spa per 2 persone</li>
+                        <li>Massaggio di coppia (60 min)</li>
+                        <li>Area relax privata con Champagne</li>
+                        <li>Trattamento viso express</li>
+                        <li>Parcheggio VIP riservato</li>
+                    </ul>
+                    <a href="#contact" class="btn">Regala Esperienza</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container reveal">
+                <div class="text-center">
+                    <span class="section-subtitle">Informazioni</span>
+                    <h2>Domande Frequenti</h2>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">Cosa devo portare per accedere alla Spa?</button>
+                        <div class="faq-answer">
+                            <p>Forniamo noi un morbido accappatoio, teli e ciabattine al tuo arrivo. Ti preghiamo di portare solo il tuo costume da bagno. Per la palestra, sono richiesti abbigliamento sportivo e scarpe da ginnastica pulite.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">È necessaria la prenotazione per i massaggi?</button>
+                        <div class="faq-answer">
+                            <p>Sì, per garantire la disponibilità dei nostri terapisti e offrirti l'orario desiderato, consigliamo di prenotare i trattamenti e i massaggi con almeno 48 ore di anticipo.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Quali sono gli orari di apertura?</button>
+                        <div class="faq-answer">
+                            <p>Il Centro Fitness è aperto tutti i giorni dalle 06:00 alle 22:00. L'area Spa e Termale è aperta dalle 09:00 alle 21:00. I trattamenti sono disponibili dalle 10:00 alle 20:00.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Avete un parcheggio per i clienti?</button>
+                        <div class="faq-answer">
+                            <p>Certamente. Disponiamo di un parcheggio sotterraneo privato e gratuito per tutti i nostri ospiti per l'intera durata della permanenza presso la struttura.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">AURA.</div>
+                    <p>L'apice del benessere termale e del fitness di lusso nel cuore del Canton Ticino.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contatti</h4>
+                    <p>Via Lago Maggiore 1</p>
+                    <p>6614 Brissago, Svizzera</p>
+                    <p>Tel: +41 078 123 45 67</p>
+                    <p>Email: info@auratermebrissago.ch</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Orari</h4>
+                    <p>Lunedì - Domenica</p>
+                    <p>Fitness: 06:00 - 22:00</p>
+                    <p>Spa Termale: 09:00 - 21:00</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Termini e Condizioni</a>
+                    <a href="#">Regolamento Centro</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Aura Terme & Fitness Brissago. Tutti i diritti riservati.</p>
+                <p>Design by SitiTicino.ch</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mandatory Widgets -->
+    <!-- WhatsApp Widget -->
+    <a href="https://wa.me/41078123456" class="whatsapp-widget" target="_blank" rel="noopener noreferrer" aria-label="Contattaci su WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <!-- Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zM223.9 413.5c-33.1 0-65.5-8.9-94-25.7l-6.7-4-69.8 18.3L72 334.1l-4.4-7.1c-18.5-29.7-28.2-64-28.2-99.1 0-101.9 82.9-184.8 184.9-184.8 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+    </a>
+
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+        <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll Reveal Animations
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all
+                faqItems.forEach(faq => {
+                    faq.classList.remove('active');
+                    faq.querySelector('.faq-answer').style.maxHeight = null;
+                });
+
+                // Open clicked if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                    const answer = item.querySelector('.faq-answer');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Dark Mode Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const moonIcon = document.getElementById('moon-icon');
+        const sunIcon = document.getElementById('sun-icon');
+        const htmlElement = document.documentElement;
+
+        // Check for saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            htmlElement.setAttribute('data-theme', 'dark');
+            moonIcon.style.display = 'none';
+            sunIcon.style.display = 'block';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.getAttribute('data-theme') === 'dark') {
+                htmlElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+            } else {
+                htmlElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
