@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pasticceria Dolce Incanto: Eccellenza e tradizione a Città del Sole. Scopri le nostre torte personalizzate, panettoni artigianali, cioccolatini e dolci su misura per ogni evento speciale.">
+    <meta name="keywords"
+        content="Pasticceria artigianale, torte nuziali, dolci su misura, panettoni artigianali, pasticceria di lusso, cioccolatini artigianali, Dolce Incanto">
+    <meta name="author" content="Creatività Digitale">
+    <title>Pasticceria Artigianale | Torte su Misura | Dolce Incanto</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "Pasticceria Dolce Incanto",
+      "image": "https://images.unsplash.com/photo-1556217477-8501254641cd?auto=format&fit=crop&q=80&w=1200",
+      "@id": "https://dolce-incanto-fittizio.it",
+      "url": "https://dolce-incanto-fittizio.it",
+      "telephone": "+39000000000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via della Fantasia 1",
+        "addressLocality": "Città del Sole",
+        "postalCode": "00000",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 46.0037,
+        "longitude": 8.9511
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "07:30",
+        "closes": "18:30"
+      },
+      "priceRange": "$$$",
+      "servesCuisine": "Pasticceria Svizzera e Italiana"
+    }
+    </script>
+
+    <style>
+        :root {
+            /* Luxury Light Theme */
+            --primary-bg: #FDFBF7;
+            --secondary-bg: #F4EFE6;
+            --text-main: #1A1A1A;
+            --text-muted: #5A5A5A;
+            --gold: #C5A059;
+            --gold-hover: #A88544;
+            --border-color: #E2D9C8;
+            --overlay: rgba(253, 251, 247, 0.85);
+
+            /* Typography */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+
+            /* Dimensions */
+            --section-padding: 6rem 5%;
+        }
+
+        /* Dark Mode Variables */
+        body.dark-mode {
+            --primary-bg: #121212;
+            --secondary-bg: #1A1A1A;
+            --text-main: #FDFBF7;
+            --text-muted: #B0B0B0;
+            --border-color: #333333;
+            --overlay: rgba(18, 18, 18, 0.85);
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Typography Utilities */
+        .text-gold {
+            color: var(--gold);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .subtitle {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Navigation */
+        header.nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: var(--overlay);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            transition: padding 0.3s ease;
+        }
+
+        .nav-bar.scrolled {
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-contact {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .nav-contact {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                font-family: var(--font-heading);
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary-bg);
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--gold);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--gold-hover);
+            border-color: var(--gold-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gold);
+            color: #fff;
+            border-color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            padding: 0 5%;
+            margin-top: 0;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1556217477-8501254641cd?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            color: #FDFBF7;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: #FDFBF7;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* About Section */
+        .about {
+            padding: var(--section-padding);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-img {
+            position: relative;
+        }
+
+        .about-img img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .about-img::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--gold);
+            z-index: -1;
+        }
+
+        .about-text h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        @media (max-width: 992px) {
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img {
+                order: 2;
+                margin-top: 2rem;
+                padding-right: 20px;
+            }
+
+            .about-text {
+                order: 1;
+            }
+        }
+
+        /* Services / Creations Grid */
+        .services {
+            padding: var(--section-padding);
+            background-color: var(--secondary-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            color: #fff;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover .service-content {
+            transform: translateY(0);
+        }
+
+        .service-content h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Menu Highlights (Pricing) */
+        .menu {
+            padding: var(--section-padding);
+        }
+
+        .menu-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .menu-list {
+            list-style: none;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .menu-item-info h4 {
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .menu-item-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .menu-price {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--gold);
+            font-size: 1.2rem;
+            padding-left: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: var(--section-padding);
+            background-color: var(--secondary-bg);
+            text-align: center;
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testi-card {
+            background: var(--primary-bg);
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+            text-align: left;
+            position: relative;
+        }
+
+        .testi-card i.fa-quote-left {
+            color: var(--gold);
+            font-size: 2rem;
+            opacity: 0.3;
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+        }
+
+        .stars {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .testi-text {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .testi-author {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: var(--section-padding);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion {
+            margin-top: 2rem;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .accordion-header {
+            width: 100%;
+            text-align: left;
+            padding: 1.5rem 0;
+            background: none;
+            border: none;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-header i {
+            color: var(--gold);
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active i {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content p {
+            padding-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #111;
+            color: #fff;
+            padding: 5rem 5% 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-col h3 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #ccc;
+            margin-bottom: 0.8rem;
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+            color: #111;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* Floating Widgets */
+        .wa-widget {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .wa-widget:hover {
+            transform: scale(1.1);
+            color: #FFF;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--gold);
+            color: #fff;
+            border-color: var(--gold);
+        }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="nav-bar" id="navbar">
+        <a href="#" class="logo">
+            <i class="fa-solid fa-crown text-gold"></i>
+            Dolce Incanto<span>.</span>
+        </a>
+
+        <i class="fa-solid fa-bars menu-toggle" id="mobile-menu-btn"></i>
+
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">La Nostra Storia</a></li>
+                <li><a href="#services">Specialità</a></li>
+                <li><a href="#menu">I Classici</a></li>
+                <li><a href="#testimonials">Dicono di Noi</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-contact">
+            <i class="fa-solid fa-phone text-gold"></i>
+            <a href="tel:+39000000000">+39 000 000 00 00</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-in-up">
+            <span class="subtitle">Eccellenza a Città del Sole</span>
+            <h1>L'Arte della Pasticceria Artigianale</h1>
+            <p>Ingredienti di prima scelta e ricette della tradizione si fondono per creare delizie indimenticabili.
+                Torte su misura, lievitati e cioccolatini per i tuoi momenti speciali.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#services" class="btn btn-primary">Scopri le Creazioni</a>
+                <a href="https://wa.me/0000000000" class="btn btn-outline"
+                    style="color: #FDFBF7; border-color: #FDFBF7;">Ordina Ora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-img fade-in-up">
+           
+            <img src="url(sito-pasticceria/suadra-pasticceri.webp)"
+                alt="Maestro Pasticcere al lavoro">
+        </div>
+        <div class="about-text fade-in-up">
+            <span class="subtitle">La Nostra Storia</span>
+            <h2>Oltre 35 anni di Passione e Tradizione</h2>
+            <p>Sin dall’inaugurazione della nostra pasticceria nel 1984, abbiamo preparato ogni giorno dolci, torte,
+                biscotti e creazioni uniche, rispettando fedelmente le ricette tradizionali per garantire sempre
+                un'eccellenza assoluta.</p>
+            <p>Siamo orgogliosi del lavoro dei nostri maestri nel nostro laboratorio artigianale. Qui, materie prime
+                selezionate e passione incondizionata vengono trasformate in opere d'arte dolciarie perfette per
+                allietare pranzi, cene, matrimoni e incontri di lavoro.</p>
+            <a href="tel:+39000000000" class="btn btn-outline" style="margin-top: 1rem;">Contattaci per Informazioni</a>
+        </div>
+    </section>
+
+    <!-- Services / Creations -->
+    <section class="services" id="services">
+        <div class="section-header fade-in-up">
+            <span class="subtitle">Le Nostre Specialità</span>
+            <h2>Dolci perfetti per ogni occasione</h2>
+            <p class="text-muted">Dalla piccola pasticceria alle torte nuziali, realizziamo su misura i desideri dei
+                nostri clienti con eleganza e gusto impareggiabili.</p>
+        </div>
+
+        <div class="services-grid">
+            <article class="service-card fade-in-up">
+                <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&q=80&w=800"
+                    alt="Torte Personalizzate Nuziali">
+                <div class="service-content">
+                    <h3>Torte su Misura</h3>
+                    <p>Wedding cakes, torte per compleanni, comunioni ed eventi speciali progettate insieme a te.</p>
+                </div>
+            </article>
+
+            <article class="service-card fade-in-up" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1599785209707-a456fc1337bb?auto=format&fit=crop&q=80&w=800"
+                    alt="Panettoni e Lievitati Artigianali">
+                <div class="service-content">
+                    <h3>Grandi Lievitati</h3>
+                    <p>Panettoni classici, veneziane e colombe pasquali con lievito madre e lunga lievitazione.</p>
+                </div>
+            </article>
+
+            <article class="service-card fade-in-up" style="transition-delay: 0.4s;">
+                <img src="https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&q=80&w=800"
+                    alt="Praline e Cioccolateria">
+                <div class="service-content">
+                    <h3>Cioccolateria</h3>
+                    <p>Baci, praline assortite e specialità al cioccolato svizzero temperato a mano.</p>
+                </div>
+            </article>
+
+            <article class="service-card fade-in-up" style="transition-delay: 0.6s;">
+                <img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?auto=format&fit=crop&q=80&w=800"
+                    alt="Amaretti Bianchi e Pasticceria Tradizionale">
+                <div class="service-content">
+                    <h3>Amaretti & Tradizione</h3>
+                    <p>I celebri Amaretti Bianchi morbidi, dolci da tè e souvenir aziendali personalizzati.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Menu / Pricing Highlights -->
+    <section class="menu" id="menu">
+        <div class="section-header fade-in-up">
+            <span class="subtitle">Il Nostro Listino (Indicativo)</span>
+            <h2>I Classici Intramontabili</h2>
+        </div>
+
+        <div class="menu-container">
+            <div class="menu-col fade-in-up">
+                <h3
+                    style="color: var(--gold); margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
+                    Pasticceria Mignon</h3>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Cabaret Assortito</h4>
+                            <p>Bignè, cannoncini, tartellette alla frutta, baci di dama.</p>
+                        </div>
+                        <div class="menu-price">da 45 CHF / kg</div>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Amaretti Bianchi</h4>
+                            <p>Morbidi, con mandorle selezionate di prima scelta.</p>
+                        </div>
+                        <div class="menu-price">50 CHF / kg</div>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Praline e Cioccolatini</h4>
+                            <p>Scatola regalo assortita, lavorazione artigianale.</p>
+                        </div>
+                        <div class="menu-price">da 35 CHF</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu-col fade-in-up" style="transition-delay: 0.2s;">
+                <h3
+                    style="color: var(--gold); margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
+                    Torte & Lievitati</h3>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Torte Classiche</h4>
+                            <p>Millefoglie, Sacher, Crostate di frutta fresca.</p>
+                        </div>
+                        <div class="menu-price">da 55 CHF / kg</div>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Torte Personalizzate / Nuziali</h4>
+                            <p>Design su misura, cake design, farciture a scelta.</p>
+                        </div>
+                        <div class="menu-price">Su Preventivo</div>
+                    </li>
+                    <li class="menu-item">
+                        <div class="menu-item-info">
+                            <h4>Panettone Artigianale</h4>
+                            <p>Classico, al cioccolato, marron glacé (1kg).</p>
+                        </div>
+                        <div class="menu-price">da 42 CHF</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center" style="margin-top: 3rem;">
+            <p class="text-muted" style="font-size: 0.9rem; font-style: italic;">I prezzi possono variare in base a
+                personalizzazioni, ingredienti stagionali o decorazioni specifiche. Contattateci per un preventivo
+                esatto.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header fade-in-up">
+            <span class="subtitle">Dicono di Noi</span>
+            <h2>I Nostri Clienti Soddisfatti</h2>
+        </div>
+
+        <div class="testi-grid">
+            <div class="testi-card fade-in-up">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testi-text">"La migliore torta nuziale mai provata! Hanno realizzato il nostro sogno con una
+                    creazione a tre piani, elegante e soprattutto squisita. I nostri ospiti se la ricordano ancora
+                    oggi."</p>
+                <div class="testi-author">- Sofia B.</div>
+            </div>
+
+            <div class="testi-card fade-in-up" style="transition-delay: 0.2s;">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testi-text">"I panettoni artigianali sono una tradizione irrinunciabile per il nostro Natale.
+                    L'impasto è sofficissimo e profumato. Non ha rivali in tutto il territorio."</p>
+                <div class="testi-author">- Marco T.</div>
+            </div>
+
+            <div class="testi-card fade-in-up" style="transition-delay: 0.4s;">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testi-text">"Pasticceria di altissimo livello. Gli amaretti bianchi si sciolgono letteralmente
+                    in bocca. Perfetti anche come regalo per fare un'ottima figura."</p>
+                <div class="testi-author">- Elena R.</div>
+            </div>
+
+            <div class="testi-card fade-in-up">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testi-text">"Servizio eccellente per i regali aziendali di fine anno. Abbiamo ordinato cesti
+                    personalizzati e i nostri clienti sono rimasti estasiati dalla qualità."</p>
+                <div class="testi-author">- Lorenzo M., CEO</div>
+            </div>
+
+            <div class="testi-card fade-in-up" style="transition-delay: 0.2s;">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testi-text">"Ogni domenica è d'obbligo passare da loro. Le paste mignon sono una meraviglia e
+                    la selezione di praline al cioccolato è semplicemente divina."</p>
+                <div class="testi-author">- Giulia C.</div>
+            </div>
+
+            <div class="testi-card fade-in-up" style="transition-delay: 0.4s;">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testi-text">"Ho ordinato una torta di compleanno personalizzata per mia figlia. Non solo era
+                    bellissima da vedere, ma il sapore era eccezionale. Consigliatissimi!"</p>
+                <div class="testi-author">- Alessandro V.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="section-header fade-in-up">
+            <span class="subtitle">Hai delle domande?</span>
+            <h2>Domande Frequenti</h2>
+        </div>
+
+        <div class="accordion fade-in-up">
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    Quanto tempo prima devo ordinare una torta personalizzata?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>Per le torte di compleanno o eventi standard, consigliamo di ordinare con almeno 3-5 giorni di
+                        anticipo. Per le torte nuziali o grandi eventi, suggeriamo un preavviso di almeno 3-4 settimane
+                        per poter definire insieme i dettagli, fare gli assaggi e garantire la massima cura nella
+                        realizzazione.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    Effettuate consegne a domicilio nella zona?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>Sì, offriamo un servizio di consegna accurato per torte nuziali, catering dolci aziendali e
+                        grandi ordini in tutta la regione. Le condizioni e i costi di consegna variano in base alla
+                        distanza. Vi invitiamo a contattarci per maggiori dettagli.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    Avete opzioni per intolleranze o scelte vegane?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>Siamo molto attenti alle esigenze dei nostri clienti. Su richiesta e prenotazione, realizziamo
+                        dolci
+                        senza glutine, senza lattosio e proposte vegane. Tuttavia, lavorando in un laboratorio
+                        artigianale
+                        unico, non possiamo garantire la totale assenza di contaminazioni crociate per i celiaci gravi.
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    Realizzate cesti o articoli regalo per le aziende?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>Assolutamente sì. Durante il periodo natalizio o pasquale, e in qualsiasi momento dell'anno,
+                        prepariamo confezioni regalo aziendali personalizzate, comprensive di panettoni artigianali,
+                        praline, amaretti e vini o spumanti abbinati. Possiamo anche inserire il logo dell'azienda sui
+                        nastri o sui biglietti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Dolce Incanto.</h3>
+                <p>La Pasticceria Artigianale d'Eccellenza a Città del Sole. Tradizione, passione e ingredienti di
+                    altissima qualità.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contatti</h3>
+                <p><i class="fa-solid fa-location-dot" style="color: var(--gold); margin-right: 10px;"></i> Pasticceria
+                    Dolce Incanto<br> Via della Fantasia 1, 00000 Città del Sole</p>
+                <a href="tel:+39000000000"><i class="fa-solid fa-phone"
+                        style="color: var(--gold); margin-right: 10px;"></i> +39 000 000 00 00</a>
+                <a href="mailto:info@dolce-incanto-fittizio.it"><i class="fa-solid fa-envelope"
+                        style="color: var(--gold); margin-right: 10px;"></i> info@dolce-incanto-fittizio.it</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Orari d'Apertura</h3>
+                <p>Lunedì - Venerdì:<br> 07:30 - 18:30</p>
+                <p>Sabato:<br> 08:00 - 17:00</p>
+                <p>Domenica:<br> Chiuso</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Pasticceria Dolce Incanto. Tutti i diritti riservati.</p>
+            <p style="margin-top: 5px;">Design by Creatività Digitale</p>
+        </div>
+    </footer>
+
+    <!-- Floating Widgets -->
+    <a href="https://wa.me/0000000000" class="wa-widget" target="_blank" rel="noopener noreferrer"
+        aria-label="Contattaci su WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar Scrolled Effect & Mobile Menu
+        const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+
+        // Accordion Logic
+        const accordions = document.querySelectorAll('.accordion-header');
+        accordions.forEach(acc => {
+            acc.addEventListener('click', function () {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Scroll Animations (Intersection Observer)
+        const faders = document.querySelectorAll('.fade-in-up');
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+
+</html>
