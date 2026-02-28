@@ -1,158 +1,1079 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio Architettura Lugano | Zoom Experience</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
-    
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.27/dist/lenis.min.js"></script>
+    <meta name="description"
+        content="Studio di architettura d'interni e design a Lugano. Atelier Lugano: progettiamo spazi che ispirano ed emozionano.">
+    <meta property="og:title" content="Studio Architettura Lugano | Atelier Lugano">
+    <meta property="og:description"
+        content="Architettura d'interni premium a Lugano. Design minimalista, funzionale e su misura.">
+    <meta property="og:type" content="website">
+    <title>Studio Architettura Lugano | Atelier Lugano</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <style>
-        :root {
-            --bg-dark: #1A1A1A;
-            --text-light: #FAFAFA;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
             margin: 0;
-            color: var(--text-light);
+            padding: 0;
         }
-        .font-serif { font-family: 'Playfair Display', serif; }
-        
-        /* Utility per le proporzioni delle immagini del componente */
-        .img-container {
+
+        :root {
+            --dark: #111111;
+            --light: #F8F6F2;
+            --accent: #B89A6A;
+            --gray: #888880;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* ---- NAVBAR ---- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 60px;
+            transition: all 0.5s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(248, 246, 242, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 18px 60px;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            letter-spacing: 1px;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--dark);
+            border: 1px solid var(--dark);
+            padding: 10px 24px;
+            transition: all 0.4s;
+            font-weight: 500;
+        }
+
+        .nav-cta:hover {
+            background: var(--dark);
+            color: var(--light);
+        }
+
+        /* ---- HERO ---- */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 60px 80px;
+            background-color: var(--light);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-badge {
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(52px, 9vw, 130px);
+            line-height: 1.0;
+            color: var(--dark);
+            opacity: 0;
+            transform: translateY(40px);
+            max-width: 900px;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-sub {
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            opacity: 0;
+        }
+
+        .hero-sub p {
+            font-size: 14px;
+            color: var(--gray);
+            max-width: 360px;
+            line-height: 1.8;
+        }
+
+        .hero-scroll-line {
+            width: 60px;
+            height: 1px;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .hero-year {
+            position: absolute;
+            right: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 11px;
+            letter-spacing: 0.25em;
+            color: var(--gray);
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+            opacity: 0;
+        }
+
+        /* ---- SEZIONE GENERICA ---- */
+        .section-label {
+            font-size: 10px;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(32px, 4vw, 58px);
+            line-height: 1.15;
+            color: var(--dark);
+        }
+
+        /* ---- CHI SIAMO ---- */
+        #chi-siamo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 90vh;
+        }
+
+        .chi-siamo-img {
+            background: var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chi-siamo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.75;
+            transition: opacity 0.5s;
+        }
+
+        .chi-siamo-img .img-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #555;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .chi-siamo-content {
+            padding: 100px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--light);
+        }
+
+        .chi-siamo-content p {
+            margin-top: 32px;
+            font-size: 16px;
+            line-height: 1.9;
+            color: var(--gray);
+            max-width: 480px;
+        }
+
+        .chi-siamo-content p+p {
+            margin-top: 18px;
+        }
+
+        .chi-siamo-numbers {
+            margin-top: 56px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .number-item span {
+            font-family: var(--font-serif);
+            font-size: 48px;
+            color: var(--accent);
+            display: block;
+        }
+
+        .number-item p {
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-top: 6px !important;
+        }
+
+        /* ---- PORTFOLIO / ZOOM PARALLAX ---- */
+        #portfolio-header {
+            padding: 120px 60px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            background: var(--light);
+        }
+
+        #portfolio-header p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--gray);
+            max-width: 400px;
+        }
+
+        .zoom-container {
+            position: relative;
+            height: 300vh;
+            background-color: var(--dark);
+        }
+
+        .zoom-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .img-wrapper {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            will-change: transform;
+        }
+
+        .img-box {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+            background-color: #222;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .img-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #555;
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* ---- SERVIZI ---- */
+        #servizi {
+            padding: 120px 60px;
+            background: var(--light);
+        }
+
+        .servizi-grid {
+            margin-top: 72px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+        }
+
+        .servizio-item {
+            border-top: 1px solid rgba(0, 0, 0, 0.12);
+            padding-top: 32px;
+        }
+
+        .servizio-num {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            color: var(--accent);
+            opacity: 0.5;
+        }
+
+        .servizio-title {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            margin-top: 16px;
+            color: var(--dark);
+        }
+
+        .servizio-desc {
+            margin-top: 16px;
+            font-size: 14px;
+            line-height: 1.9;
+            color: var(--gray);
+        }
+
+        /* ---- RECENSIONI ---- */
+        #recensioni {
+            padding: 120px 60px;
+            background: var(--dark);
+            color: var(--light);
+        }
+
+        #recensioni .section-label {
+            color: var(--accent);
+        }
+
+        #recensioni .section-title {
+            color: var(--light);
+        }
+
+        .recensioni-grid {
+            margin-top: 72px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .recensione-card {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px;
+            transition: border-color 0.4s;
+        }
+
+        .recensione-card:hover {
+            border-color: var(--accent);
+        }
+
+        .stars {
+            color: var(--accent);
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .recensione-testo {
+            font-size: 15px;
+            line-height: 1.8;
+            color: rgba(248, 246, 242, 0.7);
+            font-style: italic;
+        }
+
+        .recensione-autore {
+            margin-top: 28px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .recensione-autore strong {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .recensione-autore span {
+            font-size: 11px;
+            color: var(--accent);
+            margin-top: 4px;
+        }
+
+        /* ---- CONTATTI ---- */
+        #contatti {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 80vh;
+        }
+
+        .contatti-info {
+            padding: 100px 80px;
+            background: var(--light);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contatti-info p {
+            margin-top: 24px;
+            font-size: 16px;
+            line-height: 1.9;
+            color: var(--gray);
+            max-width: 400px;
+        }
+
+        .contatti-details {
+            margin-top: 56px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contatti-detail-item label {
+            font-size: 10px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .contatti-detail-item a,
+        .contatti-detail-item p {
+            font-size: 15px;
+            color: var(--dark);
+            text-decoration: none;
+            margin-top: 0 !important;
+            transition: color 0.3s;
+        }
+
+        .contatti-detail-item a:hover {
+            color: var(--accent);
+        }
+
+        .contatti-form {
+            padding: 100px 80px;
+            background: var(--dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contatti-form .section-title {
+            color: var(--light);
+        }
+
+        .form-group {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-field label {
+            font-size: 10px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(248, 246, 242, 0.4);
+            margin-bottom: 10px;
+        }
+
+        .form-field input,
+        .form-field textarea,
+        .form-field select {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(248, 246, 242, 0.15);
+            color: var(--light);
+            font-family: var(--font-sans);
+            font-size: 15px;
+            padding: 12px 0;
+            outline: none;
+            transition: border-color 0.3s;
+            width: 100%;
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus,
+        .form-field select:focus {
+            border-color: var(--accent);
+        }
+
+        .form-field textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .form-field select option {
+            background: #222;
+        }
+
+        .form-submit {
+            margin-top: 40px;
+            padding: 18px 48px;
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-family: var(--font-sans);
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s;
+            align-self: flex-start;
+        }
+
+        .form-submit:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        /* ---- FOOTER ---- */
+        footer {
+            background: var(--dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 50px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            color: var(--light);
+        }
+
+        footer p {
+            font-size: 12px;
+            color: rgba(248, 246, 242, 0.3);
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 28px;
+        }
+
+        .footer-socials a {
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(248, 246, 242, 0.4);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-socials a:hover {
+            color: var(--accent);
+        }
+
+        /* ---- ANIMAZIONI GSAP ---- */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .fade-in {
+            opacity: 0;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 900px) {
+            nav {
+                padding: 24px 24px;
+            }
+
+            nav.scrolled {
+                padding: 16px 24px;
+            }
+
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+
+            #hero {
+                padding: 0 24px 60px;
+            }
+
+            .hero-year {
+                display: none;
+            }
+
+            #chi-siamo {
+                grid-template-columns: 1fr;
+            }
+
+            .chi-siamo-img {
+                height: 50vw;
+            }
+
+            .chi-siamo-content {
+                padding: 60px 24px;
+            }
+
+            #portfolio-header {
+                padding: 80px 24px 60px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            #servizi {
+                padding: 80px 24px;
+            }
+
+            .servizi-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            #recensioni {
+                padding: 80px 24px;
+            }
+
+            .recensioni-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            #contatti {
+                grid-template-columns: 1fr;
+            }
+
+            .contatti-info {
+                padding: 60px 24px;
+            }
+
+            .contatti-form {
+                padding: 60px 24px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 20px;
+                padding: 40px 24px;
+                text-align: center;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <div id="root"></div>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <a href="#hero" class="nav-logo">Atelier Lugano</a>
+        <ul class="nav-links">
+            <li><a href="#chi-siamo">Chi Siamo</a></li>
+            <li><a href="#portfolio-header">Portfolio</a></li>
+            <li><a href="#servizi">Servizi</a></li>
+            <li><a href="#recensioni">Recensioni</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+        </ul>
+        <a href="#contatti" class="nav-cta">Richiedi Consulenza</a>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <p class="hero-badge">Studio di Architettura · Lugano, Svizzera</p>
+        <h1 class="hero-title">Progettiamo<br><em>spazi</em> che<br>parlano di te.</h1>
+        <div class="hero-sub">
+            <div class="hero-scroll-line"></div>
+            <p>Architettura d'interni su misura a Lugano. Dal concept al progetto finito, ogni dettaglio è pensato per
+                te.</p>
+        </div>
+        <span class="hero-year">Est. 2010 · Lugano</span>
+    </section>
+
+    <!-- CHI SIAMO -->
+    <section id="chi-siamo">
+        <div class="chi-siamo-img">
+            <!-- INCOLLA QUI FOTO STUDIO / TEAM -->
+            <div class="img-placeholder">INCOLLA QUI FOTO STUDIO</div>
+            <img src="" alt="Team Studio Architettura Lugano" onerror="this.style.display='none'">
+        </div>
+        <div class="chi-siamo-content">
+            <p class="section-label fade-up">Chi Siamo</p>
+            <h2 class="section-title fade-up">Un atelier<br>dove l'architettura<br>diventa arte.</h2>
+            <p class="fade-up">Atelier Lugano nasce dalla passione per gli spazi vissuti. Dal 2010 progettiamo residenze
+                private, spazi commerciali e interni di lusso nel Canton Ticino e oltre confine.</p>
+            <p class="fade-up">Ogni progetto è un dialogo tra cliente e architetto, tra funzionalità e bellezza, tra
+                tradizione locale e modernità internazionale.</p>
+            <div class="chi-siamo-numbers">
+                <div class="number-item fade-up">
+                    <span>+150</span>
+                    <p>Progetti completati</p>
+                </div>
+                <div class="number-item fade-up">
+                    <span>14</span>
+                    <p>Anni di esperienza</p>
+                </div>
+                <div class="number-item fade-up">
+                    <span>3</span>
+                    <p>Premi di architettura</p>
+                </div>
+                <div class="number-item fade-up">
+                    <span>100%</span>
+                    <p>Clienti soddisfatti</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO HEADER -->
+    <div id="portfolio-header">
+        <div>
+            <p class="section-label fade-up">Portfolio</p>
+            <h2 class="section-title fade-up">I nostri<br>progetti.</h2>
+        </div>
+        <p class="fade-up">Uno sguardo immersivo nei nostri lavori più significativi. Scorri per esplorare i volumi e
+            gli spazi che abbiamo creato.</p>
+    </div>
+
+    <!-- ZOOM PARALLAX PORTFOLIO -->
+    <div class="zoom-container">
+        <div class="zoom-sticky">
+            <!-- FOTO PROGETTO 1 (centrale) -->
+            <div class="img-wrapper" data-scale="4">
+                <div class="img-box" style="width: 25vw; height: 25vh;">
+                    <div class="img-placeholder">INCOLLA QUI<br>FOTO PROGETTO 1</div>
+                    <img id="img-1" src="" alt="Progetto 1" onerror="this.style.opacity='0'">
+                </div>
+            </div>
+            <!-- FOTO PROGETTO 2 -->
+            <div class="img-wrapper" data-scale="5">
+                <div class="img-box" style="width: 35vw; height: 30vh; margin-top: -30vh; margin-left: 5vw;">
+                    <div class="img-placeholder">INCOLLA QUI<br>FOTO PROGETTO 2</div>
+                    <img id="img-2" src="" alt="Progetto 2" onerror="this.style.opacity='0'">
+                </div>
+            </div>
+            <!-- FOTO PROGETTO 3 -->
+            <div class="img-wrapper" data-scale="6">
+                <div class="img-box" style="width: 20vw; height: 45vh; margin-top: -10vh; margin-left: -25vw;">
+                    <div class="img-placeholder">INCOLLA QUI<br>FOTO PROGETTO 3</div>
+                    <img id="img-3" src="" alt="Progetto 3" onerror="this.style.opacity='0'">
+                </div>
+            </div>
+            <!-- FOTO PROGETTO 4 -->
+            <div class="img-wrapper" data-scale="5">
+                <div class="img-box" style="width: 25vw; height: 25vh; margin-left: 27.5vw;">
+                    <div class="img-placeholder">INCOLLA QUI<br>FOTO PROGETTO 4</div>
+                    <img id="img-4" src="" alt="Progetto 4" onerror="this.style.opacity='0'">
+                </div>
+            </div>
+            <!-- FOTO PROGETTO 5 -->
+            <div class="img-wrapper" data-scale="6">
+                <div class="img-box" style="width: 20vw; height: 25vh; margin-top: 27.5vh; margin-left: 5vw;">
+                    <div class="img-placeholder">INCOLLA QUI<br>FOTO PROGETTO 5</div>
+                    <img id="img-5" src="" alt="Progetto 5" onerror="this.style.opacity='0'">
+                </div>
+            </div>
+            <!-- FOTO PROGETTO 6 -->
+            <div class="img-wrapper" data-scale="8">
+                <div class="img-box" style="width: 30vw; height: 25vh; margin-top: 27.5vh; margin-left: -22.5vw;">
+                    <div class="img-placeholder">INCOLLA QUI<br>FOTO PROGETTO 6</div>
+                    <img id="img-6" src="" alt="Progetto 6" onerror="this.style.opacity='0'">
+                </div>
+            </div>
+            <!-- FOTO PROGETTO 7 -->
+            <div class="img-wrapper" data-scale="9">
+                <div class="img-box" style="width: 15vw; height: 15vh; margin-top: 22.5vh; margin-left: 25vw;">
+                    <div class="img-placeholder">INCOLLA QUI<br>FOTO PROGETTO 7</div>
+                    <img id="img-7" src="" alt="Progetto 7" onerror="this.style.opacity='0'">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVIZI -->
+    <section id="servizi">
+        <p class="section-label fade-up">Cosa facciamo</p>
+        <h2 class="section-title fade-up">I nostri servizi.</h2>
+        <div class="servizi-grid">
+            <div class="servizio-item fade-up">
+                <div class="servizio-num">01</div>
+                <h3 class="servizio-title">Architettura Residenziale</h3>
+                <p class="servizio-desc">Progettiamo abitazioni private che rispecchiano la personalità di chi le vive.
+                    Dalla villa al loft urbano, ogni spazio racconta una storia.</p>
+            </div>
+            <div class="servizio-item fade-up">
+                <div class="servizio-num">02</div>
+                <h3 class="servizio-title">Interni & Design</h3>
+                <p class="servizio-desc">Curiamo ogni dettaglio degli spazi interni: materiali, colori, arredi e
+                    illuminazione per creare ambienti coerenti e raffinati.</p>
+            </div>
+            <div class="servizio-item fade-up">
+                <div class="servizio-num">03</div>
+                <h3 class="servizio-title">Spazi Commerciali</h3>
+                <p class="servizio-desc">Uffici, showroom, boutique e ristoranti: spazi di lavoro e vendita progettati
+                    per valorizzare il brand e migliorare l'esperienza cliente.</p>
+            </div>
+            <div class="servizio-item fade-up">
+                <div class="servizio-num">04</div>
+                <h3 class="servizio-title">Ristrutturazione</h3>
+                <p class="servizio-desc">Trasformiamo edifici esistenti mantenendo il loro carattere originale e
+                    integrandovi comfort e funzionalità contemporanei.</p>
+            </div>
+            <div class="servizio-item fade-up">
+                <div class="servizio-num">05</div>
+                <h3 class="servizio-title">Consulenza & Concept</h3>
+                <p class="servizio-desc">Un primo incontro per capire le tue esigenze, sviluppare il concept e definire
+                    la visione progettuale prima ancora di partire con i disegni.</p>
+            </div>
+            <div class="servizio-item fade-up">
+                <div class="servizio-num">06</div>
+                <h3 class="servizio-title">Project Management</h3>
+                <p class="servizio-desc">Seguiamo il cantiere dalla posa della prima pietra alla consegna delle chiavi,
+                    coordinando maestranze e fornitori con precisione svizzera.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECENSIONI -->
+    <section id="recensioni">
+        <p class="section-label fade-up">Testimonianze</p>
+        <h2 class="section-title fade-up">Cosa dicono<br>i nostri clienti.</h2>
+        <div class="recensioni-grid">
+            <div class="recensione-card fade-up">
+                <div class="stars">★★★★★</div>
+                <p class="recensione-testo">"Atelier Lugano ha trasformato la nostra casa in un luogo che amiamo
+                    davvero. Ogni dettaglio è curato con una sensibilità rara. Professionalità assoluta dall'inizio alla
+                    fine."</p>
+                <div class="recensione-autore">
+                    <strong>Marco & Giulia Ferretti</strong>
+                    <span>Villa privata · Lugano</span>
+                </div>
+            </div>
+            <div class="recensione-card fade-up">
+                <div class="stars">★★★★★</div>
+                <p class="recensione-testo">"Abbiamo affidato loro la ristrutturazione del nostro ufficio e il risultato
+                    ha superato ogni aspettativa. I nostri clienti ci fanno i complimenti ogni giorno."</p>
+                <div class="recensione-autore">
+                    <strong>Studio Legale Bernasconi</strong>
+                    <span>Spazio commerciale · Lugano Centro</span>
+                </div>
+            </div>
+            <div class="recensione-card fade-up">
+                <div class="stars">★★★★★</div>
+                <p class="recensione-testo">"La capacità di ascoltare e di tradurre in progetto le nostre idee è stata
+                    straordinaria. Hanno rispettato tempi e budget. Li raccomando senza esitazione."</p>
+                <div class="recensione-autore">
+                    <strong>Famiglia Rossi</strong>
+                    <span>Appartamento · Lugano-Molino Nuovo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section id="contatti">
+        <div class="contatti-info">
+            <p class="section-label fade-up">Contatti</p>
+            <h2 class="section-title fade-up">Parliamo del<br>tuo progetto.</h2>
+            <p class="fade-up">Hai un'idea, una casa da ristrutturare o uno spazio da trasformare? Scrivici: la prima
+                consulenza è gratuita.</p>
+            <div class="contatti-details">
+                <div class="contatti-detail-item fade-up">
+                    <label>Email</label>
+                    <a href="mailto:info@architettilugano.ch">info@architettilugano.ch</a>
+                </div>
+                <div class="contatti-detail-item fade-up">
+                    <label>Telefono</label>
+                    <a href="tel:+41919001234">+41 91 900 12 34</a>
+                </div>
+                <div class="contatti-detail-item fade-up">
+                    <label>Studio</label>
+                    <p>Via Nassa 15, 6900 Lugano, Svizzera</p>
+                </div>
+                <div class="contatti-detail-item fade-up">
+                    <label>Orari</label>
+                    <p>Lun – Ven, 09:00 – 18:00</p>
+                </div>
+            </div>
+        </div>
+        <div class="contatti-form">
+            <p class="section-label" style="color: var(--accent);">Richiedi consulenza</p>
+            <h2 class="section-title" style="color: var(--light); margin-top: 20px;">Scrivici ora.</h2>
+            <form class="form-group" onsubmit="handleSubmit(event)">
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Mario Rossi" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="mario@email.com" required>
+                    </div>
+                </div>
+                <div class="form-field">
+                    <label for="telefono">Telefono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="+41 91 000 00 00">
+                </div>
+                <div class="form-field">
+                    <label for="servizio">Tipo di progetto</label>
+                    <select id="servizio" name="servizio">
+                        <option value="">Seleziona un servizio</option>
+                        <option value="residenziale">Architettura Residenziale</option>
+                        <option value="interni">Interni & Design</option>
+                        <option value="commerciale">Spazi Commerciali</option>
+                        <option value="ristrutturazione">Ristrutturazione</option>
+                        <option value="consulenza">Consulenza & Concept</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="messaggio">Messaggio</label>
+                    <textarea id="messaggio" name="messaggio"
+                        placeholder="Descrivici brevemente il tuo progetto..."></textarea>
+                </div>
+                <button type="submit" class="form-submit">Invia Richiesta →</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">Atelier Lugano</div>
+        <p>© 2024 Atelier Lugano · Studio di Architettura · Via Nassa 15, 6900 Lugano</p>
+        <div class="footer-socials">
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Houzz</a>
+        </div>
+    </footer>
 
     <script>
-        const { useEffect, useRef } = React;
-        const { motion, useScroll, useTransform } = FramerMotion;
+        gsap.registerPlugin(ScrollTrigger);
 
-        // --- COMPONENTE ZOOM PARALLAX ---
-        const ZoomParallax = ({ images }) => {
-            const container = useRef(null);
-            
-            // Hook per tracciare lo scroll nel container da 300vh
-            const { scrollYProgress } = useScroll({
-                target: container,
-                offset: ["start start", "end end"]
+        // ---- NAVBAR SCROLL ----
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
+        });
+
+        // ---- HERO ANIMATION ----
+        gsap.from('.hero-badge', { opacity: 0, y: 20, duration: 1.2, delay: 0.4, ease: 'power3.out' });
+        gsap.from('.hero-title', { opacity: 0, y: 50, duration: 1.4, delay: 0.7, ease: 'power3.out' });
+        gsap.from('.hero-sub', { opacity: 0, duration: 1.2, delay: 1.4, ease: 'power3.out' });
+        gsap.from('.hero-year', { opacity: 0, duration: 1, delay: 1.6, ease: 'power3.out' });
+
+        // ---- SCROLL FADE UPS ----
+        gsap.utils.toArray('.fade-up').forEach(el => {
+            gsap.from(el, {
+                opacity: 0,
+                y: 40,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+
+        // ---- ZOOM PARALLAX ----
+        const wrappers = document.querySelectorAll('.img-wrapper');
+        wrappers.forEach((wrapper, index) => {
+            const finalScale = parseFloat(wrapper.dataset.scale);
+            const isPeripheral = index !== 0;
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.zoom-container',
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: 1.5
+                }
             });
 
-            // Definizione scale per le 7 immagini
-            const scale4 = useTransform(scrollYProgress, [0, 1], [1, 4]);
-            const scale5 = useTransform(scrollYProgress, [0, 1], [1, 5]);
-            const scale6 = useTransform(scrollYProgress, [0, 1], [1, 6]);
-            const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
-            const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
+            tl.to(wrapper, { scale: finalScale, ease: 'none' }, 0);
+            if (isPeripheral) {
+                tl.to(wrapper, { opacity: 0.3, filter: 'blur(8px)', ease: 'none' }, 0);
+            }
+        });
 
-            const scales = [scale4, scale5, scale6, scale5, scale6, scale8, scale9];
-
-            // Mapping delle posizioni specifiche fornite nel design
-            const customStyles = [
-                { w: '25vw', h: '25vh', top: '0', left: '0' }, // Centro
-                { w: '35vw', h: '30vh', top: '-30vh', left: '5vw' },
-                { w: '20vw', h: '45vh', top: '-10vh', left: '-25vw' },
-                { w: '25vw', h: '25vh', top: '0', left: '27.5vw' },
-                { w: '20vw', h: '25vh', top: '27.5vh', left: '5vw' },
-                { w: '30vw', h: '25vh', top: '27.5vh', left: '-22.5vw' },
-                { w: '15vw', h: '15vh', top: '22.5vh', left: '25vw' }
-            ];
-
-            return React.createElement('div', { 
-                ref: container, 
-                className: "relative h-[300vh] w-full" 
-            }, 
-                React.createElement('div', { className: "sticky top-0 h-screen overflow-hidden flex items-center justify-center" },
-                    images.map((img, index) => {
-                        const style = customStyles[index] || customStyles[0];
-                        return React.createElement(motion.div, {
-                            key: index,
-                            style: { scale: scales[index % scales.length] },
-                            className: "absolute flex items-center justify-center w-full h-full"
-                        }, 
-                            React.createElement('div', { 
-                                className: "img-container",
-                                style: { 
-                                    width: style.w, 
-                                    height: style.h, 
-                                    top: style.top, 
-                                    left: style.left,
-                                    position: 'relative'
-                                }
-                            },
-                                React.createElement('img', {
-                                    src: img.src,
-                                    alt: img.alt,
-                                    className: "w-full h-full object-cover"
-                                })
-                            )
-                        );
-                    })
-                )
-            );
-        };
-
-        // --- MAIN APP ---
-        const App = () => {
-            useEffect(() => {
-                // Inizializzazione Smooth Scroll Lenis
-                const lenis = new Lenis();
-                function raf(time) {
-                    lenis.raf(time);
-                    requestAnimationFrame(raf);
-                }
-                requestAnimationFrame(raf);
-            }, []);
-
-            const projectImages = [
-                { src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000', alt: 'Architettura 1' },
-                { src: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=1000', alt: 'Architettura 2' },
-                { src: 'https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=1000', alt: 'Architettura 3' },
-                { src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000', alt: 'Architettura 4' },
-                { src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000', alt: 'Architettura 5' },
-                { src: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=1000', alt: 'Architettura 6' },
-                { src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000', alt: 'Architettura 7' }
-            ];
-
-            return React.createElement('div', null,
-                // Hero Section
-                React.createElement('section', { className: "h-screen flex flex-col items-center justify-center bg-[#FAFAFA] text-[#1A1A1A] px-6" },
-                    React.createElement('h1', { className: "text-5xl md:text-8xl font-serif mb-6 text-center" }, "Atelier Lugano"),
-                    React.createElement('p', { className: "text-gray-500 uppercase tracking-[0.3em] text-xs md:text-sm" }, "Scorri per immergerti nei volumi")
-                ),
-
-                // Parallax Section
-                React.createElement(ZoomParallax, { images: projectImages }),
-
-                // Contact Section
-                React.createElement('section', { className: "h-[80vh] flex flex-col items-center justify-center bg-[#FAFAFA] text-[#1A1A1A]" },
-                    React.createElement('h2', { className: "text-3xl font-serif mb-8" }, "Progettiamo la tua idea."),
-                    React.createElement('a', { 
-                        href: "mailto:info@architettilugano.ch",
-                        className: "px-10 py-4 border border-black hover:bg-black hover:text-white transition-all duration-500 font-light tracking-widest"
-                    }, "CONTATTACI")
-                )
-            );
-        };
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(React.createElement(App));
+        // ---- FORM SUBMIT ----
+        function handleSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('.form-submit');
+            btn.textContent = 'Messaggio inviato! ✓';
+            btn.style.background = 'var(--accent)';
+            btn.style.color = 'var(--dark)';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.textContent = 'Invia Richiesta →';
+                btn.style.background = '';
+                btn.style.color = '';
+                btn.disabled = false;
+                e.target.reset();
+            }, 4000);
+        }
     </script>
 </body>
+
 </html>
