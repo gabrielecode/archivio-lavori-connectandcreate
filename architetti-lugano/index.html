@@ -5,15 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Studio di architettura d'interni e design a Lugano. Atelier Lugano: progettiamo spazi che ispirano ed emozionano.">
-    <meta property="og:title" content="Studio Architettura Lugano | Atelier Lugano">
+        content="Studio di architettura e interior design a Lugano. Atelier Lugano progetta residenze private, ristrutturazioni e spazi commerciali nel Canton Ticino con un approccio su misura, materiali di qualità e attenzione ai dettagli.">
+    <meta name="keywords"
+        content="architetto Lugano, studio architettura Lugano, interior design Canton Ticino, ristrutturazione casa Lugano, progettazione interni Ticino, architetti Svizzera, progetto residenziale Lugano, studio design lusso Lugano">
+    <meta property="og:title" content="Atelier Lugano | Studio di Architettura e Interior Design – Canton Ticino">
     <meta property="og:description"
-        content="Architettura d'interni premium a Lugano. Design minimalista, funzionale e su misura.">
+        content="Progettiamo spazi che ispirano. Studio di architettura e design d'interni di alto livello a Lugano, Svizzera.">
     <meta property="og:type" content="website">
-    <title>Studio Architettura Lugano | Atelier Lugano</title>
+    <meta property="og:locale" content="it_CH">
+    <title>Atelier Lugano | Studio di Architettura e Interior Design – Canton Ticino</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap"
         rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -28,12 +33,12 @@
         }
 
         :root {
-            --dark: #111111;
-            --light: #F8F6F2;
+            --dark: #0E0E0E;
+            --light: #F7F5F0;
             --accent: #B89A6A;
-            --gray: #888880;
-            --font-serif: 'Playfair Display', serif;
-            --font-sans: 'Inter', sans-serif;
+            --accent2: #8C7355;
+            --gray: #6E6E6A;
+            --border: rgba(0, 0, 0, 0.1);
         }
 
         html {
@@ -41,13 +46,23 @@
         }
 
         body {
-            font-family: var(--font-sans);
-            background-color: var(--light);
+            font-family: 'Lato', sans-serif;
+            background: var(--light);
             color: var(--dark);
             overflow-x: hidden;
         }
 
-        /* ---- NAVBAR ---- */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .font-title {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* NAVBAR */
         nav {
             position: fixed;
             top: 0;
@@ -57,38 +72,41 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 28px 60px;
-            transition: all 0.5s ease;
+            padding: 28px 64px;
+            transition: all 0.5s;
         }
 
         nav.scrolled {
-            background: rgba(248, 246, 242, 0.95);
-            backdrop-filter: blur(12px);
-            padding: 18px 60px;
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+            background: rgba(247, 245, 240, 0.96);
+            backdrop-filter: blur(16px);
+            padding: 16px 64px;
+            box-shadow: 0 1px 0 var(--border);
         }
 
         .nav-logo {
-            font-family: var(--font-serif);
-            font-size: 20px;
-            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
             color: var(--dark);
             text-decoration: none;
         }
 
         .nav-links {
             display: flex;
-            gap: 48px;
+            gap: 40px;
             list-style: none;
         }
 
         .nav-links a {
-            font-size: 11px;
-            letter-spacing: 0.2em;
+            font-family: 'Lato', sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
             text-decoration: none;
             color: var(--dark);
-            font-weight: 500;
+            font-weight: 400;
             transition: color 0.3s;
         }
 
@@ -97,15 +115,16 @@
         }
 
         .nav-cta {
+            font-family: 'Lato', sans-serif;
             font-size: 11px;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
             text-decoration: none;
             color: var(--dark);
             border: 1px solid var(--dark);
-            padding: 10px 24px;
+            padding: 11px 26px;
             transition: all 0.4s;
-            font-weight: 500;
+            font-weight: 700;
         }
 
         .nav-cta:hover {
@@ -113,189 +132,228 @@
             color: var(--light);
         }
 
-        /* ---- HERO ---- */
+        /* HERO */
         #hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 0 60px 80px;
-            background-color: var(--light);
+            padding: 0 64px 90px;
             position: relative;
             overflow: hidden;
+            background: var(--light);
         }
 
-        .hero-badge {
+        .hero-eyebrow {
+            font-family: 'Lato', sans-serif;
             font-size: 11px;
-            letter-spacing: 0.3em;
+            letter-spacing: 0.5em;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 24px;
-            opacity: 0;
-            transform: translateY(20px);
+            margin-bottom: 28px;
         }
 
         .hero-title {
-            font-family: var(--font-serif);
-            font-size: clamp(52px, 9vw, 130px);
-            line-height: 1.0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(52px, 8.5vw, 128px);
+            font-weight: 900;
+            line-height: 0.95;
             color: var(--dark);
-            opacity: 0;
-            transform: translateY(40px);
-            max-width: 900px;
+            max-width: 950px;
+            text-transform: uppercase;
+            letter-spacing: -2px;
         }
 
-        .hero-title em {
-            font-style: italic;
+        .hero-title span {
             color: var(--accent);
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 0;
+            text-transform: none;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        .hero-sub {
-            margin-top: 40px;
+        .hero-bottom {
+            margin-top: 56px;
             display: flex;
-            align-items: center;
-            gap: 40px;
-            opacity: 0;
+            align-items: flex-start;
+            gap: 48px;
         }
 
-        .hero-sub p {
-            font-size: 14px;
-            color: var(--gray);
-            max-width: 360px;
-            line-height: 1.8;
-        }
-
-        .hero-scroll-line {
-            width: 60px;
-            height: 1px;
+        .hero-line {
+            width: 1px;
+            height: 80px;
             background: var(--accent);
             flex-shrink: 0;
         }
 
-        .hero-year {
+        .hero-desc {
+            font-family: 'Lato', sans-serif;
+            font-size: 15px;
+            line-height: 1.9;
+            color: var(--gray);
+            max-width: 420px;
+            font-weight: 300;
+        }
+
+        .hero-loc {
             position: absolute;
-            right: 60px;
+            right: 64px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 11px;
-            letter-spacing: 0.25em;
+            font-family: 'Lato', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.4em;
             color: var(--gray);
             text-transform: uppercase;
             writing-mode: vertical-rl;
-            opacity: 0;
         }
 
-        /* ---- SEZIONE GENERICA ---- */
-        .section-label {
+        /* SEZIONE BASE */
+        .s-label {
+            font-family: 'Lato', sans-serif;
             font-size: 10px;
-            letter-spacing: 0.35em;
+            letter-spacing: 0.45em;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 20px;
+            margin-bottom: 18px;
+            font-weight: 700;
         }
 
-        .section-title {
-            font-family: var(--font-serif);
-            font-size: clamp(32px, 4vw, 58px);
-            line-height: 1.15;
+        .s-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(30px, 3.8vw, 56px);
+            font-weight: 700;
+            line-height: 1.1;
             color: var(--dark);
         }
 
-        /* ---- CHI SIAMO ---- */
+        .s-text {
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            line-height: 1.95;
+            color: var(--gray);
+            font-weight: 300;
+        }
+
+        .fade-up {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        /* CHI SIAMO */
         #chi-siamo {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            min-height: 90vh;
+            min-height: 92vh;
         }
 
-        .chi-siamo-img {
-            background: var(--dark);
+        .cs-img {
+            background: #1a1a1a;
             position: relative;
             overflow: hidden;
         }
 
-        .chi-siamo-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.75;
-            transition: opacity 0.5s;
-        }
-
-        .chi-siamo-img .img-placeholder {
+        .cs-img .img-placeholder {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: #555;
+            color: #444;
             font-size: 10px;
             letter-spacing: 2px;
             text-transform: uppercase;
             text-align: center;
         }
 
-        .chi-siamo-content {
-            padding: 100px 80px;
+        .cs-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .cs-content {
+            padding: 110px 80px 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background: var(--light);
         }
 
-        .chi-siamo-content p {
-            margin-top: 32px;
-            font-size: 16px;
-            line-height: 1.9;
-            color: var(--gray);
-            max-width: 480px;
+        .cs-content .s-text {
+            margin-top: 28px;
+            max-width: 500px;
         }
 
-        .chi-siamo-content p+p {
+        .cs-content .s-text+.s-text {
             margin-top: 18px;
         }
 
-        .chi-siamo-numbers {
-            margin-top: 56px;
+        .cs-content .s-text+.s-text+.s-text {
+            margin-top: 18px;
+        }
+
+        .cs-kw {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cs-kw span {
+            font-family: 'Lato', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: 1px solid var(--border);
+            padding: 7px 14px;
+            color: var(--gray);
+        }
+
+        .cs-numbers {
+            margin-top: 52px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 32px;
+            gap: 28px;
         }
 
-        .number-item span {
-            font-family: var(--font-serif);
-            font-size: 48px;
+        .num-item strong {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 46px;
+            font-weight: 900;
             color: var(--accent);
             display: block;
+            line-height: 1;
         }
 
-        .number-item p {
+        .num-item p {
+            font-family: 'Lato', sans-serif;
             font-size: 11px;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
             color: var(--gray);
-            margin-top: 6px !important;
+            margin-top: 6px;
         }
 
-        /* ---- PORTFOLIO / ZOOM PARALLAX ---- */
+        /* PORTFOLIO */
         #portfolio-header {
-            padding: 120px 60px 80px;
+            padding: 110px 64px 70px;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
+            gap: 40px;
             background: var(--light);
         }
 
-        #portfolio-header p {
-            font-size: 14px;
-            line-height: 1.8;
-            color: var(--gray);
-            max-width: 400px;
+        #portfolio-header .s-text {
+            max-width: 480px;
         }
 
         .zoom-container {
             position: relative;
             height: 300vh;
-            background-color: var(--dark);
+            background: var(--dark);
         }
 
         .zoom-sticky {
@@ -322,8 +380,8 @@
         .img-box {
             position: relative;
             overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-            background-color: #222;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
+            background: #1c1c1c;
         }
 
         .img-box img {
@@ -333,12 +391,13 @@
             display: block;
         }
 
-        .img-placeholder {
+        .img-ph {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: #555;
+            font-family: 'Lato', sans-serif;
             font-size: 9px;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -346,117 +405,250 @@
             white-space: nowrap;
         }
 
-        /* ---- SERVIZI ---- */
+        /* SERVIZI */
         #servizi {
-            padding: 120px 60px;
+            padding: 120px 64px;
             background: var(--light);
         }
 
-        .servizi-grid {
-            margin-top: 72px;
+        .serv-intro {
+            max-width: 680px;
+            margin-bottom: 80px;
+        }
+
+        .serv-intro .s-text {
+            margin-top: 24px;
+        }
+
+        .serv-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 48px;
+            gap: 0;
+            border-top: 1px solid var(--border);
+            border-left: 1px solid var(--border);
         }
 
-        .servizio-item {
-            border-top: 1px solid rgba(0, 0, 0, 0.12);
-            padding-top: 32px;
+        .serv-item {
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 44px 36px;
+            transition: background 0.4s;
         }
 
-        .servizio-num {
-            font-family: var(--font-serif);
-            font-size: 36px;
+        .serv-item:hover {
+            background: rgba(184, 154, 106, 0.05);
+        }
+
+        .serv-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
             color: var(--accent);
-            opacity: 0.5;
-        }
-
-        .servizio-title {
-            font-family: var(--font-serif);
-            font-size: 22px;
-            margin-top: 16px;
-            color: var(--dark);
-        }
-
-        .servizio-desc {
-            margin-top: 16px;
-            font-size: 14px;
-            line-height: 1.9;
-            color: var(--gray);
-        }
-
-        /* ---- RECENSIONI ---- */
-        #recensioni {
-            padding: 120px 60px;
-            background: var(--dark);
-            color: var(--light);
-        }
-
-        #recensioni .section-label {
-            color: var(--accent);
-        }
-
-        #recensioni .section-title {
-            color: var(--light);
-        }
-
-        .recensioni-grid {
-            margin-top: 72px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .recensione-card {
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 40px;
-            transition: border-color 0.4s;
-        }
-
-        .recensione-card:hover {
-            border-color: var(--accent);
-        }
-
-        .stars {
-            color: var(--accent);
-            font-size: 16px;
+            letter-spacing: 0.2em;
             margin-bottom: 20px;
         }
 
-        .recensione-testo {
-            font-size: 15px;
-            line-height: 1.8;
-            color: rgba(248, 246, 242, 0.7);
-            font-style: italic;
+        .serv-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 16px;
         }
 
-        .recensione-autore {
-            margin-top: 28px;
+        .serv-desc {
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            line-height: 1.9;
+            color: var(--gray);
+            font-weight: 300;
+        }
+
+        /* PERCHE' NOI */
+        #perche {
+            padding: 120px 64px;
+            background: var(--dark);
+        }
+
+        #perche .s-label {
+            color: var(--accent);
+        }
+
+        #perche .s-title {
+            color: var(--light);
+            margin-bottom: 24px;
+        }
+
+        .perche-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+            margin-top: 72px;
+        }
+
+        .perche-text .s-text {
+            color: rgba(247, 245, 240, 0.65);
+        }
+
+        .perche-text .s-text+.s-text {
+            margin-top: 20px;
+        }
+
+        .perche-list {
             display: flex;
             flex-direction: column;
+            gap: 0;
         }
 
-        .recensione-autore strong {
+        .perche-item {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 32px 0;
+            display: flex;
+            gap: 28px;
+            align-items: flex-start;
+            transition: border-color 0.4s;
+        }
+
+        .perche-item:last-child {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .perche-item:hover {
+            border-top-color: var(--accent);
+        }
+
+        .perche-icon {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent);
+            min-width: 40px;
+        }
+
+        .perche-item h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 8px;
+        }
+
+        .perche-item p {
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(247, 245, 240, 0.55);
+            font-weight: 300;
+        }
+
+        /* RECENSIONI */
+        #recensioni {
+            padding: 120px 64px;
+            background: var(--light);
+        }
+
+        .rec-grid {
+            margin-top: 72px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .rec-card {
+            border: 1px solid var(--border);
+            padding: 44px 36px;
+            transition: all 0.4s;
+        }
+
+        .rec-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 12px 40px rgba(184, 154, 106, 0.1);
+        }
+
+        .rec-stars {
+            color: var(--accent);
+            font-size: 16px;
+            margin-bottom: 22px;
+            letter-spacing: 4px;
+        }
+
+        .rec-text {
+            font-family: 'Lato', sans-serif;
+            font-size: 15px;
+            line-height: 1.85;
+            color: var(--gray);
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .rec-author {
+            margin-top: 32px;
+            border-top: 1px solid var(--border);
+            padding-top: 22px;
+        }
+
+        .rec-author strong {
+            font-family: 'Montserrat', sans-serif;
             font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--dark);
+            display: block;
         }
 
-        .recensione-autore span {
-            font-size: 11px;
+        .rec-author span {
+            font-family: 'Lato', sans-serif;
+            font-size: 12px;
             color: var(--accent);
             margin-top: 4px;
+            display: block;
         }
 
-        /* ---- CONTATTI ---- */
+        /* FAQ / SEO */
+        #faq {
+            padding: 100px 64px;
+            background: var(--light);
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-top: 64px;
+        }
+
+        .faq-item {
+            border-top: 1px solid var(--border);
+            padding-top: 28px;
+        }
+
+        .faq-q {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 14px;
+            cursor: pointer;
+        }
+
+        .faq-a {
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            line-height: 1.9;
+            color: var(--gray);
+            font-weight: 300;
+        }
+
+        /* CONTATTI */
         #contatti {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            min-height: 80vh;
+            min-height: 85vh;
         }
 
-        .contatti-info {
+        .cont-info {
             padding: 100px 80px;
             background: var(--light);
             display: flex;
@@ -464,44 +656,44 @@
             justify-content: center;
         }
 
-        .contatti-info p {
+        .cont-info .s-text {
             margin-top: 24px;
-            font-size: 16px;
-            line-height: 1.9;
-            color: var(--gray);
-            max-width: 400px;
+            max-width: 420px;
         }
 
-        .contatti-details {
-            margin-top: 56px;
+        .cont-details {
+            margin-top: 52px;
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 26px;
         }
 
-        .contatti-detail-item label {
+        .cont-item label {
+            font-family: 'Lato', sans-serif;
             font-size: 10px;
-            letter-spacing: 0.3em;
+            letter-spacing: 0.4em;
             text-transform: uppercase;
             color: var(--accent);
+            font-weight: 700;
             display: block;
             margin-bottom: 6px;
         }
 
-        .contatti-detail-item a,
-        .contatti-detail-item p {
+        .cont-item a,
+        .cont-item p {
+            font-family: 'Lato', sans-serif;
             font-size: 15px;
             color: var(--dark);
             text-decoration: none;
-            margin-top: 0 !important;
             transition: color 0.3s;
+            font-weight: 400;
         }
 
-        .contatti-detail-item a:hover {
+        .cont-item a:hover {
             color: var(--accent);
         }
 
-        .contatti-form {
+        .cont-form {
             padding: 100px 80px;
             background: var(--dark);
             display: flex;
@@ -509,143 +701,145 @@
             justify-content: center;
         }
 
-        .contatti-form .section-title {
+        .cont-form .s-title {
             color: var(--light);
         }
 
-        .form-group {
-            margin-top: 40px;
+        .form-set {
+            margin-top: 44px;
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 26px;
         }
 
-        .form-row {
+        .f-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
         }
 
-        .form-field {
+        .f-field {
             display: flex;
             flex-direction: column;
         }
 
-        .form-field label {
+        .f-field label {
+            font-family: 'Lato', sans-serif;
             font-size: 10px;
-            letter-spacing: 0.3em;
+            letter-spacing: 0.35em;
             text-transform: uppercase;
-            color: rgba(248, 246, 242, 0.4);
+            color: rgba(247, 245, 240, 0.4);
             margin-bottom: 10px;
+            font-weight: 700;
         }
 
-        .form-field input,
-        .form-field textarea,
-        .form-field select {
+        .f-field input,
+        .f-field textarea,
+        .f-field select {
             background: transparent;
             border: none;
-            border-bottom: 1px solid rgba(248, 246, 242, 0.15);
+            border-bottom: 1px solid rgba(247, 245, 240, 0.12);
             color: var(--light);
-            font-family: var(--font-sans);
+            font-family: 'Lato', sans-serif;
             font-size: 15px;
             padding: 12px 0;
             outline: none;
             transition: border-color 0.3s;
             width: 100%;
+            font-weight: 300;
         }
 
-        .form-field input:focus,
-        .form-field textarea:focus,
-        .form-field select:focus {
+        .f-field input:focus,
+        .f-field textarea:focus,
+        .f-field select:focus {
             border-color: var(--accent);
         }
 
-        .form-field textarea {
+        .f-field textarea {
             resize: none;
-            height: 100px;
+            height: 90px;
         }
 
-        .form-field select option {
-            background: #222;
+        .f-field select option {
+            background: #1a1a1a;
         }
 
-        .form-submit {
-            margin-top: 40px;
-            padding: 18px 48px;
+        .f-btn {
+            margin-top: 16px;
+            align-self: flex-start;
+            padding: 18px 52px;
             background: transparent;
             border: 1px solid var(--accent);
             color: var(--accent);
-            font-family: var(--font-sans);
+            font-family: 'Montserrat', sans-serif;
             font-size: 11px;
             letter-spacing: 0.3em;
             text-transform: uppercase;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.4s;
-            align-self: flex-start;
         }
 
-        .form-submit:hover {
+        .f-btn:hover {
             background: var(--accent);
             color: var(--dark);
         }
 
-        /* ---- FOOTER ---- */
+        /* FOOTER */
         footer {
             background: var(--dark);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 50px 60px;
+            padding: 52px 64px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
         }
 
-        footer .footer-logo {
-            font-family: var(--font-serif);
-            font-size: 18px;
+        .f-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
             color: var(--light);
         }
 
         footer p {
+            font-family: 'Lato', sans-serif;
             font-size: 12px;
-            color: rgba(248, 246, 242, 0.3);
+            color: rgba(247, 245, 240, 0.28);
+            font-weight: 300;
         }
 
-        .footer-socials {
+        .f-socials {
             display: flex;
             gap: 28px;
         }
 
-        .footer-socials a {
+        .f-socials a {
+            font-family: 'Lato', sans-serif;
             font-size: 11px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: rgba(248, 246, 242, 0.4);
+            color: rgba(247, 245, 240, 0.35);
             text-decoration: none;
             transition: color 0.3s;
         }
 
-        .footer-socials a:hover {
+        .f-socials a:hover {
             color: var(--accent);
         }
 
-        /* ---- ANIMAZIONI GSAP ---- */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .fade-in {
-            opacity: 0;
-        }
-
-        /* ---- RESPONSIVE ---- */
+        /* RESPONSIVE */
         @media (max-width: 900px) {
             nav {
-                padding: 24px 24px;
+                padding: 22px 24px;
             }
 
             nav.scrolled {
-                padding: 16px 24px;
+                padding: 14px 24px;
             }
 
             .nav-links,
@@ -657,7 +851,7 @@
                 padding: 0 24px 60px;
             }
 
-            .hero-year {
+            .hero-loc {
                 display: none;
             }
 
@@ -665,11 +859,11 @@
                 grid-template-columns: 1fr;
             }
 
-            .chi-siamo-img {
-                height: 50vw;
+            .cs-img {
+                height: 55vw;
             }
 
-            .chi-siamo-content {
+            .cs-content {
                 padding: 60px 24px;
             }
 
@@ -677,47 +871,60 @@
                 padding: 80px 24px 60px;
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 20px;
             }
 
             #servizi {
                 padding: 80px 24px;
             }
 
-            .servizi-grid {
+            .serv-grid {
                 grid-template-columns: 1fr;
-                gap: 32px;
+            }
+
+            #perche {
+                padding: 80px 24px;
+            }
+
+            .perche-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             #recensioni {
                 padding: 80px 24px;
             }
 
-            .recensioni-grid {
+            .rec-grid {
                 grid-template-columns: 1fr;
-                gap: 24px;
+            }
+
+            #faq {
+                padding: 80px 24px;
+            }
+
+            .faq-layout {
+                grid-template-columns: 1fr;
             }
 
             #contatti {
                 grid-template-columns: 1fr;
             }
 
-            .contatti-info {
+            .cont-info {
                 padding: 60px 24px;
             }
 
-            .contatti-form {
+            .cont-form {
                 padding: 60px 24px;
             }
 
-            .form-row {
+            .f-row {
                 grid-template-columns: 1fr;
             }
 
             footer {
-                flex-direction: column;
-                gap: 20px;
                 padding: 40px 24px;
+                flex-direction: column;
                 text-align: center;
             }
         }
@@ -726,341 +933,797 @@
 
 <body>
 
+    <!-- SCHEMA MARKUP per AI & SEO -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ArchitectFirm",
+  "name": "Atelier Lugano",
+  "description": "Studio di architettura e interior design a Lugano, Canton Ticino. Progettazione residenziale, commerciale e ristrutturazioni di alto livello.",
+  "url": "https://www.atelierlugano.ch",
+  "telephone": "+41919001234",
+  "email": "info@atelierlugano.ch",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Nassa 15",
+    "addressLocality": "Lugano",
+    "postalCode": "6900",
+    "addressRegion": "Ticino",
+    "addressCountry": "CH"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 46.0037, "longitude": 8.9511 },
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "priceRange": "CHF CHF CHF",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "47" }
+}
+</script>
+
     <!-- NAVBAR -->
-    <nav id="navbar">
-        <a href="#hero" class="nav-logo">Atelier Lugano</a>
+    <nav id="navbar" role="navigation" aria-label="Navigazione principale">
+        <a href="#hero" class="nav-logo" aria-label="Atelier Lugano - Homepage">Atelier Lugano</a>
         <ul class="nav-links">
             <li><a href="#chi-siamo">Chi Siamo</a></li>
             <li><a href="#portfolio-header">Portfolio</a></li>
             <li><a href="#servizi">Servizi</a></li>
+            <li><a href="#perche">Perché Noi</a></li>
             <li><a href="#recensioni">Recensioni</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#contatti">Contatti</a></li>
         </ul>
-        <a href="#contatti" class="nav-cta">Richiedi Consulenza</a>
+        <a href="#contatti" class="nav-cta">Consulenza Gratuita</a>
     </nav>
 
     <!-- HERO -->
-    <section id="hero">
-        <p class="hero-badge">Studio di Architettura · Lugano, Svizzera</p>
-        <h1 class="hero-title">Progettiamo<br><em>spazi</em> che<br>parlano di te.</h1>
-        <div class="hero-sub">
-            <div class="hero-scroll-line"></div>
-            <p>Architettura d'interni su misura a Lugano. Dal concept al progetto finito, ogni dettaglio è pensato per
-                te.</p>
+    <section id="hero" aria-labelledby="hero-heading">
+        <p class="hero-eyebrow">Studio di Architettura · Lugano, Canton Ticino · Svizzera</p>
+        <h1 id="hero-heading" class="hero-title">
+            Architettura<br>che <span>trasforma</span><br>la vita.
+        </h1>
+        <div class="hero-bottom">
+            <div class="hero-line"></div>
+            <p class="hero-desc">
+                Atelier Lugano è uno studio di architettura e interior design situato nel cuore di Lugano, nel Canton
+                Ticino. Dal 2010 progettiamo residenze private, interni di lusso e spazi commerciali su misura per
+                clienti esigenti in Svizzera, Italia e oltre confine. Ogni progetto parte dall'ascolto, si costruisce
+                sul dettaglio e si completa con la cura di chi ama il proprio mestiere.
+            </p>
         </div>
-        <span class="hero-year">Est. 2010 · Lugano</span>
+        <span class="hero-loc" aria-hidden="true">Lugano · CH-6900 · Est. 2010</span>
     </section>
 
     <!-- CHI SIAMO -->
-    <section id="chi-siamo">
-        <div class="chi-siamo-img">
+    <section id="chi-siamo" aria-labelledby="chiSiamoHeading">
+        <div class="cs-img">
             <!-- INCOLLA QUI FOTO STUDIO / TEAM -->
-            <div class="img-placeholder">INCOLLA QUI FOTO STUDIO</div>
-            <img src="" alt="Team Studio Architettura Lugano" onerror="this.style.display='none'">
+            <div class="img-placeholder">Foto Studio · Team<br>INCOLLA QUI</div>
+            <img src="" alt="Team Atelier Lugano – architetti e designer a Lugano" onerror="this.style.display='none'">
         </div>
-        <div class="chi-siamo-content">
-            <p class="section-label fade-up">Chi Siamo</p>
-            <h2 class="section-title fade-up">Un atelier<br>dove l'architettura<br>diventa arte.</h2>
-            <p class="fade-up">Atelier Lugano nasce dalla passione per gli spazi vissuti. Dal 2010 progettiamo residenze
-                private, spazi commerciali e interni di lusso nel Canton Ticino e oltre confine.</p>
-            <p class="fade-up">Ogni progetto è un dialogo tra cliente e architetto, tra funzionalità e bellezza, tra
-                tradizione locale e modernità internazionale.</p>
-            <div class="chi-siamo-numbers">
-                <div class="number-item fade-up">
-                    <span>+150</span>
+        <div class="cs-content">
+            <p class="s-label fade-up">Chi Siamo</p>
+            <h2 id="chiSiamoHeading" class="s-title fade-up">Un atelier dove<br>architettura e vita<br>si incontrano.
+            </h2>
+            <p class="s-text fade-up">
+                Atelier Lugano è nato dalla visione condivisa di un gruppo di architetti e designer formatisi tra
+                Zurigo, Milano e Barcellona, con la convinzione che la buona architettura cambi il modo in cui le
+                persone vivono ogni giorno. Il nostro studio ha sede in Via Nassa, nel centro storico di Lugano, ed è
+                riconosciuto come uno dei riferimenti di eccellenza per la progettazione architettonica e l'interior
+                design nel Canton Ticino.
+            </p>
+            <p class="s-text fade-up">
+                Lavoriamo con una metodologia trasparente e partecipativa: coinvolgiamo il cliente in ogni fase, dal
+                primo concept agli elaborati tecnici, dalla scelta dei materiali alla direzione lavori finale. La nostra
+                presenza costante in cantiere ci permette di garantire che ogni dettaglio progettato venga realizzato
+                esattamente come previsto.
+            </p>
+            <p class="s-text fade-up">
+                Il territorio del Ticino, con i suoi laghi, le sue montagne e la sua tradizione costruttiva, è la nostra
+                fonte di ispirazione principale. Integriamo il paesaggio locale con un linguaggio architettonico
+                contemporaneo e internazionale, creando ambienti che sono autentici, duraturi e profondamente belli.
+            </p>
+            <div class="cs-kw fade-up">
+                <span>Architetti Lugano</span><span>Interior Design Ticino</span><span>Progettazione Residenziale</span>
+                <span>Ristrutturazione Lugano</span><span>Design d'Interni Svizzera</span><span>Spazi Commerciali</span>
+            </div>
+            <div class="cs-numbers">
+                <div class="num-item fade-up"><strong>+160</strong>
                     <p>Progetti completati</p>
                 </div>
-                <div class="number-item fade-up">
-                    <span>14</span>
+                <div class="num-item fade-up"><strong>14</strong>
                     <p>Anni di esperienza</p>
                 </div>
-                <div class="number-item fade-up">
-                    <span>3</span>
-                    <p>Premi di architettura</p>
+                <div class="num-item fade-up"><strong>4</strong>
+                    <p>Premi internazionali</p>
                 </div>
-                <div class="number-item fade-up">
-                    <span>100%</span>
-                    <p>Clienti soddisfatti</p>
+                <div class="num-item fade-up"><strong>47</strong>
+                    <p>Recensioni a 5 stelle</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- PORTFOLIO HEADER -->
-    <div id="portfolio-header">
+    <div id="portfolio-header" role="region" aria-label="Portfolio progetti">
         <div>
-            <p class="section-label fade-up">Portfolio</p>
-            <h2 class="section-title fade-up">I nostri<br>progetti.</h2>
+            <p class="s-label fade-up">Portfolio</p>
+            <h2 class="s-title fade-up">I nostri progetti<br>in Canton Ticino.</h2>
         </div>
-        <p class="fade-up">Uno sguardo immersivo nei nostri lavori più significativi. Scorri per esplorare i volumi e
-            gli spazi che abbiamo creato.</p>
+        <p class="s-text fade-up">
+            Ogni progetto nasce da un dialogo profondo con il cliente e con il luogo. Scorri per esplorare una selezione
+            di residenze private, ristrutturazioni e spazi commerciali realizzati tra Lugano, Locarno, Bellinzona e
+            oltre il confine italiano. Ogni immagine racconta una storia di trasformazione architettonica.
+        </p>
     </div>
 
     <!-- ZOOM PARALLAX PORTFOLIO -->
-    <div class="zoom-container">
+    <div class="zoom-container" aria-label="Galleria progetti in formato immersivo">
         <div class="zoom-sticky">
-            <!-- FOTO PROGETTO 1 (centrale) -->
             <div class="img-wrapper" data-scale="4">
-                <div class="img-box" style="width: 25vw; height: 25vh;">
-                    <div class="img-placeholder">INCOLLA QUI<br>FOTO PROGETTO 1</div>
-                    <img id="img-1" src="" alt="Progetto 1" onerror="this.style.opacity='0'">
+                <div class="img-box" style="width:25vw;height:25vh;">
+                    <div class="img-ph">INCOLLA QUI FOTO PROGETTO 1</div>
+                    <img src="" alt="Residenza privata a Lugano – progetto architettonico"
+                        onerror="this.style.opacity='0'">
                 </div>
             </div>
-            <!-- FOTO PROGETTO 2 -->
             <div class="img-wrapper" data-scale="5">
-                <div class="img-box" style="width: 35vw; height: 30vh; margin-top: -30vh; margin-left: 5vw;">
-                    <div class="img-placeholder">INCOLLA QUI<br>FOTO PROGETTO 2</div>
-                    <img id="img-2" src="" alt="Progetto 2" onerror="this.style.opacity='0'">
+                <div class="img-box" style="width:35vw;height:30vh;margin-top:-30vh;margin-left:5vw;">
+                    <div class="img-ph">INCOLLA QUI FOTO PROGETTO 2</div>
+                    <img src="" alt="Ristrutturazione appartamento Lugano" onerror="this.style.opacity='0'">
                 </div>
             </div>
-            <!-- FOTO PROGETTO 3 -->
             <div class="img-wrapper" data-scale="6">
-                <div class="img-box" style="width: 20vw; height: 45vh; margin-top: -10vh; margin-left: -25vw;">
-                    <div class="img-placeholder">INCOLLA QUI<br>FOTO PROGETTO 3</div>
-                    <img id="img-3" src="" alt="Progetto 3" onerror="this.style.opacity='0'">
+                <div class="img-box" style="width:20vw;height:45vh;margin-top:-10vh;margin-left:-25vw;">
+                    <div class="img-ph">INCOLLA QUI FOTO PROGETTO 3</div>
+                    <img src="" alt="Interior design loft Ticino" onerror="this.style.opacity='0'">
                 </div>
             </div>
-            <!-- FOTO PROGETTO 4 -->
             <div class="img-wrapper" data-scale="5">
-                <div class="img-box" style="width: 25vw; height: 25vh; margin-left: 27.5vw;">
-                    <div class="img-placeholder">INCOLLA QUI<br>FOTO PROGETTO 4</div>
-                    <img id="img-4" src="" alt="Progetto 4" onerror="this.style.opacity='0'">
+                <div class="img-box" style="width:25vw;height:25vh;margin-left:27.5vw;">
+                    <div class="img-ph">INCOLLA QUI FOTO PROGETTO 4</div>
+                    <img src="" alt="Villa con piscina e design paesaggistico Lugano" onerror="this.style.opacity='0'">
                 </div>
             </div>
-            <!-- FOTO PROGETTO 5 -->
             <div class="img-wrapper" data-scale="6">
-                <div class="img-box" style="width: 20vw; height: 25vh; margin-top: 27.5vh; margin-left: 5vw;">
-                    <div class="img-placeholder">INCOLLA QUI<br>FOTO PROGETTO 5</div>
-                    <img id="img-5" src="" alt="Progetto 5" onerror="this.style.opacity='0'">
+                <div class="img-box" style="width:20vw;height:25vh;margin-top:27.5vh;margin-left:5vw;">
+                    <div class="img-ph">INCOLLA QUI FOTO PROGETTO 5</div>
+                    <img src="" alt="Showroom fashion Canton Ticino" onerror="this.style.opacity='0'">
                 </div>
             </div>
-            <!-- FOTO PROGETTO 6 -->
             <div class="img-wrapper" data-scale="8">
-                <div class="img-box" style="width: 30vw; height: 25vh; margin-top: 27.5vh; margin-left: -22.5vw;">
-                    <div class="img-placeholder">INCOLLA QUI<br>FOTO PROGETTO 6</div>
-                    <img id="img-6" src="" alt="Progetto 6" onerror="this.style.opacity='0'">
+                <div class="img-box" style="width:30vw;height:25vh;margin-top:27.5vh;margin-left:-22.5vw;">
+                    <img src="archittetura-moderna.webp" alt="Architettura moderna – uffici design minimalista Lugano"
+                        style="width:100%;height:100%;object-fit:cover;display:block;"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="img-ph" style="display:none;">INCOLLA QUI FOTO PROGETTO 6</div>
                 </div>
             </div>
-            <!-- FOTO PROGETTO 7 -->
             <div class="img-wrapper" data-scale="9">
-                <div class="img-box" style="width: 15vw; height: 15vh; margin-top: 22.5vh; margin-left: 25vw;">
-                    <div class="img-placeholder">INCOLLA QUI<br>FOTO PROGETTO 7</div>
-                    <img id="img-7" src="" alt="Progetto 7" onerror="this.style.opacity='0'">
+                <div class="img-box" style="width:15vw;height:15vh;margin-top:22.5vh;margin-left:25vw;">
+                    <div class="img-ph">INCOLLA QUI FOTO PROGETTO 7</div>
+                    <img src="" alt="Dettaglio materiali naturali architettura sostenibile"
+                        onerror="this.style.opacity='0'">
                 </div>
             </div>
         </div>
     </div>
 
     <!-- SERVIZI -->
-    <section id="servizi">
-        <p class="section-label fade-up">Cosa facciamo</p>
-        <h2 class="section-title fade-up">I nostri servizi.</h2>
-        <div class="servizi-grid">
-            <div class="servizio-item fade-up">
-                <div class="servizio-num">01</div>
-                <h3 class="servizio-title">Architettura Residenziale</h3>
-                <p class="servizio-desc">Progettiamo abitazioni private che rispecchiano la personalità di chi le vive.
-                    Dalla villa al loft urbano, ogni spazio racconta una storia.</p>
+    <section id="servizi" aria-labelledby="serviziHeading">
+        <div class="serv-intro">
+            <p class="s-label fade-up">I nostri servizi</p>
+            <h2 id="serviziHeading" class="s-title fade-up">Cosa possiamo fare<br>per il tuo spazio.</h2>
+            <p class="s-text fade-up" style="margin-top:24px;">
+                Offriamo un servizio di architettura e design a 360 gradi: dall'idea iniziale alla consegna delle
+                chiavi. Ogni incarico viene seguito con dedizione personale da un team di architetti senior, interior
+                designer e coordinatori di cantiere con esperienza pluriennale nel contesto svizzero e italiano.
+            </p>
+        </div>
+        <div class="serv-grid">
+            <div class="serv-item fade-up">
+                <div class="serv-num">01</div>
+                <h3 class="serv-title">Architettura Residenziale a Lugano</h3>
+                <p class="serv-desc">Progettiamo ville e abitazioni private in tutto il Canton Ticino. Il nostro
+                    approccio integra estetica contemporanea, comfort abitativo e rispetto per il paesaggio lacustre e
+                    montano tipico della regione. Ogni spazio è progettato per rispecchiare la personalità di chi lo
+                    abita.</p>
             </div>
-            <div class="servizio-item fade-up">
-                <div class="servizio-num">02</div>
-                <h3 class="servizio-title">Interni & Design</h3>
-                <p class="servizio-desc">Curiamo ogni dettaglio degli spazi interni: materiali, colori, arredi e
-                    illuminazione per creare ambienti coerenti e raffinati.</p>
+            <div class="serv-item fade-up">
+                <div class="serv-num">02</div>
+                <h3 class="serv-title">Interior Design & Arredi Su Misura</h3>
+                <p class="serv-desc">Curiamo ogni aspetto dell'interior design: dalla selezione dei materiali – marmo,
+                    legno massello, metallo lavorato – alla progettazione di arredi custom. Collaboriamo con i migliori
+                    artigiani e produttori italiani e svizzeri per garantire pezzi di assoluta qualità.</p>
             </div>
-            <div class="servizio-item fade-up">
-                <div class="servizio-num">03</div>
-                <h3 class="servizio-title">Spazi Commerciali</h3>
-                <p class="servizio-desc">Uffici, showroom, boutique e ristoranti: spazi di lavoro e vendita progettati
-                    per valorizzare il brand e migliorare l'esperienza cliente.</p>
+            <div class="serv-item fade-up">
+                <div class="serv-num">03</div>
+                <h3 class="serv-title">Ristrutturazione Appartamenti e Ville</h3>
+                <p class="serv-desc">Trasformiamo abitazioni esistenti mantenendone il carattere originale e
+                    integrandovi funzionalità e tecnologie moderne. Gestiamo pratiche edilizie, imprese, fornitori e
+                    collaudi nel rispetto delle normative cantonali ticinesi.</p>
             </div>
-            <div class="servizio-item fade-up">
-                <div class="servizio-num">04</div>
-                <h3 class="servizio-title">Ristrutturazione</h3>
-                <p class="servizio-desc">Trasformiamo edifici esistenti mantenendo il loro carattere originale e
-                    integrandovi comfort e funzionalità contemporanei.</p>
+            <div class="serv-item fade-up">
+                <div class="serv-num">04</div>
+                <h3 class="serv-title">Spazi Commerciali e Uffici</h3>
+                <p class="serv-desc">Progettiamo uffici, showroom, boutique, ristoranti e hotel nel Canton Ticino e in
+                    Lombardia. Ambienti di lavoro pensati per migliorare la produttività, riflettere l'identità del
+                    brand e offrire un'esperienza memorabile ai clienti.</p>
             </div>
-            <div class="servizio-item fade-up">
-                <div class="servizio-num">05</div>
-                <h3 class="servizio-title">Consulenza & Concept</h3>
-                <p class="servizio-desc">Un primo incontro per capire le tue esigenze, sviluppare il concept e definire
-                    la visione progettuale prima ancora di partire con i disegni.</p>
+            <div class="serv-item fade-up">
+                <div class="serv-num">05</div>
+                <h3 class="serv-title">Consulenza e Concept Design</h3>
+                <p class="serv-desc">Offriamo una consulenza iniziale gratuita per analizzare le tue esigenze, lo spazio
+                    e il budget. Sviluppiamo un concept visivo con planimetrie, render 3D e moodboard prima di avviare
+                    qualsiasi attività progettuale.</p>
             </div>
-            <div class="servizio-item fade-up">
-                <div class="servizio-num">06</div>
-                <h3 class="servizio-title">Project Management</h3>
-                <p class="servizio-desc">Seguiamo il cantiere dalla posa della prima pietra alla consegna delle chiavi,
-                    coordinando maestranze e fornitori con precisione svizzera.</p>
+            <div class="serv-item fade-up">
+                <div class="serv-num">06</div>
+                <h3 class="serv-title">Direzione Lavori e Project Management</h3>
+                <p class="serv-desc">Seguiamo il cantiere dalla prima picconata alla consegna finale. Coordiniamo
+                    imprese edili, elettricisti, idraulici e posatori con la precisione e la puntualità tipica del
+                    contesto svizzero, nel rispetto di tempi e costi concordati.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERCHÉ SCEGLIERCI -->
+    <section id="perche" aria-labelledby="percheHeading">
+        <p class="s-label fade-up">Perché sceglierci</p>
+        <h2 id="percheHeading" class="s-title fade-up" style="color:var(--light);margin-bottom:16px;">Il nostro
+            approccio<br>fa la differenza.</h2>
+        <p class="s-text fade-up" style="color:rgba(247,245,240,0.5);max-width:600px;">
+            Scegliere il giusto studio di architettura a Lugano è una decisione importante. Ecco perché tanti clienti
+            nel Ticino e oltre confine scelgono Atelier Lugano per i loro progetti più significativi.
+        </p>
+        <div class="perche-layout">
+            <div class="perche-text">
+                <p class="s-text fade-up">
+                    Lavoriamo con una lista selezionata di clienti: non accettiamo più incarichi di quanti ne possiamo
+                    seguire con attenzione assoluta. Questo ci permette di dedicare a ogni progetto il tempo, l'energia
+                    e la creatività che merita, senza compromessi sulla qualità.
+                </p>
+                <p class="s-text fade-up" style="margin-top:20px;">
+                    La nostra rete di artigiani, fornitori e imprese locali ci consente di offrire prezzi competitivi
+                    senza sacrificare materiali o manodopera. Ogni preventivo è trasparente, dettagliato e privo di
+                    sorprese in fase di cantiere.
+                </p>
+                <p class="s-text fade-up" style="margin-top:20px;">
+                    Siamo bilingui italiano-tedesco e con esperienza internazionale, il che ci rende il partner ideale
+                    per clienti stranieri che acquistano immobili nel Canton Ticino o che desiderano portare il loro
+                    lifestyle europeo in Svizzera.
+                </p>
+            </div>
+            <div class="perche-list">
+                <div class="perche-item fade-up">
+                    <div class="perche-icon">01</div>
+                    <div>
+                        <h4>Ascolto prima del progetto</h4>
+                        <p>Prima di disegnare una singola linea, passiamo ore a capire chi sei, come vivi e cosa ti
+                            rende felice in uno spazio. È l'unico modo per progettare qualcosa di davvero tuo.</p>
+                    </div>
+                </div>
+                <div class="perche-item fade-up">
+                    <div class="perche-icon">02</div>
+                    <div>
+                        <h4>Render 3D fotorealistici</h4>
+                        <p>Prima ancora che inizi il cantiere, visualizzerai ogni ambiente in alta definizione. Nessuna
+                            sorpresa, nessun malinteso, massima sicurezza nella decisione.</p>
+                    </div>
+                </div>
+                <div class="perche-item fade-up">
+                    <div class="perche-icon">03</div>
+                    <div>
+                        <h4>Gestione pratiche edilizie Ticino</h4>
+                        <p>Ci occupiamo noi di ogni adempimento burocratico con i Comuni ticinesi, dalla richiesta di
+                            licenza edilizia fino al collaudo finale, in conformità con le leggi cantonali.</p>
+                    </div>
+                </div>
+                <div class="perche-item fade-up">
+                    <div class="perche-icon">04</div>
+                    <div>
+                        <h4>Sostenibilità e efficienza energetica</h4>
+                        <p>Integriamo soluzioni low-energy, materiali eco-compatibili e sistemi di domotica avanzata per
+                            creare case belle, confortevoli e rispettose dell'ambiente alpino.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- RECENSIONI -->
-    <section id="recensioni">
-        <p class="section-label fade-up">Testimonianze</p>
-        <h2 class="section-title fade-up">Cosa dicono<br>i nostri clienti.</h2>
-        <div class="recensioni-grid">
-            <div class="recensione-card fade-up">
-                <div class="stars">★★★★★</div>
-                <p class="recensione-testo">"Atelier Lugano ha trasformato la nostra casa in un luogo che amiamo
-                    davvero. Ogni dettaglio è curato con una sensibilità rara. Professionalità assoluta dall'inizio alla
-                    fine."</p>
-                <div class="recensione-autore">
-                    <strong>Marco & Giulia Ferretti</strong>
-                    <span>Villa privata · Lugano</span>
+    <section id="recensioni" aria-labelledby="recensioniHeading">
+        <p class="s-label fade-up">Testimonianze</p>
+        <h2 id="recensioniHeading" class="s-title fade-up">Cosa dicono i nostri<br>clienti a Lugano.</h2>
+        <div class="rec-grid">
+            <div class="rec-card fade-up" itemscope itemtype="https://schema.org/Review">
+                <div class="rec-stars" aria-label="5 stelle">★★★★★</div>
+                <p class="rec-text" itemprop="reviewBody">"Atelier Lugano ha trasformato radicalmente la nostra villa
+                    sul Ceresio. Cercavamo uno studio di architettura a Lugano che capisse la nostra visione senza
+                    imporcela. Li abbiamo trovati. Professionalità, creatività e un'organizzazione del cantiere
+                    impeccabile. Il risultato supera ogni aspettativa."</p>
+                <div class="rec-author">
+                    <strong itemprop="author">Andrea & Chiara M.</strong>
+                    <span>Villa privata fronte lago · Lugano-Gandria</span>
                 </div>
             </div>
-            <div class="recensione-card fade-up">
-                <div class="stars">★★★★★</div>
-                <p class="recensione-testo">"Abbiamo affidato loro la ristrutturazione del nostro ufficio e il risultato
-                    ha superato ogni aspettativa. I nostri clienti ci fanno i complimenti ogni giorno."</p>
-                <div class="recensione-autore">
-                    <strong>Studio Legale Bernasconi</strong>
-                    <span>Spazio commerciale · Lugano Centro</span>
+            <div class="rec-card fade-up" itemscope itemtype="https://schema.org/Review">
+                <div class="rec-stars" aria-label="5 stelle">★★★★★</div>
+                <p class="rec-text" itemprop="reviewBody">"Avevo comprato un appartamento da ristrutturare completamente
+                    a Paradiso e non sapevo da dove cominciare. Atelier Lugano mi ha seguito passo dopo passo: dai
+                    permessi comunali alla scelta dei parquet. Oggi il mio appartamento è esattamente quello che
+                    sognavo, nei tempi e nel budget concordati."</p>
+                <div class="rec-author">
+                    <strong itemprop="author">Thomas K.</strong>
+                    <span>Ristrutturazione totale appartamento · Lugano-Paradiso</span>
                 </div>
             </div>
-            <div class="recensione-card fade-up">
-                <div class="stars">★★★★★</div>
-                <p class="recensione-testo">"La capacità di ascoltare e di tradurre in progetto le nostre idee è stata
-                    straordinaria. Hanno rispettato tempi e budget. Li raccomando senza esitazione."</p>
-                <div class="recensione-autore">
-                    <strong>Famiglia Rossi</strong>
-                    <span>Appartamento · Lugano-Molino Nuovo</span>
+            <div class="rec-card fade-up" itemscope itemtype="https://schema.org/Review">
+                <div class="rec-stars" aria-label="5 stelle">★★★★★</div>
+                <p class="rec-text" itemprop="reviewBody">"Abbiamo affidato ad Atelier Lugano la progettazione dei
+                    nostri nuovi uffici in centro. Il risultato è uno spazio che comunica i nostri valori aziendali e
+                    che i nostri dipendenti e clienti amano. Il ritorno sull'investimento è stato immediato: immagine,
+                    morale del team e conversioni in aumento."</p>
+                <div class="rec-author">
+                    <strong itemprop="author">Studio Fiduciario Bernasconi</strong>
+                    <span>Uffici direzionali · Lugano Centro</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SEO -->
+    <section id="faq" aria-labelledby="faqHeading">
+        <p class="s-label fade-up">Domande frequenti</p>
+        <h2 id="faqHeading" class="s-title fade-up">Tutto quello che<br>vuoi sapere prima<br>di iniziare.</h2>
+        <div class="faq-layout">
+            <div class="faq-item fade-up" itemscope itemtype="https://schema.org/Question">
+                <h3 class="faq-q" itemprop="name">Quanto costa un progetto di architettura a Lugano?</h3>
+                <p class="faq-a" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer"><span
+                        itemprop="text">Il costo varia in base alla complessità e alla dimensione del progetto. In
+                        Svizzera, gli onorari di architettura seguono spesso le tariffe SIA (Società degli Ingegneri e
+                        degli Architetti). Per una ristrutturazione media, il compenso del progettista si attesta
+                        tipicamente tra il 10% e il 15% del costo totale dei lavori. La prima consulenza con Atelier
+                        Lugano è sempre gratuita e senza impegno.</span></p>
+            </div>
+            <div class="faq-item fade-up" itemscope itemtype="https://schema.org/Question">
+                <h3 class="faq-q" itemprop="name">Lavorate anche per clienti che abitano fuori dalla Svizzera?</h3>
+                <p class="faq-a" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer"><span
+                        itemprop="text">Sì, assolutamente. Una parte rilevante dei nostri clienti risiede in Italia,
+                        Germania, UK o negli USA e possiede immobili nel Canton Ticino. Siamo abituati a lavorare a
+                        distanza con incontri periodici in cantiere, videoconferenze e aggiornamenti fotografici
+                        costanti.</span></p>
+            </div>
+            <div class="faq-item fade-up" itemscope itemtype="https://schema.org/Question">
+                <h3 class="faq-q" itemprop="name">Come si svolgono le pratiche edilizie a Lugano?</h3>
+                <p class="faq-a" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer"><span
+                        itemprop="text">Nel Canton Ticino, le domande di costruzione vengono presentate al Comune di
+                        riferimento tramite il SPAAS (Sportello Unico per le Attività Economiche e Edilizie). Il
+                        processo può richiedere dai 60 ai 120 giorni per ottenere la licenza edilizia. Atelier Lugano
+                        gestisce l'intera procedura, preparando tutti gli elaborati tecnici necessari.</span></p>
+            </div>
+            <div class="faq-item fade-up" itemscope itemtype="https://schema.org/Question">
+                <h3 class="faq-q" itemprop="name">Progettate anche edifici a norma Minergie o con standard energetici
+                    elevati?</h3>
+                <p class="faq-a" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer"><span
+                        itemprop="text">Sì. Siamo esperti in progettazione bioclimatica, certificazione Minergie e LUCA.
+                        Integriamo pannelli fotovoltaici, pompe di calore e sistemi di ventilazione controllata in modo
+                        armonico con il design architettonico, senza comprometterne l'estetica.</span></p>
+            </div>
+            <div class="faq-item fade-up" itemscope itemtype="https://schema.org/Question">
+                <h3 class="faq-q" itemprop="name">Quanto tempo richiede una ristrutturazione completa a Lugano?</h3>
+                <p class="faq-a" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer"><span
+                        itemprop="text">La fase di progettazione dura mediamente dai 2 ai 4 mesi a seconda della
+                        complessità. I lavori in cantiere per una ristrutturazione completa di un appartamento
+                        richiedono da 3 a 6 mesi. Gestiamo ogni fase con cronoprogrammi dettagliati e aggiornamenti
+                        settimanali al cliente.</span></p>
+            </div>
+            <div class="faq-item fade-up" itemscope itemtype="https://schema.org/Question">
+                <h3 class="faq-q" itemprop="name">Che differenza c'è tra un architetto e un interior designer?</h3>
+                <p class="faq-a" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer"><span
+                        itemprop="text">L'architetto è abilitato a progettare edifici, modificare strutture portanti e
+                        firmare pratiche edilizie. L'interior designer si occupa prevalentemente dell'allestimento degli
+                        spazi interni. Atelier Lugano offre entrambe le competenze in un team integrato, garantendo
+                        coerenza totale tra struttura, spazio e arredi.</span></p>
             </div>
         </div>
     </section>
 
     <!-- CONTATTI -->
-    <section id="contatti">
-        <div class="contatti-info">
-            <p class="section-label fade-up">Contatti</p>
-            <h2 class="section-title fade-up">Parliamo del<br>tuo progetto.</h2>
-            <p class="fade-up">Hai un'idea, una casa da ristrutturare o uno spazio da trasformare? Scrivici: la prima
-                consulenza è gratuita.</p>
-            <div class="contatti-details">
-                <div class="contatti-detail-item fade-up">
-                    <label>Email</label>
-                    <a href="mailto:info@architettilugano.ch">info@architettilugano.ch</a>
+    <section id="contatti" aria-labelledby="contattiHeading">
+        <div class="cont-info">
+            <p class="s-label fade-up">Contattaci</p>
+            <h2 id="contattiHeading" class="s-title fade-up">Inizia il tuo<br>progetto oggi.</h2>
+            <p class="s-text fade-up">
+                La prima consulenza è gratuita e senza impegno. Raccontaci il tuo progetto: una casa da costruire, un
+                appartamento da ristrutturare, uno spazio commerciale da trasformare. Il nostro team di architetti a
+                Lugano è pronto ad ascoltarti.
+            </p>
+            <div class="cont-details">
+                <div class="cont-item fade-up"><label>Email</label><a
+                        href="mailto:info@atelierlugano.ch">info@atelierlugano.ch</a></div>
+                <div class="cont-item fade-up"><label>Telefono</label><a href="tel:+41919001234">+41 91 900 12 34</a>
                 </div>
-                <div class="contatti-detail-item fade-up">
-                    <label>Telefono</label>
-                    <a href="tel:+41919001234">+41 91 900 12 34</a>
+                <div class="cont-item fade-up"><label>Indirizzo Studio</label>
+                    <p>Via Nassa 15, 6900 Lugano, Canton Ticino</p>
                 </div>
-                <div class="contatti-detail-item fade-up">
-                    <label>Studio</label>
-                    <p>Via Nassa 15, 6900 Lugano, Svizzera</p>
+                <div class="cont-item fade-up"><label>Orari</label>
+                    <p>Lunedì – Venerdì, 09:00 – 18:00</p>
                 </div>
-                <div class="contatti-detail-item fade-up">
-                    <label>Orari</label>
-                    <p>Lun – Ven, 09:00 – 18:00</p>
+                <div class="cont-item fade-up"><label>Prima consulenza</label>
+                    <p>Gratuita e senza impegno</p>
                 </div>
             </div>
         </div>
-        <div class="contatti-form">
-            <p class="section-label" style="color: var(--accent);">Richiedi consulenza</p>
-            <h2 class="section-title" style="color: var(--light); margin-top: 20px;">Scrivici ora.</h2>
-            <form class="form-group" onsubmit="handleSubmit(event)">
-                <div class="form-row">
-                    <div class="form-field">
-                        <label for="nome">Nome</label>
-                        <input type="text" id="nome" name="nome" placeholder="Mario Rossi" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="mario@email.com" required>
+        <div class="cont-form">
+            <p class="s-label">Richiedi consulenza</p>
+            <h2 class="s-title" style="color:var(--light);margin-top:16px;">Scrivici ora.</h2>
+            <form class="form-set" onsubmit="handleSubmit(event)" novalidate>
+                <div class="f-row">
+                    <div class="f-field"><label for="nome">Nome e Cognome</label><input type="text" id="nome"
+                            name="nome" placeholder="Mario Rossi" required></div>
+                    <div class="f-field"><label for="email">Email</label><input type="email" id="email" name="email"
+                            placeholder="mario@email.com" required></div>
+                </div>
+                <div class="f-row">
+                    <div class="f-field"><label for="tel">Telefono</label><input type="tel" id="tel" name="tel"
+                            placeholder="+41 91 000 00 00"></div>
+                    <div class="f-field"><label for="budget">Budget indicativo</label>
+                        <select id="budget" name="budget">
+                            <option value="">Seleziona...</option>
+                            <option>Fino a CHF 100.000</option>
+                            <option>CHF 100.000 – 300.000</option>
+                            <option>CHF 300.000 – 700.000</option>
+                            <option>Oltre CHF 700.000</option>
+                        </select>
                     </div>
                 </div>
-                <div class="form-field">
-                    <label for="telefono">Telefono</label>
-                    <input type="tel" id="telefono" name="telefono" placeholder="+41 91 000 00 00">
-                </div>
-                <div class="form-field">
-                    <label for="servizio">Tipo di progetto</label>
+                <div class="f-field"><label for="servizio">Tipo di progetto</label>
                     <select id="servizio" name="servizio">
-                        <option value="">Seleziona un servizio</option>
-                        <option value="residenziale">Architettura Residenziale</option>
-                        <option value="interni">Interni & Design</option>
-                        <option value="commerciale">Spazi Commerciali</option>
-                        <option value="ristrutturazione">Ristrutturazione</option>
-                        <option value="consulenza">Consulenza & Concept</option>
+                        <option value="">Seleziona un servizio...</option>
+                        <option>Architettura Residenziale (nuova costruzione)</option>
+                        <option>Ristrutturazione appartamento o villa</option>
+                        <option>Interior Design & Arredi</option>
+                        <option>Spazi Commerciali / Uffici</option>
+                        <option>Consulenza e Concept</option>
+                        <option>Altro</option>
                     </select>
                 </div>
-                <div class="form-field">
-                    <label for="messaggio">Messaggio</label>
-                    <textarea id="messaggio" name="messaggio"
-                        placeholder="Descrivici brevemente il tuo progetto..."></textarea>
+                <div class="f-field"><label for="msg">Descrivi il tuo progetto</label><textarea id="msg" name="msg"
+                        placeholder="Raccontaci brevemente cosa vorresti realizzare, dove si trova l'immobile e le tempistiche indicative..."></textarea>
                 </div>
-                <button type="submit" class="form-submit">Invia Richiesta →</button>
+                <button type="submit" class="f-btn">Invia Richiesta →</button>
             </form>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-logo">Atelier Lugano</div>
-        <p>© 2024 Atelier Lugano · Studio di Architettura · Via Nassa 15, 6900 Lugano</p>
-        <div class="footer-socials">
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Houzz</a>
+    <!-- FOOTER PREMIUM -->
+    <footer id="site-footer" role="contentinfo" style="
+        position: relative;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 50%, #f0f0f0 100%);
+        padding-top: 120px;
+        padding-bottom: 48px;
+        overflow: hidden;
+        font-family: 'Lato', sans-serif;
+    ">
+        <!-- Pattern di sfondo -->
+        <div style="position:absolute;inset:0;pointer-events:none;
+            background-image: linear-gradient(to right,#e8e8e8 1px,transparent 1px), linear-gradient(to bottom,#e8e8e8 1px,transparent 1px);
+            background-size: 4rem 4rem;
+            -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+            mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+        "></div>
+        <div style="position:absolute;inset:0;pointer-events:none;
+            background: linear-gradient(135deg, rgba(184,154,106,0.04) 0%, rgba(140,115,85,0.04) 50%, rgba(184,154,106,0.06) 100%);
+        "></div>
+
+        <div style="max-width:1280px;margin:0 auto;padding:0 48px;position:relative;z-index:10;">
+
+            <!-- GRIGLIA 4 COLONNE -->
+            <div class="footer-grid">
+
+                <!-- COL 1: Brand + Social -->
+                <div class="footer-col-brand">
+                    <div style="display:flex;align-items:center;margin-bottom:28px;">
+                        <div style="
+                            width:48px;height:48px;border-radius:12px;
+                            background:linear-gradient(135deg,#B89A6A,#8C7355);
+                            display:flex;align-items:center;justify-content:center;
+                            box-shadow:0 8px 24px rgba(184,154,106,0.35);
+                            transition:transform 0.3s;flex-shrink:0;
+                        " onmouseover="this.style.transform='scale(1.08)'"
+                            onmouseout="this.style.transform='scale(1)'">
+                            <!-- Icona Architetto: pennino SVG -->
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 21l9-9" />
+                                <path d="M12.5 3.5l5 5-9.5 9.5H3v-5l9.5-9.5z" />
+                                <path d="M15 6l3 3" />
+                            </svg>
+                        </div>
+                        <span
+                            style="margin-left:14px;font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:linear-gradient(to right,#0E0E0E,#444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+                            Atelier Lugano
+                        </span>
+                    </div>
+                    <p
+                        style="color:#6E6E6A;font-size:14px;line-height:1.85;margin-bottom:28px;max-width:280px;font-weight:300;">
+                        Studio di architettura e interior design a Lugano, nel Canton Ticino. Dal 2010 progettiamo spazi
+                        che ispirano, residenze private e interni di lusso su misura.
+                    </p>
+                    <!-- Social Icons -->
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                        <!-- Instagram -->
+                        <a href="#" aria-label="Instagram" class="footer-social-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg>
+                        </a>
+                        <!-- LinkedIn -->
+                        <a href="#" aria-label="LinkedIn" class="footer-social-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect x="2" y="9" width="4" height="12" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="#" aria-label="Facebook" class="footer-social-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+                        <!-- Pinterest -->
+                        <a href="#" aria-label="Pinterest" class="footer-social-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.03-2.83.19-.78 1.27-5.38 1.27-5.38s-.32-.65-.32-1.61c0-1.51.88-2.64 1.97-2.64.93 0 1.38.7 1.38 1.54 0 .94-.6 2.35-.91 3.65-.26 1.09.54 1.98 1.61 1.98 1.93 0 3.42-2.04 3.42-4.97 0-2.6-1.87-4.42-4.53-4.42-3.08 0-4.9 2.31-4.9 4.7 0 .93.36 1.93.81 2.47.09.11.1.21.07.32l-.3 1.22c-.05.2-.16.24-.37.15-1.39-.65-2.26-2.68-2.26-4.32 0-3.51 2.55-6.74 7.36-6.74 3.86 0 6.86 2.75 6.86 6.42 0 3.83-2.41 6.91-5.76 6.91-1.12 0-2.18-.58-2.55-1.27l-.69 2.58c-.25.96-.93 2.16-1.39 2.89.05.01.1.01.15.01z" />
+                            </svg>
+                        </a>
+                        <!-- Houzz -->
+                        <a href="#" aria-label="Houzz" class="footer-social-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2L2 7v10l10 5 10-5V7L12 2zm-1 15.5V13H9v4.5l-5-2.5V8.5l8-4 8 4v6.5l-5 2.5V13h-2v4.5l-2 1z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- COL 2: Servizi -->
+                <div class="footer-col">
+                    <h4
+                        style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;letter-spacing:0.08em;margin-bottom:24px;background:linear-gradient(to right,#0E0E0E,#555);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+                        Servizi
+                    </h4>
+                    <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+                        <li><a href="#servizi" class="footer-link">Architettura Residenziale</a></li>
+                        <li><a href="#servizi" class="footer-link">Interior Design</a></li>
+                        <li><a href="#servizi" class="footer-link">Ristrutturazioni</a></li>
+                        <li><a href="#servizi" class="footer-link">Spazi Commerciali</a></li>
+                        <li><a href="#servizi" class="footer-link">Consulenza & Concept</a></li>
+                        <li><a href="#servizi" class="footer-link">Project Management</a></li>
+                    </ul>
+                </div>
+
+                <!-- COL 3: Studio -->
+                <div class="footer-col">
+                    <h4
+                        style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;letter-spacing:0.08em;margin-bottom:24px;background:linear-gradient(to right,#0E0E0E,#555);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+                        Studio
+                    </h4>
+                    <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+                        <li><a href="#chi-siamo" class="footer-link">Chi Siamo</a></li>
+                        <li><a href="#portfolio-header" class="footer-link">Portfolio Progetti</a></li>
+                        <li><a href="#recensioni" class="footer-link">Testimonianze</a></li>
+                        <li><a href="#faq" class="footer-link">FAQ</a></li>
+                        <li><a href="#contatti" class="footer-link">Carriere</a></li>
+                        <li><a href="#contatti" class="footer-link">Press & Media</a></li>
+                    </ul>
+                </div>
+
+                <!-- COL 4: Contatti -->
+                <div class="footer-col">
+                    <h4
+                        style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;letter-spacing:0.08em;margin-bottom:24px;background:linear-gradient(to right,#0E0E0E,#555);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+                        Contatti
+                    </h4>
+                    <ul style="list-style:none;display:flex;flex-direction:column;gap:16px;">
+                        <li
+                            style="display:flex;align-items:flex-start;gap:10px;color:#6E6E6A;font-size:14px;font-weight:300;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B89A6A"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                style="flex-shrink:0;margin-top:1px">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Via Nassa 15, 6900 Lugano<br>Canton Ticino, Svizzera
+                        </li>
+                        <li>
+                            <a href="mailto:info@atelierlugano.ch"
+                                style="display:flex;align-items:center;gap:10px;color:#6E6E6A;font-size:14px;font-weight:300;text-decoration:none;transition:color 0.3s;"
+                                onmouseover="this.style.color='#0E0E0E'" onmouseout="this.style.color='#6E6E6A'">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B89A6A"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                                info@atelierlugano.ch
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+41919001234"
+                                style="display:flex;align-items:center;gap:10px;color:#6E6E6A;font-size:14px;font-weight:300;text-decoration:none;transition:color 0.3s;"
+                                onmouseover="this.style.color='#0E0E0E'" onmouseout="this.style.color='#6E6E6A'">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B89A6A"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                                +41 91 900 12 34
+                            </a>
+                        </li>
+                        <li
+                            style="display:flex;align-items:center;gap:10px;color:#6E6E6A;font-size:14px;font-weight:300;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B89A6A"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            Lun – Ven, 09:00 – 18:00
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- DIVIDER + COPYRIGHT -->
+            <div style="margin-top:80px;padding-top:28px;border-top:1px solid rgba(0,0,0,0.08);text-align:center;">
+                <p style="color:#9E9E9A;font-size:13px;font-weight:400;font-family:'Lato',sans-serif;">
+                    © <span id="footer-year"></span> Atelier Lugano · Studio di Architettura e Interior Design · P.IVA
+                    CHE-123.456.789 · Tutti i diritti riservati
+                </p>
+            </div>
         </div>
+
+        <style>
+            /* Footer Grid */
+            .footer-grid {
+                display: grid;
+                grid-template-columns: 1.4fr 1fr 1fr 1fr;
+                gap: 56px;
+            }
+
+            /* Footer links */
+            .footer-link {
+                font-family: 'Lato', sans-serif;
+                font-size: 14px;
+                font-weight: 300;
+                color: #6E6E6A;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: color 0.3s;
+            }
+
+            .footer-link::before {
+                content: '';
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #B89A6A, #8C7355);
+                opacity: 0;
+                transition: opacity 0.3s;
+                flex-shrink: 0;
+            }
+
+            .footer-link:hover {
+                color: #0E0E0E;
+            }
+
+            .footer-link:hover::before {
+                opacity: 1;
+            }
+
+            /* Social Icons */
+            .footer-social-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 10px;
+                background: rgba(255, 255, 255, 0.9);
+                border: 1px solid rgba(0, 0, 0, 0.08);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #6E6E6A;
+                text-decoration: none;
+                transition: all 0.3s;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            }
+
+            .footer-social-icon:hover {
+                background: linear-gradient(135deg, #B89A6A, #8C7355);
+                color: white;
+                border-color: transparent;
+                box-shadow: 0 8px 20px rgba(184, 154, 106, 0.35);
+                transform: translateY(-2px);
+            }
+
+            /* Responsive Footer */
+            @media (max-width: 1024px) {
+                .footer-grid {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 40px;
+                }
+            }
+
+            @media (max-width: 600px) {
+                .footer-grid {
+                    grid-template-columns: 1fr;
+                    gap: 32px;
+                }
+
+                #site-footer {
+                    padding-top: 64px;
+                }
+
+                #site-footer>div {
+                    padding: 0 24px;
+                }
+            }
+        </style>
     </footer>
 
+    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+
     <script>
-        gsap.registerPlugin(ScrollTrigger);
-
-        // ---- NAVBAR SCROLL ----
+        // NAVBAR SCROLL
         window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
         });
 
-        // ---- HERO ANIMATION ----
-        gsap.from('.hero-badge', { opacity: 0, y: 20, duration: 1.2, delay: 0.4, ease: 'power3.out' });
-        gsap.from('.hero-title', { opacity: 0, y: 50, duration: 1.4, delay: 0.7, ease: 'power3.out' });
-        gsap.from('.hero-sub', { opacity: 0, duration: 1.2, delay: 1.4, ease: 'power3.out' });
-        gsap.from('.hero-year', { opacity: 0, duration: 1, delay: 1.6, ease: 'power3.out' });
-
-        // ---- SCROLL FADE UPS ----
-        gsap.utils.toArray('.fade-up').forEach(el => {
-            gsap.from(el, {
-                opacity: 0,
-                y: 40,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: el,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
-                }
-            });
-        });
-
-        // ---- ZOOM PARALLAX ----
-        const wrappers = document.querySelectorAll('.img-wrapper');
-        wrappers.forEach((wrapper, index) => {
-            const finalScale = parseFloat(wrapper.dataset.scale);
-            const isPeripheral = index !== 0;
-
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '.zoom-container',
-                    start: 'top top',
-                    end: 'bottom bottom',
-                    scrub: 1.5
-                }
-            });
-
-            tl.to(wrapper, { scale: finalScale, ease: 'none' }, 0);
-            if (isPeripheral) {
-                tl.to(wrapper, { opacity: 0.3, filter: 'blur(8px)', ease: 'none' }, 0);
+        // PARALLAX ZOOM (funziona solo se GSAP è disponibile)
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                document.querySelectorAll('.img-wrapper').forEach((el, i) => {
+                    const s = parseFloat(el.dataset.scale);
+                    const tl = gsap.timeline({
+                        scrollTrigger: { trigger: '.zoom-container', start: 'top top', end: 'bottom bottom', scrub: 1.5 }
+                    });
+                    tl.to(el, { scale: s, ease: 'none' }, 0);
+                    if (i !== 0) tl.to(el, { opacity: 0.25, filter: 'blur(9px)', ease: 'none' }, 0);
+                });
+            } else {
+                // Fallback senza GSAP: zoom puro su scroll con JS nativo
+                const wrappers = document.querySelectorAll('.img-wrapper');
+                window.addEventListener('scroll', () => {
+                    const container = document.querySelector('.zoom-container');
+                    if (!container) return;
+                    const rect = container.getBoundingClientRect();
+                    const progress = Math.max(0, Math.min(1, -rect.top / (rect.height - window.innerHeight)));
+                    wrappers.forEach((el, i) => {
+                        const maxScale = parseFloat(el.dataset.scale);
+                        const scale = 1 + (maxScale - 1) * progress;
+                        el.style.transform = `scale(${scale})`;
+                        if (i !== 0) {
+                            el.style.opacity = Math.max(0.25, 1 - progress * 0.75);
+                            el.style.filter = `blur(${progress * 9}px)`;
+                        }
+                    });
+                }, { passive: true });
             }
         });
 
-        // ---- FORM SUBMIT ----
+        // FORM
         function handleSubmit(e) {
             e.preventDefault();
-            const btn = e.target.querySelector('.form-submit');
+            const btn = e.target.querySelector('.f-btn');
             btn.textContent = 'Messaggio inviato! ✓';
             btn.style.background = 'var(--accent)';
             btn.style.color = 'var(--dark)';
@@ -1071,7 +1734,7 @@
                 btn.style.color = '';
                 btn.disabled = false;
                 e.target.reset();
-            }, 4000);
+            }, 5000);
         }
     </script>
 </body>
