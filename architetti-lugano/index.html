@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Architettura Lugano | Zoom Experience</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.27/dist/lenis.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #1A1A1A;
+            --text-light: #FAFAFA;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            margin: 0;
+            color: var(--text-light);
+        }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        /* Utility per le proporzioni delle immagini del componente */
+        .img-container {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script>
+        const { useEffect, useRef } = React;
+        const { motion, useScroll, useTransform } = FramerMotion;
+
+        // --- COMPONENTE ZOOM PARALLAX ---
+        const ZoomParallax = ({ images }) => {
+            const container = useRef(null);
+            
+            // Hook per tracciare lo scroll nel container da 300vh
+            const { scrollYProgress } = useScroll({
+                target: container,
+                offset: ["start start", "end end"]
+            });
+
+            // Definizione scale per le 7 immagini
+            const scale4 = useTransform(scrollYProgress, [0, 1], [1, 4]);
+            const scale5 = useTransform(scrollYProgress, [0, 1], [1, 5]);
+            const scale6 = useTransform(scrollYProgress, [0, 1], [1, 6]);
+            const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
+            const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
+
+            const scales = [scale4, scale5, scale6, scale5, scale6, scale8, scale9];
+
+            // Mapping delle posizioni specifiche fornite nel design
+            const customStyles = [
+                { w: '25vw', h: '25vh', top: '0', left: '0' }, // Centro
+                { w: '35vw', h: '30vh', top: '-30vh', left: '5vw' },
+                { w: '20vw', h: '45vh', top: '-10vh', left: '-25vw' },
+                { w: '25vw', h: '25vh', top: '0', left: '27.5vw' },
+                { w: '20vw', h: '25vh', top: '27.5vh', left: '5vw' },
+                { w: '30vw', h: '25vh', top: '27.5vh', left: '-22.5vw' },
+                { w: '15vw', h: '15vh', top: '22.5vh', left: '25vw' }
+            ];
+
+            return React.createElement('div', { 
+                ref: container, 
+                className: "relative h-[300vh] w-full" 
+            }, 
+                React.createElement('div', { className: "sticky top-0 h-screen overflow-hidden flex items-center justify-center" },
+                    images.map((img, index) => {
+                        const style = customStyles[index] || customStyles[0];
+                        return React.createElement(motion.div, {
+                            key: index,
+                            style: { scale: scales[index % scales.length] },
+                            className: "absolute flex items-center justify-center w-full h-full"
+                        }, 
+                            React.createElement('div', { 
+                                className: "img-container",
+                                style: { 
+                                    width: style.w, 
+                                    height: style.h, 
+                                    top: style.top, 
+                                    left: style.left,
+                                    position: 'relative'
+                                }
+                            },
+                                React.createElement('img', {
+                                    src: img.src,
+                                    alt: img.alt,
+                                    className: "w-full h-full object-cover"
+                                })
+                            )
+                        );
+                    })
+                )
+            );
+        };
+
+        // --- MAIN APP ---
+        const App = () => {
+            useEffect(() => {
+                // Inizializzazione Smooth Scroll Lenis
+                const lenis = new Lenis();
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+                requestAnimationFrame(raf);
+            }, []);
+
+            const projectImages = [
+                { src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000', alt: 'Architettura 1' },
+                { src: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=1000', alt: 'Architettura 2' },
+                { src: 'https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=1000', alt: 'Architettura 3' },
+                { src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000', alt: 'Architettura 4' },
+                { src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000', alt: 'Architettura 5' },
+                { src: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=1000', alt: 'Architettura 6' },
+                { src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000', alt: 'Architettura 7' }
+            ];
+
+            return React.createElement('div', null,
+                // Hero Section
+                React.createElement('section', { className: "h-screen flex flex-col items-center justify-center bg-[#FAFAFA] text-[#1A1A1A] px-6" },
+                    React.createElement('h1', { className: "text-5xl md:text-8xl font-serif mb-6 text-center" }, "Atelier Lugano"),
+                    React.createElement('p', { className: "text-gray-500 uppercase tracking-[0.3em] text-xs md:text-sm" }, "Scorri per immergerti nei volumi")
+                ),
+
+                // Parallax Section
+                React.createElement(ZoomParallax, { images: projectImages }),
+
+                // Contact Section
+                React.createElement('section', { className: "h-[80vh] flex flex-col items-center justify-center bg-[#FAFAFA] text-[#1A1A1A]" },
+                    React.createElement('h2', { className: "text-3xl font-serif mb-8" }, "Progettiamo la tua idea."),
+                    React.createElement('a', { 
+                        href: "mailto:info@architettilugano.ch",
+                        className: "px-10 py-4 border border-black hover:bg-black hover:text-white transition-all duration-500 font-light tracking-widest"
+                    }, "CONTATTACI")
+                )
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(App));
+    </script>
+</body>
+</html>
