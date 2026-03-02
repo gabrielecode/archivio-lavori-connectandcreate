@@ -1,0 +1,36 @@
+# A&G CAR SNC - robots.txt
+# Ottimizzato per Google, Bing e motori di ricerca locali Svizzeri
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /tmp/
+Disallow: /cache/
+Disallow: /*.js$
+Disallow: /*.css$
+
+# Google-specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing-specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Local crawlers
+User-agent: YandexBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://www.aegcar.ch/sitemap.xml
+
+# Crawl-delay for other bots
+Crawl-delay: 1
+Request-rate: 1/1s
+
+# Comment: A&G CAR SNC Balerna - Autofficina e Soccorso Stradale
+# Last updated: 2024-03-02
