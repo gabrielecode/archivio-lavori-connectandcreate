@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antica Erboristeria Milanese | Fitoterapia e Rimedi Naturali a Milano</title>
+    <meta name="description" content="Scopri l'Antica Erboristeria Milanese nel cuore di Milano. Specialisti in fitoterapia, preparazioni galeniche, tisane biologiche e consulenze per il tuo benessere olistico naturale.">
+    <meta name="keywords" content="Erboristeria Milano, fitoterapia, rimedi naturali, tisane bio, integratori naturali, benessere olistico, cosmesi naturale, fiori di Bach">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthAndBeautyBusiness",
+      "name": "Antica Erboristeria Milanese",
+      "image": "https://images.unsplash.com/photo-1615822602738-f8d22f18f9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+      "description": "Erboristeria storica a Milano specializzata in fitoterapia, rimedi naturali, e consulenze personalizzate per il benessere.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Torino, 42",
+        "addressLocality": "Milano",
+        "addressRegion": "MI",
+        "postalCode": "20123",
+        "addressCountry": "IT"
+      },
+      "telephone": "+39 02 1234 5678",
+      "priceRange": "$$",
+      "url": "https://www.anticaerboristeriamilanese.it"
+    }
+    </script>
+
+    <style>
+        /* CSS Variables - Art Deco Theme */
+        :root {
+            --primary-color: #0d2c22; /* Deep Emerald */
+            --secondary-color: #b58500; /* Dark Gold for Light Mode */
+            --bg-color: #f4eee0; /* Warm Cream */
+            --text-color: #1a1a1a;
+            --card-bg: #eaddc5;
+            --font-display: 'Cinzel', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Dark Mode Override */
+        [data-theme="dark"] {
+            --primary-color: #0a1712;
+            --secondary-color: #d4af37; /* Bright Gold for Dark Mode */
+            --bg-color: #111a16;
+            --text-color: #f4eee0;
+            --card-bg: #18261f;
+        }
+
+        /* Base Styles */
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0; padding: 0;
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+        h1, h2, h3, h4 {
+            font-family: var(--font-display); font-weight: 600;
+            margin-bottom: 1rem; color: var(--secondary-color);
+        }
+        p { margin-bottom: 1.5rem; font-size: 1.05rem; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Typography */
+        .text-center { text-align: center; }
+        .subtitle {
+            font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase;
+            color: var(--text-color); margin-bottom: 2rem;
+        }
+
+        /* Art Deco Geometric Divider */
+        .deco-divider { display: flex; align-items: center; justify-content: center; margin: 3rem 0; }
+        .deco-divider::before, .deco-divider::after { content: ''; height: 1px; background: var(--secondary-color); flex-grow: 1; max-width: 150px; }
+        .deco-divider-icon { width: 15px; height: 15px; border: 1px solid var(--secondary-color); transform: rotate(45deg); margin: 0 15px; position: relative; }
+        .deco-divider-icon::after { content: ''; position: absolute; top: 3px; left: 3px; right: 3px; bottom: 3px; background: var(--secondary-color); }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-block; background: var(--primary-color); color: var(--secondary-color);
+            border: 1px solid var(--secondary-color); padding: 1rem 2.5rem;
+            font-family: var(--font-body); font-weight: 600; text-transform: uppercase;
+            letter-spacing: 2px; position: relative; cursor: pointer; transition: var(--transition);
+        }
+        .btn-primary::before {
+            content: ''; position: absolute; top: 4px; left: 4px; right: 4px; bottom: 4px;
+            border: 1px solid var(--secondary-color); opacity: 0.5; transition: var(--transition); pointer-events: none;
+        }
+        .btn-primary:hover { background: var(--secondary-color); color: var(--primary-color); }
+        .btn-primary:hover::before { border-color: var(--primary-color); opacity: 1; }
+        .btn-small { padding: 0.6rem 1.5rem; font-size: 0.85rem; }
+
+        /* Header Navigation */
+        .main-header {
+            position: fixed; top: 0; left: 0; right: 0; padding: 1rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--bg-color); border-bottom: 2px solid var(--secondary-color);
+            z-index: 999; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: var(--transition);
+        }
+        .logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--secondary-color); letter-spacing: 2px; }
+
+        /* Layout Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 6rem 2rem; }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; background-image: url('https://images.unsplash.com/photo-1615822602738-f8d22f18f9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover; background-position: center; background-attachment: fixed; padding: 0 2rem;
+        }
+        .hero-overlay { position: absolute; inset: 0; background: rgba(13, 44, 34, 0.85); z-index: 1; }
+        .hero-content {
+            position: relative; z-index: 2; border: 2px solid var(--secondary-color); padding: 4rem 3rem;
+            max-width: 900px; background: rgba(10, 17, 14, 0.7); backdrop-filter: blur(10px); margin-top: 5rem;
+        }
+        .hero-content::before { content: ''; position: absolute; top: 10px; bottom: 10px; left: 10px; right: 10px; border: 1px solid var(--secondary-color); pointer-events: none; }
+        .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 4px; }
+        .hero-content p { font-size: 1.2rem; color: #f4eee0; margin-bottom: 2.5rem; }
+
+        /* Art Deco Wheel (About Section) */
+        .about-section { background-color: var(--bg-color); position: relative; z-index: 2; }
+        .wheel-container { display: flex; justify-content: center; padding: 4rem 0 8rem 0; }
+        .circle_b {
+            --size: 28em; --dot: 15px; --radius: calc(var(--size) / 2);
+            position: relative; width: var(--size); height: var(--size);
+            border: 2px solid var(--secondary-color); border-radius: 50%; margin: 0 auto;
+        }
+
+        /* Animazioni Ruota */
+        @keyframes spinDash { to { transform: rotate(360deg); } }
+        .circle_b::before {
+            content: ''; position: absolute; top: 15px; left: 15px; right: 15px; bottom: 15px;
+            border: 1px dashed var(--secondary-color); border-radius: 50%;
+            animation: spinDash 60s linear infinite;
+        }
+        .circle_b:hover::before { animation-play-state: paused; }
+
+        .wheel_title {
+            position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); margin: 0;
+            font-family: var(--font-display); color: var(--secondary-color); font-size: 1.8rem;
+            text-align: center; line-height: 1.3; letter-spacing: 2px; text-transform: uppercase;
+            background: var(--bg-color); padding: 1rem; border: 1px solid var(--secondary-color);
+            box-shadow: inset 0 0 0 3px var(--bg-color), inset 0 0 0 4px var(--secondary-color); z-index: 10;
+        }
+        .wheel_marker { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform-origin: 0 0; }
+
+        @keyframes diamondPulse {
+            0%, 100% { transform: translate(-50%, -50%) rotate(45deg) scale(1); box-shadow: none; }
+            50% { transform: translate(-50%, -50%) rotate(45deg) scale(1.15); box-shadow: 0 0 10px var(--secondary-color); }
+        }
+        .circle_above {
+            position: absolute; left: 0; top: 0; width: var(--dot); height: var(--dot);
+            transform: translate(-50%, -50%) rotate(45deg); border: 1px solid var(--secondary-color);
+            background: var(--bg-color); animation: diamondPulse 4s ease-in-out infinite;
+        }
+        .pos2 .circle_above { animation-delay: 0.5s; } .pos3 .circle_above { animation-delay: 1.0s; }
+        .pos4 .circle_above { animation-delay: 1.5s; } .pos5 .circle_above { animation-delay: 2.0s; }
+        .pos6 .circle_above { animation-delay: 2.5s; } .pos7 .circle_above { animation-delay: 3.0s; }
+        .pos8 .circle_above { animation-delay: 3.5s; }
+
+        .marker_label { position: absolute; white-space: nowrap; font-family: var(--font-body); color: var(--text-color); font-size: 0.9rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+        
+        /* Orbit Logic */
+        .pos1 { transform: rotate(calc(-90deg + var(--angle, 0deg))) translate(var(--radius)) rotate(calc(90deg - var(--angle, 0deg))); }
+        .pos2 { transform: rotate(calc(-45deg + var(--angle, 0deg))) translate(var(--radius)) rotate(calc(45deg - var(--angle, 0deg))); }
+        .pos3 { transform: rotate(calc(0deg + var(--angle, 0deg))) translate(var(--radius)) rotate(calc(0deg - var(--angle, 0deg))); }
+        .pos4 { transform: rotate(calc(45deg + var(--angle, 0deg))) translate(var(--radius)) rotate(calc(-45deg - var(--angle, 0deg))); }
+        .pos5 { transform: rotate(calc(90deg + var(--angle, 0deg))) translate(var(--radius)) rotate(calc(-90deg - var(--angle, 0deg))); }
+        .pos6 { transform: rotate(calc(135deg + var(--angle, 0deg))) translate(var(--radius)) rotate(calc(-135deg - var(--angle, 0deg))); }
+        .pos7 { transform: rotate(calc(180deg + var(--angle, 0deg))) translate(var(--radius)) rotate(calc(-180deg - var(--angle, 0deg))); }
+        .pos8 { transform: rotate(calc(225deg + var(--angle, 0deg))) translate(var(--radius)) rotate(calc(-225deg - var(--angle, 0deg))); }
+
+        .pos1 .marker_label { bottom: 25px; left: 50%; transform: translateX(-50%); } .pos2 .marker_label { bottom: 20px; left: 20px; }
+        .pos3 .marker_label { left: 25px; top: 50%; transform: translateY(-50%); } .pos4 .marker_label { top: 20px; left: 20px; }
+        .pos5 .marker_label { top: 25px; left: 50%; transform: translateX(-50%); } .pos6 .marker_label { top: 20px; right: 20px; text-align: right; }
+        .pos7 .marker_label { right: 25px; top: 50%; transform: translateY(-50%); text-align: right; } .pos8 .marker_label { bottom: 20px; right: 20px; text-align: right; }
+
+        /* Services Ziggurat Cards */
+        .services-section { background-color: var(--primary-color); color: var(--bg-color); padding: 6rem 0; position: relative; }
+        .services-section h2, .services-section .subtitle { color: var(--secondary-color); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-top: 4rem; }
+        .deco-card { position: relative; padding: 3rem 2rem; background: var(--card-bg); border: 1px solid var(--secondary-color); text-align: center; color: var(--text-color); transition: var(--transition); }
+        .deco-card::before { content: ''; position: absolute; top: -8px; left: 15px; right: 15px; bottom: -8px; border-top: 1px solid var(--secondary-color); border-bottom: 1px solid var(--secondary-color); pointer-events: none; transition: var(--transition); }
+        .deco-card::after { content: ''; position: absolute; top: 15px; left: -8px; right: -8px; bottom: 15px; border-left: 1px solid var(--secondary-color); border-right: 1px solid var(--secondary-color); pointer-events: none; transition: var(--transition); }
+        .deco-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
+        .deco-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .card-icon { width: 60px; height: 60px; margin: 0 auto 1.5rem auto; border: 1px solid var(--secondary-color); transform: rotate(45deg); display: flex; align-items: center; justify-content: center; }
+        .card-icon img { width: 30px; transform: rotate(-45deg); filter: sepia(1) hue-rotate(10deg) saturate(2); }
+
+        /* Pricing Section */
+        .pricing-section { background: var(--bg-color); }
+        .pricing-grid { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem; }
+        .pricing-card { border: 2px solid var(--secondary-color); padding: 3rem 2rem; background: var(--card-bg); flex: 1; min-width: 280px; max-width: 350px; text-align: center; position: relative; box-shadow: inset 0 0 0 5px var(--bg-color), inset 0 0 0 6px var(--secondary-color); }
+        .pricing-card.featured { background: var(--primary-color); color: var(--bg-color); transform: scale(1.05); z-index: 2; box-shadow: 0 20px 40px rgba(0,0,0,0.2), inset 0 0 0 5px var(--primary-color), inset 0 0 0 6px var(--secondary-color); }
+        .pricing-card.featured h3, .pricing-card.featured .price-amount { color: var(--secondary-color); }
+        .price-amount { font-family: var(--font-display); font-size: 3.5rem; color: var(--primary-color); margin: 1rem 0; line-height: 1; }
+        .pricing-features { list-style: none; padding: 0; margin: 2rem 0; text-align: left; }
+        .pricing-features li { margin-bottom: 1rem; position: relative; padding-left: 25px; font-size: 0.95rem; }
+        .pricing-features li::before { content: '♦'; color: var(--secondary-color); position: absolute; left: 0; font-size: 1.2rem; line-height: 1; }
+
+        /* Testimonials Section */
+        .testimonials-section { background: var(--card-bg); padding: 6rem 0; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .testimonial-card { border: 1px solid var(--secondary-color); padding: 2.5rem 2rem; position: relative; background: var(--bg-color); }
+        .testimonial-card .quote-icon { font-family: var(--font-display); font-size: 5rem; color: var(--secondary-color); position: absolute; top: -20px; left: 20px; line-height: 1; opacity: 0.2; }
+        .testimonial-text { font-style: italic; margin-bottom: 1.5rem; position: relative; z-index: 1; }
+        .testimonial-author { font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary-color); }
+        .stars { color: var(--secondary-color); margin-bottom: 1rem; letter-spacing: 2px; }
+
+        /* FAQ Section */
+        .faq-section { background: var(--bg-color); max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--secondary-color); margin-bottom: 1rem; }
+        .faq-question { width: 100%; text-align: left; background: none; border: none; color: var(--secondary-color); font-family: var(--font-display); font-size: 1.3rem; padding: 1.5rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
+        .faq-question::after { content: '+'; font-size: 2rem; font-weight: 300; transition: var(--transition); }
+        .faq-item.active .faq-question::after { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; color: var(--text-color); }
+        .faq-item.active .faq-answer { max-height: 300px; padding-bottom: 1.5rem; }
+
+        /* CTA / Contact Section */
+        .cta-section { background: var(--primary-color); color: #f4eee0; text-align: center; padding: 6rem 2rem; border-top: 4px solid var(--secondary-color); border-bottom: 4px solid var(--secondary-color); }
+        .cta-section h2 { color: var(--secondary-color); font-size: 2.5rem; }
+        .contact-info { margin: 2rem 0; font-size: 1.2rem; }
+        .contact-info p { margin: 0.5rem 0; }
+
+        /* Floating Widgets */
+        .wa-widget { position: fixed; bottom: 25px; left: 25px; width: 60px; height: 60px; background: var(--primary-color); border: 2px solid var(--secondary-color); display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.4); transition: var(--transition); transform: rotate(45deg); }
+        .wa-widget svg { fill: var(--secondary-color); width: 30px; height: 30px; transform: rotate(-45deg); }
+        .wa-widget:hover { background: var(--secondary-color); }
+        .wa-widget:hover svg { fill: var(--primary-color); }
+
+        .theme-toggle { position: fixed; bottom: 25px; right: 25px; width: 50px; height: 50px; background: var(--card-bg); border: 2px solid var(--secondary-color); transform: rotate(45deg); display: flex; align-items: center; justify-content: center; z-index: 1000; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: var(--transition); }
+        .theme-toggle svg { transform: rotate(-45deg); fill: var(--secondary-color); width: 24px; height: 24px; transition: var(--transition); }
+        .theme-toggle:hover { transform: rotate(135deg); }
+
+        /* --- NEW SHADCN-STYLE FOOTER (Art Deco Adapted) --- */
+        .site-footer { background-color: var(--bg-color); color: var(--text-color); border-top: 2px solid var(--secondary-color); padding: 4rem 2rem 2rem; position: relative; overflow: hidden; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto; }
+        .footer-heading { font-family: var(--font-display); font-size: 1.5rem; color: var(--secondary-color); margin-bottom: 1.5rem; font-weight: 600; }
+        .footer-text { color: var(--text-color); opacity: 0.8; font-size: 0.95rem; margin-bottom: 1.5rem; }
+        
+        .newsletter-form { position: relative; display: flex; width: 100%; }
+        .newsletter-input { width: 100%; padding: 0.75rem 3rem 0.75rem 1rem; border: 1px solid var(--secondary-color); background: var(--card-bg); color: var(--text-color); border-radius: 4px; font-family: var(--font-body); outline: none; transition: var(--transition); }
+        .newsletter-input:focus { box-shadow: 0 0 0 2px var(--secondary-color); }
+        .newsletter-submit { position: absolute; right: 4px; top: 4px; bottom: 4px; width: 36px; background: var(--primary-color); color: var(--secondary-color); border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+        .newsletter-submit:hover { background: var(--secondary-color); color: var(--primary-color); transform: scale(1.05); }
+        /* Validation States */
+        .newsletter-submit.success { background: #10b981; color: #fff; transform: scale(1); }
+        .newsletter-submit.error { background: #ef4444; color: #fff; transform: scale(1); animation: shake 0.4s; }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+
+        .footer-nav { display: flex; flex-direction: column; gap: 0.8rem; }
+        .footer-nav a { font-size: 0.95rem; opacity: 0.8; transition: var(--transition); }
+        .footer-nav a:hover { color: var(--secondary-color); opacity: 1; transform: translateX(5px); }
+        .footer-address p { margin: 0.3rem 0; font-size: 0.95rem; opacity: 0.8; }
+
+        .social-flex { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .social-btn { width: 40px; height: 40px; border: 1px solid var(--secondary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--secondary-color); transition: var(--transition); background: transparent; cursor: pointer; }
+        .social-btn:hover { background: var(--secondary-color); color: var(--bg-color); }
+        .social-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+        .theme-switch-wrapper { display: flex; align-items: center; gap: 0.8rem; color: var(--secondary-color); }
+        .theme-switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+        .theme-switch input { opacity: 0; width: 0; height: 0; }
+        .switch-slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--card-bg); border: 2px solid var(--secondary-color); transition: .4s; border-radius: 34px; }
+        .switch-slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: var(--secondary-color); transition: .4s; border-radius: 50%; }
+        .theme-switch input:checked + .switch-slider { background-color: var(--primary-color); }
+        .theme-switch input:checked + .switch-slider:before { transform: translateX(20px); background-color: var(--secondary-color); }
+
+        .footer-bottom { max-width: 1200px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid var(--secondary-color); display: flex; flex-direction: column; gap: 1.5rem; align-items: center; text-align: center; }
+        .footer-bottom p { margin: 0; opacity: 0.8; font-size: 0.9rem; }
+        .footer-bottom-links { display: flex; gap: 1.5rem; font-size: 0.9rem; flex-direction: row; }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .circle_b { --size: 22em; }
+            .hero-content h1 { font-size: 3rem; }
+        }
+        @media (min-width: 768px) {
+            .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; }
+        }
+        @media (max-width: 768px) {
+            .main-header { padding: 1rem; }
+            .logo { font-size: 1.2rem; }
+            .hero-content { padding: 3rem 1.5rem; }
+            .hero-content h1 { font-size: 2.2rem; }
+            
+            .circle_b { --size: 14em; margin-top: 4rem; margin-bottom: 6rem; }
+            .wheel_title { font-size: 1.2rem; }
+            .marker_label { font-size: 0.75rem; white-space: normal; width: 120px; text-align: center !important; }
+            /* Orbital fix per mobile */
+            .pos1 .marker_label { bottom: 20px; left: 50%; transform: translateX(-50%); }
+            .pos2 .marker_label { bottom: 10px; left: 10px; }
+            .pos3 .marker_label { left: 20px; top: 50%; transform: translateY(-50%); }
+            .pos4 .marker_label { top: 10px; left: 10px; }
+            .pos5 .marker_label { top: 20px; left: 50%; transform: translateX(-50%); }
+            .pos6 .marker_label { top: 10px; right: 10px; }
+            .pos7 .marker_label { right: 20px; top: 50%; transform: translateY(-50%); }
+            .pos8 .marker_label { bottom: 10px; right: 10px; }
+
+            .pricing-card.featured { transform: none; }
+            .wa-widget { bottom: 15px; left: 15px; width: 50px; height: 50px; }
+            .theme-toggle { bottom: 15px; right: 15px; width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">ANTICA ERBORISTERIA</div>
+        <a href="#prenota" class="btn-primary btn-small">Prenota Ora</a>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="subtitle">Un momento per te</div>
+                <h1>L'Arte della Fitoterapia Milanese</h1>
+                <p>Ritrova l'equilibrio interiore e regola il tuo sistema nervoso naturalmente. Una tradizione millenaria nel cuore di Milano al servizio del tuo benessere olistico profondo.</p>
+                <a href="#prenota" class="btn-primary">Prenota una Consulenza</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section container">
+            <div class="text-center">
+                <h2>La Scienza della Natura</h2>
+                <div class="deco-divider"><div class="deco-divider-icon"></div></div>
+                <p style="max-width: 800px; margin: 0 auto;">Le erbe officinali rappresentano la nostra energia, la nostra frequenza, la nostra coscienza. Attraverso formulazioni mirate, aiutiamo a riscrivere vecchi schemi di stress, rilasciare le tensioni quotidiane e riscoprire la propria vitalità autentica.</p>
+            </div>
+
+            <div class="wheel-container">
+                <div class="circle_b">
+                    <div class="wheel_title">Ruota del<br>Benessere</div>
+                    <div class="wheel_markers">
+                        <div class="wheel_marker pos1"><div class="circle_above"></div><div class="marker_label">Riequilibra il Sistema Nervoso</div></div>
+                        <div class="wheel_marker pos2"><div class="circle_above"></div><div class="marker_label">Diminuisce l'Ansia</div></div>
+                        <div class="wheel_marker pos3"><div class="circle_above"></div><div class="marker_label">Migliora il Sonno</div></div>
+                        <div class="wheel_marker pos4"><div class="circle_above"></div><div class="marker_label">Supporta la Digestione</div></div>
+                        <div class="wheel_marker pos5"><div class="circle_above"></div><div class="marker_label">Favorisce il Rilascio Emotivo</div></div>
+                        <div class="wheel_marker pos6"><div class="circle_above"></div><div class="marker_label">Detossina l'Organismo</div></div>
+                        <div class="wheel_marker pos7"><div class="circle_above"></div><div class="marker_label">Aumenta l'Energia</div></div>
+                        <div class="wheel_marker pos8"><div class="circle_above"></div><div class="marker_label">Rinforza le Difese</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <div class="container" style="padding-top: 0; padding-bottom: 0;">
+                <div class="text-center">
+                    <div class="subtitle">La Nostra Pratica</div>
+                    <h2>Rimedi Creati su Misura per Te</h2>
+                    <div class="deco-divider"><div class="deco-divider-icon"></div></div>
+                </div>
+
+                <div class="services-grid">
+                    <article class="deco-card">
+                        <div class="card-icon"><img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" alt="Leaf Icon"></div>
+                        <h3>Consulenza Fitoterapica</h3>
+                        <p>Un'analisi approfondita dello stile di vita per creare percorsi strutturati con estratti e rimedi naturali specifici.</p>
+                    </article>
+                    <article class="deco-card">
+                        <div class="card-icon"><img src="https://cdn-icons-png.flaticon.com/512/3063/3063162.png" alt="Mortar Icon"></div>
+                        <h3>Preparazioni Galeniche</h3>
+                        <p>Formulazioni magistrali preparate nel nostro laboratorio, per garantire la massima freschezza e potenza dei principi attivi.</p>
+                    </article>
+                    <article class="deco-card">
+                        <div class="card-icon"><img src="https://cdn-icons-png.flaticon.com/512/2887/2887985.png" alt="Flower Icon"></div>
+                        <h3>Fiori di Bach</h3>
+                        <p>Riequilibrio emozionale profondo. Una pratica quotidiana per gestire lo stress, la chiarezza mentale e i traumi pregressi.</p>
+                    </article>
+                    <article class="deco-card">
+                        <div class="card-icon"><img src="https://cdn-icons-png.flaticon.com/512/2550/2550341.png" alt="Cream Icon"></div>
+                        <h3>Cosmesi Naturale</h3>
+                        <p>Trattamenti dermocosmetici 100% biologici che si adattano alle tue necessità, nutrendo la pelle in profondità.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="pricing-section container">
+            <div class="text-center">
+                <div class="subtitle">Investi nel tuo Equilibrio</div>
+                <h2>I Nostri Percorsi</h2>
+                <div class="deco-divider"><div class="deco-divider-icon"></div></div>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Consulenza Base</h3>
+                    <div class="price-amount">€50</div>
+                    <p>Ideale per piccoli disturbi stagionali e prevenzione.</p>
+                    <ul class="pricing-features">
+                        <li>Analisi dello stile di vita (30 min)</li>
+                        <li>Piano fitoterapico base</li>
+                        <li>1 Mix di erbe per tisana incluso</li>
+                        <li>Consigli nutrizionali</li>
+                    </ul>
+                    <a href="#prenota" class="btn-primary btn-small">Scegli Base</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Percorso Olistico</h3>
+                    <div class="price-amount">€120</div>
+                    <p>Il protocollo completo per il riequilibrio totale.</p>
+                    <ul class="pricing-features">
+                        <li>Valutazione approfondita (60 min)</li>
+                        <li>Monitoraggio dei progressi mensile</li>
+                        <li>Preparazione galenica su misura inclusa</li>
+                        <li>Integrazione con Fiori di Bach</li>
+                        <li>Supporto WhatsApp dedicato</li>
+                    </ul>
+                    <a href="#prenota" class="btn-primary btn-small">Prenota Ora</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Fiori di Bach</h3>
+                    <div class="price-amount">€40</div>
+                    <p>Focalizzato sul benessere emozionale e mentale.</p>
+                    <ul class="pricing-features">
+                        <li>Colloquio emozionale (40 min)</li>
+                        <li>Individuazione delle disarmonie</li>
+                        <li>Boccetta personalizzata 30ml inclusa</li>
+                        <li>Follow-up a 21 giorni</li>
+                    </ul>
+                    <a href="#prenota" class="btn-primary btn-small">Scopri di più</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials-section">
+            <div class="container" style="padding-top: 0; padding-bottom: 0;">
+                <div class="text-center">
+                    <div class="subtitle">Casi di Successo</div>
+                    <h2>L'Esperienza dei Nostri Clienti</h2>
+                    <div class="deco-divider"><div class="deco-divider-icon"></div></div>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">Un'oasi di pace nel caos di Milano. Ho trovato finalmente i rimedi naturali perfetti per la mia insonnia cronica. La consulenza olistica è stata illuminante e professionale.</p>
+                        <p class="testimonial-author">Giulia R.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">Competenza e passione. Le loro tisane biologiche preparate su misura sono diventate il mio rituale quotidiano. Consigliatissimo per chi cerca la vera tradizione erboristica a Milano.</p>
+                        <p class="testimonial-author">Marco T.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">L'attenzione al cliente è eccezionale. Ho provato le loro preparazioni galeniche per la digestione e i risultati sono stati rapidi, duraturi e completamente naturali.</p>
+                        <p class="testimonial-author">Eleonora S.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">Entrare in questa erboristeria è come fare un salto nell'era dell'Art Déco, ma con soluzioni moderne e scientificamente provate. I loro oli essenziali sono di altissima qualità.</p>
+                        <p class="testimonial-author">Alessandro M.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">Ho acquistato la linea di cosmesi naturale. La mia pelle è rinata e non appare più stressata dallo smog milanese. Grazie infinite per la vostra incredibile professionalità.</p>
+                        <p class="testimonial-author">Valentina C.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">I Fiori di Bach preparati specificamente per me mi hanno aiutato a superare un periodo di forte ansia lavorativa. Sono i veri esperti di fitoterapia in città.</p>
+                        <p class="testimonial-author">Lorenzo B.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section container">
+            <div class="text-center">
+                <div class="subtitle">Trasparenza e Chiarezza</div>
+                <h2>Domande Frequenti</h2>
+                <div class="deco-divider"><div class="deco-divider-icon"></div></div>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">Come si svolge la consulenza fitoterapica?</button>
+                    <div class="faq-answer">
+                        <p>La consulenza ha una durata di circa 45-60 minuti. Attraverso un colloquio approfondito, analizziamo il tuo stile di vita, la qualità del sonno, lo stress e le tue specifiche necessità fisiche ed emotive. Al termine, creeremo un piano di benessere naturale su misura, includendo preparazioni galeniche o integratori specifici.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">I vostri prodotti e le erbe sono biologici?</button>
+                    <div class="faq-answer">
+                        <p>Assolutamente sì. Selezioniamo rigorosamente solo erbe officinali, estratti e materie prime provenienti da agricoltura biologica e sostenibile. La qualità e la purezza dei principi attivi sono alla base della nostra filosofia di cura.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Effettuate spedizioni a Milano e nel resto d'Italia?</button>
+                    <div class="faq-answer">
+                        <p>Sì, offriamo un servizio di consegna ecologica in giornata o in 24h su tutto il territorio di Milano. Per il resto d'Italia e il Canton Ticino, le spedizioni avvengono tramite corriere espresso tracciato con consegna in 3-5 giorni lavorativi.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Posso integrare i vostri rimedi con farmaci tradizionali?</button>
+                    <div class="faq-answer">
+                        <p>Durante la consulenza, vi chiediamo sempre di indicarci eventuali terapie farmacologiche in corso. I nostri esperti formulano le preparazioni tenendo conto delle possibili interazioni erbe-farmaci, garantendo un percorso sicuro ed efficace. Consigliamo comunque di informare sempre il proprio medico curante.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="prenota" class="cta-section">
+            <div class="container" style="padding: 0;">
+                <div class="subtitle" style="color: var(--secondary-color);">Il Tuo Viaggio Inizia Qui</div>
+                <h2>Prenota la tua prima consulenza nel cuore di Milano.</h2>
+                <div class="deco-divider"><div class="deco-divider-icon"></div></div>
+                <div class="contact-info">
+                    <p>📍 Via Torino, 42 - 20123 Milano (MI)</p>
+                    <p>📞 +39 02 1234 5678</p>
+                    <p>✉️ info@anticaerboristeriamilanese.it</p>
+                </div>
+                <a href="https://wa.me/4178123456" target="_blank" class="btn-primary" style="margin-top: 2rem; background: var(--bg-color); color: var(--primary-color);">Contattaci su WhatsApp</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <h2 class="footer-heading">Rimaniamo Connessi</h2>
+                <p class="footer-text">Iscriviti alla nostra newsletter per gli ultimi aggiornamenti e offerte esclusive sui nostri rimedi.</p>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" id="newsletter-input" placeholder="Inserisci la tua email" class="newsletter-input" required>
+                    <button type="submit" id="newsletter-btn" class="newsletter-submit" aria-label="Iscriviti">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </form>
+            </div>
+
+            <div>
+                <h3 class="footer-heading">Link Rapidi</h3>
+                <nav class="footer-nav">
+                    <a href="#">Home</a>
+                    <a href="#about">Chi Siamo</a>
+                    <a href="#services">I Nostri Servizi</a>
+                    <a href="#pricing">Percorsi Olistici</a>
+                    <a href="#prenota">Contatti</a>
+                </nav>
+            </div>
+
+            <div>
+                <h3 class="footer-heading">Contattaci</h3>
+                <address class="footer-address" style="font-style: normal;">
+                    <p>Antica Erboristeria Milanese</p>
+                    <p>Via Torino, 42 - 20123 Milano (MI)</p>
+                    <p>Telefono: +39 02 1234 5678</p>
+                    <p>Email: info@anticaerboristeriamilanese.it</p>
+                </address>
+            </div>
+
+            <div>
+                <h3 class="footer-heading">Seguici</h3>
+                <div class="social-flex">
+                    <button class="social-btn" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </button>
+                    <button class="social-btn" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </button>
+                    <button class="social-btn" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </button>
+                </div>
+
+                <div class="theme-switch-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <label class="theme-switch" aria-label="Toggle Dark Mode">
+                        <input type="checkbox" id="footer-theme-toggle">
+                        <span class="switch-slider"></span>
+                    </label>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Antica Erboristeria Milanese. Tutti i diritti riservati. P.IVA 12345678901 | Design by SitiTicino.ch</p>
+            <nav class="footer-nav footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Termini di Servizio</a>
+                <a href="#">Impostazioni Cookie</a>
+            </nav>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/4178123456" target="_blank" class="wa-widget" aria-label="Contattaci su WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <div class="theme-toggle" id="theme-toggle" title="Toggle Dark/Light Mode">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+        </svg>
+    </div>
+
+    <script>
+        // --- FAQ Accordion ---
+        const faqItems = document.querySelectorAll('.faq-question');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                const isActive = parent.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(child => child.classList.remove('active'));
+
+                if (!isActive) parent.classList.add('active');
+            });
+        });
+
+        // --- Dark/Light Mode Sincronizzato (Floating + Footer) ---
+        const root = document.documentElement;
+        const floatingToggle = document.getElementById('theme-toggle');
+        const footerToggle = document.getElementById('footer-theme-toggle');
+
+        function setTheme(themeName) {
+            root.setAttribute('data-theme', themeName);
+            localStorage.setItem('theme', themeName);
+            footerToggle.checked = (themeName === 'dark');
+        }
+
+        // Init dal LocalStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme('dark');
+        }
+
+        floatingToggle.addEventListener('click', () => {
+            setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+        });
+
+        footerToggle.addEventListener('change', (e) => {
+            setTheme(e.target.checked ? 'dark' : 'light');
+        });
+
+        // --- Animazione Orbita (La Scienza della Natura) ---
+        const wheelContainer = document.querySelector('.circle_b');
+        let wheelAngle = 0;
+        let isWheelHovered = false;
+
+        if (wheelContainer) {
+            wheelContainer.addEventListener('mouseenter', () => isWheelHovered = true);
+            wheelContainer.addEventListener('mouseleave', () => isWheelHovered = false);
+
+            function animateFerrisWheel() {
+                if (!isWheelHovered) {
+                    wheelAngle += 0.08; 
+                    if (wheelAngle >= 360) wheelAngle = 0;
+                    wheelContainer.style.setProperty('--angle', `${wheelAngle}deg`);
+                }
+                requestAnimationFrame(animateFerrisWheel);
+            }
+            animateFerrisWheel();
+        }
+
+        // --- Validazione Newsletter ---
+        const nlForm = document.getElementById('newsletter-form');
+        const nlInput = document.getElementById('newsletter-input');
+        const nlBtn = document.getElementById('newsletter-btn');
+        const originalBtnIcon = nlBtn.innerHTML;
+
+        nlForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = nlInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Controllo base di formato
+
+            if (emailRegex.test(email)) {
+                // Successo
+                nlBtn.classList.remove('error');
+                nlBtn.classList.add('success');
+                nlBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                nlInput.value = '';
+                nlInput.placeholder = 'Grazie per l\'iscrizione!';
+                
+                setTimeout(() => {
+                    nlBtn.classList.remove('success');
+                    nlBtn.innerHTML = originalBtnIcon;
+                    nlInput.placeholder = 'Inserisci la tua email';
+                }, 3500);
+            } else {
+                // Errore
+                nlBtn.classList.add('error');
+                nlBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+                
+                setTimeout(() => {
+                    nlBtn.classList.remove('error');
+                    nlBtn.innerHTML = originalBtnIcon;
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
