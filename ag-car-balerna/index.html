@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO & G.R.I.D. Optimization -->
     <title>A&G CAR SNC | Officina Meccanica e Carrozzeria a Balerna, Ticino</title>
     <meta name="description" content="A&G CAR SNC a Balerna offre assistenza meccanica, trasporti auto, sostituzione parabrezza, preparazione collaudi e cura di veicoli d'epoca e commerciali. Prenota ora.">
     <meta name="keywords" content="meccanico auto Balerna, officina meccanica Ticino, A&G CAR SNC, riparazione veicoli commerciali, restauro auto d'epoca, cambio gomme Balerna, soccorso stradale Ticino, carrozzeria Balerna, preparazione collaudi">
     <meta name="author" content="A&G CAR SNC">
     
-    <!-- Typography: Swiss Style dictates strong Sans-Serif. Inter is perfect. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-    <!-- JSON-LD Schema (LocalBusiness & FAQPage) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -89,15 +86,12 @@
         :root {
             --color-bg: #FFFFFF;
             --color-text: #050505;
-            --color-accent: #E3000F; /* Swiss Red */
+            --color-accent: #E3000F;
             --color-border: #050505;
             --color-gray: #F0F0F0;
-            
             --font-main: 'Inter', sans-serif;
-            
-            --grid-gap: 2rem;
-            --section-padding: 6rem 5%;
-            
+            --grid-gap: 1.5rem;
+            --section-padding: 4rem 6%;
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
@@ -110,17 +104,8 @@
         }
 
         /* RESET & BASE */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
         body {
             font-family: var(--font-main);
             background-color: var(--color-bg);
@@ -130,7 +115,7 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* TYPOGRAPHY - Strict Left Alignment, High Contrast */
+        /* TYPOGRAPHY */
         h1, h2, h3, h4 {
             font-weight: 900;
             text-transform: uppercase;
@@ -139,7 +124,7 @@
             margin-bottom: 1rem;
         }
 
-        h1 { font-size: clamp(3rem, 8vw, 8rem); }
+        h1 { font-size: clamp(2.5rem, 8vw, 8rem); }
         h2 { font-size: clamp(2rem, 5vw, 5rem); }
         h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
         
@@ -150,14 +135,7 @@
             margin-bottom: 1.5rem;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        strong { font-weight: 700; }
-
-        /* LAYOUT SYSTEM - Rigid Grid */
+        /* LAYOUT SYSTEM */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
@@ -186,28 +164,14 @@
             border: 2px solid var(--color-text);
             cursor: pointer;
             transition: var(--transition);
+            text-align: center;
         }
 
-        .btn:hover {
-            background-color: transparent;
-            color: var(--color-text);
-        }
-
-        .btn-primary {
-            background-color: var(--color-accent);
-            color: #FFF;
-            border-color: var(--color-accent);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--color-text);
-            border-color: var(--color-text);
-            color: var(--color-bg);
-        }
+        .btn-primary { background-color: var(--color-accent); color: #FFF; border-color: var(--color-accent); }
 
         /* NAVIGATION */
         nav {
-            padding: 1.5rem 5%;
+            padding: 1.2rem 6%;
             border-bottom: 2px solid var(--color-border);
             display: flex;
             justify-content: space-between;
@@ -218,399 +182,105 @@
             z-index: 100;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            letter-spacing: -1px;
-        }
-
+        .logo { font-size: 1.3rem; font-weight: 900; letter-spacing: -1px; }
         .logo span { color: var(--color-accent); }
 
         /* HERO SECTION */
-        .hero-section {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            padding-top: 4rem;
-            padding-bottom: 4rem;
+        .hero-section { min-height: 90vh; display: flex; align-items: center; padding-top: 2rem; }
+        .hero-content { grid-column: 1 / 13; z-index: 2; }
+        .hero-image { grid-column: 1 / 13; height: 40vh; position: relative; margin-top: 2rem; }
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(1.2); }
+
+        @media (min-width: 1024px) {
+            .hero-content { grid-column: 1 / 8; }
+            .hero-image { grid-column: 8 / 13; height: 100%; margin-top: 0; }
         }
 
-        .hero-content {
-            grid-column: 1 / 8;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            z-index: 2;
-        }
-
-        .hero-image {
-            grid-column: 8 / 13;
-            height: 100%;
-            min-height: 60vh;
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%) contrast(1.2);
-            transition: var(--transition);
-        }
-        
-        .hero-image img:hover {
-            filter: grayscale(0%) contrast(1);
-        }
-
-        .hero-label {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--color-accent);
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        /* ABOUT / IDENTITY SECTION */
-        .about-section .grid-container {
-            align-items: start;
-        }
-
-        .about-title {
-            grid-column: 1 / 5;
-        }
-
-        .about-text {
-            grid-column: 5 / 13;
+        /* ABOUT / IDENTITY */
+        .about-title, .about-text { grid-column: 1 / 13; }
+        @media (min-width: 1024px) {
+            .about-title { grid-column: 1 / 5; }
+            .about-text { grid-column: 5 / 13; }
         }
 
         .features-list {
             list-style: none;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
             margin-top: 3rem;
             padding-top: 3rem;
             border-top: 2px solid var(--color-border);
         }
 
-        .feature-item {
-            font-size: 1.25rem;
-            font-weight: 700;
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .feature-item::before {
-            content: "→";
-            color: var(--color-accent);
-            font-weight: 900;
-        }
+        .feature-item { font-size: 1.1rem; font-weight: 700; display: flex; gap: 1rem; }
+        .feature-item::before { content: "→"; color: var(--color-accent); font-weight: 900; }
 
         /* SERVICES GRID */
-        .services-header {
-            grid-column: 1 / -1;
-            margin-bottom: 3rem;
-        }
+        .services-header { grid-column: 1 / -1; }
+        .service-card { grid-column: 1 / 13; border: 2px solid var(--color-border); padding: 2rem; transition: var(--transition); }
+        @media (min-width: 768px) { .service-card { grid-column: span 6; } }
+        @media (min-width: 1100px) { .service-card { grid-column: span 4; } }
 
-        .service-card {
-            grid-column: span 4;
-            border: 2px solid var(--color-border);
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            background-color: var(--color-bg);
-            transition: var(--transition);
-        }
+        .service-number { font-size: 3rem; font-weight: 900; color: var(--color-border); margin-bottom: 2rem; line-height: 1; }
 
-        .service-card:hover {
-            background-color: var(--color-text);
-            color: var(--color-bg);
-        }
+        /* TESTIMONIALS */
+        .testimonials-grid { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .testimonial-card { padding: 2rem; background-color: var(--color-gray); border-left: 8px solid var(--color-accent); }
 
-        .service-card:hover .service-number { color: var(--color-accent); }
+        /* FAQ */
+        .faq-section { background-color: var(--color-text); color: var(--color-bg); }
+        .faq-list { grid-column: 1 / 13; display: flex; flex-direction: column; }
+        @media (min-width: 1024px) { .faq-list { grid-column: 5 / 13; } }
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.2); padding: 2rem 0; }
+        .faq-question { font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-accent); }
 
-        .service-number {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--color-border);
-            margin-bottom: 2rem;
-            line-height: 1;
-        }
+        /* CONTACT */
+        .contact-section { background-color: var(--color-accent); color: #FFF; border-bottom: none; }
+        .contact-content, .contact-form { grid-column: 1 / 13; }
+        @media (min-width: 1024px) { .contact-content { grid-column: 1 / 6; } .contact-form { grid-column: 7 / 13; } }
 
-        .service-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* TESTIMONIALS (Social Proof) */
-        .testimonials-grid {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            padding: 2rem;
-            background-color: var(--color-gray);
-            border-left: 8px solid var(--color-accent);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-        }
-
-        .testimonial-author {
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        /* FAQ SECTION */
-        .faq-section {
-            background-color: var(--color-text);
-            color: var(--color-bg);
-        }
+        .form-control { width: 100%; padding: 1rem; border: 2px solid #FFF; background: transparent; color: #FFF; font-family: var(--font-main); font-size: 1rem; margin-bottom: 1rem; }
+        .form-control:focus { outline: none; background: #FFF; color: var(--color-accent); }
         
-        .faq-section h2 {
-            color: var(--color-bg);
-        }
-
-        .faq-list {
-            grid-column: 5 / 13;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding: 2rem 0;
-        }
-
-        .faq-question {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--color-accent);
-        }
-
-        .faq-answer {
-            color: rgba(255,255,255,0.8);
-            max-width: 100%;
-        }
-
-        /* CONTACT SECTION */
-        .contact-section {
-            background-color: var(--color-accent);
-            color: #FFF;
-            border-bottom: none;
-        }
-
-        .contact-content {
-            grid-column: 1 / 6;
-        }
-
-        .contact-form {
-            grid-column: 7 / 13;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            font-size: 0.8rem;
-        }
-
-        .form-control {
-            padding: 1rem;
-            border: 2px solid #FFF;
-            background: transparent;
-            color: #FFF;
-            font-family: var(--font-main);
-            font-size: 1rem;
-        }
-        
-        .form-control::placeholder {
-            color: rgba(255,255,255,0.5);
-        }
-
-        .form-control:focus {
-            outline: none;
-            background: #FFF;
-            color: var(--color-accent);
-        }
-
-        button[type="submit"] {
-            background: #FFF;
-            color: var(--color-accent);
-            border: none;
-            padding: 1.5rem;
-            font-weight: 900;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
-        }
-
-        button[type="submit"]:hover {
-            background: var(--color-text);
-            color: #FFF;
-        }
-
         /* FOOTER */
-        footer {
-            background-color: var(--color-text);
-            color: var(--color-bg);
-            padding: 4rem 5% 2rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        .footer-col h4 {
-            color: var(--color-accent);
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-        }
+        footer { background-color: var(--color-text); color: var(--color-bg); padding: 4rem 6% 2rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.2); margin-top: 3rem; padding-top: 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-size: 0.8rem; }
 
         /* WIDGETS */
-        .widget-whatsapp {
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
-            color: #FFF;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-
-        .widget-whatsapp:hover {
-            transform: scale(1.1);
-        }
-
-        .widget-whatsapp svg {
-            width: 35px;
-            height: 35px;
-            fill: currentColor;
-        }
-
-        .widget-darkmode {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background-color: var(--color-text);
-            color: var(--color-bg);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
-            border: 2px solid var(--color-border);
-            transition: var(--transition);
-        }
-
-        .widget-darkmode:hover {
-            background-color: var(--color-accent);
-            color: #FFF;
-            border-color: var(--color-accent);
-        }
+        .widget-whatsapp { position: fixed; bottom: 1.5rem; left: 1.5rem; width: 56px; height: 56px; background-color: #25D366; color: #FFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .widget-darkmode { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background-color: var(--color-text); color: var(--color-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1000; border: 2px solid var(--color-border); }
 
         /* ANIMATIONS */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* MEDIA QUERIES */
-        @media (max-width: 1024px) {
-            .hero-content { grid-column: 1 / -1; padding-bottom: 2rem; }
-            .hero-image { grid-column: 1 / -1; min-height: 40vh; }
-            .about-title, .about-text { grid-column: 1 / -1; }
-            .service-card { grid-column: span 6; }
-            .faq-list { grid-column: 1 / -1; margin-top: 2rem; }
-            .contact-content, .contact-form { grid-column: 1 / -1; }
-        }
-
-        @media (max-width: 768px) {
-            :root {
-                --section-padding: 4rem 5%;
-            }
-            .service-card { grid-column: 1 / -1; }
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.5rem; }
-            .widget-whatsapp { bottom: 1rem; left: 1rem; width: 50px; height: 50px; }
-            .widget-darkmode { bottom: 1rem; right: 1rem; width: 40px; height: 40px; }
-            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-        }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
 
-    <!-- NAVIGATION -->
     <nav>
         <div class="logo">A&G CAR <span>SNC</span></div>
-        <a href="#contact" class="btn">Preventivo</a>
+        <a href="#contact" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">Preventivo</a>
     </nav>
 
-    <!-- HERO SECTION -->
     <section class="hero-section">
         <div class="grid-container">
             <div class="hero-content fade-in">
-                <span class="hero-label">Balerna, Ticino</span>
+                <span style="color:var(--color-accent); font-weight:900; text-transform:uppercase; letter-spacing:2px; font-size:0.9rem; display:block; margin-bottom:1rem;">Balerna, Ticino</span>
                 <h1>Precisione<br>Meccanica.</h1>
                 <p>L'officina meccanica di riferimento a Balerna. Dalla diagnostica avanzata al restauro di veicoli d'epoca, garantiamo interventi rapidi, trasparenti e di assoluta qualità svizzera.</p>
                 <div style="margin-top: 2rem;">
-                    <a href="#contact" class="btn btn-primary cta-primary">Prenota Intervento</a>
+                    <a href="#contact" class="btn btn-primary">Prenota Intervento</a>
                 </div>
             </div>
             <div class="hero-image fade-in">
-                <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1000&q=80" alt="Meccanico specializzato al lavoro presso l'officina A&G CAR SNC a Balerna">
+                <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1000&q=80" alt="Meccanico specializzato" loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- ABOUT / IDENTITY SECTION -->
-    <section class="about-section" id="about">
+    <section id="about">
         <div class="grid-container">
             <div class="about-title fade-in">
                 <h2>La Nostra<br>Identità.</h2>
@@ -634,247 +304,97 @@
         </ul>
     </section>
 
-    <!-- SERVICES GRID SECTION -->
-    <section class="services-section" id="servizi">
+    <section id="servizi">
         <div class="grid-container">
             <div class="services-header fade-in">
                 <h2>Competenze<br>Tecniche.</h2>
             </div>
-            
-            <article class="service-card fade-in">
-                <div class="service-number">01</div>
-                <h3 class="service-title">Meccanica Generale</h3>
-                <p>Manutenzione ordinaria e straordinaria. Tagliandi completi, sostituzione freni, ammortizzatori, cinghie di distribuzione e batterie per garantirti la massima sicurezza stradale.</p>
-            </article>
-
-            <article class="service-card fade-in">
-                <div class="service-number">02</div>
-                <h3 class="service-title">Diagnosi Elettronica</h3>
-                <p>Identificazione e risoluzione di guasti complessi tramite strumentazione diagnostica di ultima generazione. Interventi precisi su centraline, sensori e spie motore.</p>
-            </article>
-
-            <article class="service-card fade-in">
-                <div class="service-number">03</div>
-                <h3 class="service-title">Veicoli D'Epoca</h3>
-                <p>Restauro conservativo e assistenza meccanica specializzata per auto e moto storiche. Operiamo con rispetto per l'autenticità e la meccanica originale del mezzo.</p>
-            </article>
-
-            <article class="service-card fade-in">
-                <div class="service-number">04</div>
-                <h3 class="service-title">Servizio Gomme</h3>
-                <p>Fornitura, montaggio, bilanciatura ed equilibratura pneumatici delle migliori marche. Gestione cambi stagionali e riparazione forature in tempi rapidi.</p>
-            </article>
-
-            <article class="service-card fade-in">
-                <div class="service-number">05</div>
-                <h3 class="service-title">Pre-Collaudo</h3>
-                <p>Preparazione meticolosa del veicolo per l'esame della circolazione. Controlli mirati su emissioni, sicurezza, luci e meccanica per un collaudo senza sorprese.</p>
-            </article>
-
-            <article class="service-card fade-in">
-                <div class="service-number">06</div>
-                <h3 class="service-title">Soccorso & Trasporti</h3>
-                <p>Assistenza esterna rapida in caso di panne su strada in tutto il Ticino. Servizio di trasporto auto specializzato e consulenza per l'acquisto e vendita di veicoli.</p>
-            </article>
+            <article class="service-card fade-in"><div class="service-number">01</div><h3>Meccanica Generale</h3><p>Manutenzione ordinaria e straordinaria. Tagliandi, freni e cinghie per la massima sicurezza.</p></article>
+            <article class="service-card fade-in"><div class="service-number">02</div><h3>Diagnosi Elettronica</h3><p>Risoluzione guasti complessi con strumentazione di ultima generazione su centraline e sensori.</p></article>
+            <article class="service-card fade-in"><div class="service-number">03</div><h3>Veicoli D'Epoca</h3><p>Restauro conservativo e assistenza meccanica specializzata per auto e moto storiche.</p></article>
+            <article class="service-card fade-in"><div class="service-number">04</div><h3>Servizio Gomme</h3><p>Fornitura, montaggio e bilanciatura delle migliori marche. Gestione cambi stagionali.</p></article>
+            <article class="service-card fade-in"><div class="service-number">05</div><h3>Pre-Collaudo</h3><p>Preparazione meticolosa per garantire il superamento della verifica tecnica al primo colpo.</p></article>
+            <article class="service-card fade-in"><div class="service-number">06</div><h3>Soccorso & Trasporti</h3><p>Assistenza rapida in tutto il Ticino e servizio di trasporto auto specializzato.</p></article>
         </div>
     </section>
 
-    <!-- SOCIAL PROOF / TESTIMONIALS -->
-    <section class="testimonials-section">
+    <section>
         <div class="grid-container">
-            <div class="services-header fade-in">
-                <h2>Fiducia<br>Comprovata.</h2>
-            </div>
+            <div class="services-header fade-in"><h2>Fiducia<br>Comprovata.</h2></div>
             <div class="testimonials-grid">
-                <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">"Professionalità assoluta. Hanno preparato il mio furgone per il collaudo trovando e risolvendo un problema ai freni che altri non avevano notato. Consigliatissimi per chi usa i veicoli per lavoro."</p>
-                    <p class="testimonial-author">— Marco T., Mendrisio</p>
-                </div>
-                <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">"Affido ad A&G CAR la mia Alfa d'epoca da anni. Sanno come trattare i motori storici con la delicatezza e l'esperienza necessarie. Una vera officina di appassionati."</p>
-                    <p class="testimonial-author">— Luca S., Chiasso</p>
-                </div>
-                <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">"Rimasta in panne a Balerna, sono intervenuti con il soccorso esterno in meno di 20 minuti. Hanno diagnosticato il problema alla batteria e l'hanno sostituita sul posto. Servizio eccellente."</p>
-                    <p class="testimonial-author">— Elena R., Lugano</p>
-                </div>
-                <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">"Cambio gomme rapido e prezzi onesti. Ho apprezzato molto anche la trasparenza nel preventivo per la sostituzione del parabrezza. Finalmente un meccanico di cui fidarsi ciecamente."</p>
-                    <p class="testimonial-author">— Giovanni F., Balerna</p>
-                </div>
-                <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">"Hanno sistemato un fastidioso lavoro di carrozzeria sulla mia auto aziendale in tempi record. Risultato perfetto e auto riconsegnata lavata e impeccabile."</p>
-                    <p class="testimonial-author">— Silvia B., Morbio Inferiore</p>
-                </div>
-                <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">"La diagnostica elettronica è il loro punto forte. Una spia motore che mi tormentava da mesi è stata individuata e risolta definitivamente in una mezza giornata."</p>
-                    <p class="testimonial-author">— Andrea M., Novazzano</p>
-                </div>
+                <div class="testimonial-card fade-in"><p class="testimonial-text">"Professionalità assoluta. Hanno preparato il mio furgone risolvendo un problema ai freni che altri non avevano notato."</p><p class="testimonial-author">— Marco T., Mendrisio</p></div>
+                <div class="testimonial-card fade-in"><p class="testimonial-text">"Affido ad A&G CAR la mia Alfa d'epoca da anni. Sanno come trattare i motori storici con la delicatezza necessaria."</p><p class="testimonial-author">— Luca S., Chiasso</p></div>
+                <div class="testimonial-card fade-in"><p class="testimonial-text">"In panne a Balerna, intervenuti in 20 minuti. Batteria sostituita sul posto. Servizio eccellente."</p><p class="testimonial-author">— Elena R., Lugano</p></div>
+                <div class="testimonial-card fade-in"><p class="testimonial-text">"Cambio gomme rapido e prezzi onesti. Trasparenza totale nel preventivo del parabrezza."</p><p class="testimonial-author">— Giovanni F., Balerna</p></div>
+                <div class="testimonial-card fade-in"><p class="testimonial-text">"Sistemata carrozzeria auto aziendale in tempi record. Risultato perfetto e auto riconsegnata lavata."</p><p class="testimonial-author">— Silvia B., Morbio Inferiore</p></div>
+                <div class="testimonial-card fade-in"><p class="testimonial-text">"La diagnostica elettronica è il loro punto forte. Spia motore risolta definitivamente in mezza giornata."</p><p class="testimonial-author">— Andrea M., Novazzano</p></div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ SECTION -->
     <section class="faq-section">
         <div class="grid-container">
-            <div class="about-title fade-in">
-                <h2>Domande<br>Frequenti.</h2>
-            </div>
+            <div class="about-title fade-in"><h2>Domande<br>Frequenti.</h2></div>
             <div class="faq-list fade-in">
-                <div class="faq-item">
-                    <h3 class="faq-question">Offrite assistenza stradale in caso di guasto?</h3>
-                    <p class="faq-answer">Sì, A&G CAR SNC fornisce assistenza esterna tempestiva in caso di panne su tutto il territorio di Balerna, del Mendrisiotto e del Ticino. Interveniamo rapidamente per farti ripartire o per trasportare il veicolo in officina.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Siete specializzati in veicoli d'epoca?</h3>
-                    <p class="faq-answer">Assolutamente. Abbiamo competenze specifiche nell'assistenza meccanica e nel restauro conservativo di auto e moto d'epoca. Conosciamo il valore storico di questi mezzi e operiamo garantendo precisione e rispetto per la componentistica originale.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Potete preparare il mio veicolo per il collaudo cantonale?</h3>
-                    <p class="faq-answer">Sì, eseguiamo un rigoroso controllo pre-collaudo. Verifichiamo freni, sospensioni, gas di scarico, luci e telaio, effettuando tutte le regolazioni necessarie per garantire il superamento della verifica tecnica al primo tentativo presso la Sezione della Circolazione.</p>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Riparate anche furgoni e veicoli commerciali?</h3>
-                    <p class="faq-answer">Certamente. La nostra officina è completamente attrezzata per la diagnostica, la riparazione meccanica, la manutenzione e il lavaggio di veicoli commerciali leggeri, essenziali per il lavoro dei professionisti, oltre che di automobili e motociclette.</p>
-                </div>
+                <div class="faq-item"><h3 class="faq-question">Offrite assistenza stradale?</h3><p class="faq-answer">Sì, forniamo assistenza esterna tempestiva in tutto il Mendrisiotto e Ticino per farti ripartire o trasportare il veicolo.</p></div>
+                <div class="faq-item"><h3 class="faq-question">Specializzati in d'epoca?</h3><p class="faq-answer">Assolutamente. Abbiamo competenze specifiche nel restauro conservativo rispettando la componentistica originale.</p></div>
+                <div class="faq-item"><h3 class="faq-question">Preparazione collaudo?</h3><p class="faq-answer">Sì, eseguiamo controlli rigorosi su freni, emissioni e sicurezza per garantire il superamento della verifica cantonale.</p></div>
+                <div class="faq-item"><h3 class="faq-question">Riparate furgoni?</h3><p class="faq-answer">Certamente. Siamo attrezzati per la diagnostica e manutenzione di veicoli commerciali leggeri oltre che auto e moto.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION (Final Conversion) -->
     <section class="contact-section" id="contact">
         <div class="grid-container">
             <div class="contact-content fade-in">
                 <h2>Contatta<br>L'Officina.</h2>
-                <p style="margin-top: 2rem;">Richiedi un preventivo trasparente per la riparazione, fissa un appuntamento per il cambio gomme o contattaci per emergenze.</p>
-                
-                <div style="margin-top: 3rem;">
-                    <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">A&G CAR SNC</h4>
-                    <p style="margin-bottom: 1.5rem;">Via San Gottardo<br>6828 Balerna, Ticino (CH)</p>
-                    
-                    <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Telefono / Emergenze</h4>
-                    <p style="font-size: 1.5rem; font-weight: 900; margin-bottom: 1.5rem;">+41 78 123 45 67</p>
-                    
-                    <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Orari d'apertura</h4>
-                    <p>Lun - Ven: 08:00 - 12:00 | 13:30 - 17:30<br>Sabato: Su appuntamento</p>
+                <div style="margin-top: 2rem;">
+                    <p>Via San Gottardo, 6828 Balerna (CH)</p>
+                    <p style="font-size: 1.8rem; font-weight: 900;">+41 78 123 45 67</p>
+                    <p>Lun - Ven: 08:00 - 12:00 | 13:30 - 17:30</p>
                 </div>
             </div>
-            
-            <form class="contact-form fade-in" action="#" method="POST" onsubmit="event.preventDefault(); alert('Grazie! Il modulo è stato inviato. Ti ricontatteremo a breve.');">
-                <div class="form-group">
-                    <label for="name">Nome / Azienda</label>
-                    <input type="text" id="name" class="form-control" placeholder="Inserisci il tuo nome" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Indirizzo Email</label>
-                    <input type="email" id="email" class="form-control" placeholder="esempio@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Telefono</label>
-                    <input type="tel" id="phone" class="form-control" placeholder="+41 7x xxx xx xx" required>
-                </div>
-                <div class="form-group">
-                    <label for="service">Servizio Richiesto</label>
-                    <select id="service" class="form-control" required>
-                        <option value="">Seleziona un servizio...</option>
-                        <option value="meccanica">Riparazione Meccanica</option>
-                        <option value="tagliando">Tagliando / Manutenzione</option>
-                        <option value="gomme">Cambio Gomme</option>
-                        <option value="collaudo">Preparazione Collaudo</option>
-                        <option value="carrozzeria">Lavori di Carrozzeria / Parabrezza</option>
-                        <option value="epoca">Veicoli d'Epoca</option>
-                        <option value="altro">Altro / Info</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Messaggio / Dettagli veicolo (Marca, Modello, Anno)</label>
-                    <textarea id="message" class="form-control" rows="4" placeholder="Descrivi il problema o la tua richiesta..." required></textarea>
-                </div>
-                <button type="submit">Invia Richiesta</button>
+            <form class="contact-form fade-in" onsubmit="event.preventDefault(); alert('Inviato!');">
+                <input type="text" class="form-control" placeholder="Nome / Azienda" required>
+                <input type="email" class="form-control" placeholder="Email" required>
+                <input type="tel" class="form-control" placeholder="Telefono" required>
+                <textarea class="form-control" rows="4" placeholder="Dettagli veicolo..." required></textarea>
+                <button type="submit" class="btn" style="background:#FFF; color:var(--color-accent); border:none; width:100%; padding:1.5rem;">Invia Richiesta</button>
             </form>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
-            <div class="footer-col">
-                <div class="logo" style="color: var(--color-bg); margin-bottom: 1rem;">A&G CAR <span style="color: var(--color-accent);">SNC</span></div>
-                <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">La tua officina meccanica di fiducia a Balerna. Precisione svizzera, trasparenza e competenza per ogni tipo di veicolo.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Servizi</h4>
-                <ul style="list-style: none; font-size: 0.9rem; line-height: 2;">
-                    <li><a href="#servizi">Riparazioni Meccaniche</a></li>
-                    <li><a href="#servizi">Diagnostica Auto</a></li>
-                    <li><a href="#servizi">Assistenza Veicoli d'Epoca</a></li>
-                    <li><a href="#servizi">Preparazione Collaudi</a></li>
-                    <li><a href="#servizi">Gommista Balerna</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legale</h4>
-                <ul style="list-style: none; font-size: 0.9rem; line-height: 2;">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                    <li><a href="#">Termini e Condizioni</a></li>
-                    <li><a href="#">Impressum</a></li>
-                </ul>
-            </div>
+            <div class="footer-col"><div class="logo" style="color:#FFF;">A&G CAR <span style="color:var(--color-accent);">SNC</span></div></div>
+            <div class="footer-col"><h4>Servizi</h4><ul style="list-style:none; font-size:0.9rem; line-height:2;"><li>Meccanica</li><li>Diagnostica</li><li>Gomme</li></ul></div>
+            <div class="footer-col"><h4>Legale</h4><ul style="list-style:none; font-size:0.9rem; line-height:2;"><li>Privacy Policy</li><li>Impressum</li></ul></div>
         </div>
         <div class="footer-bottom">
-            <div>&copy; 2026 A&G CAR SNC. Tutti i diritti riservati.</div>
+            <div>&copy; 2026 A&G CAR SNC.</div>
             <div>Design by SitiTicino.ch</div>
         </div>
     </footer>
 
-    <!-- WIDGETS -->
-    <a href="https://wa.me/+4178123456" target="_blank" class="widget-whatsapp" aria-label="Contattaci su WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-    </a>
+    <a href="https://wa.me/+4178123456" class="widget-whatsapp"><svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
+    <div class="widget-darkmode" id="theme-toggle"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></div>
 
-    <div class="widget-darkmode" id="theme-toggle" aria-label="Toggle Dark Mode">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-    </div>
-
-    <!-- SCRIPTS -->
     <script>
-        // Dark Mode Toggle Logic
         const themeToggle = document.getElementById('theme-toggle');
-        const htmlElement = document.documentElement;
-        
-        // Setup initial icon
-        const sunIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
-        const moonIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
-
         themeToggle.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark-theme');
-            if(htmlElement.classList.contains('dark-theme')) {
-                themeToggle.innerHTML = sunIcon;
-            } else {
-                themeToggle.innerHTML = moonIcon;
-            }
+            document.documentElement.classList.toggle('dark-theme');
         });
 
-        // Intersection Observer for Fade-In Animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Animate only once
+                    observer.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.fade-in').forEach(element => {
-            observer.observe(element);
-        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
