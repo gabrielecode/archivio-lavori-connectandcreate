@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="it" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ab Costruzioni | Impresa di Costruzioni e Ristrutturazioni a Chiasso</title>
+    <meta name="description" content="Ab Costruzioni: eccellenza svizzera in costruzioni, ristrutturazioni e opere di pittura. Impresa edile attiva a Chiasso e in tutto il Ticino. Richiedi un preventivo.">
+    <meta name="keywords" content="Impresa di costruzioni Chiasso, impresa di ristrutturazioni Ticino, impresa di pittura, lavori edili Mendrisiotto, ditta di costruzioni Svizzera, rifacimento facciate, ristrutturazione bagni">
+    <meta name="author" content="Ab Costruzioni">
+    <meta name="geo.region" content="CH-TI">
+    <meta name="geo.placename" content="Chiasso">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD Schema (G.R.I.D. Optimization) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://abcostruzioni.ch/#organization",
+          "name": "Ab Costruzioni",
+          "description": "Impresa di costruzioni, ristrutturazioni e pittura operante a Chiasso e nel Canton Ticino.",
+          "url": "https://abcostruzioni.ch",
+          "telephone": "+41790000000",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Via Ai Crotti 3",
+            "addressLocality": "Chiasso",
+            "postalCode": "6830",
+            "addressRegion": "Ticino",
+            "addressCountry": "CH"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "45.8354",
+            "longitude": "9.0205"
+          },
+          "priceRange": "$$",
+          "image": "https://images.unsplash.com/photo-1541888081622-4a7b5b485981?auto=format&fit=crop&q=80&w=1200",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "124"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Quali zone del Ticino servite per le ristrutturazioni?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "La nostra impresa di costruzioni ha sede a Chiasso, ma operiamo con efficienza in tutto il Mendrisiotto, Luganese e nel resto del Canton Ticino."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Gestite anche le pratiche burocratiche per i permessi di costruzione?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sì, offriamo un servizio chiavi in mano che include l'assistenza per la richiesta e l'ottenimento dei necessari permessi di costruzione presso i comuni ticinesi."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Eseguite anche piccoli lavori di pittura o solo grandi cantieri?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "In quanto impresa di pittura strutturata, gestiamo sia grandi opere civili/industriali sia interventi mirati come la tinteggiatura di singoli appartamenti o rifacimento facciate."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* CSS Variables - Swiss Style & Dark Mode */
+        :root {
+            /* Colors - Light */
+            --bg-primary: #f4f4f4;
+            --bg-secondary: #ffffff;
+            --text-primary: #111111;
+            --text-secondary: #444444;
+            --accent: #d9230f; /* Swiss Red */
+            --grid-line: rgba(0,0,0,0.1);
+            
+            /* Typography */
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            /* Spacing & Grid */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 8rem;
+            --container-max: 1400px;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #161616;
+            --text-primary: #f4f4f4;
+            --text-secondary: #a0a0a0;
+            --accent: #ff3b24;
+            --grid-line: rgba(255,255,255,0.1);
+        }
+
+        /* Reset & Base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-head);
+            line-height: 1.1;
+            margin-bottom: var(--space-sm);
+            font-weight: 800;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Swiss Layout Utility */
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--space-md);
+        }
+
+        .border-top { border-top: 1px solid var(--grid-line); }
+        .border-bottom { border-bottom: 1px solid var(--grid-line); }
+
+        /* Buttons */
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent);
+            color: #fff;
+            padding: 1.2rem 2.5rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            min-height: 44px; /* Touch target */
+            min-width: 44px;
+        }
+
+        .cta-primary:hover {
+            background-color: #111;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        [data-theme="dark"] .cta-primary:hover {
+            background-color: #fff;
+            color: #111;
+        }
+
+        /* Header */
+        header {
+            padding: var(--space-md) 0;
+            position: relative;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-head);
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: var(--space-xl) 0;
+            position: relative;
+        }
+
+        .hero-grid {
+            grid-template-columns: repeat(12, 1fr);
+            align-items: center;
+        }
+
+        .hero-content {
+            grid-column: 1 / 7;
+            padding-right: var(--space-lg);
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 6rem);
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-md);
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            margin-bottom: var(--space-md);
+            max-width: 80%;
+            color: var(--text-secondary);
+        }
+
+        .hero-image-wrapper {
+            grid-column: 7 / 13;
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%) contrast(1.1);
+        }
+
+        /* Stats Strip */
+        .stats-section {
+            padding: var(--space-lg) 0;
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            text-align: center;
+        }
+
+        .stat-num {
+            font-family: var(--font-head);
+            font-size: 4rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: var(--space-xs);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: var(--space-xl) 0;
+        }
+
+        .section-header {
+            grid-column: 1 / 13;
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            text-transform: uppercase;
+        }
+
+        .service-card {
+            grid-column: span 4;
+            background: var(--bg-secondary);
+            padding: var(--space-md);
+            border: 1px solid var(--grid-line);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: var(--space-sm);
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .service-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* About / Content */
+        .about-section {
+            padding: var(--space-xl) 0;
+            background-color: var(--bg-secondary);
+        }
+
+        .about-grid {
+            grid-template-columns: repeat(12, 1fr);
+        }
+
+        .about-text {
+            grid-column: 2 / 8;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            font-family: var(--font-head);
+            font-style: italic;
+        }
+
+        /* Testimonials Slider (CSS Grid representation) */
+        .testimonials-section {
+            padding: var(--space-xl) 0;
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .testi-card {
+            padding: var(--space-md);
+            border: 1px solid var(--grid-line);
+            background: var(--bg-secondary);
+        }
+
+        .testi-text {
+            font-style: italic;
+            margin-bottom: var(--space-sm);
+            color: var(--text-secondary);
+        }
+
+        .testi-author {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: var(--space-xl) 0;
+            background-color: var(--bg-secondary);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--grid-line);
+            padding: var(--space-md) 0;
+        }
+
+        .faq-question {
+            font-size: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-secondary);
+            margin-top: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px; /* arbitrary max height for animation */
+            margin-top: var(--space-sm);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: var(--space-xl) 0;
+        }
+
+        .contact-grid {
+            grid-template-columns: repeat(12, 1fr);
+        }
+
+        .contact-info {
+            grid-column: 1 / 6;
+        }
+
+        .contact-info h3 {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .info-block {
+            margin-bottom: var(--space-sm);
+        }
+
+        .info-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+        }
+
+        .info-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .contact-form {
+            grid-column: 7 / 13;
+        }
+
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 0;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--grid-line);
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-bottom-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #fff;
+            padding: var(--space-lg) 0 var(--space-md);
+            text-align: center;
+        }
+
+        .footer-legal {
+            margin-top: var(--space-md);
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: var(--space-md);
+        }
+
+        /* Floating Widgets */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-widget:hover {
+            transform: scale(1.1);
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: none;
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .hero-content { grid-column: 1 / 13; padding-right: 0; text-align: center; }
+            .hero-image-wrapper { grid-column: 1 / 13; height: 50vh; margin-top: var(--space-md); }
+            .service-card { grid-column: span 6; }
+            .about-text { grid-column: 1 / 13; text-align: center; }
+            .contact-info, .contact-form { grid-column: 1 / 13; }
+            .contact-form { margin-top: var(--space-lg); }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .service-card { grid-column: span 12; }
+            .hero-title { font-size: 3rem; }
+            :root {
+                --space-xl: 4rem;
+                --space-lg: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="border-bottom">
+        <div class="container header-inner">
+            <div class="logo">AB<span>.</span></div>
+            <nav>
+                <a href="#contact" class="cta-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Preventivo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container grid-layout hero-grid">
+                <div class="hero-content">
+                    <h1 class="hero-title">Edificare con<br>Precisione.</h1>
+                    <p class="hero-desc"><strong>Ab Costruzioni</strong>: la tua <em>impresa di costruzioni, ristrutturazioni e pittura</em> a Chiasso. Trasformiamo visioni architettoniche in solide realtà nel Canton Ticino.</p>
+                    <a href="#contact" class="cta-primary">Richiedi un Preventivo</a>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="https://i.postimg.cc/1zj4cbc4/impresa-di-costruzioni.webp" alt="Cantiere impresa di costruzioni" class="hero-image" loading="eager">
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container stats-grid">
+                <div>
+                    <div class="stat-num">30+</div>
+                    <div class="stat-label">Anni di Esperienza</div>
+                </div>
+                <div>
+                    <div class="stat-num">900+</div>
+                    <div class="stat-label">Progetti Realizzati</div>
+                </div>
+                <div>
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label">Precisione Svizzera</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section border-bottom border-top">
+            <div class="container grid-layout about-grid">
+                <div class="about-text">
+                    "Operiamo da decenni con base a Chiasso. Come impresa edile completa, gestiamo ogni fase del progetto: dalla posa della prima pietra, alle ristrutturazioni complesse, fino alle finiture di pittura più raffinate."
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="container grid-layout">
+                <div class="section-header">
+                    <h2 class="section-title">Aree di Intervento</h2>
+                </div>
+                
+                <article class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3 class="service-title">Impresa di Costruzioni</h3>
+                    <p class="service-desc">Edificazione di nuovi stabili residenziali, commerciali e industriali. Scavi, opere in cemento armato e muratura con materiali di prima scelta e rispetto rigoroso delle normative SIA.</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">🔨</div>
+                    <h3 class="service-title">Impresa di Ristrutturazioni</h3>
+                    <p class="service-desc">Riattazioni complete chiavi in mano. Dal rifacimento bagni e cucine, alla ridistribuzione degli spazi interni, fino all'adeguamento energetico e strutturale degli edifici esistenti in Ticino.</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">🖌️</div>
+                    <h3 class="service-title">Impresa di Pittura</h3>
+                    <p class="service-desc">Tinteggiature interne ed esterne, risanamento facciate, isolazione termica a cappotto e finiture decorative di pregio. Curiamo il dettaglio per garantire durabilità ed estetica.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Parallax/Image Break -->
+        <section style="height: 40vh; background: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1600') center/cover fixed;"></section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section bg-secondary border-bottom">
+            <div class="container">
+                <h2 class="section-title">Dicono di Noi</h2>
+                <div class="testi-grid">
+                    <div class="testi-card">
+                        <p class="testi-text">"Hanno curato la ristrutturazione completa del nostro appartamento a Mendrisio. Puntuali, precisi e con una pulizia in cantiere invidiabile."</p>
+                        <p class="testi-author">— Marco B., Mendrisio</p>
+                    </div>
+                    <div class="testi-card">
+                        <p class="testi-text">"Ci siamo affidati ad Ab Costruzioni per la costruzione della nostra villa. Il rispetto dei preventivi e delle tempistiche è stato assoluto."</p>
+                        <p class="testi-author">— Elena R., Chiasso</p>
+                    </div>
+                    <div class="testi-card">
+                        <p class="testi-text">"Lavori di pittura e cappotto termico eseguiti a regola d'arte. Una vera impresa edile di fiducia nel Ticino. Altamente raccomandati."</p>
+                        <p class="testi-author">— Studio Architettura G., Lugano</p>
+                    </div>
+                    <div class="testi-card">
+                        <p class="testi-text">"Hanno rifatto il tetto e le facciate del nostro condominio a Balerna. Professionalità ai massimi livelli e ottima comunicazione."</p>
+                        <p class="testi-author">— Amministrazione Condominiale T.</p>
+                    </div>
+                    <div class="testi-card">
+                        <p class="testi-text">"Il rifacimento del mio bagno è stato veloce e indolore. Finiture perfette. Complimenti a tutto il team di Ab Costruzioni."</p>
+                        <p class="testi-author">— Giorgio L., Vacallo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Domande Frequenti</h2>
+                <div style="margin-top: var(--space-md);">
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">Quali zone del Ticino servite? <span style="font-family: sans-serif;">+</span></div>
+                        <p class="faq-answer">La nostra sede operativa è in Via Ai Crotti 3 a Chiasso. Operiamo capillarmente in tutto il Mendrisiotto, Luganese e nel resto del Canton Ticino, garantendo presenza tempestiva sui cantieri.</p>
+                    </div>
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">Fornite preventivi gratuiti? <span style="font-family: sans-serif;">+</span></div>
+                        <p class="faq-answer">Assolutamente sì. Eseguiamo sopralluoghi gratuiti e senza impegno per valutare l'entità dei lavori di costruzione, ristrutturazione o pittura, fornendo stime di costo chiare e trasparenti.</p>
+                    </div>
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">Vi occupate delle pratiche burocratiche? <span style="font-family: sans-serif;">+</span></div>
+                        <p class="faq-answer">Sì, come general contractor possiamo gestire, in collaborazione con architetti e ingegneri, l'iter burocratico per l'ottenimento delle licenze edilizie presso i municipi competenti.</p>
+                    </div>
+                    <div class="faq-item" onclick="this.classList.toggle('active')">
+                        <div class="faq-question">Garantite i lavori eseguiti? <span style="font-family: sans-serif;">+</span></div>
+                        <p class="faq-answer">Certamente. Tutti i nostri interventi sono garantiti secondo le rigide normative svizzere (norme SIA), assicurando tranquillità e tutela ai nostri committenti nel tempo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section border-top">
+            <div class="container grid-layout contact-grid">
+                <div class="contact-info">
+                    <h3>Iniziamo il tuo progetto.</h3>
+                    
+                    <div class="info-block">
+                        <div class="info-label">Indirizzo</div>
+                        <div class="info-value">Via Ai Crotti 3<br>6830 Chiasso, TI</div>
+                    </div>
+                    
+                    <div class="info-block" style="margin-top: var(--space-md);">
+                        <div class="info-label">Contatti</div>
+                        <div class="info-value">
+                            <a href="tel:+41790000000">+41 79 000 00 00</a><br>
+                            <a href="mailto:info@abcostruzioni.ch">info@abcostruzioni.ch</a>
+                        </div>
+                    </div>
+
+                    <div class="info-block" style="margin-top: var(--space-md);">
+                        <div class="info-label">Orari Operativi</div>
+                        <div class="info-value">Lun - Ven: 07:30 - 17:30</div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Messaggio inviato con successo. Ti contatteremo a breve.');">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Nome / Azienda" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Telefono (opzionale)">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Descrivi brevemente la tua esigenza (Costruzione, Ristrutturazione, Pittura...)" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-primary" style="width: 100%; margin-top: var(--space-sm);">Invia Richiesta</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo" style="color: white; margin-bottom: 1rem;">AB<span>.</span> Costruzioni</div>
+            <p style="color: #aaa; max-width: 500px; margin: 0 auto;">Impresa di costruzioni, ristrutturazioni e pittura. Qualità e rigore svizzero al servizio del tuo immobile a Chiasso e in Ticino.</p>
+            
+            <div class="footer-legal">
+                &copy; 2026 Ab Costruzioni - Via Ai Crotti 3, 6830 Chiasso. Tutti i diritti riservati.<br>
+                <span style="display: inline-block; margin-top: 10px; color: #666;">Design by SitiTicino.ch</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mandatory WhatsApp Widget -->
+    <a href="https://wa.me/41790000000" class="whatsapp-widget" target="_blank" rel="noopener noreferrer" aria-label="Contattaci su WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.004-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" aria-label="Toggle Dark Mode" onclick="document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark'">
+        🌓
+    </button>
+
+</body>
+</html>
