@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanStudio Mendrisio | Servizi Professionali di Igiene Certificata</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #00a8cc;
+            --secondary: #005f73;
+            --dark: #0f172a;
+            --gradient-main: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            /* Nuovo gradiente differente per la sezione Perché Sceglierci */
+            --gradient-why: linear-gradient(135deg, #e0f2f1 0%, #b2ebf2 100%);
+            --shadow: 0 20px 40px rgba(0,0,0,0.08);
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark); line-height: 1.6; background: #fff; overflow-x: hidden; }
+
+        nav {
+            position: fixed; width: 100%; padding: 15px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .logo { font-weight: 900; font-size: 1.4rem; background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -1px; }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; padding: 100px 5% 50px;
+            background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.7)), 
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover; background-position: center;
+        }
+        .hero h1 { font-size: 2.8rem; font-weight: 900; color: var(--secondary); line-height: 1.1; margin-bottom: 20px; }
+
+        .btn { display: inline-block; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: var(--ease); border: none; cursor: pointer; }
+        .btn-main { background: var(--gradient-main); color: white; box-shadow: 0 10px 20px rgba(0, 114, 255, 0.2); }
+
+        section { padding: 80px 5%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; color: var(--secondary); font-weight: 800; text-transform: uppercase; }
+
+        /* PERCHÉ SCEGLIERCI (NUOVO GRADIENTE) */
+        .why-us { background: var(--gradient-why); border-radius: 50px; margin: 0 2%; }
+        .why-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+        .why-card { background: white; padding: 40px; border-radius: 30px; box-shadow: var(--shadow); border: 1px solid rgba(0,168,204,0.1); text-align: center; }
+        .why-card h3 { color: var(--primary); margin-bottom: 15px; font-weight: 800; }
+
+        /* SERVIZI PROFESSIONALI */
+        .service-card { margin-bottom: 80px; display: flex; flex-direction: column; gap: 30px; }
+        .service-img { height: 350px; border-radius: 30px; overflow: hidden; box-shadow: var(--shadow); }
+        .service-img img { width: 100%; height: 100%; object-fit: cover; }
+        .service-text h3 { font-size: 1.8rem; color: var(--secondary); margin-bottom: 15px; font-weight: 900; }
+        .service-text ul { list-style: none; padding: 0; }
+        .service-text li { position: relative; padding-left: 25px; margin-bottom: 10px; font-weight: 500; }
+        .service-text li::before { content: '→'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+        /* TESTIMONIALS */
+        .testimonials { background: var(--gradient-main); color: white; border-radius: 50px; margin: 0 2%; }
+        .review-card { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 25px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); margin-bottom: 20px; }
+
+        /* CONTACT FORM */
+        .contact-box { max-width: 600px; margin: 0 auto; background: #f0f9ff; padding: 40px; border-radius: 30px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 1px solid #d1e9ff; border-radius: 12px; font-family: inherit; }
+
+        /* FLOATERS */
+        .whatsapp-btn { position: fixed; bottom: 20px; left: 20px; z-index: 999; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); animation: pulse 2s infinite; text-decoration: none; }
+        .chat-toggle { position: fixed; bottom: 20px; right: 20px; background: var(--primary); color: white; padding: 15px 25px; border-radius: 50px; cursor: pointer; z-index: 998; font-weight: 700; box-shadow: var(--shadow); }
+        .chat-container { position: fixed; bottom: 90px; right: 20px; width: 350px; background: white; border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); z-index: 1000; display: none; flex-direction: column; overflow: hidden; }
+        .chat-header { background: var(--gradient-main); color: white; padding: 20px; font-weight: bold; display: flex; justify-content: space-between; }
+        .chat-body { height: 300px; padding: 20px; overflow-y: auto; background: #fcfdfe; display: flex; flex-direction: column; gap: 10px; }
+        .msg { padding: 12px; border-radius: 15px; font-size: 0.9rem; }
+        .bot-msg { background: #f0f0f0; align-self: flex-start; }
+        .user-msg { background: var(--primary); color: white; align-self: flex-end; }
+
+        /* LEGAL (nLPD) */
+        .cookie-banner { position: fixed; bottom: 0; width: 100%; background: var(--dark); color: white; padding: 20px; z-index: 2000; text-align: center; font-size: 0.8rem; }
+        .legal-btn { background: var(--primary); border: none; padding: 8px 15px; border-radius: 20px; color: white; cursor: pointer; margin-left: 10px; }
+
+        @media (min-width: 1024px) {
+            .hero h1 { font-size: 4.5rem; }
+            .service-card { flex-direction: row; align-items: center; gap: 80px; }
+            .service-card:nth-child(even) { flex-direction: row-reverse; }
+            .service-img { flex: 1; }
+            .service-text { flex: 1; }
+            .why-grid { grid-template-columns: repeat(3, 1fr); }
+            .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        }
+
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body>
+
+    <div class="cookie-banner" id="cookieBanner">
+        Questo sito rispetta la Nuova Legge Federale sulla Protezione dei Dati (nLPD). Utilizziamo cookie tecnici per migliorare la tua esperienza.
+        <button class="legal-btn" onclick="document.getElementById('cookieBanner').style.display='none'">Ho capito</button>
+    </div>
+
+    <a href="https://wa.me/41910000000" class="whatsapp-btn" target="_blank">
+        <svg width="30" height="30" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/></svg>
+    </a>
+
+    <div class="chat-toggle" onclick="toggleChat()">Assistenza Sofia 👋</div>
+    <div class="chat-container" id="chatBox">
+        <div class="chat-header"><span>Sofia - CleanStudio</span><span style="cursor:pointer" onclick="toggleChat()">✕</span></div>
+        <div class="chat-body" id="chatContent">
+            <div class="msg bot-msg">Buongiorno! Sono Sofia. Come posso aiutarla oggi con i servizi di CleanStudio Mendrisio?</div>
+        </div>
+        <div style="padding:15px; border-top:1px solid #eee;">
+            <button onclick="ask('Preventivo Imprese', 'Certamente. Effettuiamo sopralluoghi tecnici gratuiti per realtà industriali e uffici nel Mendrisiotto.')" style="width:100%; padding:10px; margin-bottom:5px; border-radius:10px; cursor:pointer;">Preventivo Imprese</button>
+            <button onclick="ask('Privacy nLPD', 'Gestiamo i dati dei nostri clienti secondo gli standard svizzeri nLPD per la massima sicurezza.')" style="width:100%; padding:10px; border-radius:10px; cursor:pointer;">Sicurezza Dati</button>
+        </div>
+    </div>
+
+    <nav>
+        <div class="logo">CleanStudio.</div>
+        <a href="#contatti" class="btn btn-main" style="padding: 10px 25px; font-size: 0.8rem;">CONTATTI</a>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Igiene Rigorosa.<br>Efficienza Svizzera.</h1>
+            <p>Sistemi di Facility Management per industrie, uffici e complessi residenziali nel Canton Ticino. Standard nLPD e precisione millimetrica.</p>
+            <a href="#servizi" class="btn btn-main">I NOSTRI PROTOCOLLI</a>
+        </div>
+    </header>
+
+    <section class="why-us" data-aos="fade-up">
+        <div class="section-title"><h2>Perché Sceglierci</h2></div>
+        <div class="why-grid">
+            <div class="why-card" data-aos="zoom-in" data-aos-delay="100">
+                <h3>Affidabilità Ticinese</h3>
+                <p>Puntualità svizzera e gestione professionale delle scadenze per non interferire con il vostro workflow aziendale.</p>
+            </div>
+            <div class="why-card" data-aos="zoom-in" data-aos-delay="200">
+                <h3>Sicurezza Garantita</h3>
+                <p>Personale assicurato, formato e dotato dei più moderni dispositivi di protezione individuale (DPI).</p>
+            </div>
+            <div class="why-card" data-aos="zoom-in" data-aos-delay="300">
+                <h3>Eco-Sostenibilità</h3>
+                <p>Utilizzo esclusivo di detergenti biodegradabili certificati, conformi alle normative ambientali vigenti.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="servizi">
+        <div class="section-title" data-aos="fade-up"><h2>I Nostri Servizi</h2></div>
+        
+        <div class="service-card" data-aos="fade-right">
+            <div class="service-img">
+                <img src="https://images.unsplash.com/photo-1581578731117-104f8a3d46a8?auto=format&fit=crop&q=80&w=1200" alt="Igiene Industriale">
+            </div>
+            <div class="service-text">
+                <h3>Sanificazione Industriale</h3>
+                <p>Gestione igienica avanzata per magazzini logistici, stabilimenti produttivi e officine meccaniche.</p>
+                <ul>
+                    <li>Trattamento pavimentazioni in resina e cemento</li>
+                    <li>Sgrassatura profonda linee di produzione</li>
+                    <li>Gestione rifiuti e decontaminazione aree tecniche</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-card" data-aos="fade-left">
+            <div class="service-img">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1200" alt="Facility Management Uffici">
+            </div>
+            <div class="service-text">
+                <h3>Facility Management Uffici</h3>
+                <p>Manutenzione conservativa per centri direzionali, banche e studi professionali del Mendrisiotto.</p>
+                <ul>
+                    <li>Igienizzazione postazioni IT e sale riunioni</li>
+                    <li>Trattamento vetrate e facciate continue</li>
+                    <li>Fornitura materiali igienico-sanitari nLPD compliant</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" data-aos="fade-up">
+        <div class="section-title"><h2 style="color:white;">Riprova Sociale</h2></div>
+        <div class="reviews-grid">
+            <div class="review-card" data-aos="flip-up">
+                <p>"Precisione e discrezione assoluta. Un partner fondamentale per la pulizia del nostro magazzino a Chiasso."</p>
+                <strong>- Marco R. (Logistica SA)</strong>
+            </div>
+            <div class="review-card" data-aos="flip-up" data-aos-delay="100">
+                <p>"Hanno trasformato il nostro ufficio dopo la ristrutturazione. Non una macchia, tutto perfetto."</p>
+                <strong>- Studio Architettura Mendrisio</strong>
+            </div>
+            <div class="review-card" data-aos="flip-up" data-aos-delay="200">
+                <p>"Azienda seria, personale cordiale e rispetto totale delle norme di sicurezza svizzere."</p>
+                <strong>- Giulia B. (Amministratrice)</strong>
+            </div>
+        </div>
+    </section>
+
+    <section id="contatti">
+        <div class="section-title" data-aos="fade-up"><h2>Richiedi Consulenza</h2></div>
+        <div class="contact-box" data-aos="fade-up">
+            <form action="mailto:sestitogabriele@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group"><input type="text" name="Nome" placeholder="Soggetto / Azienda" required></div>
+                <div class="form-group"><input type="tel" name="Recapito" placeholder="Telefono Ticino" required></div>
+                <div class="form-group"><textarea name="Dettagli" rows="4" placeholder="Descriva le sue necessità..."></textarea></div>
+                <button type="submit" class="btn btn-main" style="width:100%;">INVIA EMAIL DIRETTA</button>
+            </form>
+        </div>
+    </section>
+
+    <footer style="background:var(--dark); color:white; padding: 40px 5%; text-align:center;">
+        <p>&copy; 2026 CleanStudio Mendrisio | Svizzera | Conformità nLPD</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function toggleChat() {
+            const chat = document.getElementById('chatBox');
+            chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        function ask(q, a) {
+            const content = document.getElementById('chatContent');
+            content.innerHTML += `<div class="msg user-msg">${q}</div>`;
+            setTimeout(() => {
+                content.innerHTML += `<div class="msg bot-msg">${a}</div>`;
+                content.scrollTop = content.scrollHeight;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

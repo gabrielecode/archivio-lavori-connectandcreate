@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="it-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symecom SA | Soluzioni Tecniche Ticino | SIA & Minergie</title>
+    <meta name="description" content="Symecom SA: leader in Ticino per sistemi di chiusura certificati SIA 342 e isolamento termico standard Minergie. Qualità svizzera garantita.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root { --blue-swiss: #2563eb; --dark-swiss: #0f172a; }
+        html { scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); }
+        
+        /* Messenger Widget Logic */
+        #chatWidget { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .chat-hidden { opacity: 0; transform: scale(0.8) translateY(40px); pointer-events: none; }
+        .chat-visible { opacity: 1; transform: scale(1) translateY(0); pointer-events: auto; }
+        
+        /* FAQ Accordion */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+        .faq-active .faq-content { max-height: 300px; }
+        .faq-active i { transform: rotate(180deg); }
+
+        /* Cookie Banner */
+        #cookieBanner { transition: transform 0.5s ease-in-out; }
+
+        .typing-dot { width: 4px; height: 4px; background: #94a3b8; border-radius: 50%; animation: blink 1.4s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+        /* Custom Scrollbar for Chat */
+        #chatWindow::-webkit-scrollbar { width: 4px; }
+        #chatWindow::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Quali normative seguono le porte garage di Symecom SA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tutte le nostre installazioni in Ticino seguono rigorosamente la norma SIA 342 per garantire sicurezza e durata nel tempo."
+        }
+      }]
+    }
+    </script>
+</head>
+<body class="bg-white text-slate-900 font-sans antialiased">
+
+    <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 z-[300] p-4 bg-slate-900 text-white shadow-2xl">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <p class="text-xs md:text-sm text-slate-300">
+                Questo sito utilizza cookie per migliorare l'esperienza in conformità con la **nuova Legge Federale sulla Protezione dei Dati (revLPD)**. <a href="#" onclick="togglePrivacy()" class="underline text-blue-400 ml-1">Privacy Policy</a>.
+            </p>
+            <button onclick="acceptCookies()" class="bg-blue-600 px-8 py-2 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-blue-700 transition shrink-0">Accetto</button>
+        </div>
+    </div>
+
+    <nav class="fixed w-full z-50 glass border-b border-slate-100 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-xl font-black tracking-tighter uppercase">Symecom<span class="text-blue-600">SA</span></div>
+            <div class="flex items-center gap-4">
+                <div class="flex gap-2 text-[10px] font-bold border-r pr-4 border-slate-200">
+                    <button class="text-blue-600">IT</button>
+                    <button class="text-slate-400 hover:text-blue-600 transition">DE</button>
+                    <button class="text-slate-400 hover:text-blue-600 transition">EN</button>
+                </div>
+                <a href="#contatti" class="bg-slate-900 text-white px-5 py-2 rounded-full text-xs font-bold uppercase hover:bg-blue-600 transition shadow-lg">Preventivo</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&q=80" 
+                 class="w-full h-full object-cover" alt="Symecom SA Background">
+            <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-[1px]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+            <div class="max-w-3xl">
+                <span class="text-blue-400 font-bold text-sm uppercase tracking-[0.3em] block mb-4">Swiss Engineering Ticino</span>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight text-white uppercase tracking-tight">
+                    Precisione svizzera,<br>
+                    <span class="text-blue-500">visione globale.</span>
+                </h1>
+                <p class="text-slate-200 text-lg md:text-xl mb-10 leading-relaxed antialiased max-w-2xl">
+                    Sistemi di chiusura certificati SIA e isolamento termico standard Minergie. 
+                    Dal 2024, la tua sicurezza industriale in tutto il Ticino ha un nuovo punto di riferimento.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="#servizi" class="px-10 py-4 bg-blue-600 text-white text-center rounded-2xl font-bold shadow-2xl hover:bg-blue-700 transition transform hover:scale-105">
+                        Esplora i Pilastri
+                    </a>
+                    <a href="tel:+41916961060" class="px-10 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white text-center rounded-2xl font-bold hover:bg-white/20 transition">
+                        <i class="fas fa-phone mr-2"></i>Contatto Diretto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="servizi" class="py-24 bg-slate-50 px-6">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 class="text-sm font-bold text-blue-600 uppercase tracking-[0.3em] mb-4">Competenza e Certificazioni</h2>
+            <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight mb-8">I Nostri Pilastri Operativi</h2>
+            <p class="text-slate-600 max-w-4xl mx-auto text-base md:text-lg leading-relaxed antialiased">
+                Dalla consulenza tecnica alla posa in opera, portiamo in tutto il <strong>Ticino</strong> le tecnologie più avanzate per l'efficienza energetica e la sicurezza industriale. Integriamo sistemi conformi agli standard <strong>Minergie-P</strong> e alle normative <strong>SIA 342</strong>, assicurando un isolamento termico d'eccellenza e protezioni meccaniche di ultima generazione.
+            </p>
+        </div>
+        
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+            <article class="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition duration-300">
+                <div class="text-blue-600 text-4xl mb-8"><i class="fas fa-warehouse"></i></div>
+                <h3 class="text-2xl font-bold mb-4 text-slate-900">Sistemi di Chiusura</h3>
+                <ul class="text-sm text-slate-600 space-y-4">
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Porte sezionali a taglio termico certificato</li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Sistemi antieffrazione conformi RC2/RC3</li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Automazioni industriali norma SIA 342</li>
+                </ul>
+            </article>
+            <article class="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition duration-300">
+                <div class="text-blue-600 text-4xl mb-8"><i class="fas fa-shield-virus"></i></div>
+                <h3 class="text-2xl font-bold mb-4">Isolamento Termico</h3>
+                <ul class="text-sm text-slate-600 space-y-4">
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Pannelli sandwich PIR alta densità</li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Efficienza conforme Minergie-P</li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Materiali ignifughi e barriere acustiche</li>
+                </ul>
+            </article>
+            <article class="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition duration-300">
+                <div class="text-blue-600 text-4xl mb-8"><i class="fas fa-tools"></i></div>
+                <h3 class="text-2xl font-bold mb-4">Meccanica & Export</h3>
+                <ul class="text-sm text-slate-600 space-y-4">
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Minuteria galvanica di precisione</li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Supporto import-export articoli tecnici</li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Logistica Just-In-Time a Novazzano</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 max-w-4xl mx-auto">
+        <h2 class="text-3xl font-black text-center mb-12 uppercase tracking-tight">Domande Frequenti</h2>
+        <div class="space-y-4">
+            <div class="border border-slate-200 rounded-3xl overflow-hidden cursor-pointer bg-white transition" onclick="this.classList.toggle('faq-active')">
+                <div class="p-6 flex justify-between items-center font-bold text-slate-800">
+                    Symecom SA opera in tutto il Canton Ticino?
+                    <i class="fas fa-chevron-down text-blue-600 transition"></i>
+                </div>
+                <div class="faq-content bg-slate-50 px-6 text-sm text-slate-600 leading-relaxed">
+                    <p class="py-6">Sì, sebbene la nostra sede tecnica sia a Novazzano, forniamo e installiamo sistemi di chiusura e isolamento in tutto il Ticino, garantendo interventi rapidi da Chiasso a Bellinzona.</p>
+                </div>
+            </div>
+            <div class="border border-slate-200 rounded-3xl overflow-hidden cursor-pointer bg-white transition" onclick="this.classList.toggle('faq-active')">
+                <div class="p-6 flex justify-between items-center font-bold text-slate-800">
+                    Cosa significa conformità SIA 342 per le porte garage?
+                    <i class="fas fa-chevron-down text-blue-600 transition"></i>
+                </div>
+                <div class="faq-content bg-slate-50 px-6 text-sm text-slate-600 leading-relaxed">
+                    <p class="py-6">La norma SIA 342 stabilisce i requisiti svizzeri per i sistemi di protezione solare e chiusura, assicurando che ogni installazione sia sicura contro gli infortuni, resistente alle intemperie e durevole nel tempo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contatti" class="py-24 bg-slate-900 text-white px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl font-black mb-8 uppercase tracking-tighter">Richiedi un Sopralluogo</h2>
+                <form class="space-y-4">
+                    <input type="text" placeholder="Azienda / Nome" class="w-full bg-slate-800 p-5 rounded-2xl border-none outline-none focus:ring-2 focus:ring-blue-600 transition">
+                    <input type="email" placeholder="Email di contatto" class="w-full bg-slate-800 p-5 rounded-2xl border-none outline-none focus:ring-2 focus:ring-blue-600 transition">
+                    <textarea placeholder="Descrizione del progetto (misure indicative, località...)" class="w-full bg-slate-800 p-5 rounded-2xl border-none h-32 outline-none focus:ring-2 focus:ring-blue-600 transition"></textarea>
+                    <button type="button" onclick="alert('Inviato con successo!')" class="w-full bg-blue-600 py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-blue-700 shadow-2xl transition transform hover:scale-[1.02]">Invia Richiesta Tecnica</button>
+                </form>
+            </div>
+            <div class="h-[450px] rounded-[3rem] overflow-hidden grayscale contrast-125 border border-slate-700 shadow-2xl">
+                <iframe src="http://googleusercontent.com/maps.google.com/6" class="w-full h-full border-none" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-slate-950 text-slate-500 text-center px-6 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.2em] font-bold">
+            <p>Symecom SA • Via Roncaglia 15, 6883 Novazzano</p>
+            <div class="flex gap-8">
+                <a href="#" onclick="togglePrivacy()" class="hover:text-white transition">Privacy Policy (revLPD)</a>
+                <a href="#" class="hover:text-white transition">Note Legali</a>
+            </div>
+            <p>© 2026 Swiss Excellence</p>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-6 right-6 z-[200]">
+        <button onclick="toggleChat()" class="w-16 h-16 bg-blue-600 text-white rounded-full shadow-2xl flex items-center justify-center text-3xl hover:scale-110 active:scale-95 transition transform">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+
+        <div id="chatWidget" class="chat-hidden absolute bottom-20 right-0 w-[360px] max-w-[calc(100vw-2rem)] h-[550px] bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-slate-100 overflow-hidden flex flex-col">
+            <div class="p-6 bg-slate-900 text-white flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <span class="text-xs font-bold uppercase tracking-widest">Syme-AI Assistant</span>
+                </div>
+                <button onclick="toggleChat()"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="chatWindow" class="flex-1 p-6 overflow-y-auto space-y-4 bg-slate-50 text-sm">
+                <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm text-slate-700 leading-relaxed border border-slate-100">
+                    Buongiorno! Come posso supportarti oggi nella tua ricerca di soluzioni tecniche in Ticino?
+                </div>
+            </div>
+            <div id="typing" class="hidden px-6 py-2 flex gap-1"><div class="typing-dot"></div><div class="typing-dot" style="animation-delay:0.2s"></div><div class="typing-dot" style="animation-delay:0.4s"></div></div>
+            <div class="p-5 bg-white border-t border-slate-100">
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <button onclick="quickReply('Preventivo')" class="text-[10px] bg-blue-50 text-blue-600 px-4 py-2 rounded-full font-bold hover:bg-blue-100 transition">Richiedi Preventivo</button>
+                    <button onclick="quickReply('SIA 342')" class="text-[10px] bg-blue-50 text-blue-600 px-4 py-2 rounded-full font-bold hover:bg-blue-100 transition">Info Normativa SIA</button>
+                </div>
+                <div class="flex gap-2">
+                    <input id="chatInput" type="text" placeholder="Scrivi un messaggio..." class="flex-1 bg-slate-100 border-none rounded-2xl px-5 py-4 text-xs focus:ring-1 focus:ring-blue-600 outline-none transition">
+                    <button onclick="handleChat()" class="bg-blue-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center hover:bg-blue-700 transition">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="privacyModal" class="fixed inset-0 z-[400] bg-slate-900/90 flex items-center justify-center p-6 hidden">
+        <div class="bg-white w-full max-w-2xl rounded-[3rem] p-10 max-h-[85vh] overflow-y-auto shadow-2xl">
+            <h2 class="text-3xl font-black mb-6 uppercase tracking-tight">Informativa Privacy Symecom SA</h2>
+            <div class="text-sm text-slate-600 space-y-5 leading-relaxed">
+                <p><strong>Responsabile:</strong> Symecom SA, Via Roncaglia 15, 6883 Novazzano.</p>
+                <p>In linea con la **Legge Federale sulla Protezione dei Dati (revLPD)**, i dati inseriti nei moduli di contatto sono trattati unicamente per l'evasione delle richieste tecnico-commerciali.</p>
+                <p>Non effettuiamo profilazione invasiva e non cediamo dati a terze parti. I dati sono protetti e conservati su server sicuri. Potete richiedere l'accesso o la cancellazione scrivendo a: <a href="mailto:info@symecom.ch" class="text-blue-600 underline">info@symecom.ch</a>.</p>
+            </div>
+            <button onclick="togglePrivacy()" class="mt-10 bg-blue-600 text-white w-full py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-blue-700 transition">Ho Capito</button>
+        </div>
+    </div>
+
+    <script>
+        // Cookie Banner Logic
+        if(localStorage.getItem('symecomCookies')) {
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+        function acceptCookies() {
+            localStorage.setItem('symecomCookies', 'true');
+            document.getElementById('cookieBanner').style.transform = 'translateY(100%)';
+            setTimeout(() => document.getElementById('cookieBanner').style.display = 'none', 500);
+        }
+
+        // Privacy Modal
+        function togglePrivacy() { document.getElementById('privacyModal').classList.toggle('hidden'); }
+
+        // Chatbot Advanced Logic
+        const widget = document.getElementById('chatWidget');
+        const chatWindow = document.getElementById('chatWindow');
+        const input = document.getElementById('chatInput');
+        const typing = document.getElementById('typing');
+
+        function toggleChat() { 
+            widget.classList.toggle('chat-hidden'); 
+            widget.classList.toggle('chat-visible'); 
+        }
+        
+        async function quickReply(t) { input.value = t; await handleChat(); }
+
+        async function handleChat() {
+            const val = input.value.trim();
+            if(!val) return;
+            appendMsg(val, true);
+            input.value = '';
+            
+            typing.classList.remove('hidden');
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+            
+            // Simula il "pensiero" del bot
+            await new Promise(r => setTimeout(r, 1500));
+            typing.classList.add('hidden');
+
+            let r = "Ottima richiesta. Symecom SA offre supporto specifico su <strong>" + val + "</strong> in tutto il Ticino. Vuoi fissare un sopralluogo tecnico gratuito?";
+            const low = val.toLowerCase();
+            if(low.includes('preventivo')) r = "Per un preventivo accurato, un nostro tecnico di Novazzano effettuerà una misurazione gratuita. Lascia la tua mail nel form contatti!";
+            if(low.includes('sia')) r = "La norma SIA 342 è il nostro standard qualitativo. Garantiamo che ogni porta garage e sistema di chiusura sia certificato a norma di legge svizzera.";
+            
+            appendMsg(r, false);
+        }
+
+        function appendMsg(t, u) {
+            const d = document.createElement('div');
+            d.className = u ? "flex justify-end" : "flex justify-start";
+            d.innerHTML = `<div class="${u ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 shadow-sm text-slate-700'} p-4 rounded-3xl ${u ? 'rounded-tr-none' : 'rounded-tl-none'} max-w-[85%] leading-relaxed">${t}</div>`;
+            chatWindow.appendChild(d);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        input.addEventListener('keypress', (e) => { if(e.key === 'Enter') handleChat(); });
+    </script>
+
+</body>
+</html>

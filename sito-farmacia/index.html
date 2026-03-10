@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Farmacia Asclepio a Morbio Inferiore: Eccellenza farmaceutica e servizi di telemedicina avanzata nel Mendrisiotto.">
+    <title>Farmacia Asclepio | Morbio Inferiore</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    <style>
+        /* Integrazione Font Miso */
+        @font-face {
+            font-family: 'Miso';
+            src: url('uploaded:miso-regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #fffafb; 
+            color: #1c1917; 
+        }
+
+        h1, h2, h3, .font-miso {
+            font-family: 'Miso', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Hero Background con Immagine Utente */
+        .hero-section {
+            position: relative;
+            background-image: url('https://i.postimg.cc/6Q5rr7Nk/immagine-per-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(28, 25, 23, 0.5); /* Overlay al 50% scuro per leggibilità */
+        }
+
+        /* Effetto Floating Tilt 3D per le Card */
+        .service-card {
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 25px 50px -12px rgba(190, 18, 60, 0.25);
+        }
+
+        .card-content {
+            transform: translateZ(50px); /* Distacco 3D del contenuto */
+        }
+
+        .glass-nav {
+            background: rgba(255, 250, 251, 0.85);
+            backdrop-filter: blur(15px);
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#be123c', 
+                        accent: '#fb7185',
+                        asclepio_black: '#1c1917',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-rose-100/30">
+        <div class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="bg-primary p-2 rounded-lg">
+                    <i data-lucide="cross" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="font-miso text-3xl font-bold text-asclepio_black tracking-tighter">ASCLEPIO_</span>
+            </div>
+            
+            <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-asclepio_black/70">
+                <a href="#servizi" class="hover:text-primary transition-all">Servizi</a>
+                <a href="#chi-siamo" class="hover:text-primary transition-all">Filosofia</a>
+                <a href="#recensioni" class="hover:text-primary transition-all">Pazienti</a>
+                <a href="#contatti" class="hover:text-primary transition-all">Contatti</a>
+            </div>
+
+            <a href="tel:+41911234567" class="bg-asclepio_black text-white px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary transition-all">
+                +41 91 123 45 67
+            </a>
+        </div>
+    </nav>
+
+    <header class="hero-section h-screen flex items-center justify-center text-center px-8">
+        <div class="hero-overlay"></div>
+        <div class="relative z-10 max-w-4xl">
+            <h1 class="text-7xl md:text-9xl font-bold text-white mb-6 leading-none">
+                Salute. <span class="text-accent italic">Scienza.</span> <br> Svizzera.
+            </h1>
+            <p class="text-xl md:text-2xl text-white/80 font-light mb-12 max-w-2xl mx-auto leading-relaxed">
+                Farmacia Asclepio Morbio Inferiore: Consulenza d'eccellenza e innovazione diagnostica nel Mendrisiotto.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-5 justify-center">
+                <a href="#servizi" class="bg-primary text-white px-12 py-5 rounded-2xl font-bold uppercase text-[10px] tracking-widest shadow-2xl hover:scale-105 transition-all">
+                    I Nostri Servizi
+                </a>
+                <a href="#contatti" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-12 py-5 rounded-2xl font-bold uppercase text-[10px] tracking-widest hover:bg-white/20 transition-all">
+                    Dove Siamo
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="servizi" class="py-32 px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-24">
+                <h2 class="text-5xl md:text-7xl font-miso font-bold italic tracking-tighter">Servizi <span class="text-primary">Premium</span></h2>
+                <div class="h-1 w-20 bg-primary mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="service-card bg-rose-50/30 rounded-[3rem] p-10 border border-rose-100 h-full" data-tilt>
+                    <div class="card-content">
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm">
+                            <i data-lucide="heart-pulse" class="w-8 h-8 text-primary"></i>
+                        </div>
+                        <h3 class="text-4xl font-miso font-bold mb-4">Telemedicina</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-8">ECG e Holter cardiaci con refertazione immediata in collaborazione con centri specialistici svizzeri.</p>
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600" class="rounded-3xl h-48 w-full object-cover">
+                    </div>
+                </div>
+
+                <div class="service-card bg-asclepio_black text-white rounded-[3rem] p-10 h-full" data-tilt>
+                    <div class="card-content">
+                        <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-8 shadow-sm">
+                            <i data-lucide="flask-conical" class="w-8 h-8 text-accent"></i>
+                        </div>
+                        <h3 class="text-4xl font-miso font-bold mb-4 text-accent">Galenica</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-8">Il nostro laboratorio prepara rimedi su misura, integrando l'antica sapienza farmaceutica con standard moderni.</p>
+                        <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=600" class="rounded-3xl h-48 w-full object-cover opacity-80">
+                    </div>
+                </div>
+
+                <div class="service-card bg-rose-50/30 rounded-[3rem] p-10 border border-rose-100 h-full" data-tilt>
+                    <div class="card-content">
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm">
+                            <i data-lucide="microscope" class="w-8 h-8 text-primary"></i>
+                        </div>
+                        <h3 class="text-4xl font-miso font-bold mb-4">Analisi Sangue</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-8">Test rapidi per la misurazione di glicemia, colesterolo e parametri metabolici con estrema precisione.</p>
+                        <img src="https://images.unsplash.com/photo-1579152276503-346747d6928e?auto=format&fit=crop&q=80&w=600" class="rounded-3xl h-48 w-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recensioni" class="py-32 px-8 max-w-7xl mx-auto">
+        <h2 class="text-5xl font-miso font-bold text-center mb-20 italic">Recensioni <span class="text-primary">Pazienti</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="bg-white p-12 rounded-[3.5rem] border border-rose-100 shadow-sm">
+                <div class="flex gap-1 mb-6 text-primary">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                </div>
+                <p class="text-xl italic text-gray-700 leading-relaxed">"Farmacia Asclepio è sinonimo di fiducia. Il Dr. Asclepio e il suo team sono sempre pronti a fornire una consulenza di alto livello."</p>
+                <p class="mt-8 font-bold uppercase text-[10px] tracking-widest">— Laura M., Morbio Inferiore</p>
+            </div>
+            <div class="bg-rose-50/50 p-12 rounded-[3.5rem] border border-rose-100">
+                <div class="flex gap-1 mb-6 text-primary">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                </div>
+                <p class="text-xl italic text-gray-700 leading-relaxed">"Servizio di telemedicina impeccabile. Referto Holter ricevuto in pochissimo tempo. Professionalità assoluta."</p>
+                <p class="mt-8 font-bold uppercase text-[10px] tracking-widest">— Pietro R., Chiasso</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contatti" class="py-24 px-8">
+        <div class="max-w-7xl mx-auto bg-asclepio_black rounded-[4rem] p-12 md:p-24 text-white grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div>
+                <h2 class="text-6xl font-miso font-bold mb-12 italic text-primary">Contatti</h2>
+                <div class="space-y-12">
+                    <div>
+                        <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-4">Location</p>
+                        <p class="text-2xl font-light">Via Al Funti 17, 6834 <br> Morbio Inferiore, Svizzera</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-4">Telefono</p>
+                        <p class="text-4xl font-bold">+41 91 123 45 67</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-4">Orari</p>
+                        <p class="text-xl">Lun-Ven: 08:00 - 18:30 <br> Sab: 08:30 - 17:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="h-[600px] rounded-[3rem] overflow-hidden border border-white/10 grayscale">
+                <iframe src="http://googleusercontent.com/maps.google.com/7" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">
+        © 2026 Farmacia Asclepio Morbio Inferiore • Swiss Healthcare Excellence
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        // Inizializzazione Vanilla Tilt per l'effetto 3D
+        VanillaTilt.init(document.querySelectorAll(".service-card"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+            scale: 1.05
+        });
+    </script>
+</body>
+</html>
