@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti | Studio Legale Ticino</title>
+    <meta name="description" content="Contatta lo Studio Legale Ticino per fissare una consulenza legale a Lugano.">
+    <meta name="keywords" content="Contatti, Studio Legale Ticino, Avvocati Lugano, Email, Telefono">
+    <meta name="geo.position" content="46.0036;8.9511">
+    <meta name="geo.region" content="CH-TI">
+    <meta name="geo.placename" content="Lugano, Ticino">
+    <link rel="canonical" href="https://yourdomain.example.com/contatti.html">
+    <meta name="robots" content="index,follow">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="it_IT">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Studio Legale Ticino",
+      "url": "https://yourdomain.example.com/contatti.html"
+    }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Config for Colors & Fonts -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        aurora: {
+                            green: '#00ff87',
+                            cyan: '#60efff',
+                            purple: '#a64aff',
+                            dark: '#0a0f1a',
+                            light: '#f0f4f8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for Artistic Mode: Aurora -->
+    <style>
+        :root {
+            --bg-base: #f0f4f8;
+            --text-main: #1a202c;
+            --text-muted: #4a5568;
+            --glass-bg: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --aurora-1: rgba(96, 239, 255, 0.4);
+            --aurora-2: rgba(0, 255, 135, 0.3);
+            --aurora-3: rgba(166, 74, 255, 0.3);
+        }
+
+        html.dark {
+            --bg-base: #0a0f1a;
+            --text-main: #f7fafc;
+            --text-muted: #a0aec0;
+            --glass-bg: rgba(10, 15, 26, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --aurora-1: rgba(96, 239, 255, 0.25);
+            --aurora-2: rgba(0, 255, 135, 0.2);
+            --aurora-3: rgba(166, 74, 255, 0.25);
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Aurora Background Animation */
+        .aurora-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .aurora-blob {
+            position: absolute;
+            filter: blur(100px);
+            border-radius: 50%;
+            animation: float 15s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.8;
+            transition: background 0.5s ease;
+        }
+
+        .blob-1 {
+            top: -20%; left: -10%;
+            width: 60vw; height: 60vw;
+            background: var(--aurora-1);
+        }
+
+        .blob-2 {
+            bottom: -20%; right: -10%;
+            width: 70vw; height: 70vw;
+            background: var(--aurora-2);
+            animation-delay: -5s;
+        }
+
+        .blob-3 {
+            top: 30%; left: 40%;
+            width: 50vw; height: 50vw;
+            background: var(--aurora-3);
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(5%, 10%) scale(1.1); }
+            100% { transform: translate(-5%, -5%) scale(0.9); }
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+            border-radius: 1.5rem;
+        }
+
+        .glass-nav {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        /* Typography & Utilities */
+        h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', serif; }
+        p, a, span, .font-sans { font-family: 'Inter', sans-serif; }
+        
+        .touch-target { min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; }
+        
+        /* Reveal Animation */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Custom CTA Gradient */
+        .btn-aurora {
+            background: linear-gradient(135deg, #00ff87 0%, #60efff 100%);
+            color: #0a0f1a;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-aurora:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="antialiased selection:bg-aurora-cyan selection:text-aurora-dark">
+    <div class="aurora-container">
+        <div class="aurora-blob blob-1"></div>
+        <div class="aurora-blob blob-2"></div>
+        <div class="aurora-blob blob-3"></div>
+    </div>
+    <header class="glass-nav fixed w-full top-0 z-40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-aurora-green to-aurora-cyan flex items-center justify-center text-aurora-dark font-serif font-bold text-xl">
+                        AN
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-lg leading-tight tracking-wide">Studio Legale</span>
+                        <span class="text-xs uppercase tracking-widest opacity-70">Avvocato e Notaio</span>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-sm font-medium hover:text-aurora-cyan transition-colors touch-target">Home</a>
+                    <a href="about.html" class="text-sm font-medium hover:text-aurora-cyan transition-colors touch-target">Chi Siamo</a>
+                    <a href="contatti.html" class="text-sm font-medium hover:text-aurora-cyan transition-colors touch-target">Contatti</a>
+                </nav>
+                <div class="hidden md:block">
+                    <a href="contatti.html" class="btn-aurora touch-target px-6 py-2.5 rounded-full font-semibold text-sm shadow-lg">
+                        Richiedi Consulenza
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="touch-target text-current hover:text-aurora-cyan focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass-panel mx-4 mb-4 mt-2 p-4">
+            <div class="flex flex-col space-y-4 text-center">
+                <a href="index.html" class="text-base font-medium touch-target">Home</a>
+                <a href="about.html" class="text-base font-medium touch-target">Chi Siamo</a>
+                <a href="contatti.html" class="btn-aurora touch-target rounded-full font-semibold mt-4">Contattaci Ora</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <section class="py-24 bg-var(--bg-base)">
+            <div class="max-w-3xl mx-auto px-6">
+                <h1 class="text-4xl font-bold mb-6 text-center">Contattaci</h1>
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Nome</label>
+                        <input type="text" class="w-full border rounded px-3 py-2" placeholder="Il tuo nome">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Email</label>
+                        <input type="email" class="w-full border rounded px-3 py-2" placeholder="tuo@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Messaggio</label>
+                        <textarea class="w-full border rounded px-3 py-2" rows="4" placeholder="Come possiamo aiutarti?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-aurora px-6 py-2 rounded-full font-semibold">Invia</button>
+                </form>
+                <div class="mt-12 text-center text-sm text-neutral-600 dark:text-neutral-400">
+                    <p>Telefono: +41 91 000 0000</p>
+                    <p>Email: info@studiolegale.ti</p>
+                    <p>Via del Tribunale 1, 6900 Lugano</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-nav border-t border-gray-200 dark:border-gray-800 pt-16 pb-8 mt-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-aurora-green to-aurora-cyan flex items-center justify-center text-aurora-dark font-serif font-bold text-sm">
+                            AN
+                        </div>
+                        <span class="font-serif font-bold text-xl">Studio Legale Avvocato e Notaio</span>
+                    </div>
+                    <p class="opacity-70 mb-6 max-w-sm">
+                        Eccellenza legale in Ticino. Assistenza su misura per privati e aziende nei fori di Lugano, Bellinzona, Locarno e Mendrisio.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4 uppercase tracking-wider text-sm">Collegamenti</h4>
+                    <ul class="space-y-2 opacity-70">
+                        <li><a href="about.html" class="hover:text-aurora-cyan transition-colors touch-target">Chi Siamo</a></li>
+                        <li><a href="index.html#services" class="hover:text-aurora-cyan transition-colors touch-target">Competenze</a></li>
+                        <li><a href="index.html#testimonials" class="hover:text-aurora-cyan transition-colors touch-target">Testimonianze</a></li>
+                        <li><a href="index.html#faq" class="hover:text-aurora-cyan transition-colors touch-target">Domande Frequenti</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 uppercase tracking-wider text-sm">Note Legali</h4>
+                    <ul class="space-y-2 opacity-70">
+                        <li><a href="#" class="hover:text-aurora-cyan transition-colors touch-target">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-aurora-cyan transition-colors touch-target">Cookie Policy</a></li>
+                        <li><a href="#" class="hover:text-aurora-cyan transition-colors touch-target">Termini e Condizioni</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-300 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-60">
+                <p>&copy; 2026 Studio Legale Avvocato e Notaio. Tutti i diritti riservati.</p>
+                <p>Design by SitiTicino.ch</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING WIDGET -->
+    <a href="https://wa.me/41790000000" target="_blank" rel="noopener noreferrer" id="whatsapp-widget" class="floating-widget flex items-center justify-center w-14 h-14" aria-label="Contattaci su WhatsApp">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.031 21.5c-1.558 0-3.049-.396-4.381-1.134l-4.88 1.281 1.305-4.757c-.822-1.371-1.258-2.946-1.258-4.595 0-5.24 4.263-9.503 9.504-9.503 5.241 0 9.504 4.263 9.504 9.503 0 5.24-4.263 9.503-9.503 9.503z"/>
+        </svg>
+    </a>
+
+    <!-- DARK MODE TOGGLE -->
+    <button id="dark-mode-toggle" class="floating-widget flex items-center justify-center w-12 h-12 text-aurora-cyan" aria-label="Toggle Dark Mode">
+        <svg id="moon-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        <svg id="sun-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+    </button>
+
+    <!-- INTERACTIVITY SCRIPTS -->
+    <script>
+        // Dark Mode Logic
+        const html = document.documentElement;
+        const toggleBtn = document.getElementById('dark-mode-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+
+        // Set default to dark mode for better Aurora effect
+        html.classList.add('dark');
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+
+        toggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            } else {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Reveal animation (optional)
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn?.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

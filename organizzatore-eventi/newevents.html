@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="it" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Events ag | Organizzatore Eventi Esclusivi e Wedding Planner a Lugano</title>
+    <meta name="description" content="Affida a New Events ag l'organizzazione di eventi aziendali, matrimoni e feste private a Lugano. In via della Festa, trasformiamo idee in esperienze indimenticabili. Richiedi un preventivo.">
+    <meta name="keywords" content="Organizzatore eventi Lugano, Wedding planner Ticino, Eventi Aziendali Lugano, Feste Private, Eventi per Adulti, Organizzazione fiere, agenzia eventi Svizzera, New Events ag">
+    <meta name="author" content="New Events ag">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Schema (G.R.I.D. Optimization) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://neweventsag.ch/#organization",
+          "name": "New Events ag",
+          "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80",
+          "description": "Agenzia leader nell'organizzazione di eventi a Lugano. Specializzati in Wedding planner, Eventi Aziendali, Feste Private, Eventi per Adulti e Organizzazione fiere.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "via della Festa",
+            "addressLocality": "Lugano",
+            "addressRegion": "Ticino",
+            "addressCountry": "CH"
+          },
+          "telephone": "+41790000000",
+          "url": "https://neweventsag.ch",
+          "priceRange": "$$$",
+          "areaServed": "Lugano, Ticino",
+          "sameAs": []
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Quali tipologie di eventi organizza New Events ag a Lugano?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Siamo specializzati in una vasta gamma di servizi: fungiamo da Wedding planner per matrimoni da favola, gestiamo Eventi Aziendali di alto profilo, curiamo Feste Private esclusive, organizziamo Eventi per Adulti e ci occupiamo dell'Organizzazione fiere in tutto il Ticino."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quanto tempo prima è consigliabile contattarvi per un matrimonio?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Per il servizio di Wedding planner a Lugano, suggeriamo di contattarci almeno 8-12 mesi prima della data desiderata, per garantire le migliori location e fornitori del settore."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Offrite consulenza per l'organizzazione di fiere ed eventi aziendali?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Assolutamente sì. La nostra competenza nell'Organizzazione fiere ed Eventi Aziendali include la pianificazione logistica, la selezione degli spazi, il catering e l'intrattenimento, garantendo un ritorno d'immagine impeccabile per la tua azienda."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            /* Organic Style Palette - Light */
+            --bg-primary: #F7F5F0;
+            --bg-secondary: #EBE5D9;
+            --text-primary: #2C3E2D; /* Earthy Dark Green */
+            --text-secondary: #5A6D5B;
+            --accent-primary: #B88E5F; /* Warm Muted Gold/Sand */
+            --accent-hover: #9E774A;
+            --blob-color: rgba(184, 142, 95, 0.15);
+            --white: #FFFFFF;
+            --card-bg: #FFFFFF;
+            --border-radius-blob: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            --border-radius-blob-alt: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Dark Mode Palette */
+        body.dark-mode {
+            --bg-primary: #1A1F1B;
+            --bg-secondary: #242A25;
+            --text-primary: #F0EFEA;
+            --text-secondary: #B5BEB6;
+            --accent-primary: #D4AF37; 
+            --accent-hover: #F3E5AB;
+            --blob-color: rgba(212, 175, 55, 0.1);
+            --card-bg: #2C352E;
+        }
+
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.4s, color 0.4s;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        p { margin-bottom: 1rem; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; height: auto; display: block; }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* Organic Typography */
+        .h-large { font-size: clamp(2.5rem, 5vw, 4.5rem); font-style: italic; }
+        .h-medium { font-size: clamp(2rem, 3.5vw, 3rem); }
+        .text-lead { font-size: 1.125rem; color: var(--text-secondary); }
+
+        /* Buttons */
+        .cta-primary, .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 50px; /* Organic pill shape */
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            min-height: 44px; /* Touch target */
+        }
+        .cta-primary {
+            background-color: var(--accent-primary);
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(184, 142, 95, 0.3);
+        }
+        .cta-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(184, 142, 95, 0.4);
+        }
+        .dark-mode .cta-primary { color: #1A1F1B; }
+        
+        /* Navigation */
+        .site-header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 20px 0;
+            background: rgba(var(--bg-primary-rgb), 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        .site-header.scrolled {
+            background: var(--bg-primary);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0; width: 0; height: 2px;
+            background: var(--accent-primary);
+            transition: var(--transition);
+        }
+        .nav-links a:hover::after { width: 100%; }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(44, 62, 45, 0.8) 0%, rgba(26, 31, 27, 0.6) 100%);
+            z-index: -1;
+        }
+        .hero-content {
+            max-width: 800px;
+            color: #FFFFFF;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-content h1 { color: #FFFFFF; margin-bottom: 1.5rem; }
+        .hero-content p { color: #EBE5D9; font-size: 1.2rem; margin-bottom: 2.5rem; }
+        
+        /* Organic Blob Decoration */
+        .blob-shape {
+            position: absolute;
+            background: var(--blob-color);
+            border-radius: var(--border-radius-blob);
+            z-index: -1;
+            filter: blur(40px);
+            animation: morph 8s ease-in-out infinite both alternate;
+        }
+        @keyframes morph {
+            0% { border-radius: var(--border-radius-blob); }
+            100% { border-radius: var(--border-radius-blob-alt); }
+        }
+
+        /* Common Section Layout */
+        .section-padding { padding: 100px 0; }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+        
+        /* About Section */
+        .about-section { background-color: var(--bg-secondary); position: relative; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .about-image-wrapper { position: relative; }
+        .about-img {
+            border-radius: var(--border-radius-blob);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            object-fit: cover;
+            height: 600px;
+            width: 100%;
+            transition: var(--transition);
+        }
+        .about-img:hover { border-radius: var(--border-radius-blob-alt); }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 30px 100px 30px 100px; /* Organic leaf shape */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border-radius: 100px 30px 100px 30px;
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials-section { background-color: var(--bg-secondary); }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .testimonial-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            position: relative;
+            border-left: 4px solid var(--accent-primary);
+        }
+        .quote-icon {
+            font-size: 4rem;
+            font-family: serif;
+            color: var(--blob-color);
+            position: absolute;
+            top: 10px; right: 20px;
+            line-height: 1;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-primary);
+            min-height: 44px;
+        }
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-secondary);
+        }
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        /* Contact Section */
+        .contact-section { position: relative; }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            background: var(--card-bg);
+            padding: 4rem;
+            border-radius: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 10px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: inherit;
+        }
+        .dark-mode .form-control { border-color: rgba(255,255,255,0.1); }
+        
+        /* Footer */
+        .site-footer {
+            background: #1A1F1B;
+            color: #F0EFEA;
+            padding: 60px 0 20px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 40px;
+        }
+        .footer-credit {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Floating Widgets */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            z-index: 100;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* SVG Dividers */
+        .wave-divider {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: translateY(1px); /* Fix subpixel rendering */
+        }
+        .wave-divider svg { display: block; width: calc(100% + 1.3px); height: 50px; }
+        .wave-fill { fill: var(--bg-secondary); transition: fill 0.4s; }
+        .wave-fill-primary { fill: var(--bg-primary); transition: fill 0.4s; }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .about-grid, .contact-grid { grid-template-columns: 1fr; }
+            .contact-grid { padding: 2rem; }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100%; left: 0; width: 100%;
+                background: var(--bg-primary);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                text-align: center;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.4s ease-in-out;
+            }
+            .nav-links.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+            .mobile-menu-btn { display: block; }
+            .hero-content h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="site-header" id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">New Events ag</a>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu" id="menuToggle">☰</button>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about">Chi Siamo</a></li>
+                    <li><a href="#services">Servizi</a></li>
+                    <li><a href="#pricing">Soluzioni</a></li>
+                    <li><a href="#testimonials">Dicono di noi</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content fade-up">
+                <h1 class="h-large">Diamo Vita alle Tue Emozioni a Lugano</h1>
+                <p>L'arte dell'organizzazione eventi: Wedding planner, eventi aziendali e feste esclusive firmate <strong>New Events ag</strong>. Trasformiamo le tue visioni in memorie indelebili.</p>
+                <!-- MANDATORY: Hero CTA linking to #contact -->
+                <a href="#contact" class="cta-primary">Pianifica il tuo evento</a>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,111.47,192.39,89.57,236.46,73.86,278.49,64.44,321.39,56.44Z" class="wave-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section (Entity-Based & E-E-A-T) -->
+    <section id="about" class="about-section section-padding">
+        <div class="blob-shape" style="top: 10%; right: 5%; width: 400px; height: 400px;"></div>
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrapper fade-up">
+                    <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=800&q=80" alt="Allestimento evento esclusivo a Lugano" class="about-img">
+                </div>
+                <div class="about-content fade-up">
+                    <h2 class="h-medium">L'Eccellenza nell'Organizzazione Eventi</h2>
+                    <p class="text-lead">Sede in <strong>via della Festa, Lugano</strong>.</p>
+                    <p>Noi di <strong>New Events ag</strong> crediamo che ogni evento sia un ecosistema a sé stante, un organismo vivo che necessita di cura, estetica e precisione assoluta. Operiamo nel cuore del Ticino come punto di riferimento per l'organizzazione di eventi di lusso e su misura.</p>
+                    <p>La nostra filosofia "organica" si riflette in ogni dettaglio: dalla scelta di location esclusive sul Lago di Lugano, alla selezione di partner etici, fino alla regia impeccabile del tuo giorno speciale. Che tu stia cercando un <em>Wedding planner</em> visionario o una regia rigorosa per <em>Eventi Aziendali</em>, la nostra esperienza garantisce autorevolezza e affidabilità.</p>
+                    <a href="#contact" class="cta-primary" style="margin-top: 20px;">Scopri la nostra agenzia</a>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="wave-fill-primary"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="h-medium">I Nostri Servizi Esclusivi</h2>
+                <p>Curiamo ogni aspetto del tuo progetto. Dalla creatività iniziale alla gestione operativa in loco.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <article class="service-card fade-up">
+                    <div class="service-icon">💍</div>
+                    <h3>Wedding Planner</h3>
+                    <p>Design floreale, ricerca location in Ticino, catering stellato e coordinamento completo. Disegniamo matrimoni che riflettono la vostra anima in modo organico e naturale.</p>
+                </article>
+                <!-- Service 2 -->
+                <article class="service-card fade-up" style="transition-delay: 0.1s;">
+                    <div class="service-icon">🏢</div>
+                    <h3>Eventi Aziendali</h3>
+                    <p>Gala dinner, team building e meeting direzionali. Traduciamo i valori del tuo brand in esperienze immersive che lasciano il segno sui tuoi stakeholder.</p>
+                </article>
+                <!-- Service 3 -->
+                <article class="service-card fade-up" style="transition-delay: 0.2s;">
+                    <div class="service-icon">🥂</div>
+                    <h3>Feste Private</h3>
+                    <p>Compleanni esclusivi, anniversari e celebrazioni intime. Trasformiamo location private o affittate in scenari magici con intrattenimento di alto livello.</p>
+                </article>
+                <!-- Service 4 -->
+                <article class="service-card fade-up" style="transition-delay: 0.3s;">
+                    <div class="service-icon">🎭</div>
+                    <h3>Eventi per Adulti</h3>
+                    <p>Serate a tema, party esclusivi e format d'intrattenimento sofisticati. Garantiamo massima privacy, eleganza e direzioni artistiche sorprendenti.</p>
+                </article>
+                <!-- Service 5 -->
+                <article class="service-card fade-up" style="transition-delay: 0.4s;">
+                    <div class="service-icon">🎪</div>
+                    <h3>Organizzazione Fiere</h3>
+                    <p>Progettazione spazi espositivi, logistica visitatori, gestione permessi e campagne promozionali per eventi fieristici di successo sul territorio svizzero.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auto-Complete: Pricing / Packages -->
+    <section id="pricing" class="about-section section-padding">
+        <div class="blob-shape" style="bottom: -10%; left: -5%; width: 500px; height: 500px;"></div>
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="h-medium">Percorsi Su Misura</h2>
+                <p>Strutturiamo il nostro intervento in base alle tue reali necessità, dalla semplice consulenza alla gestione "chiavi in mano".</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-up" style="border-radius: 20px; text-align: center;">
+                    <h3>Consulenza Base</h3>
+                    <p class="text-lead">Ideale per chi ha già un'idea chiara.</p>
+                    <p>Ricerca fornitori, sopralluogo location e stesura del timeline dell'evento.</p>
+                </div>
+                <div class="service-card fade-up" style="border-radius: 20px; text-align: center; background: var(--accent-primary); color: white;">
+                    <h3 style="color: white;">Pacchetto Completo</h3>
+                    <p style="color: rgba(255,255,255,0.8);">Il nostro servizio più richiesto.</p>
+                    <p>Direzione artistica, gestione budget, segreteria organizzativa e coordinamento on-site.</p>
+                </div>
+                <div class="service-card fade-up" style="border-radius: 20px; text-align: center;">
+                    <h3>Corporate Premium</h3>
+                    <p class="text-lead">Per aziende ed enti.</p>
+                    <p>Organizzazione fiere, logistica complessa, PR, ufficio stampa e reportistica post-evento.</p>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,111.47,192.39,89.57,236.46,73.86,278.49,64.44,321.39,56.44Z" class="wave-fill-primary"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Social Proof / Testimonials Section -->
+    <section id="testimonials" class="section-padding">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="h-medium">Storie di Successo</h2>
+                <p>Le parole dei clienti che hanno scelto <strong>New Events ag</strong> per i loro momenti irripetibili a Lugano e in Ticino.</p>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Review 1 -->
+                <div class="testimonial-card fade-up">
+                    <span class="quote-icon">"</span>
+                    <p>"L'organizzazione del nostro evento aziendale di fine anno è stata impeccabile. Hanno gestito oltre 300 ospiti in una cornice mozzafiato sul lago, curando ogni minimo dettaglio logistico."</p>
+                    <h4>Marco T.</h4>
+                    <span class="text-lead" style="font-size:0.85rem;">CEO, Lugano - Eventi Aziendali</span>
+                </div>
+                <!-- Review 2 -->
+                <div class="testimonial-card fade-up" style="transition-delay: 0.1s;">
+                    <span class="quote-icon">"</span>
+                    <p>"Cercavamo un Wedding planner in Ticino che comprendesse il nostro desiderio di un matrimonio 'organico' e naturale. New Events ag ha superato le aspettative. Una magia a Morcote."</p>
+                    <h4>Giulia & Matteo</h4>
+                    <span class="text-lead" style="font-size:0.85rem;">Sposi, Morcote - Wedding Planner</span>
+                </div>
+                <!-- Review 3 -->
+                <div class="testimonial-card fade-up" style="transition-delay: 0.2s;">
+                    <span class="quote-icon">"</span>
+                    <p>"Ho affidato a loro la mia festa dei 40 anni. Hanno trasformato una villa privata a Paradiso in un club esclusivo. Professionalità, discrezione e idee geniali per l'intrattenimento."</p>
+                    <h4>Elena S.</h4>
+                    <span class="text-lead" style="font-size:0.85rem;">Privato, Paradiso - Feste Private</span>
+                </div>
+                <!-- Review 4 -->
+                <div class="testimonial-card fade-up">
+                    <span class="quote-icon">"</span>
+                    <p>"L'organizzazione fiere richiede nervi saldi e programmazione. Il team di via della Festa ha dimostrato una competenza tecnica e un problem solving eccezionali durante il nostro expo."</p>
+                    <h4>Roberto V.</h4>
+                    <span class="text-lead" style="font-size:0.85rem;">Direttore Commerciale - Fiere</span>
+                </div>
+                <!-- Review 5 -->
+                <div class="testimonial-card fade-up" style="transition-delay: 0.1s;">
+                    <span class="quote-icon">"</span>
+                    <p>"Per un evento di gala ad Ascona avevamo bisogno di una direzione artistica raffinata. Hanno proposto un format per eventi per adulti sofisticato e mai banale. Complimenti."</p>
+                    <h4>Francesca L.</h4>
+                    <span class="text-lead" style="font-size:0.85rem;">Ascona - Eventi per Adulti</span>
+                </div>
+                <!-- Review 6 -->
+                <div class="testimonial-card fade-up" style="transition-delay: 0.2s;">
+                    <span class="quote-icon">"</span>
+                    <p>"Il miglior team building mai realizzato per la nostra azienda. Un percorso esperienziale nella natura ticinese che ha davvero unito il gruppo. Grazie New Events!"</p>
+                    <h4>Alessandro G.</h4>
+                    <span class="text-lead" style="font-size:0.85rem;">HR Manager, Bellinzona</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="about-section section-padding">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="h-medium">Domande Frequenti</h2>
+                <p>Trasparenza e chiarezza sono alla base del nostro metodo di lavoro.</p>
+            </div>
+            <div class="faq-container fade-up" style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-question">Quali tipologie di eventi organizza New Events ag a Lugano? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>Siamo specializzati in una vasta gamma di servizi: fungiamo da Wedding planner per matrimoni da favola, gestiamo Eventi Aziendali di alto profilo, curiamo Feste Private esclusive, organizziamo Eventi per Adulti e ci occupiamo dell'Organizzazione fiere in tutto il Ticino.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Quanto tempo prima è consigliabile contattarvi per un matrimonio? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>Per il servizio di Wedding planner a Lugano, suggeriamo di contattarci almeno 8-12 mesi prima della data desiderata, per garantire le migliori location e fornitori del settore. Tuttavia, gestiamo anche richieste last-minute con la medesima qualità.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Offrite consulenza per l'organizzazione di fiere ed eventi aziendali? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>Assolutamente sì. La nostra competenza nell'Organizzazione fiere ed Eventi Aziendali include la pianificazione logistica, la selezione degli spazi, il catering, le tecnologie audiovisive e l'intrattenimento, garantendo un ritorno d'immagine impeccabile per la tua azienda.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Operate solo a Lugano o in tutta la Svizzera? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>La nostra sede principale è in via della Festa a Lugano, che ci permette di coprire capillarmente il Canton Ticino (Locarno, Ascona, Bellinzona, Mendrisio). Organizziamo tuttavia eventi di rilievo anche nel resto della Svizzera e Nord Italia su richiesta.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA & Contact Section MANDATORY ID="contact" -->
+    <section id="contact" class="contact-section section-padding">
+        <div class="blob-shape" style="top: 0; right: 20%; width: 600px; height: 600px; opacity: 0.5;"></div>
+        <div class="container">
+            <div class="contact-grid fade-up">
+                <div class="contact-info">
+                    <h2 class="h-medium">Iniziamo a Progettare</h2>
+                    <p>Ogni grande evento nasce da una chiacchierata. Raccontaci la tua visione, la data ipotetica e il numero di ospiti. Il team di <strong>New Events ag</strong> ti risponderà entro 24 ore.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4 style="margin-bottom: 0.5rem;">La nostra Sede</h4>
+                        <p><strong>New Events ag</strong><br>
+                        via della Festa<br>
+                        6900 Lugano, Svizzera</p>
+                        
+                        <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Contatti Diretti</h4>
+                        <p>Tel: +41 79 000 00 00<br>
+                        Email: info@neweventsag.ch</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper">
+                    <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Grazie! Il modulo è puramente dimostrativo in questo ambiente.');">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Il tuo Nome o Azienda *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="La tua Email *" required>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Tipologia Evento *</option>
+                                <option value="wedding">Wedding Planner</option>
+                                <option value="corporate">Eventi Aziendali</option>
+                                <option value="private">Feste Private</option>
+                                <option value="adult">Eventi per Adulti</option>
+                                <option value="fair">Organizzazione Fiere</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="4" placeholder="Raccontaci brevemente la tua idea o necessità... *" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-primary" style="width: 100%;">Richiedi Preventivo Gratuito</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 style="color: white; font-family: 'Inter', sans-serif;">New Events ag</h3>
+                    <p style="color: #aaa; font-size: 0.9rem;">Creatori di ricordi. Agenzia leader in Ticino per l'organizzazione di eventi esclusivi, matrimoni e soluzioni corporate.</p>
+                </div>
+                <div>
+                    <h4 style="color: white;">Servizi</h4>
+                    <ul style="list-style: none; color: #aaa; font-size: 0.9rem; line-height: 2;">
+                        <li><a href="#services">Wedding planner</a></li>
+                        <li><a href="#services">Eventi Aziendali</a></li>
+                        <li><a href="#services">Feste Private</a></li>
+                        <li><a href="#services">Eventi per Adulti</a></li>
+                        <li><a href="#services">Organizzazione fiere</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white;">Informazioni</h4>
+                    <p style="color: #aaa; font-size: 0.9rem; line-height: 1.8;">
+                        via della Festa, Lugano<br>
+                        Svizzera<br>
+                        T. +41 79 000 00 00<br>
+                        P.IVA / CHE-XXX.XXX.XXX
+                    </p>
+                </div>
+            </div>
+            <!-- MANDATORY FOOTER CREDIT -->
+            <div class="footer-credit">
+                <p>&copy; 2026 New Events ag. Tutti i diritti riservati. | Design by SitiTicino.ch</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MANDATORY WHATSAPP WIDGET -->
+    <a href="https://wa.me/41790000000" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contattaci su WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        </svg>
+    </button>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Header Scroll Effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Close mobile menu on link click
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Intersection Observer for Fade-Up Animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-up').forEach(el => {
+                observer.observe(el);
+            });
+
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    // Close all others
+                    faqItems.forEach(faq => {
+                        faq.classList.remove('active');
+                        faq.querySelector('.faq-question span').textContent = '+';
+                    });
+                    // Toggle current
+                    if (!isActive) {
+                        item.classList.add('active');
+                        question.querySelector('span').textContent = '-';
+                    }
+                });
+            });
+
+            // Dark Mode Toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            
+            // Check local storage
+            if (localStorage.getItem('theme') === 'dark') {
+                body.classList.add('dark-mode');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
