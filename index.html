@@ -4,7 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connect and Create | Showroom Digitale</title>
+    <title>Connect & Create | Siti Web Professionali Ticino – Lugano, Mendrisio, Chiasso, Bellinzona</title>
+    <meta name="description" content="Connect & Create è lo showroom digitale di siti web e landing page professionali per aziende del Ticino. Realizziamo siti per Lugano, Mendrisio, Chiasso, Bellinzona e tutto il Canton Ticino. Design premium, SEO locale e conversioni garantite.">
+    <meta name="keywords" content="siti web Ticino, landing page Lugano, web design Mendrisio, siti professionali Chiasso, web agency Bellinzona, realizzazione siti Ticino, Connect and Create, sititicino.ch">
+    <meta name="author" content="Connect & Create">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gabrielecode.github.io/archivio-lavori-connectandcreate/">
+
+    <!-- Geo / Local SEO -->
+    <meta name="geo.region" content="CH-TI">
+    <meta name="geo.placename" content="Ticino, Svizzera">
+    <meta name="geo.position" content="46.0037;8.9511">
+    <meta name="ICBM" content="46.0037, 8.9511">
+    <meta name="language" content="it">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gabrielecode.github.io/archivio-lavori-connectandcreate/">
+    <meta property="og:title" content="Connect & Create | Siti Web Professionali Ticino">
+    <meta property="og:description" content="Showroom digitale di siti web e landing page per aziende del Ticino. Lugano, Mendrisio, Chiasso, Bellinzona. Design premium e SEO locale.">
+    <meta property="og:image" content="https://i.postimg.cc/hPf0Bd2M/igorshubin-repair-5004841-1920.jpg">
+    <meta property="og:locale" content="it_CH">
+    <meta property="og:site_name" content="Connect & Create">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Connect & Create | Siti Web Ticino">
+    <meta name="twitter:description" content="Siti web e landing page professionali per aziende del Canton Ticino.">
+    <meta name="twitter:image" content="https://i.postimg.cc/hPf0Bd2M/igorshubin-repair-5004841-1920.jpg">
+
+    <!-- Schema.org LocalBusiness JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Connect & Create",
+      "description": "Web agency specializzata in siti web e landing page professionali per aziende del Canton Ticino.",
+      "url": "https://gabrielecode.github.io/archivio-lavori-connectandcreate/",
+      "telephone": "+41789340702",
+      "email": "info@sititicino.ch",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Ticino",
+        "addressCountry": "CH"
+      },
+      "areaServed": ["Lugano", "Mendrisio", "Chiasso", "Bellinzona", "Locarno", "Canton Ticino"],
+      "sameAs": [
+        "https://www.linkedin.com/company/connectandcreateswiss/",
+        "https://www.facebook.com/share/1FXcoeKG4j/",
+        "https://www.instagram.com/connectandcreateswiss/"
+      ]
+    }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@300;400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -271,16 +323,543 @@
         }
 
         footer {
-            margin-top: 100px;
+            margin-top: 60px;
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            opacity: 0.85;
+            padding: 40px 20px;
+            width: 100%;
+            max-width: 1000px;
+            border-top: 1px solid rgba(0,0,0,0.07);
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 18px;
+        }
+
+        .footer-social a {
+            color: var(--primary);
+            font-size: 1.3rem;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+            opacity: 1;
+            color: var(--accent);
+            transform: translateY(-3px);
+            display: inline-block;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: var(--text);
+            text-decoration: none;
             opacity: 0.6;
-            padding-bottom: 40px;
+            font-size: 0.8rem;
+            transition: 0.2s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+            background: rgba(241, 239, 231, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            padding: 14px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .navbar-brand {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            transition: 0.2s;
+        }
+
+        .navbar-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .navbar-social {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .navbar-social a {
+            color: var(--primary);
+            font-size: 1rem;
+            opacity: 0.65;
+            transition: 0.2s;
+        }
+
+        .navbar-social a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        @media (max-width: 700px) {
+            .navbar-links { display: none; }
+            .navbar-social { display: none; }
+            .navbar { padding: 12px 20px; }
+        }
+
+        /* Hamburger button */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary);
+            font-size: 1.3rem;
+            padding: 6px;
+            line-height: 1;
+        }
+
+        /* Mobile dropdown menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: rgba(241, 239, 231, 0.98);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: fixed;
+            top: 53px;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            padding: 20px 24px 28px;
+            gap: 0;
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            opacity: 0.85;
+        }
+
+        .mobile-menu a:last-of-type { border-bottom: none; }
+
+        .mobile-menu-social {
+            display: flex;
+            gap: 20px;
+            padding-top: 18px;
+            justify-content: center;
+        }
+
+        .mobile-menu-social a {
+            font-size: 1.3rem;
+            border: none !important;
+            padding: 0 !important;
+            color: var(--primary);
+        }
+
+        /* ── Mobile-first responsive ─────────────────────────────── */
+
+        /* Base (mobile < 480px) */
+        body {
+            padding: 0 0 40px 0;
+        }
+
+        .header {
+            padding: 40px 20px 10px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 0.8rem;
+        }
+
+        .header p {
+            font-size: 0.9rem;
+            padding: 0 10px;
+        }
+
+        .filter-bar {
+            padding: 0 16px;
+            margin-bottom: 28px;
+            gap: 8px;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .filter-bar::-webkit-scrollbar { display: none; }
+
+        .filter-btn {
+            white-space: nowrap;
+            flex-shrink: 0;
+            padding: 8px 16px;
+            font-size: 0.72rem;
+            /* Larger tap target */
+            min-height: 36px;
+        }
+
+        .grid {
+            padding: 0 16px;
+            gap: 20px;
+            grid-template-columns: 1fr;
+        }
+
+        .card-image { height: 180px; }
+
+        .card-content { padding: 18px; }
+
+        .card-content h3 { font-size: 1.05rem; }
+
+        section {
+            padding: 50px 16px;
+        }
+
+        .section-title h2 { font-size: 1.5rem; }
+
+        .about-text { font-size: 1rem; }
+
+        .reviews-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .review-card { padding: 22px; }
+
+        .contact-container {
+            padding: 28px 20px;
+            border-radius: 16px;
+        }
+
+        .submit-btn {
+            padding: 16px;
+            font-size: 0.9rem;
+            /* larger tap target on mobile */
+            min-height: 50px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            font-size: 16px; /* prevent iOS zoom on focus */
+        }
+
+        .whatsapp-widget {
+            bottom: 20px;
+            right: 18px;
+        }
+
+        .whatsapp-btn {
+            width: 52px;
+            height: 52px;
+            font-size: 1.4rem;
+        }
+
+        footer {
+            padding: 32px 16px;
+            margin-top: 20px;
+        }
+
+        .footer-links {
+            gap: 12px;
+        }
+
+        /* Small tablets (≥ 480px) */
+        @media (min-width: 480px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            h1 { font-size: 2rem; }
+        }
+
+        /* Tablets (≥ 700px) – show desktop navbar, hide hamburger */
+        @media (min-width: 700px) {
+            body { padding: 60px 20px; }
+            .header { padding: 0; margin-bottom: 50px; }
+            h1 { font-size: 2.5rem; letter-spacing: 3px; }
+            .header p { font-size: 1rem; padding: 0; }
+            .hamburger { display: none !important; }
+            .mobile-menu { display: none !important; }
+            .navbar-links { display: flex; }
+            .navbar-social { display: flex; }
+            .filter-bar {
+                flex-wrap: wrap;
+                justify-content: center;
+                overflow-x: visible;
+                padding: 0;
+            }
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+                padding: 0;
+            }
+            .card-image { height: 200px; }
+            section { padding: 80px 20px; }
+            .section-title h2 { font-size: 2rem; }
+            .contact-container { padding: 50px; }
+            .reviews-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+            }
+        }
+
+        /* Show hamburger only on mobile */
+        @media (max-width: 699px) {
+            .hamburger { display: block; }
+        }
+
+        /* Filter bar */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 40px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(61,74,62,0.25);
+            border-radius: 50px;
+            padding: 7px 18px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            color: var(--text);
+            transition: all 0.25s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Card description ellipsis fix */
+        .card-content p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            height: 40px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+        }
+
+        /* Card fade-in animation */
+        .card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), translate 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card.hidden-filter {
+            display: none;
+        }
+
+        /* WhatsApp widget */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 58px;
+            height: 58px;
+            background: #25D366;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.6rem;
+            box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+            text-decoration: none;
+            transition: all 0.3s;
+            animation: waPulse 2.5s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 28px rgba(37,211,102,0.55);
+        }
+
+        @keyframes waPulse {
+            0%, 100% { box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
+            50% { box-shadow: 0 6px 30px rgba(37,211,102,0.7); }
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            background: var(--primary);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 10px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .whatsapp-widget:hover .whatsapp-tooltip {
+            opacity: 1;
+        }
+
+        /* Select styling fix */
+        .form-group select {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: inherit;
+            outline: none;
+            transition: 0.3s;
+            background: white;
+            color: var(--text);
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233D4A3E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            cursor: pointer;
+        }
+
+        .form-group select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.1);
         }
     </style>
 </head>
 
 <body>
+
+    <!-- WhatsApp Widget -->
+    <div class="whatsapp-widget">
+        <a href="https://wa.me/41789340702?text=Ciao%20Connect%20%26%20Create!%20Vorrei%20informazioni%20su%20un%20sito%20web." class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contattaci su WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <div class="whatsapp-tooltip">Scrivici su WhatsApp</div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="Navigazione principale">
+        <a href="#" class="navbar-brand">Connect &amp; Create</a>
+        <ul class="navbar-links">
+            <li><a href="#progetti">Progetti</a></li>
+            <li><a href="#chi-siamo">Chi Siamo</a></li>
+            <li><a href="#recensioni">Recensioni</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+        </ul>
+        <div class="navbar-social">
+            <a href="https://www.linkedin.com/company/connectandcreateswiss/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/share/1FXcoeKG4j/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/connectandcreateswiss/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu mobile">
+        <a href="#progetti">Progetti</a>
+        <a href="#chi-siamo">Chi Siamo</a>
+        <a href="#recensioni">Recensioni</a>
+        <a href="#contatti">Contatti</a>
+        <div class="mobile-menu-social">
+            <a href="https://www.linkedin.com/company/connectandcreateswiss/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/share/1FXcoeKG4j/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/connectandcreateswiss/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/41789340702" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
 
     <div class="header">
         <span class="subtitle">Showroom Digitale</span>
@@ -288,8 +867,21 @@
         <p>Una raccolta di siti e landing page pronte per aziende di Lugano, Mendrisio, Bellinzona e Chiasso.</p>
     </div>
 
-    <div class="grid">
-        <a href="Sito Pittori/" class="card">
+    <div class="filter-bar" id="filter-bar" role="group" aria-label="Filtra per categoria">
+        <button class="filter-btn active" data-filter="all">Tutti</button>
+        <button class="filter-btn" data-filter="business">Business</button>
+        <button class="filter-btn" data-filter="food">Food & Drink</button>
+        <button class="filter-btn" data-filter="fashion">Fashion</button>
+        <button class="filter-btn" data-filter="fitness">Fitness</button>
+        <button class="filter-btn" data-filter="salute">Salute</button>
+        <button class="filter-btn" data-filter="servizi">Servizi</button>
+        <button class="filter-btn" data-filter="eventi">Eventi</button>
+        <button class="filter-btn" data-filter="artigianato">Artigianato</button>
+        <button class="filter-btn" data-filter="other">Altro</button>
+    </div>
+
+    <div class="grid" id="progetti">
+        <a href="Sito Pittori/" class="card" data-category="business">
             <div class="card-image"
                 style="background-image: url('https://i.postimg.cc/hPf0Bd2M/igorshubin-repair-5004841-1920.jpg');">
                 <span class="category">Business</span>
@@ -302,7 +894,7 @@
             </div>
         </a>
 
-        <a href="Sito Night Club/" class="card">
+        <a href="Sito Night Club/" class="card" data-category="eventi">
             <div class="card-image"
                 style="background-image: url('https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?auto=format&fit=crop&w=800&q=80');">
                 <span class="category">Entertainment</span>
@@ -315,7 +907,7 @@
             </div>
         </a>
 
-        <a href="Hero Section/" class="card">
+        <a href="Hero Section/" class="card" data-category="other">
             <div class="card-image" style="background-image: url(https://i.postimg.cc/CLJ0tvps/copertina_3d.jpg);">
                 <span class="category">Hero Section</span>
             </div>
@@ -327,7 +919,7 @@
             </div>
         </a>
 
-        <a href="Landing Page One_Page/" class="card">
+        <a href="Landing Page One_Page/" class="card" data-category="business">
             <div class="card-image" style="background-image: url(https://i.postimg.cc/gjFBpQJg/web_design.jpg);">
                 <span class="category">Nuovo</span>
             </div>
@@ -339,7 +931,7 @@
             </div>
         </a>
 
-        <a href="Sito SolArte/" class="card">
+        <a href="Sito SolArte/" class="card" data-category="business">
             <div class="card-image"
                 style="background-image: url(https://i.postimg.cc/NfBhtZ6v/beautiful_young_cheerful_girl_hat_making_funny_face_morning_beach.jpg);">
                 <span class="category">Nuovo</span>
@@ -352,7 +944,7 @@
             </div>
         </a>
 
-        <a href="Sito Gatti/" class="card">
+        <a href="Sito Gatti/" class="card" data-category="servizi">
             <div class="card-image" style="background-image:url(https://i.postimg.cc/6QypPtGN/Gatto.jpg);">
                 <span class="category">Nuovo</span>
             </div>
@@ -364,7 +956,7 @@
             </div>
         </a>
 
-        <a href="Hero Animata BarberShop/" class="card">
+        <a href="Hero Animata BarberShop/" class="card" data-category="servizi">
             <div class="card-image"
                 style="background-image:url(https://i.postimg.cc/N09T25wq/Electric-Hair-Clipper.png);">
                 <span class="category">Nuovo</span>
@@ -377,7 +969,7 @@
             </div>
         </a>
 
-        <a href="Sito Candele Lux/" class="card">
+        <a href="Sito Candele Lux/" class="card" data-category="artigianato">
             <div class="card-image" style="background-image:url(https://i.postimg.cc/sfk40g0Q/candela_piramidale.jpg);">
                 <span class="category">Nuovo</span>
             </div>
@@ -389,7 +981,7 @@
             </div>
         </a>
 
-        <a href="Agenzia Moda/" class="card">
+        <a href="Agenzia Moda/" class="card" data-category="fashion">
             <div class="card-image" style="background-image:url('https://i.postimg.cc/CM7rcLPs/gruppo-modelle.jpg');">
                 <span class="category">Nuovo</span>
             </div>
@@ -401,7 +993,7 @@
             </div>
         </a>
 
-        <a href="agenzia viaggi/" class="card">
+        <a href="agenzia viaggi/" class="card" data-category="servizi">
             <div class="card-image" style="background-image:url('https://i.postimg.cc/s2ZDJL3Q/agenzia-viaggi.jpg');">
                 <span class="category">Nuovo</span>
             </div>
@@ -413,7 +1005,7 @@
             </div>
         </a>
 
-        <a href="vendita auto/" class="card">
+        <a href="vendita auto/" class="card" data-category="business">
             <div class="card-image" style="background-image:url(https://i.postimg.cc/FzR2k8YM/Salone-Auto.jpg);">
                 <span class="category">Nuovo</span>
             </div>
@@ -425,7 +1017,7 @@
             </div>
         </a>
 
-        <a href="nurse-locarno/" class="card">
+        <a href="nurse-locarno/" class="card" data-category="salute">
             <div class="card-image" style="background-image:url('nurse-locarno/spitex-cure-locarno.webp');">
                 <span class="category">Nuovo</span>
             </div>
@@ -437,7 +1029,7 @@
             </div>
         </a>
 
-        <a href="aura-minimal-ascona/" class="card">
+        <a href="aura-minimal-ascona/" class="card" data-category="other">
             <div class="card-image" style="background-image:url('aura-minimal-ascona/designer-arredamento.webp');">
                 <span class="category">Minimal Design</span>
             </div>
@@ -449,7 +1041,7 @@
             </div>
         </a>
 
-        <a href="sito-pasticceria/" class="card">
+        <a href="sito-pasticceria/" class="card" data-category="food">
             <div class="card-image" style="background-image:url('sito-pasticceria/vetrina-pasticceria.webp');">
                 <span class="category">Food & Drink</span>
             </div>
@@ -461,7 +1053,7 @@
             </div>
         </a>
 
-        <a href="minimal-corrieri/" class="card">
+        <a href="minimal-corrieri/" class="card" data-category="servizi">
             <div class="card-image" style="background-image:url('minimal-corrieri/card-phantom.webp');">
                 <span class="category">Nuovo</span>
             </div>
@@ -473,7 +1065,7 @@
             </div>
         </a>
 
-        <a href="palestra/" class="card">
+        <a href="palestra/" class="card" data-category="fitness">
             <div class="card-image" style="background-image:url('palestra/card-palestra.webp');">
                 <span class="category">Fitness</span>
             </div>
@@ -485,7 +1077,7 @@
             </div>
         </a>
 
-        <a href="ag-car-balerna" class="card">
+        <a href="ag-car-balerna" class="card" data-category="business">
             <div class="card-image" style="background-image:url(ag-car-balerna/bento-card.webp);">
                 <span class="category">Meccanico Auto</span>
             </div>
@@ -497,7 +1089,7 @@
             </div>
         </a>
 
-        <a href="lugano-express-bici/" class="card">
+        <a href="lugano-express-bici/" class="card" data-category="servizi">
             <div class="card-image"
                 style="background-image:url('https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=80');">
                 <span class="category">Logistica</span>
@@ -510,7 +1102,7 @@
             </div>
         </a>
 
-        <a href="landing-candele-mendrisio/" class="card">
+        <a href="landing-candele-mendrisio/" class="card" data-category="artigianato">
             <div class="card-image" style="background-image:url('landing-candele-mendrisio/hero.png');">
                 <span class="category">Artigianato</span>
             </div>
@@ -522,7 +1114,7 @@
             </div>
         </a>
 
-        <a href="erboristeria/" class="card">
+        <a href="erboristeria/" class="card" data-category="salute">
             <div class="card-image" style="background-image:url('erboristeria/bento-card.webp');">
                 <span class="category">Startup</span>
             </div>
@@ -534,7 +1126,7 @@
             </div>
         </a>
 
-        <a href="impresa-costruzioni/" class="card">
+        <a href="impresa-costruzioni/" class="card" data-category="business">
             <div class="card-image" style="background-image:url('impresa-costruzioni/impresa-di-costruzioni.webp');">
                 <span class="category">industry</span>
             </div>
@@ -546,7 +1138,7 @@
             </div>
         </a>
 
-        <a href="sito-farmacia/" class="card">
+        <a href="sito-farmacia/" class="card" data-category="salute">
             <div class="card-image" style="background-image:url('sito-farmacia/immagine per hero.jpg');">
                 <span class="category">Salute</span>
             </div>
@@ -558,7 +1150,7 @@
             </div>
         </a>
 
-        <a href="sito-symecom/" class="card">
+        <a href="sito-symecom/" class="card" data-category="business">
             <div class="card-image" style="background-image:url('sito-symecom/Immagine_del_reparto.png');">
                 <span class="category">Creatività</span>
             </div>
@@ -570,7 +1162,7 @@
             </div>
         </a>
 
-        <a href="architetti-lugano/" class="card">
+        <a href="architetti-lugano/" class="card" data-category="other">
             <div class="card-image" style="background-image:url('architetti-lugano/architettura-moderna.webp');">
                 <span class="category">Architettura</span>
             </div>
@@ -582,7 +1174,7 @@
             </div>
         </a>
 
-        <a href="https://www.sititicino.ch/" class="card">
+        <a href="https://www.sititicino.ch/" class="card" data-category="other">
             <div class="card-image"
                 style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80');">
                 <span class="category">Shopping</span>
@@ -595,20 +1187,7 @@
             </div>
         </a>
 
-        <a href="sito-fiduciaria/" class="card">
-            <div class="card-image"
-                style="background-image:url('sito-fiduciaria/Contabile_revisiona_conteggi_copertina.webp');">
-                <span class="category">Business</span>
-            </div>
-            <div class="card-content">
-                <h3>Sito Fiduciaria e Gestione Contabile</h3>
-                <p>Sito Vetrina per Fiduciarie e Gestioni patrimoniali: costruisci autorevolezza e genera contatti
-                    premium nella tua area.</p>
-                <div class="cta-link">Esplora Progetto <i class="fas fa-arrow-right"></i></div>
-            </div>
-        </a>
-
-        <a href="https://www.sititicino.ch/" class="card">
+        <a href="https://www.sititicino.ch/" class="card" data-category="other">
             <div class="card-image"
                 style="background-image:url('https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=800&q=80');">
                 <span class="category">Benessere</span>
@@ -621,7 +1200,7 @@
             </div>
         </a>
 
-        <a href="studio-legale/" class="card">
+        <a href="studio-legale/" class="card" data-category="business">
             <div class="card-image"
                 style="background-image:url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80');">
                 <span class="category">Legale</span>
@@ -634,7 +1213,7 @@
             </div>
         </a>
 
-        <a href="sito-pulizie/" class="card">
+        <a href="sito-pulizie/" class="card" data-category="servizi">
             <div class="card-image" style="background-image:url('sito-pulizie/pulizie industriali.jpg');">
                 <span class="category">Servizi</span>
             </div>
@@ -646,7 +1225,7 @@
             </div>
         </a>
 
-        <a href="https://www.sititicino.ch/" class="card">
+        <a href="https://www.sititicino.ch/" class="card" data-category="other">
             <div class="card-image"
                 style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80');">
                 <span class="category">Eventi</span>
@@ -659,7 +1238,7 @@
             </div>
         </a>
 
-        <a href="https://www.sititicino.ch/" class="card">
+        <a href="https://www.sititicino.ch/" class="card" data-category="other">
             <div class="card-image"
                 style="background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80');">
                 <span class="category">Fitness</span>
@@ -672,7 +1251,7 @@
             </div>
         </a>
 
-        <a href="https://www.sititicino.ch/" class="card">
+        <a href="https://www.sititicino.ch/" class="card" data-category="other">
             <div class="card-image"
                 style="background-image:url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=80');">
                 <span class="category">Education</span>
@@ -685,7 +1264,7 @@
             </div>
         </a>
 
-        <a href="https://www.sititicino.ch/" class="card">
+        <a href="https://www.sititicino.ch/" class="card" data-category="other">
             <div class="card-image"
                 style="background-image:url('https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=800&q=80');">
                 <span class="category">Turismo</span>
@@ -698,7 +1277,7 @@
             </div>
         </a>
 
-        <a href="https://www.sititicino.ch/" class="card">
+        <a href="https://www.sititicino.ch/" class="card" data-category="other">
             <div class="card-image"
                 style="background-image:url('https://images.unsplash.com/photo-1558905619-17153c246bcb?auto=format&fit=crop&w=800&q=80');">
                 <span class="category">Giardinaggio</span>
@@ -710,7 +1289,7 @@
                 <div class="cta-link">Esplora Progetto <i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
-        <a href="sito-fiduciaria/fiduciaria.html" class="card">
+        <a href="sito-fiduciaria/fiduciaria.html" class="card" data-category="business">
 
             <div class="card-image"
                 style="background-image:url('sito-fiduciaria/Contabile_revisiona_conteggi_copertina.webp');">
@@ -722,7 +1301,7 @@
                 <div class="cta-link">Esplora Progetto <i class="fas fa-arrow-right"></i></div>
             </div>
         </a>
-        <a href="Sito Bar Balerna/index.html" class="card">
+        <a href="Sito Bar Balerna/index.html" class="card" data-category="food">
             <div class="card-image"
                 style="background-image:url('Sito Bar Balerna/mariya_m-pasta-6263653_640.jpg');">
                 <span class="category">Food & Drink</span>
@@ -734,7 +1313,7 @@
             </div>
         </a>
 
-        <a href="fantasia-garden/fantasia_garden.html" class="card">
+        <a href="fantasia-garden/fantasia_garden.html" class="card" data-category="servizi">
             <div class="card-image"
                 style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80');">
                 <span class="category">Giardinaggio</span>
@@ -746,7 +1325,7 @@
             </div>
         </a>
 
-        <a href="organizzatore-eventi/newevents.html" class="card">
+        <a href="organizzatore-eventi/newevents.html" class="card" data-category="eventi">
             <div class="card-image"
                 style="background-image:url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80');">
                 <span class="category">Eventi</span>
@@ -758,7 +1337,7 @@
             </div>
         </a>
 
-        <a href="goth-clothes/index.html" class="card">
+        <a href="goth-clothes/index.html" class="card" data-category="fashion">
             <div class="card-image"
                 style="background-image:url('https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800');">
                 <span class="category">Fashion</span>
@@ -817,18 +1396,18 @@
             <p>Hai trovato un design che ti ispira? Parliamo di come personalizzarlo per te.</p>
         </div>
         <div class="contact-container">
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Messaggio inviato correttamente!');">
+            <form class="contact-form" id="contact-form">
                 <div class="form-group">
                     <label for="name">Nome Completo</label>
-                    <input type="text" id="name" placeholder="Inserisci il tuo nome" required>
+                    <input type="text" id="name" name="from_name" placeholder="Inserisci il tuo nome" required>
                 </div>
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" placeholder="la-tua@email.com" required>
+                    <input type="email" id="email" name="reply_to" placeholder="la-tua@email.com" required>
                 </div>
                 <div class="form-group">
                     <label for="project">Progetto di interesse</label>
-                    <select id="project" style="padding: 12px; border-radius: 8px; border: 1px solid #ddd;">
+                    <select id="project" name="project">
                         <option>Seleziona un progetto...</option>
                         <option>Sito Pittori</option>
                         <option>Sito Night Club</option>
@@ -855,20 +1434,37 @@
                 </div>
                 <div class="form-group">
                     <label for="message">Messaggio</label>
-                    <textarea id="message" rows="5" placeholder="Parlaci della tua idea..." required></textarea>
+                    <textarea id="message" name="message" rows="5" placeholder="Parlaci della tua idea..." required></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Invia Messaggio</button>
+                <button type="submit" class="submit-btn" id="submit-btn">Invia Messaggio</button>
             </form>
         </div>
     </section>
 
     <footer>
-        &copy; 2026 Connect & Create | Archivio
+        <div class="footer-inner">
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/company/connectandcreateswiss/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/share/1FXcoeKG4j/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/connectandcreateswiss/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/41789340702" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="footer-links">
+                <a href="#progetti">Progetti</a>
+                <a href="#chi-siamo">Chi Siamo</a>
+                <a href="#recensioni">Recensioni</a>
+                <a href="#contatti">Contatti</a>
+                <a href="mailto:info@sititicino.ch">info@sititicino.ch</a>
+                <a href="https://wa.me/41789340702">+41 78 934 07 02</a>
+            </div>
+            <div>&copy; 2026 Connect &amp; Create | Siti Web Professionali Ticino – Lugano, Mendrisio, Chiasso, Bellinzona</div>
+        </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Ordina le bento card nella griglia
+
+            // ── 1. Sort cards alphabetically ─────────────────────────
             const grid = document.querySelector('.grid');
             if (grid) {
                 const cards = Array.from(grid.querySelectorAll('.card'));
@@ -880,38 +1476,85 @@
                 cards.forEach(card => grid.appendChild(card));
             }
 
-            // 2. Ordina le opzioni nel menu a tendina "Progetto di interesse"
+            // ── 2. Sort select options ────────────────────────────────
             const projectSelect = document.getElementById('project');
             if (projectSelect) {
                 const allOptions = Array.from(projectSelect.options);
-                
-                // Identifica le opzioni speciali da mantenere fisse
                 const firstOptionIndex = allOptions.findIndex(opt => opt.text.toLowerCase().includes('seleziona'));
-                const lastOptionIndex = allOptions.findIndex(opt => opt.text.toLowerCase().includes('altro'));
-                
-                const specialOptions = [];
-                if (firstOptionIndex !== -1) specialOptions.push({ index: firstOptionIndex, opt: allOptions[firstOptionIndex], top: true });
-                if (lastOptionIndex !== -1 && lastOptionIndex !== firstOptionIndex) specialOptions.push({ index: lastOptionIndex, opt: allOptions[lastOptionIndex], top: false });
-                
-                // Filtra le opzioni speciali dalla lista da ordinare
+                const lastOptionIndex  = allOptions.findIndex(opt => opt.text.toLowerCase().includes('altro'));
+                const specialOptions   = [];
+                if (firstOptionIndex !== -1) specialOptions.push({ opt: allOptions[firstOptionIndex], top: true });
+                if (lastOptionIndex  !== -1 && lastOptionIndex !== firstOptionIndex) specialOptions.push({ opt: allOptions[lastOptionIndex], top: false });
                 const normalOptions = allOptions.filter((opt, i) => i !== firstOptionIndex && i !== lastOptionIndex);
-                
-                // Ordina le opzioni rimanenti
                 normalOptions.sort((a, b) => a.text.localeCompare(b.text));
-
-                // Svuota e ripopola il select
                 projectSelect.innerHTML = '';
-                
-                // Aggiungi l'opzione "Seleziona..." se esisteva
                 const topOpt = specialOptions.find(o => o.top);
                 if (topOpt) projectSelect.add(topOpt.opt);
-                
-                // Aggiungi le opzioni ordinate
                 normalOptions.forEach(opt => projectSelect.add(opt));
-                
-                // Aggiungi l'opzione "Altro..." se esisteva
                 const bottomOpt = specialOptions.find(o => !o.top);
                 if (bottomOpt) projectSelect.add(bottomOpt.opt);
+            }
+
+            // ── 3. Intersection Observer – fade-in cards ─────────────
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, i) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.05 });
+
+            document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+            // ── 4. Category filter ────────────────────────────────────
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.dataset.filter;
+                    document.querySelectorAll('.card').forEach(card => {
+                        const match = filter === 'all' || (card.dataset.category || 'other') === filter;
+                        card.classList.toggle('hidden-filter', !match);
+                        if (match && !card.classList.contains('visible')) card.classList.add('visible');
+                    });
+                });
+            });
+
+            // ── 5. Hamburger menu mobile ──────────────────────────────
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (hamburger && mobileMenu) {
+                hamburger.addEventListener('click', () => {
+                    const open = mobileMenu.classList.toggle('open');
+                    hamburger.setAttribute('aria-expanded', open);
+                    hamburger.innerHTML = open
+                        ? '<i class="fas fa-times"></i>'
+                        : '<i class="fas fa-bars"></i>';
+                });
+                // Close on link click
+                mobileMenu.querySelectorAll('a').forEach(a => {
+                    a.addEventListener('click', () => {
+                        mobileMenu.classList.remove('open');
+                        hamburger.setAttribute('aria-expanded', false);
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                    });
+                });
+            }
+
+            // ── 6. Contact form → mailto ──────────────────────────────
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const name    = document.getElementById('name').value.trim();
+                    const email   = document.getElementById('email').value.trim();
+                    const project = document.getElementById('project').value;
+                    const message = document.getElementById('message').value.trim();
+                    const subject = encodeURIComponent(`Richiesta progetto – ${project}`);
+                    const body    = encodeURIComponent(`Nome: ${name}\nEmail: ${email}\nProgetto: ${project}\n\n${message}`);
+                    window.location.href = `mailto:info@sititicino.ch?subject=${subject}&body=${body}`;
+                });
             }
         });
     </script>
@@ -920,4 +1563,4 @@
 
 </body>
 
-</html>
+</html>
