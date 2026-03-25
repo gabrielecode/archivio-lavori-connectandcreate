@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasia Garden | Architettura Paesaggistica e Cura del Verde a Mendrisio</title>
+    <meta name="description" content="Fantasia Garden a Mendrisio unisce natura e innovazione. Specialisti in architettura paesaggistica, cura del verde, taglio alberi e creazione giardini ecosostenibili.">
+    <meta name="keywords" content="Giardiniere Mendrisio, architettura paesaggistica, cura del verde, taglio alberi, creazione giardini, Fantasia Garden, design sostenibile, solarpunk garden">
+    <meta name="author" content="Fantasia Garden">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://fantasiagarden.ch/#organization",
+          "name": "Fantasia Garden",
+          "description": "Azienda leader a Mendrisio specializzata in architettura paesaggistica, cura del verde, taglio alberi e creazione di giardini ecosostenibili dal design innovativo.",
+          "url": "https://fantasiagarden.ch",
+          "telephone": "+4178123456",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "via fantasia",
+            "addressLocality": "Mendrisio",
+            "addressRegion": "TI",
+            "postalCode": "6850",
+            "addressCountry": "CH"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "45.8694",
+            "longitude": "8.9853"
+          },
+          "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80",
+          "priceRange": "$$"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Quali servizi di giardinaggio offrite a Mendrisio?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Offriamo una gamma completa di servizi ecosostenibili: cura del verde, taglio alberi controllato, creazione giardini personalizzati e architettura paesaggistica avanzata."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Come gestite il taglio alberi in modo sicuro?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Il taglio alberi viene eseguito da personale altamente qualificato utilizzando tecniche di tree climbing e attrezzature all'avanguardia per garantire la massima sicurezza e il rispetto dell'ecosistema circostante."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Progettate giardini ecosostenibili?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Assolutamente sì. La nostra architettura paesaggistica si ispira alla filosofia solarpunk: integriamo tecnologie per il risparmio idrico, piante autoctone e materiali naturali per creare giardini in perfetta armonia con l'ambiente."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* CSS Variables - Solarpunk Theme */
+        :root {
+            /* Light Mode */
+            --sp-bg-base: #eaf3ea;
+            --sp-text-main: #1b3a2a;
+            --sp-text-muted: #4a6b58;
+            --sp-primary: #2e7d32;
+            --sp-primary-glow: rgba(46, 125, 50, 0.4);
+            --sp-secondary: #fbc02d;
+            --sp-accent: #00acc1;
+            --sp-glass-bg: rgba(255, 255, 255, 0.6);
+            --sp-glass-border: rgba(255, 255, 255, 0.4);
+            --sp-surface: #ffffff;
+            --sp-leaf-radius: 40px 4px 40px 4px;
+        }
+
+        body.dark-mode {
+            /* Dark Mode */
+            --sp-bg-base: #0a1710;
+            --sp-text-main: #e8f5e9;
+            --sp-text-muted: #a5d6a7;
+            --sp-primary: #66bb6a;
+            --sp-primary-glow: rgba(102, 187, 106, 0.4);
+            --sp-secondary: #ffca28;
+            --sp-accent: #26c6da;
+            --sp-glass-bg: rgba(10, 23, 16, 0.7);
+            --sp-glass-border: rgba(102, 187, 106, 0.2);
+            --sp-surface: #12281c;
+        }
+
+        /* Global Reset & Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--sp-bg-base);
+            color: var(--sp-text-main);
+            line-height: 1.6;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+            /* Animated organic background */
+            background-image: radial-gradient(circle at 15% 50%, rgba(46, 125, 50, 0.05), transparent 25%),
+                              radial-gradient(circle at 85% 30%, rgba(251, 192, 45, 0.05), transparent 25%);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--sp-text-main);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--sp-text-muted);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: var(--sp-glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--sp-glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+            border-radius: var(--sp-leaf-radius);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 var(--sp-primary-glow);
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 5%;
+            transition: padding 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: var(--sp-glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--sp-glass-border);
+            border-radius: 50px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sp-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--sp-secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--sp-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--sp-text-main);
+        }
+
+        /* SPA Layout */
+        .page-section {
+            display: none;
+            min-height: 100vh;
+            padding-top: 100px; /* Account for fixed header */
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+            margin-top: -100px; /* Offset section padding */
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            filter: brightness(0.8);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10,23,16,0.8) 0%, rgba(46,125,50,0.4) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: #ffffff;
+            line-height: 1.1;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #eaf3ea;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        .btn-primary {
+            background: var(--sp-primary);
+            color: #fff;
+            box-shadow: 0 4px 15px var(--sp-primary-glow);
+        }
+
+        .btn-primary:hover {
+            background: #1b5e20;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--sp-primary-glow);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid var(--sp-secondary);
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--sp-secondary);
+            color: #000;
+        }
+
+        /* Container Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--sp-primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--sp-secondary);
+            bottom: -10px;
+            left: 25%;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--sp-leaf-radius);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 2px solid var(--sp-secondary);
+            border-radius: var(--sp-leaf-radius);
+            transform: scale(0.95);
+            pointer-events: none;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-list i {
+            color: var(--sp-secondary);
+            font-size: 1.2rem;
+            background: var(--sp-surface);
+            padding: 0.5rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            padding: 2.5rem 2rem;
+            text-align: center;
+            background: var(--sp-surface);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--sp-primary);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            padding: 1rem;
+            background: var(--sp-bg-base);
+            border-radius: 30px 10px 30px 10px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            padding: 2rem;
+            position: relative;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 3rem;
+            color: var(--sp-primary);
+            opacity: 0.2;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--sp-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            margin-bottom: 1rem;
+            background: var(--sp-surface);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--sp-glass-border);
+        }
+
+        summary {
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--sp-text-main);
+            outline: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '\f067';
+            font-family: 'FontAwesome';
+            color: var(--sp-primary);
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        details p {
+            padding: 0 1.5rem 1.5rem;
+            margin: 0;
+        }
+
+        /* Contact Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            background: var(--sp-surface);
+            padding: 4rem;
+            border-radius: var(--sp-leaf-radius);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--sp-primary);
+            margin-top: 0.2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: var(--sp-bg-base);
+            border: 1px solid var(--sp-glass-border);
+            border-radius: 15px;
+            color: var(--sp-text-main);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--sp-primary);
+            box-shadow: 0 0 0 3px var(--sp-primary-glow);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a1710;
+            color: #e8f5e9;
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--sp-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #a5d6a7;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            color: #a5d6a7;
+            font-size: 0.9rem;
+        }
+
+        /* Floating Widgets */
+        .floating-widget {
+            position: fixed;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .floating-widget:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-btn {
+            bottom: 30px;
+            left: 30px;
+            background: #25D366;
+            color: white;
+        }
+
+        .theme-toggle {
+            bottom: 30px;
+            right: 30px;
+            background: var(--sp-surface);
+            color: var(--sp-secondary);
+            border: 1px solid var(--sp-glass-border);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-grid, .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .contact-wrapper {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--sp-surface);
+                flex-direction: column;
+                padding: 2rem;
+                text-align: center;
+                border-radius: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .nav-container {
+                border-radius: 20px;
+            }
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="nav-container">
+            <a href="#home" class="logo">
+                <i class="fa-solid fa-leaf"></i> Fantasia Garden
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">Chi Siamo</a></li>
+                <li><a href="#services" class="nav-link">Servizi</a></li>
+                <li><a href="#contact" class="nav-link">Contatti</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SPA Sections -->
+    <main>
+        <!-- HOME SECTION -->
+        <section id="home" class="page-section active">
+            <div class="hero-section">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1920&q=80" alt="Architettura paesaggistica sostenibile" class="hero-bg">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1>L'Armonia tra Natura e Futuro a Mendrisio</h1>
+                    <p>Trasformiamo il tuo spazio esterno in un ecosistema perfetto. Esperti in cura del verde, taglio alberi e architettura paesaggistica ecosostenibile (Solarpunk Design).</p>
+                    <a href="#contact" class="btn btn-primary nav-link">Richiedi Preventivo Gratuito</a>
+                    <a href="#services" class="btn btn-secondary nav-link">Scopri i Servizi</a>
+                </div>
+            </div>
+
+            <!-- Intro Overview -->
+            <div class="container">
+                <div class="section-header">
+                    <h2>Innovazione Verde</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>Benvenuti in Fantasia Garden</h3>
+                        <p>Sita in <strong>via fantasia</strong> a Mendrisio, la nostra azienda rappresenta il punto d'incontro tra l'arte del giardinaggio tradizionale e le tecnologie ecologiche del futuro. Non ci limitiamo a tagliare l'erba; progettiamo biomi.</p>
+                        <p>Il nostro approccio si basa sul rispetto della biodiversità, garantendo interventi mirati che esaltano la bellezza naturale del paesaggio ticinese.</p>
+                        <ul class="feature-list">
+                            <li><i class="fa-solid fa-seedling"></i> Architettura Paesaggistica Avanzata</li>
+                            <li><i class="fa-solid fa-tree"></i> Cura del Verde & Taglio Alberi in Sicurezza</li>
+                            <li><i class="fa-solid fa-leaf"></i> Creazione Giardini Ecosostenibili</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1558904541-efa843a96f09?auto=format&fit=crop&w=800&q=80" alt="Giardino verticale e design organico">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="page-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>La Nostra Filosofia</h2>
+                </div>
+                <div class="about-grid" style="direction: rtl;">
+                    <div class="about-text" style="direction: ltr;">
+                        <h3>Design Solarpunk: Il Futuro è Verde</h3>
+                        <p>A Fantasia Garden crediamo in un futuro ottimistico dove la natura e la struttura umana coesistono in perfetta sinergia. La nostra missione a Mendrisio è rigenerare gli spazi urbani e privati attraverso una sapiente <strong>architettura paesaggistica</strong>.</p>
+                        <p>Il nostro team di esperti unisce competenze botaniche a sensibilità estetica, garantendo che ogni progetto di <strong>creazione giardini</strong> non sia solo visivamente sbalorditivo, ma anche autosufficiente e benefico per l'ecosistema locale.</p>
+                    </div>
+                    <div class="about-image" style="direction: ltr;">
+                        <img src="https://images.unsplash.com/photo-1416879598555-2526bfc885dd?auto=format&fit=crop&w=800&q=80" alt="Progettazione paesaggistica ecosostenibile">
+                    </div>
+                </div>
+
+                <!-- Core Values -->
+                <div class="services-grid" style="margin-top: 4rem;">
+                    <div class="service-card glass-panel">
+                        <i class="fa-solid fa-hand-holding-droplet service-icon"></i>
+                        <h3>Sostenibilità</h3>
+                        <p>Utilizziamo sistemi di irrigazione intelligenti e selezione di piante autoctone per ridurre il consumo idrico.</p>
+                    </div>
+                    <div class="service-card glass-panel">
+                        <i class="fa-solid fa-shield-halved service-icon"></i>
+                        <h3>Competenza</h3>
+                        <p>Anni di esperienza nel settore del <strong>giardinaggio</strong> e del <strong>taglio alberi</strong> ad alto fusto.</p>
+                    </div>
+                    <div class="service-card glass-panel">
+                        <i class="fa-solid fa-compass-drafting service-icon"></i>
+                        <h3>Design Unico</h3>
+                        <p>Ogni progetto è un'opera d'arte su misura, pensata per riflettere l'identità del cliente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="page-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>I Nostri Servizi</h2>
+                </div>
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card glass-panel">
+                        <i class="fa-solid fa-leaf service-icon"></i>
+                        <h3>Cura del Verde</h3>
+                        <p>Manutenzione periodica o straordinaria per parchi e giardini privati. Concimazioni organiche, potature stagionali e cura del prato per mantenere il tuo spazio vitale e rigoglioso.</p>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="service-card glass-panel">
+                        <i class="fa-solid fa-tree service-icon"></i>
+                        <h3>Taglio Alberi</h3>
+                        <p>Interventi in quota sicuri e professionali. Eseguiamo abbattimenti controllati, potature di contenimento e messa in sicurezza di alberi pericolanti nel rispetto delle normative.</p>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="service-card glass-panel">
+                        <i class="fa-solid fa-seedling service-icon"></i>
+                        <h3>Creazione Giardini</h3>
+                        <p>Dalla semina alla posa di prati a rotoli, creiamo oasi verdi da zero. Selezioniamo essenze arboree adatte al clima di Mendrisio per garantire una fioritura costante.</p>
+                    </div>
+                    <!-- Service 4 -->
+                    <div class="service-card glass-panel">
+                        <i class="fa-solid fa-bezier-curve service-icon"></i>
+                        <h3>Architettura Paesaggistica</h3>
+                        <p>Progettazione 3D e realizzazione di spazi esterni complessi. Integrazione di elementi naturali, percorsi, specchi d'acqua e illuminazione ecosostenibile (Solarpunk style).</p>
+                    </div>
+                </div>
+
+                <!-- Testimonials Auto-Complete -->
+                <div class="section-header" style="margin-top: 6rem;">
+                    <h2>Dicono di Noi</h2>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card glass-panel">
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p>"Il team di Fantasia Garden ha trasformato il nostro cortile a Mendrisio in un vero paradiso terrestre. La cura del dettaglio nell'architettura paesaggistica è impressionante."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">M</div>
+                            <div>
+                                <h4>Marco T.</h4>
+                                <small>Mendrisio</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-panel">
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p>"Hanno eseguito un taglio alberi molto complesso vicino a casa mia con una professionalità e sicurezza assolute. Consigliatissimi per chi cerca veri esperti del verde."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">E</div>
+                            <div>
+                                <h4>Elena B.</h4>
+                                <small>Lugano Area</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass-panel">
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p>"La creazione del nostro nuovo giardino bio-sostenibile è stata un'esperienza fantastica. Le piante scelte fioriscono in modo meraviglioso e richiedono pochissima acqua."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">L</div>
+                            <div>
+                                <h4>Luca R.</h4>
+                                <small>Chiasso</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Auto-Complete -->
+                <div class="section-header" style="margin-top: 6rem;">
+                    <h2>Domande Frequenti</h2>
+                </div>
+                <div class="faq-container">
+                    <details>
+                        <summary>Quali servizi di giardinaggio offrite a Mendrisio?</summary>
+                        <p>Offriamo una gamma completa di servizi ecosostenibili: cura del verde, taglio alberi controllato, creazione giardini personalizzati e architettura paesaggistica avanzata, il tutto gestito dalla nostra sede in via fantasia.</p>
+                    </details>
+                    <details>
+                        <summary>Come gestite il taglio alberi in modo sicuro?</summary>
+                        <p>Il taglio alberi viene eseguito da personale altamente qualificato utilizzando tecniche di tree climbing e attrezzature all'avanguardia per garantire la massima sicurezza e il rispetto dell'ecosistema circostante e delle proprietà adiacenti.</p>
+                    </details>
+                    <details>
+                        <summary>Progettate giardini ecosostenibili?</summary>
+                        <p>Assolutamente sì. La nostra architettura paesaggistica si ispira alla filosofia solarpunk: integriamo tecnologie per il risparmio idrico, piante autoctone resistenti alla siccità e materiali naturali per creare giardini in perfetta armonia con l'ambiente ticinese.</p>
+                    </details>
+                    <details>
+                        <summary>Fornite preventivi gratuiti?</summary>
+                        <p>Sì, offriamo sopralluoghi e preventivi gratuiti e senza impegno. Valutiamo le condizioni del terreno, l'esposizione solare e le tue esigenze per proporre la soluzione verde migliore.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="page-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Entra in Contatto</h2>
+                    <p>Iniziamo a progettare il tuo futuro verde.</p>
+                </div>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h3>Fantasia Garden</h3>
+                        <p>Siamo pronti a trasformare la tua visione in realtà. Contattaci per consulenze su architettura paesaggistica o interventi di cura del verde.</p>
+                        
+                        <div class="info-item" style="margin-top: 2rem;">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h4>Sede Operativa</h4>
+                                <p>via fantasia<br>6850 Mendrisio, Svizzera</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <h4>Telefono</h4>
+                                <p>+41 78 123 45 67</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@fantasiagarden.ch</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <p>Chatta con noi in tempo reale</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container">
+                        <form class="contact-form" onsubmit="event.preventDefault(); alert('Messaggio inviato con successo! Ti ricontatteremo presto.');">
+                            <div class="form-group">
+                                <input type="text" placeholder="Il tuo Nome" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="La tua Email" required>
+                            </div>
+                            <div class="form-group">
+                                <select style="width: 100%; padding: 1rem 1.5rem; background: var(--sp-bg-base); border: 1px solid var(--sp-glass-border); border-radius: 15px; color: var(--sp-text-main); outline: none;">
+                                    <option value="">Seleziona un Servizio</option>
+                                    <option value="cura">Cura del Verde</option>
+                                    <option value="taglio">Taglio Alberi</option>
+                                    <option value="creazione">Creazione Giardini</option>
+                                    <option value="architettura">Architettura Paesaggistica</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Come possiamo aiutarti a creare il tuo spazio verde?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Invia Richiesta <i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="#home" class="logo" style="color: #fff; margin-bottom: 1rem;">
+                    <i class="fa-solid fa-leaf"></i> Fantasia Garden
+                </a>
+                <p style="color: #a5d6a7;">Specialisti in architettura paesaggistica e cura del verde a Mendrisio. Creiamo spazi in armonia con la natura e il futuro.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Esplora</h4>
+                <ul>
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">Chi Siamo</a></li>
+                    <li><a href="#services" class="nav-link">I Nostri Servizi</a></li>
+                    <li><a href="#contact" class="nav-link">Contattaci</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Servizi Principali</h4>
+                <ul>
+                    <li><a href="#services">Cura del verde</a></li>
+                    <li><a href="#services">Taglio alberi</a></li>
+                    <li><a href="#services">Creazione giardini</a></li>
+                    <li><a href="#services">Architettura paesaggistica</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Fantasia Garden - via fantasia, Mendrisio. Tutti i diritti riservati.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.7;">Design by SitiTicino.ch</p>
+        </div>
+    </footer>
+
+    <!-- Floating Widgets -->
+    <a href="https://wa.me/4178123456" target="_blank" class="floating-widget whatsapp-btn" aria-label="Contattaci su WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    
+    <div class="floating-widget theme-toggle" id="themeToggle" aria-label="Cambia Tema">
+        <i class="fa-solid fa-moon"></i>
+    </div>
+
+    <!-- SPA and Interaction Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+            });
+
+            // Theme Toggle (Dark Mode)
+            const themeToggle = document.getElementById('themeToggle');
+            const icon = themeToggle.querySelector('i');
+            const body = document.body;
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if(body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+
+            // SPA Router Logic via Hash
+            const sections = document.querySelectorAll('.page-section');
+            const navItems = document.querySelectorAll('.nav-link');
+
+            function navigateToHash() {
+                let hash = window.location.hash.substring(1);
+                if (!hash) hash = 'home'; // Default page
+
+                // Check if target section exists
+                const targetSection = document.getElementById(hash);
+                if (!targetSection) return;
+
+                // Hide all sections
+                sections.forEach(sec => sec.classList.remove('active'));
+                
+                // Show target
+                targetSection.classList.add('active');
+
+                // Update active state in nav
+                navItems.forEach(link => {
+                    link.classList.remove('active');
+                    if(link.getAttribute('href') === `#${hash}`) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Close mobile menu if open
+                if(navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                }
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Listen for hash changes
+            window.addEventListener('hashchange', navigateToHash);
+
+            // Handle initial load
+            if (window.location.hash) {
+                navigateToHash();
+            } else {
+                // If no hash, set it to home without jumping
+                history.replaceState(null, null, '#home');
+                navigateToHash();
+            }
+
+            // Header shrink on scroll (visual effect)
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if(window.scrollY > 50) {
+                    header.style.padding = '0.5rem 5%';
+                } else {
+                    header.style.padding = '1rem 5%';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

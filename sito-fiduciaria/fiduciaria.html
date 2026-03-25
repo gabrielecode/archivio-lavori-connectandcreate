@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="it" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Fantasy Fiduciaria | Servizi Finanziari e Contabili a Chiasso</title>
+    <meta name="description" content="Fantasy Fiduciaria a Chiasso offre servizi d'eccellenza: gestione e amministrazione di società, contabilità, revisioni contabili, conteggi salari e pratiche permesso B. Richiedi una consulenza.">
+    <meta name="keywords" content="Fantasy Fiduciaria, servizi finanziari Chiasso, contabilità Chiasso, revisioni contabili, conteggi salari, pratiche permesso B Svizzera, dichiarazioni fiscali, fiduciaria via dei soldi">
+    <meta name="author" content="Fantasy Fiduciaria">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "FinancialService",
+          "@id": "https://fantasyfiduciaria.ch/#organization",
+          "name": "Fantasy Fiduciaria",
+          "description": "Studio fiduciario e di consulenza aziendale a Chiasso, specializzato in servizi finanziari e contabili, gestione societaria e pratiche per permessi di lavoro in Svizzera.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "via dei soldi",
+            "postalCode": "6830",
+            "addressLocality": "Chiasso",
+            "addressCountry": "CH"
+          },
+          "telephone": "+4178123456",
+          "url": "https://fantasyfiduciaria.ch",
+          "image": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop",
+          "priceRange": "$$",
+          "areaServed": {
+            "@type": "City",
+            "name": "Chiasso"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Quali servizi offre Fantasy Fiduciaria a Chiasso?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Offriamo una gamma completa e integrata: Gestione e amministrazione di società, Contabilità generale, Revisioni contabili, Conteggi salari, Pratiche per permessi di lavoro (incluso Permesso B) e Dichiarazioni fiscali per persone fisiche e giuridiche."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Come posso richiedere il Permesso B in Svizzera?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Il nostro team di esperti gestisce integralmente le pratiche per i permessi di lavoro, interfacciandosi con le autorità cantonali ticinesi. Prepariamo la documentazione necessaria e seguiamo l'iter burocratico per garantire un processo rapido e conforme alle normative vigenti."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Fornite assistenza per le revisioni contabili?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Assolutamente sì. Eseguiamo revisioni contabili rigorose, oggettive e indipendenti, garantendo che i bilanci della vostra società rispecchino fedelmente la situazione patrimoniale e finanziaria secondo i più elevati standard svizzeri."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Gestite i conteggi salari per le aziende ticinesi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sì, ci occupiamo dell'intera amministrazione del personale: dall'elaborazione delle buste paga mensili ai conteggi degli oneri sociali, fino alla redazione dei certificati di salario e alle imposte alla fonte."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* CSS Variables - Swiss Style Palette & Typography */
+        :root {
+            --col-bg: #F9F9F9;
+            --col-text: #050505;
+            --col-accent: #E50000; /* Swiss Red */
+            --col-border: #050505;
+            --col-surface: #FFFFFF;
+            
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --grid-gap: clamp(1rem, 2vw, 2rem);
+            --section-pad: clamp(4rem, 8vw, 8rem) 0;
+            --container-pad: 0 clamp(1rem, 4vw, 2rem);
+            
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Dark Mode Variables */
+        [data-theme="dark"] {
+            --col-bg: #0A0A0A;
+            --col-text: #F4F4F4;
+            --col-border: #333333;
+            --col-surface: #111111;
+            --col-accent: #FF3333;
+        }
+
+        /* Reset & Base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--col-bg);
+            color: var(--col-text);
+            line-height: 1.6;
+            font-size: 16px;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        /* Typography - Fluid & Mathematical Hierarchy */
+        h1, h2, h3, h4 {
+            font-family: var(--font-head);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: clamp(3rem, 8vw, 6rem); letter-spacing: -0.02em; }
+        h2 { font-size: clamp(2rem, 5vw, 4rem); letter-spacing: -0.01em; }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        h4 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+        
+        .eyebrow {
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--col-accent);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        p { 
+            font-size: clamp(1rem, 1.2vw, 1.125rem); 
+            margin-bottom: 1.5rem; 
+        }
+
+        /* Structural Grid (Swiss Style Rigid Grid) */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--container-pad);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--grid-gap);
+        }
+
+        .col-4 { grid-column: span 4; }
+        .col-6 { grid-column: span 6; }
+        .col-8 { grid-column: span 8; }
+        .col-12 { grid-column: span 12; }
+
+        section { 
+            padding: var(--section-pad); 
+            border-bottom: 2px solid var(--col-border);
+        }
+
+        /* Buttons / CTAs */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            font-family: var(--font-body);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            min-height: 48px; /* Touch target */
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid var(--col-text);
+            background: transparent;
+            color: var(--col-text);
+        }
+
+        .btn-primary {
+            background-color: var(--col-text);
+            color: var(--col-bg);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--col-accent);
+            border-color: var(--col-accent);
+            color: #FFF;
+        }
+
+        /* Header */
+        .site-header {
+            padding: 1.5rem 0;
+            border-bottom: 2px solid var(--col-border);
+            background: var(--col-bg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-title {
+            font-family: var(--font-head);
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            display: block;
+        }
+
+        .logo-geo {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--col-accent);
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            display: flex;
+            align-items: center;
+            min-height: 80vh;
+            padding-top: clamp(2rem, 5vw, 4rem);
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 2rem;
+        }
+
+        .hero-image-container {
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 2px solid var(--col-border);
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+        }
+
+        .hero-image-container img:hover {
+            filter: grayscale(0%);
+        }
+
+        /* About */
+        .about-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Services Grid */
+        .service-card {
+            border: 2px solid var(--col-border);
+            padding: 2.5rem;
+            background: var(--col-surface);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 0px var(--col-border);
+        }
+        
+        .service-number {
+            font-family: var(--font-head);
+            font-size: 3rem;
+            color: var(--col-accent);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            border: 2px solid var(--col-border);
+            padding: 2.5rem;
+            background: var(--col-surface);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-family: var(--font-body);
+            font-weight: 500;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-text::before {
+            content: "“";
+            font-family: var(--font-head);
+            font-size: 4rem;
+            color: var(--col-accent);
+            line-height: 0;
+            vertical-align: bottom;
+            margin-right: 0.5rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            color: var(--col-accent);
+            letter-spacing: 0.05em;
+            border-top: 1px solid var(--col-border);
+            padding-top: 1rem;
+        }
+
+        /* Pricing */
+        .pricing-card {
+            border: 2px solid var(--col-border);
+            padding: 3rem 2rem;
+            text-align: center;
+            background: var(--col-surface);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card.featured {
+            background: var(--col-text);
+            color: var(--col-bg);
+        }
+
+        .pricing-card.featured .eyebrow {
+            color: var(--col-bg);
+            opacity: 0.8;
+        }
+
+        .pricing-card.featured .btn {
+            background: var(--col-bg);
+            color: var(--col-text);
+            border-color: var(--col-bg);
+        }
+
+        .pricing-card.featured .btn:hover {
+            background: var(--col-accent);
+            color: #FFF;
+            border-color: var(--col-accent);
+        }
+
+        .price {
+            font-family: var(--font-head);
+            font-size: 3.5rem;
+            margin: 1.5rem 0;
+            line-height: 1;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            border-bottom: 2px solid var(--col-border);
+            padding: 1.5rem 0;
+        }
+
+        .faq-item:first-child {
+            border-top: 2px solid var(--col-border);
+        }
+
+        .faq-question {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-form-container {
+            background: var(--col-surface);
+            padding: 3rem;
+            border: 2px solid var(--col-border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--col-border);
+            background: transparent;
+            color: var(--col-text);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--col-accent);
+            box-shadow: 4px 4px 0px var(--col-border);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 300px;
+            background: var(--col-surface);
+            border: 2px solid var(--col-border);
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            filter: grayscale(100%);
+        }
+
+        /* Footer */
+        .site-footer {
+            padding: var(--section-pad);
+            background: var(--col-text);
+            color: var(--col-bg);
+            border-top: none;
+        }
+
+        .site-footer a {
+            color: var(--col-bg);
+            text-decoration: none;
+        }
+
+        .site-footer a:hover {
+            color: var(--col-accent);
+        }
+
+        .footer-heading {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--col-bg);
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .social-links li {
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-bottom {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Floating Widgets */
+        .widget-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+        
+        .widget-whatsapp:hover { transform: scale(1.1); }
+        
+        .widget-whatsapp svg {
+            width: 35px;
+            height: 35px;
+            fill: #FFF;
+        }
+
+        .widget-theme {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background-color: var(--col-text);
+            color: var(--col-bg);
+            border: 2px solid var(--col-border);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: var(--transition);
+        }
+
+        .widget-theme:hover {
+            background-color: var(--col-accent);
+            color: #FFF;
+            border-color: var(--col-accent);
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .col-4 { grid-column: span 6; }
+            .hero-content { padding-right: 0; padding-bottom: 2rem; }
+            .hero { flex-direction: column; }
+        }
+
+        @media (max-width: 768px) {
+            .col-4, .col-6, .col-8 { grid-column: span 12; }
+            .header-nav { display: none; } /* Simplified header on mobile */
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <span class="logo-title">Fantasy Fiduciaria</span>
+                <span class="logo-geo">via dei soldi &bull; Chiasso, CH</span>
+            </div>
+            <nav class="header-nav" aria-label="Navigazione Principale">
+                <a href="#contact" class="btn btn-primary">Richiedi Consulenza</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="container grid">
+                <div class="col-6 hero-content">
+                    <span class="eyebrow">Precisione Svizzera. Visione Globale.</span>
+                    <h1>L'eccellenza contabile a Chiasso.</h1>
+                    <p>Affianchiamo imprese e privati in Ticino con servizi finanziari e fiduciari di altissimo livello. Dalla costituzione societaria alle dichiarazioni fiscali, garantiamo solidità, trasparenza e conformità per il vostro futuro economico.</p>
+                    <div style="margin-top: 2rem;">
+                        <a href="#contact" class="btn btn-primary">Inizia la tua Consulenza</a>
+                    </div>
+                </div>
+                <div class="col-6 hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop" alt="Servizi Finanziari e Contabili a Chiasso" loading="eager">
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="chi-siamo">
+            <div class="container grid">
+                <div class="col-6 about-text">
+                    <span class="eyebrow">Il Tuo Partner in Ticino</span>
+                    <h2>Autorità nel settore finanziario elvetico.</h2>
+                    <p>Situata strategicamente in <strong>via dei soldi a Chiasso</strong>, Fantasy Fiduciaria rappresenta un punto di riferimento imprescindibile per i <em>Servizi Finanziari e Contabili</em> in Svizzera. Ci distinguiamo per il rigore analitico, la trasparenza e un approccio su misura orientato esclusivamente al successo del cliente.</p>
+                    <p>La nostra missione è sollevare le imprese dalle complessità burocratiche, fiscali e amministrative, trasformando gli obblighi di legge in reali opportunità strategiche di crescita. Affidarsi a noi significa scegliere l'eccellenza e l'affidabilità svizzera.</p>
+                </div>
+                <div class="col-6 hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Sede Fantasy Fiduciaria Chiasso" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="servizi">
+            <div class="container grid">
+                <div class="col-12">
+                    <span class="eyebrow">Competenze Core</span>
+                    <h2>Servizi Fiduciari Integrati.</h2>
+                </div>
+                
+                <article class="col-4 service-card">
+                    <div class="service-number">01</div>
+                    <h3>Gestione e amministrazione di società</h3>
+                    <p>Strutturiamo e amministriamo la vostra impresa (SA, Sagl) con assoluto rigore metodologico, garantendo la piena conformità alle esigenti normative commerciali svizzere.</p>
+                </article>
+                
+                <article class="col-4 service-card">
+                    <div class="service-number">02</div>
+                    <h3>Contabilità</h3>
+                    <p>Tenuta contabile analitica, precisa e puntuale. Trasformiamo i dati grezzi in informazioni strategiche indispensabili per un controllo di gestione efficace.</p>
+                </article>
+                
+                <article class="col-4 service-card">
+                    <div class="service-number">03</div>
+                    <h3>Revisioni contabili</h3>
+                    <p>Audit indipendenti e certificati. Analizziamo approfonditamente i bilanci per garantire la massima trasparenza verso stakeholder, banche e istituzioni federali.</p>
+                </article>
+                
+                <article class="col-4 service-card">
+                    <div class="service-number">04</div>
+                    <h3>Conteggi salari</h3>
+                    <p>Gestione esternalizzata e completa delle risorse umane: elaborazione sicura delle buste paga, calcolo degli oneri sociali e dichiarazioni assicurative periodiche.</p>
+                </article>
+                
+                <article class="col-4 service-card">
+                    <div class="service-number">05</div>
+                    <h3>Pratiche permessi di lavoro</h3>
+                    <p>Assistenza burocratica specializzata per l'ottenimento e il rinnovo di permessi di lavoro per dipendenti e dirigenti, con particolare focus sul <strong>Permesso B</strong>.</p>
+                </article>
+                
+                <article class="col-4 service-card">
+                    <div class="service-number">06</div>
+                    <h3>Dichiarazioni fiscali</h3>
+                    <p>Pianificazione e ottimizzazione del carico fiscale per persone fisiche e giuridiche, operando nel rigoroso rispetto delle legislazioni cantonali e federali.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section id="recensioni">
+            <div class="container grid">
+                <div class="col-12">
+                    <span class="eyebrow">Social Proof</span>
+                    <h2>La fiducia dei nostri clienti.</h2>
+                </div>
+                
+                <div class="col-4 testimonial-card">
+                    <p class="testimonial-text">Un team eccezionale. Hanno gestito la costituzione della nostra SA a Chiasso in tempi record, fornendo una consulenza fiscale preventiva impeccabile.</p>
+                    <div class="testimonial-author">Marco R. &bull; CEO, TechSolutions SA</div>
+                </div>
+                
+                <div class="col-4 testimonial-card">
+                    <p class="testimonial-text">La gestione dei conteggi salari e la contabilità sono ineccepibili. Da quando collaboriamo con Fantasy Fiduciaria, non abbiamo mai riscontrato un singolo errore.</p>
+                    <div class="testimonial-author">Silvia T. &bull; HR Manager</div>
+                </div>
+                
+                <div class="col-4 testimonial-card">
+                    <p class="testimonial-text">Per le pratiche del Permesso B si sono dimostrati estremamente competenti e veloci. Un supporto fondamentale per l'assunzione dei nostri dipendenti frontalieri.</p>
+                    <div class="testimonial-author">Alessandro F. &bull; Imprenditore</div>
+                </div>
+                
+                <div class="col-4 testimonial-card">
+                    <p class="testimonial-text">Le revisioni contabili vengono effettuate con grande rigore e professionalità svizzera. Assoluta trasparenza e affidabilità, un partner di cui non possiamo fare a meno.</p>
+                    <div class="testimonial-author">Elena M. &bull; CFO, Retail Group</div>
+                </div>
+                
+                <div class="col-4 testimonial-card">
+                    <p class="testimonial-text">Ottima consulenza per le dichiarazioni fiscali. Mi hanno aiutato a ottimizzare legalmente il carico fiscale nel pieno rispetto delle stringenti normative cantonali ticinesi.</p>
+                    <div class="testimonial-author">Giovanni L. &bull; Libero Professionista</div>
+                </div>
+                
+                <div class="col-4 testimonial-card">
+                    <p class="testimonial-text">Fantasy Fiduciaria è il partner ideale per l'amministrazione aziendale in Ticino. La loro sede in via dei soldi è ormai per noi un punto di riferimento insostituibile.</p>
+                    <div class="testimonial-author">Laura B. &bull; Direttrice Operativa</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING SECTION -->
+        <section id="tariffe">
+            <div class="container grid">
+                <div class="col-12">
+                    <span class="eyebrow">Piani e Investimenti</span>
+                    <h2>Trasparenza Assoluta.</h2>
+                </div>
+                
+                <div class="col-4 pricing-card">
+                    <span class="eyebrow">Start-up</span>
+                    <h3>Costituzione Società</h3>
+                    <div class="price">CHF 1'500</div>
+                    <p>Consulenza iniziale strategica, stesura statuti, pratiche notarili e iscrizione al Registro di Commercio del Cantone Ticino.</p>
+                    <a href="#contact" class="btn" style="margin-top: auto;">Richiedi</a>
+                </div>
+                
+                <div class="col-4 pricing-card featured">
+                    <span class="eyebrow">Business</span>
+                    <h3>Gestione Completa</h3>
+                    <div class="price">Su Misura</div>
+                    <p>Contabilità generale, conteggi salari mensili, dichiarazioni fiscali e consulenza aziendale continuativa per SA e Sagl.</p>
+                    <a href="#contact" class="btn btn-primary" style="margin-top: auto;">Contattaci</a>
+                </div>
+                
+                <div class="col-4 pricing-card">
+                    <span class="eyebrow">Privati & HR</span>
+                    <h3>Pratiche e Permessi</h3>
+                    <div class="price">Da CHF 300</div>
+                    <p>Gestione completa pratiche Permesso B, dichiarazioni fiscali per persone fisiche, e consulenza previdenziale specialistica.</p>
+                    <a href="#contact" class="btn" style="margin-top: auto;">Scopri di più</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section id="faq">
+            <div class="container grid">
+                <div class="col-4">
+                    <span class="eyebrow">Informazioni</span>
+                    <h2>Domande Frequenti.</h2>
+                    <p>Trovate risposte rapide e trasparenti ai quesiti più comuni riguardanti i nostri servizi fiduciari e le pratiche in territorio elvetico.</p>
+                </div>
+                <div class="col-8">
+                    <div class="faq-item">
+                        <div class="faq-question">Quali servizi offre Fantasy Fiduciaria a Chiasso?</div>
+                        <p>Offriamo una gamma completa e integrata: Gestione e amministrazione di società, Contabilità generale e analitica, Revisioni contabili certificate, Conteggi salari, Pratiche per permessi di lavoro (incluso il Permesso B) e Dichiarazioni fiscali per persone fisiche e giuridiche.</p>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Come posso richiedere il Permesso B in Svizzera?</div>
+                        <p>Il nostro team di esperti gestisce integralmente le pratiche per i permessi di lavoro, interfacciandosi direttamente con le autorità cantonali ticinesi. Prepariamo la documentazione necessaria e seguiamo l'iter burocratico per garantire un processo rapido, senza stress e pienamente conforme alle normative vigenti.</p>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Fornite assistenza per le revisioni contabili?</div>
+                        <p>Assolutamente sì. Eseguiamo revisioni contabili rigorose, oggettive e indipendenti, garantendo che i bilanci della vostra società rispecchino fedelmente la situazione patrimoniale e finanziaria secondo i più elevati standard svizzeri e le direttive del CO (Codice delle Obbligazioni).</p>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Gestite i conteggi salari per le aziende ticinesi?</div>
+                        <p>Sì, ci occupiamo dell'intera amministrazione del personale: dall'elaborazione precisa delle buste paga mensili ai conteggi degli oneri sociali (AVS/AI/IPG, LPP, LAINF), fino alla redazione dei certificati di salario annuali e al calcolo delle imposte alla fonte.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <div class="container grid">
+                <div class="col-6">
+                    <span class="eyebrow">Contattaci</span>
+                    <h2>Inizia la tua consulenza.</h2>
+                    <p>La nostra sede principale si trova nel cuore finanziario di Chiasso. Compila il modulo per fissare un incontro conoscitivo, riservato e senza impegno, con i nostri esperti fiduciari.</p>
+                    
+                    <div style="margin-top: 3rem;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Fantasy Fiduciaria</h3>
+                        <p style="margin-bottom: 0.5rem;"><strong>Indirizzo:</strong> via dei soldi, 6830 Chiasso, Svizzera</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Telefono:</strong> <a href="tel:+4178123456">+41 78 123 45 67</a></p>
+                        <p style="margin-bottom: 0;"><strong>Email:</strong> <a href="mailto:info@fantasyfiduciaria.ch">info@fantasyfiduciaria.ch</a></p>
+                    </div>
+
+                    <div class="map-placeholder">
+                        <span style="font-family: var(--font-head); font-size: 1.25rem; color: var(--col-border);">Mappa Interattiva (Chiasso)</span>
+                    </div>
+                </div>
+                
+                <div class="col-6">
+                    <div class="contact-form-container">
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name">Nome e Cognome / Azienda</label>
+                                <input type="text" id="name" name="name" class="form-control" required placeholder="Es. Mario Rossi o Azienda SA">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Indirizzo Email</label>
+                                <input type="email" id="email" name="email" class="form-control" required placeholder="mario.rossi@esempio.ch">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Servizio di Interesse</label>
+                                <input type="text" id="service" name="service" class="form-control" placeholder="Es. Revisioni contabili, Permesso B...">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Messaggio e Dettagli</label>
+                                <textarea id="message" name="message" rows="5" class="form-control" required placeholder="Descrivi brevemente le tue necessità amministrative o fiscali..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Invia Richiesta Sicura</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container grid">
+            <div class="col-4">
+                <div class="footer-heading">Fantasy Fiduciaria</div>
+                <p style="color: rgba(255,255,255,0.8);">L'eccellenza nei Servizi Finanziari e Contabili. Il partner di fiducia per le imprese e i privati nel Cantone Ticino.</p>
+                <p style="color: rgba(255,255,255,0.8); margin-top: 1rem;">via dei soldi<br>6830 Chiasso, Svizzera</p>
+            </div>
+            
+            <div class="col-4">
+                <div class="footer-heading">Navigazione</div>
+                <ul class="social-links">
+                    <li><a href="#chi-siamo">Chi Siamo</a></li>
+                    <li><a href="#servizi">Competenze & Servizi</a></li>
+                    <li><a href="#tariffe">Piani e Tariffe</a></li>
+                    <li><a href="#faq">Domande Frequenti</a></li>
+                    <li><a href="#contact">Contatti e Sede</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-4">
+                <div class="footer-heading">Social Media</div>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 1rem;">Seguici sui nostri canali ufficiali per rimanere aggiornato sulle novità fiscali e societarie svizzere.</p>
+                <ul class="social-links">
+                    <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+                    <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-12 footer-bottom">
+                <div>&copy; 2026 Fantasy Fiduciaria. Tutti i diritti riservati.</div>
+                <div>Design by SitiTicino.ch</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP WIDGET -->
+    <a href="https://wa.me/+4178123456" class="widget-whatsapp" target="_blank" rel="noopener" aria-label="Contattaci su WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.002 2.016A13.93 13.93 0 0 0 2.073 15.945c0 2.474.646 4.89 1.874 7.016L2 29.925l7.108-1.864a13.9 13.9 0 0 0 6.894 1.815h.005A13.935 13.935 0 0 0 29.93 15.945 13.936 13.936 0 0 0 16.002 2.016zm0 23.574h-.004a11.55 11.55 0 0 1-5.885-1.603l-.422-.25-4.373 1.147 1.167-4.263-.275-.436A11.536 11.536 0 0 1 4.412 15.945a11.594 11.594 0 0 1 11.586-11.59 11.595 11.595 0 0 1 11.59 11.59 11.595 11.595 0 0 1-11.586 11.645zm6.353-8.683c-.348-.174-2.06-.1.018-2.06-1.018-.175-.348-.558-.802-.733-1.15-.175-.348-.31-.486-.348-.802-.038-.314-.038-.662.14-.348.174-1.22 1.186-1.22 2.895 0 1.708 1.255 3.363 1.43 3.597.174.232 2.454 3.743 5.94 5.204 3.487 1.462 3.487.975 4.114.906.627-.07 2.06-.837 2.348-1.645.288-.807.288-1.5.202-1.645-.087-.145-.314-.232-.662-.407z"/>
+        </svg>
+    </a>
+
+    <!-- THEME TOGGLE WIDGET -->
+    <button class="widget-theme" onclick="toggleTheme()" aria-label="Attiva/Disattiva Modalità Scura">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <script>
+        function toggleTheme() {
+            const body = document.documentElement;
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+            }
+        }
+    </script>
+</body>
+</html>
