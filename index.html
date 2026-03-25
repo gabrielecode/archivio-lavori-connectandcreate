@@ -709,7 +709,9 @@
                     professionisti a Lugano e Chiasso.</p>
                 <div class="cta-link">Esplora Progetto <i class="fas fa-arrow-right"></i></div>
             </div>
+        </a>
         <a href="sito-fiduciaria/fiduciaria.html" class="card">
+
             <div class="card-image"
                 style="background-image:url('sito-fiduciaria/Contabile_revisiona_conteggi_copertina.webp');">
                 <span class="category">Business</span>
@@ -871,8 +873,8 @@
             if (grid) {
                 const cards = Array.from(grid.querySelectorAll('.card'));
                 cards.sort((a, b) => {
-                    const titleA = a.querySelector('h3').textContent.trim().toLowerCase();
-                    const titleB = b.querySelector('h3').textContent.trim().toLowerCase();
+                    const titleA = a.querySelector('h3')?.textContent?.trim()?.toLowerCase() || '';
+                    const titleB = b.querySelector('h3')?.textContent?.trim()?.toLowerCase() || '';
                     return titleA.localeCompare(titleB);
                 });
                 cards.forEach(card => grid.appendChild(card));
@@ -881,21 +883,39 @@
             // 2. Ordina le opzioni nel menu a tendina "Progetto di interesse"
             const projectSelect = document.getElementById('project');
             if (projectSelect) {
-                const options = Array.from(projectSelect.options);
-                // Mantieni la prima opzione ("Seleziona un progetto...") e l'ultima ("Altro...") in posizione
-                const firstOption = options.shift();
-                const lastOption = options.pop();
-
-                options.sort((a, b) => a.text.localeCompare(b.text));
+                const allOptions = Array.from(projectSelect.options);
+                
+                // Identifica le opzioni speciali da mantenere fisse
+                const firstOptionIndex = allOptions.findIndex(opt => opt.text.toLowerCase().includes('seleziona'));
+                const lastOptionIndex = allOptions.findIndex(opt => opt.text.toLowerCase().includes('altro'));
+                
+                const specialOptions = [];
+                if (firstOptionIndex !== -1) specialOptions.push({ index: firstOptionIndex, opt: allOptions[firstOptionIndex], top: true });
+                if (lastOptionIndex !== -1 && lastOptionIndex !== firstOptionIndex) specialOptions.push({ index: lastOptionIndex, opt: allOptions[lastOptionIndex], top: false });
+                
+                // Filtra le opzioni speciali dalla lista da ordinare
+                const normalOptions = allOptions.filter((opt, i) => i !== firstOptionIndex && i !== lastOptionIndex);
+                
+                // Ordina le opzioni rimanenti
+                normalOptions.sort((a, b) => a.text.localeCompare(b.text));
 
                 // Svuota e ripopola il select
                 projectSelect.innerHTML = '';
-                projectSelect.add(firstOption);
-                options.forEach(opt => projectSelect.add(opt));
-                projectSelect.add(lastOption);
+                
+                // Aggiungi l'opzione "Seleziona..." se esisteva
+                const topOpt = specialOptions.find(o => o.top);
+                if (topOpt) projectSelect.add(topOpt.opt);
+                
+                // Aggiungi le opzioni ordinate
+                normalOptions.forEach(opt => projectSelect.add(opt));
+                
+                // Aggiungi l'opzione "Altro..." se esisteva
+                const bottomOpt = specialOptions.find(o => !o.top);
+                if (bottomOpt) projectSelect.add(bottomOpt.opt);
             }
         });
     </script>
+
 
 
 </body>
