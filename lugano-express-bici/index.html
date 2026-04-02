@@ -1,17 +1,385 @@
-<!doctype html>
-<html lang="it">
-
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lugano Express | React Green Logistics</title>
-    <!-- Global Design System CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lugano Express | Green Logistics Biciclette</title>
     <link rel="stylesheet" href="../shared/css/global.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#0F1110',
+                        foreground: '#F7F8F6',
+                        'muted-foreground': '#888B89',
+                        primary: '#F0EEE1',
+                        secondary: '#1A1D1C',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0F1110;
+            color: #F7F8F6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Typewriter Effect */
+        .typewriter-cursor {
+            display: inline-block;
+            width: 2px;
+            background-color: #F0EEE1;
+            margin-left: 4px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 49%, 100% { opacity: 1; }
+            50%, 99% { opacity: 0; }
+        }
+
+        .typewriter {
+            min-height: 1.2em;
+            display: inline-block;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Image Overlay */
+        .hero-overlay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, #0F1110, transparent);
+            z-index: 2;
+        }
+
+        .hero-image {
+            object-fit: cover;
+            filter: brightness(0.4);
+        }
+
+        /* Glow Effect */
+        .glow-primary {
+            box-shadow: 0 0 40px rgba(240, 238, 225, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-text {
+                font-size: 2.5rem;
+            }
+            
+            .section-padding {
+                padding: 60px 24px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .hero-text {
+                font-size: 4.5rem;
+            }
+
+            .section-padding {
+                padding: 128px 24px;
+            }
+        }
+    </style>
 </head>
+<body class="bg-background text-foreground">
 
-<body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 w-full z-50 py-6 transition-all duration-300 bg-background/50 backdrop-blur-md">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-xl font-extrabold tracking-tighter">
+                LUGANO <span class="text-muted-foreground font-light">EXPRESS</span>
+            </div>
+            <ul class="hidden md:flex gap-10 text-xs font-bold uppercase tracking-widest opacity-70">
+                <li><a href="#services" class="hover:opacity-100 transition-opacity hover:text-primary">Servizi</a></li>
+                <li><a href="#flotta" class="hover:opacity-100 transition-opacity hover:text-primary">Flotta</a></li>
+                <li><a href="#contact" class="hover:opacity-100 transition-opacity hover:text-primary">Contatti</a></li>
+            </ul>
+            <button class="hidden sm:inline-flex px-6 py-2 border border-muted-foreground/20 text-xs tracking-widest uppercase font-bold hover:bg-primary/10 transition-colors">
+                Prenota Ora
+            </button>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- 1. HERO SECTION -->
+        <section class="relative h-screen flex items-center overflow-hidden hero-overlay">
+            <img 
+                src="https://images.unsplash.com/photo-1571068316344-75bc76f77891?q=80&w=2070&auto=format&fit=crop" 
+                alt="Bicycle Delivery" 
+                class="absolute inset-0 w-full h-full hero-image z-0"
+            >
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <h1 class="hero-text font-black tracking-tighter text-primary leading-[0.9] mb-8">
+                    Logistica Urbana.<br>
+                    <span class="typewriter text-primary" id="typewriter">
+                        Sostenibile.
+                        <span class="typewriter-cursor"></span>
+                    </span>
+                </h1>
+                <p class="max-w-xl text-xl text-muted-foreground font-light mb-12">
+                    Superiamo il traffico di Lugano con corrieri in bicicletta 100% elettrici.
+                    Semplifica le tue consegne urbane oggi stesso.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="h-14 px-10 bg-primary text-background text-sm tracking-widest uppercase font-bold hover:bg-primary/90 transition-colors rounded">
+                        Spedisci Ora
+                    </button>
+                    <button class="h-14 px-10 border border-white/10 text-sm tracking-widest uppercase font-bold hover:border-white transition-colors rounded">
+                        Scopri AE.1
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-10 flex flex-col gap-4 text-[10px] font-black tracking-[0.2em] text-white/40 uppercase">
+                <span>Scroll to discover</span>
+                <div class="w-px h-16 bg-gradient-to-b from-white/40 to-transparent"></div>
+            </div>
+        </section>
+
+        <!-- 2. URGENT CALL SECTION -->
+        <section class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="bg-primary text-background p-12 md:p-20 rounded-xl flex flex-col md:flex-row justify-between items-center gap-10">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-black tracking-tighter leading-none mb-6">
+                            Hai un'emergenza?<br>Chiama subito.
+                        </h2>
+                        <p class="text-lg opacity-80 max-w-md">
+                            Corriere assegnato in 2 minuti. Consegna garantita entro 20 minuti nel centro città.
+                        </p>
+                    </div>
+                    <div class="text-center md:text-right">
+                        <a href="tel:+41911234567" class="inline-flex items-center gap-4 bg-background text-primary px-10 py-6 rounded-lg text-2xl font-black tracking-tighter hover:scale-105 transition-transform">
+                            📞 +41 91 123 45 67
+                        </a>
+                        <p class="mt-4 text-xs font-bold uppercase tracking-widest text-background/60">
+                            Attivo dalle 08:00 alle 19:00
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SERVICES SECTION -->
+        <section id="services" class="py-32 border-t border-white/5">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-extrabold tracking-tighter mb-20 text-center">I Nostri Servizi</h2>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <!-- Service 1 -->
+                    <div class="p-12 bg-secondary/50 rounded-lg hover:bg-secondary transition-colors border border-white/5">
+                        <div class="text-primary mb-8 text-4xl">⚡</div>
+                        <h3 class="text-2xl font-bold mb-4">Pony Express</h3>
+                        <p class="text-muted-foreground leading-relaxed">Documenti e piccoli pacchi in 15 minuti nel centro di Lugano.</p>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="p-12 bg-secondary/50 rounded-lg hover:bg-secondary transition-colors border border-white/5">
+                        <div class="text-primary mb-8 text-4xl">🌱</div>
+                        <h3 class="text-2xl font-bold mb-4">Eco-Business</h3>
+                        <p class="text-muted-foreground leading-relaxed">Piani abbonamento per aziende a zero emissioni CO2.</p>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="p-12 bg-secondary/50 rounded-lg hover:bg-secondary transition-colors border border-white/5">
+                        <div class="text-primary mb-8 text-4xl">🚴</div>
+                        <h3 class="text-2xl font-bold mb-4">Cargo AE.1</h3>
+                        <p class="text-muted-foreground leading-relaxed">Trasporto merci ingombranti fino a 300kg in sicurezza.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FLEET SECTION -->
+        <section id="flotta" class="py-32 bg-secondary/20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-extrabold tracking-tighter mb-12 text-center">Flotta AE.1</h2>
+                <p class="text-center text-lg text-muted-foreground max-w-2xl mx-auto mb-16">
+                    La nostra flotta di biciclette elettriche di ultima generazione garantisce consegne rapide, silenziose e a zero emissioni CO2.
+                </p>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1000&auto=format&fit=crop" alt="E-Bike Fleet" class="rounded-lg">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Batteria 72V | 500W</h3>
+                            <p class="text-muted-foreground">Autonomia fino a 80km con una singola carica.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Sistema GPS Integrato</h3>
+                            <p class="text-muted-foreground">Tracciamento in tempo reale di ogni consegna.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Cestello Cargo | 300kg</h3>
+                            <p class="text-muted-foreground">Trasporto sicuro di merci ingombranti.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. CONTACT SECTION -->
+        <section id="contact" class="py-32">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <div class="grid md:grid-cols-2 gap-20">
+                    <div>
+                        <h2 class="text-5xl font-black tracking-tighter mb-8 leading-none">Preventivo<br>Gratuito.</h2>
+                        <p class="text-lg text-muted-foreground font-light mb-12">
+                            Compila il modulo per ricevere una quotazione immediata per le tue spedizioni a Lugano e Ticino.
+                        </p>
+                        <ul class="space-y-6 text-sm font-medium">
+                            <li class="flex items-center gap-4">📍 Piazza della Riforma, Lugano</li>
+                            <li class="flex items-center gap-4">📧 info@luganoexpress.ch</li>
+                            <li class="flex items-center gap-4">📞 +41 91 123 45 67</li>
+                        </ul>
+                    </div>
+                    <form class="space-y-6">
+                        <input type="text" placeholder="Nome Completo" class="w-full h-14 px-4 bg-secondary/50 border border-white/10 rounded text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary">
+                        <input type="email" placeholder="Email Aziendale" class="w-full h-14 px-4 bg-secondary/50 border border-white/10 rounded text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary">
+                        <textarea placeholder="Dettagli spedizione (Origine / Destinazione)" rows="6" class="w-full px-4 py-3 bg-secondary/50 border border-white/10 rounded text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary resize-none"></textarea>
+                        <button type="submit" class="w-full h-16 bg-primary text-background text-sm tracking-widest uppercase font-black hover:bg-primary/90 transition-colors rounded">
+                            Invia Richiesta
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 bg-secondary/30 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Lugano Express</h3>
+                    <p class="text-muted-foreground text-sm">Logistica green per Lugano.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Link Rapidi</h3>
+                    <nav class="space-y-2 text-sm">
+                        <a href="#services" class="block text-muted-foreground hover:text-primary transition-colors">Servizi</a>
+                        <a href="#flotta" class="block text-muted-foreground hover:text-primary transition-colors">Flotta</a>
+                        <a href="#contact" class="block text-muted-foreground hover:text-primary transition-colors">Contatti</a>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contattaci</h3>
+                    <address class="space-y-2 text-sm not-italic text-muted-foreground">
+                        <p>Piazza della Riforma</p>
+                        <p>6900 Lugano, Svizzera</p>
+                        <p>📞 +41 91 123 45 67</p>
+                    </address>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Seguici</h3>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary/10 transition-colors">f</a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary/10 transition-colors">𝕏</a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary/10 transition-colors">in</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 text-center text-xs text-muted-foreground">
+                <p>&copy; 2026 Lugano Express. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE STICKY BAR -->
+    <div class="md:hidden fixed bottom-0 left-0 w-full h-20 grid grid-cols-2 z-50">
+        <a href="tel:+41911234567" class="bg-primary text-background flex flex-col items-center justify-center gap-1 border-t border-white/5">
+            <span class="text-2xl">📞</span>
+            <span class="text-[10px] font-black uppercase tracking-widest">Chiama</span>
+        </a>
+        <a href="https://wa.me/41911234567" class="bg-background text-primary flex flex-col items-center justify-center gap-1 border-t border-l border-white/5">
+            <span class="text-2xl">💬</span>
+            <span class="text-[10px] font-black uppercase tracking-widest">WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- TYPEWRITER SCRIPT -->
+    <script>
+        const words = ['Sostenibile.', 'Puntuale.', 'Agile.', 'Lugano Express.'];
+        const typewriterEl = document.getElementById('typewriter');
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isPaused = false;
+
+        function typewriter() {
+            if (isPaused) {
+                setTimeout(typewriter, 200);
+                return;
+            }
+
+            const currentWord = words[wordIndex];
+            const displayText = currentWord.substring(0, charIndex + (isDeleting ? 0 : 1));
+            
+            typewriterEl.textContent = displayText;
+
+            if (!isDeleting && charIndex < currentWord.length) {
+                charIndex++;
+                isPaused = false;
+            } else if (isDeleting && charIndex > 0) {
+                charIndex--;
+                isPaused = false;
+            } else {
+                if (!isDeleting) {
+                    isPaused = true;
+                    setTimeout(() => {
+                        isDeleting = true;
+                        isPaused = false;
+                        typewriter();
+                    }, 2000);
+                    return;
+                } else {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    charIndex = 0;
+                }
+            }
+
+            const speed = isDeleting ? 50 : 100;
+            setTimeout(typewriter, speed);
+        }
+
+        typewriter();
+
+        // Add cursor back after text is updated
+        setInterval(() => {
+            if (!typewriterEl.querySelector('.typewriter-cursor')) {
+                const cursor = document.createElement('span');
+                cursor.className = 'typewriter-cursor';
+                typewriterEl.appendChild(cursor);
+            }
+        }, 100);
+    </script>
+
 </body>
-
 </html>
