@@ -153,7 +153,8 @@ input:focus, textarea:focus, select:focus {
 }
 
 input::placeholder, textarea::placeholder {
-    color: var(--color-gray-400);
+    color: var(--color-gray-500);
+    /* Increased from gray-400 for better visibility */
 }
 
 input:disabled, textarea:disabled, select:disabled {
@@ -352,7 +353,7 @@ button:disabled, .btn:disabled {
 }
 
 /* ===================================
-   IMAGES - LAZY LOADING
+   IMAGES - LAZY LOADING & RESPONSIVE
    =================================== */
 
 img[loading="lazy"] {
@@ -377,6 +378,40 @@ img {
     position: relative;
     overflow: hidden;
     background-color: var(--color-gray-100);
+}
+
+picture {
+    display: contents;
+}
+
+/* Responsive Image Containers */
+.img-wrapper,
+.image-wrapper,
+.card-img,
+.product-img,
+.story-img,
+.gallery-img {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Maintain aspect ratios for responsive images */
+[style*="--aspect-ratio"] {
+    position: relative;
+}
+
+[style*="--aspect-ratio"]::before {
+    content: '';
+    display: block;
+    padding-bottom: calc(100% / (var(--aspect-ratio, 1)));
+}
+
+[style*="--aspect-ratio"] > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /* ===================================
@@ -452,12 +487,190 @@ img {
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
 
+/* ===================================
+   RESPONSIVE - TABLET & BELOW
+   =================================== */
+
+@media (max-width: 1024px) {
+    h1 { font-size: clamp(1.75rem, 4vw, 3rem); }
+    h2 { font-size: clamp(1.25rem, 3.5vw, 2rem); }
+    h3 { font-size: clamp(1.125rem, 2.5vw, 1.5rem); }
+    
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+
+    /* Header Optimization */
+    header, nav, .header, .main-header {
+        padding: 12px 0;
+    }
+
+    .logo, .logo-text {
+        font-size: clamp(0.95rem, 2vw, 1.25rem);
+    }
+
+    .nav-links {
+        gap: clamp(16px, 3vw, 32px);
+        font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+    }
+
+    /* Footer Optimization */
+    footer {
+        padding: 48px 0;
+    }
+
+    .footer-nav {
+        gap: 64px;
+    }
+
+    /* Image Optimization */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
 @media (max-width: 768px) {
+    :root {
+        font-size: 16px;
+    }
+    
+    h1 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); }
+    h2 { font-size: clamp(1.125rem, 3vw, 1.75rem); }
+    h3 { font-size: clamp(1rem, 2.5vw, 1.25rem); }
+    
+    p {
+        line-height: 1.7;
+        font-size: 0.95rem;
+    }
+    
     .grid-2, .grid-3, .grid-4 {
         grid-template-columns: 1fr;
     }
     
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .section-padding {
+        padding: var(--spacing-2xl) 0;
+    }
+    
     .hide-mobile { display: none; }
+    
+    .flex {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .flex-between {
+        justify-content: flex-start;
+    }
+
+    /* Header Optimization */
+    header, nav, .header, .main-header {
+        padding: 10px 0;
+    }
+
+    .logo, .logo-text {
+        font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+    }
+
+    .nav-links {
+        gap: 16px;
+        font-size: clamp(0.65rem, 1vw, 0.75rem);
+    }
+
+    /* Footer Optimization */
+    footer {
+        padding: 40px 0;
+    }
+
+    .footer-nav {
+        gap: 32px;
+    }
+
+    /* Button Optimization */
+    button, .btn {
+        min-height: 44px;
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        font-size: 15px;
+    }
+    
+    h1 { font-size: clamp(1.25rem, 3vw, 1.875rem); }
+    h2 { font-size: clamp(1rem, 2.5vw, 1.375rem); }
+    h3 { font-size: clamp(0.875rem, 2vw, 1.125rem); }
+    
+    p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    
+    .section-padding {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .gap-lg { gap: var(--spacing-md); }
+    .gap-xl { gap: var(--spacing-lg); }
+    
+    button, .btn {
+        min-height: 48px;
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.95rem;
+        width: 100%;
+    }
+
+    /* Header Optimization */
+    header, nav, .header, .main-header {
+        padding: 8px 0;
+    }
+
+    .logo, .logo-text {
+        font-size: 0.85rem;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 0.6rem;
+    }
+
+    /* Footer Optimization */
+    footer {
+        padding: 30px 0;
+    }
+
+    .footer-nav {
+        gap: 20px;
+    }
+
+    .footer-nav h4 {
+        font-size: 0.65rem;
+        margin-bottom: 16px;
+    }
+
+    .footer-nav a {
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+    }
+
+    /* Image Optimization */
+    .card-img {
+        aspect-ratio: 16/9;
+    }
+
+    .product-img, .story-img {
+        max-height: 250px;
+    }
 }
 
 @media (min-width: 769px) {
@@ -487,19 +700,5 @@ img {
     html.dark-mode body {
         background-color: var(--color-white);
         color: var(--color-gray-900);
-    }
-}
-
-/* ===================================
-   RESPONSIVE
-   =================================== */
-
-@media (max-width: 640px) {
-    :root {
-        font-size: 14px;
-    }
-    
-    .section-padding {
-        padding: var(--spacing-2xl) 0;
     }
 }

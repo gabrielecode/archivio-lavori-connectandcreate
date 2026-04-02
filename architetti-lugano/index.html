@@ -1676,6 +1676,21 @@
                     padding: 0 24px;
                 }
             }
+
+            @media (max-width: 480px) {
+                body { font-size: 14px; }
+                h1 { font-size: 1.8rem; line-height: 1.2; }
+                h2 { font-size: 1.4rem; line-height: 1.2; }
+                h3 { font-size: 1.1rem; }
+                header { padding: 1rem 0.75rem; }
+                nav { flex-direction: column; gap: 0.5rem; }
+                section { padding: 2rem 1rem; }
+                .container { padding: 1rem; }
+                .grid, .footer-grid { grid-template-columns: 1fr !important; }
+                .btn { padding: 0.8rem 1.2rem; font-size: 0.9rem; width: 100%; }
+                #site-footer { padding-top: 2rem; }
+                #site-footer>div { padding: 0 1rem; }
+            }
         </style>
     </footer>
 

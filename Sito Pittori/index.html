@@ -46,6 +46,18 @@
         /* Smooth Scroll Fix for Safari */
         html { scroll-behavior: smooth; }
         body { -webkit-overflow-scrolling: touch; }
+
+        @media (max-width: 480px) {
+            body { font-size: 14px; }
+            h1 { font-size: 1.8rem; line-height: 1.2; }
+            h2 { font-size: 1.4rem; line-height: 1.2; }
+            h3 { font-size: 1.1rem; }
+            section { padding: 2rem 1rem; }
+            .container { padding: 1rem; }
+            * { cursor: auto; }
+            .cursor-dot, .cursor-outline { display: none; }
+            .btn { padding: 0.8rem 1.2rem; font-size: 0.9rem; width: 100%; }
+        }
     </style>
 </head>
 <body class="bg-midnight text-silk overflow-x-hidden" style="background-color: #14171A; color: #FAF9F6;">

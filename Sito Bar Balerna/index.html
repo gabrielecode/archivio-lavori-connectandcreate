@@ -136,6 +136,24 @@
             .md\:w-auto { width: auto; }
             .md\:translate-y-12 { transform: translateY(3rem); }
         }
+
+        @media (max-width: 480px) {
+            body { font-size: 14px; }
+            h1 { font-size: 1.8rem; line-height: 1.2; }
+            h2 { font-size: 1.4rem; line-height: 1.2; }
+            h3 { font-size: 1.1rem; }
+            nav { padding: 1rem; flex-direction: column; }
+            .logo { font-size: 1rem; }
+            .nav-links { gap: 0.5rem; font-size: 0.75rem; }
+            .hero { padding: 2rem 1rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 0.9rem; }
+            section { padding: 2rem 1rem; }
+            .btn { padding: 0.8rem 1.2rem; font-size: 0.9rem; width: 100%; }
+            .grid, .grid-cols-2, .grid-cols-3 { grid-template-columns: 1fr !important; }
+            .card { padding: 1.5rem 1rem; }
+            footer { padding: 1.5rem 1rem; }
+        }
     </style>
 </head>
 <body class="text-gray-200 overflow-x-hidden">

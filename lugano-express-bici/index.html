@@ -13,7 +13,7 @@
                     colors: {
                         background: '#0F1110',
                         foreground: '#F7F8F6',
-                        'muted-foreground': '#888B89',
+                        'muted-foreground': '#B0B3B0',
                         primary: '#F0EEE1',
                         secondary: '#1A1D1C',
                     },
@@ -92,6 +92,52 @@
             
             .section-padding {
                 padding: 60px 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text {
+                font-size: 1.8rem;
+                line-height: 1.1;
+            }
+            
+            .section-padding {
+                padding: 40px 16px;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+            
+            header {
+                padding: 1rem 0.75rem;
+            }
+            
+            nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            button, .btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            p {
+                font-size: 0.9rem;
             }
         }
 

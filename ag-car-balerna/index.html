@@ -258,6 +258,21 @@
         /* ANIMATIONS */
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 480px) {
+            body { font-size: 14px; }
+            h1 { font-size: 1.8rem; line-height: 1.2; }
+            h2 { font-size: 1.4rem; line-height: 1.2; }
+            h3 { font-size: 1.1rem; }
+            nav { padding: 1rem 0.75rem; flex-direction: column; gap: 0.5rem; }
+            .logo { font-size: 0.9rem; }
+            section { padding: 2rem 1rem; }
+            .container { padding: 1rem; }
+            .car-card, .feature-card { padding: 1.5rem 1rem; }
+            .btn { padding: 0.75rem 1rem; font-size: 0.9rem; width: 100%; }
+            footer { padding: 1.5rem 1rem; }
+            .widget-whatsapp, .widget-darkmode { width: 48px; height: 48px; bottom: 1rem; }
+        }
     </style>
 </head>
 <body>

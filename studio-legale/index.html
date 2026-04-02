@@ -169,6 +169,21 @@
         
         #whatsapp-widget { bottom: 24px; left: 24px; background-color: #25D366; color: white; }
         #dark-mode-toggle { bottom: 24px; right: 24px; background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid var(--glass-border); }
+
+        @media (max-width: 480px) {
+            body { font-size: 14px; }
+            h1 { font-size: 1.8rem; line-height: 1.2; }
+            h2 { font-size: 1.4rem; line-height: 1.2; }
+            h3 { font-size: 1.1rem; }
+            header { padding: 1rem 0.75rem; }
+            nav { flex-direction: column; gap: 0.5rem; }
+            section { padding: 2rem 1rem; }
+            .container { padding: 1rem; }
+            .service-card, .testimonial { padding: 1.5rem 1rem; }
+            .btn, button { padding: 0.8rem 1.2rem; font-size: 0.9rem; width: 100%; }
+            footer { padding: 1.5rem 1rem; }
+            .floating-widget { width: 48px; height: 48px; bottom: 12px; }
+        }
     </style>
 
     <!-- JSON-LD Schema (SGE & E-E-A-T Optimized) -->

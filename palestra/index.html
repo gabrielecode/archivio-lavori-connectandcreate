@@ -717,6 +717,25 @@
                 text-align: center;
             }
         }
+
+        @media (max-width: 480px) {
+            body { font-size: 14px; }
+            h1 { font-size: 1.8rem; line-height: 1.2; }
+            h2 { font-size: 1.4rem; line-height: 1.2; }
+            h3 { font-size: 1.1rem; }
+            header { padding: 1rem 0.75rem; }
+            nav { flex-direction: column; gap: 0.5rem; }
+            .navbar { padding: 1rem; }
+            .logo { font-size: 0.9rem; }
+            section { padding: 2rem 1rem; }
+            .section-spacing { padding: 2rem 0; }
+            .container { padding: 1rem; }
+            .facility-card, .service-card { padding: 1.5rem 1rem; }
+            .grid, .grid-cols-2, .grid-cols-3 { grid-template-columns: 1fr !important; }
+            .btn { padding: 0.8rem 1.2rem; font-size: 0.9rem; width: 100%; }
+            footer { padding: 1.5rem 1rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
     </style>
 </head>
 <body>
