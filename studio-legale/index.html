@@ -9,16 +9,17 @@
     <meta name="geo.position" content="46.0036;8.9511">
     <meta name="geo.region" content="CH-TI">
     <meta name="geo.placename" content="Lugano, Ticino">
-    <link rel="canonical" href="https://yourdomain.example.com/">
+    <link rel="canonical" href="https://www.studio-legale-ticino.ch/" data-basehref="true">
     <meta name="robots" content="index,follow">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="it_IT">
+    <!-- NOTE: Aggiorna 'yourdomain.example.com' con il tuo dominio reale -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LegalService",
       "name": "Studio Legale Ticino",
-      "image": "https://yourdomain.example.com/studio-legale/avvocato-ticino.webp",
+      "image": "https://www.studio-legale-ticino.ch/images/studio-legale.webp",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Via del Tribunale 1",
@@ -28,7 +29,7 @@
         "addressCountry": "CH"
       },
       "telephone": "+41 91 000 0000",
-      "url": "https://yourdomain.example.com",
+      "url": "https://www.studio-legale-ticino.ch",
       "openingHours": "Mo,Tu,We,Th,Fr 09:00-18:00"
     }
     </script>
@@ -37,32 +38,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Tailwind Config for Colors & Fonts -->
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
-                    colors: {
-                        aurora: {
-                            green: '#00ff87',
-                            cyan: '#60efff',
-                            purple: '#a64aff',
-                            dark: '#0a0f1a',
-                            light: '#f0f4f8'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Global Design System CSS -->
+    <link rel="stylesheet" href="../../shared/css/global.css">
 
     <!-- Custom CSS for Artistic Mode: Aurora -->
     <style>
@@ -772,7 +749,7 @@
 
         // Scroll Reveal Animation
         const revealElements = document.querySelectorAll('.reveal');
-        
+
         const revealCallback = (entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -791,5 +768,9 @@
         
         revealElements.forEach(el => revealObserver.observe(el));
     </script>
+
+    <!-- Shared Form Helpers & UI Utilities -->
+    <script src="../../shared/js/form-helpers.js"></script>
+    <script src="../../shared/js/image-lazy.js"></script>
 </body>
 </html>

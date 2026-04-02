@@ -80,21 +80,33 @@ const initFormHandling = () => {
     const form = document.getElementById('express-contact-form');
     if (!form) return;
 
+    const formValidator = initFormValidator('#express-contact-form');
+
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
+        
+        // Validate form
+        if (!formValidator.validateAll()) {
+            showNotification('Per favore, compila tutti i campi correttamente', 'error');
+            return;
+        }
 
-        // Simple visual feedback
+        const data = formValidator.getFormData();
         const submitBtn = form.querySelector('button');
         const originalText = submitBtn.innerText;
 
         submitBtn.innerText = 'Inviando...';
         submitBtn.disabled = true;
 
+        // Simulate form submission
         setTimeout(() => {
-            alert(`Grazie ${data.name}! La tua richiesta per il servizio ${data.service} è stata ricevuta. Ti contatteremo a breve.`);
-            form.reset();
+            showNotification(
+                `Grazie ${data.name}! La tua richiesta per il servizio "${data.service}" è stata ricevuta. Ti contatteremo a breve.`,
+                'success',
+                5000,
+                'top-right'
+            );
+            formValidator.reset();
             submitBtn.innerText = originalText;
             submitBtn.disabled = false;
         }, 1500);

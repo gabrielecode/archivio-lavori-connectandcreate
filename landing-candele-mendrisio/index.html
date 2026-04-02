@@ -7,6 +7,7 @@
     <title>Candele in Cera d'Api Mendrisio | Rituali Naturali e Artigianali</title>
     <meta name="description"
         content="Scopri l'arte delle candele rituali in pura cera d'api fatte a mano a Mendrisio. Candele naturali per i tuoi momenti speciali, eco-sostenibili e profumate.">
+    <link rel="stylesheet" href="../../shared/css/global.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -145,18 +146,22 @@
             <div class="contact-container">
                 <form class="contact-form">
                     <div class="form-group">
-                        <label for="name" style="margin-bottom: 5px;">Nome</label>
-                        <input type="text" id="name" placeholder="Il tuo nome" required>
+                        <label for="name" style="margin-bottom: 5px;">Nome *</label>
+                        <input type="text" id="name" name="name" placeholder="Il tuo nome completo" required minlength="3">
                     </div>
                     <div class="form-group">
-                        <label for="email" style="margin-bottom: 5px;">Email</label>
-                        <input type="email" id="email" placeholder="La tua email" required>
+                        <label for="email" style="margin-bottom: 5px;">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="La tua email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" style="margin-bottom: 5px;">Telefono</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+41 79 123 45 67">
                     </div>
                     <div class="form-group full-width">
-                        <label for="message" style="margin-bottom: 5px;">Messaggio</label>
-                        <textarea id="message" rows="5" placeholder="Come possiamo aiutarti?" required></textarea>
+                        <label for="message" style="margin-bottom: 5px;">Messaggio *</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Come possiamo aiutarti?" required minlength="10"></textarea>
                     </div>
-                    <button type="submit">Invia Messaggio</button>
+                    <button type="submit" class="btn btn-primary">Invia Messaggio</button>
                 </form>
             </div>
         </div>
@@ -181,6 +186,9 @@
     </a>
 
     <script src="script.js"></script>
+    <!-- Shared Form Helpers & UI Utilities -->
+    <script src="../../shared/js/form-helpers.js"></script>
+    <script src="../../shared/js/image-lazy.js"></script>
 </body>
 
 </html>

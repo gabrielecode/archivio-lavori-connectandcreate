@@ -21,27 +21,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Form submission hander (Mock)
+    // Form submission handler with validation
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
+        const formValidator = initFormValidator('.contact-form');
+        
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            
+            // Validate form
+            if (!formValidator.validateAll()) {
+                showNotification('Per favore, compila tutti i campi correttamente', 'error');
+                return;
+            }
+            
             const btn = contactForm.querySelector('button');
             const originalText = btn.textContent;
-
+            
             btn.textContent = 'Inviando...';
             btn.disabled = true;
 
+            // Simulate form submission
             setTimeout(() => {
-                btn.textContent = 'Messaggio Inviato!';
-                btn.style.background = '#4CAF50';
-                contactForm.reset();
-
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.background = 'var(--primary)';
-                    btn.disabled = false;
-                }, 3000);
+                const data = formValidator.getFormData();
+                showNotification(`Grazie ${data.name}! Il tuo messaggio è stato inviato con successo.`, 'success');
+                formValidator.reset();
+                
+                btn.textContent = originalText;
+                btn.disabled = false;
             }, 1500);
         });
     }

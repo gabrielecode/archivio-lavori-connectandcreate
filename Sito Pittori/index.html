@@ -25,28 +25,11 @@
     }
     </script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        midnight: '#14171A', // Midnight Pearl
-                        silk: '#FAF9F6',     // Silk White
-                        sand: '#C5A08C',     // Warm Sand
-                        stone: '#2A2D30',    // Secondary UI
-                    },
-                    fontFamily: {
-                        serif: ['Cormorant Garamond', 'serif'],
-                        sans: ['Montserrat', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Global Design System CSS -->
+    <link rel="stylesheet" href="../../shared/css/global.css">
 
     <style>
         /* Cursor Logic */
@@ -65,7 +48,7 @@
         body { -webkit-overflow-scrolling: touch; }
     </style>
 </head>
-<body class="bg-midnight text-silk font-sans selection:bg-sand selection:text-midnight overflow-x-hidden">
+<body class="bg-midnight text-silk overflow-x-hidden" style="background-color: #14171A; color: #FAF9F6;">
 
     <div class="cursor-dot" id="dot"></div>
     <div class="cursor-outline" id="outline"></div>
@@ -317,5 +300,9 @@
             }
         });
     </script>
+
+    <!-- Shared Form Helpers & UI Utilities -->
+    <script src="../../shared/js/form-helpers.js"></script>
+    <script src="../../shared/js/image-lazy.js"></script>
 </body>
 </html>
