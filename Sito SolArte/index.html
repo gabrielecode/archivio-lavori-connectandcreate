@@ -203,11 +203,15 @@
         }
 
         @media (max-width: 480px) {
+            /* Navigation compact */
+            header, nav { padding: 0.5rem 0.5rem !important; height: auto !important; }
+            nav a, header a { padding: 0.3rem 0.5rem !important; font-size: 0.65rem !important; margin: 0 !important; }
+            nav { padding: 0.5rem !important; }
+            
             body { font-size: 14px; }
             h1 { font-size: 1.8rem; line-height: 1.2; }
             h2 { font-size: 1.4rem; line-height: 1.2; }
             h3 { font-size: 1.1rem; }
-            nav { padding: 0.5rem !important; }
             .nav-item, .nav-dropdown { font-size: 0.9rem; padding: 0.5rem !important; }
             section { padding: 2rem 1rem; }
             .container { padding: 1rem; }
