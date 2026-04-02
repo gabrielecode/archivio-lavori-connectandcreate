@@ -517,7 +517,12 @@
             .container { padding: 1rem; }
             .feature-card, .testimonial-card, .service-item { padding: 1.5rem 1rem; margin-left: 0; }
             .btn { padding: 0.75rem 1.2rem; font-size: 0.9rem; width: 100%; }
-            footer { padding: 1.5rem 1rem; flex-direction: column; }
+            
+            /* Footer Optimization */
+            footer { padding: 1rem 0.75rem !important; flex-direction: column !important; }
+            .footer-grid { gap: 0.5rem !important; grid-template-columns: 1fr !important; }
+            .footer-col { padding: 0.75rem 0 !important; text-align: center !important; }
+            .footer-col a { font-size: 0.75rem !important; }
         }
     </style>
 

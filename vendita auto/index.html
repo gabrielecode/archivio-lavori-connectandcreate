@@ -422,8 +422,12 @@
             .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr !important; }
             .btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; width: 100%; }
             .card { padding: 1.5rem 1rem; }
-            footer { padding: 1.5rem 1rem; }
-            .footer-content { flex-direction: column; }
+            
+            /* Footer Optimization */
+            footer { padding: 1rem 0.75rem !important; }
+            .footer-grid { gap: 0.5rem !important; grid-template-columns: 1fr !important; }
+            .footer-col { padding: 0.75rem 0 !important; text-align: center !important; }
+            .footer-content { flex-direction: column !important; }
         }
 
     </style>

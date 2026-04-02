@@ -512,7 +512,16 @@
             .btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; width: 100%; max-width: none; }
             .grid { grid-template-columns: 1fr !important; }
             .card { padding: 1.5rem 1rem; }
-            footer { padding: 2rem 1rem; }
+            
+            /* Footer Optimization */
+            footer { padding: 1rem 0.75rem !important; }
+            footer section { padding: 1.5rem 0.5rem !important; }
+            .footer-grid, .footer-nav { gap: 0.5rem !important; grid-template-columns: 1fr !important; display: flex; flex-direction: column; }
+            .footer-col { padding: 0.75rem 0 !important; text-align: center !important; }
+            .footer-col h4, .footer-col h5 { font-size: 0.7rem !important; }
+            .footer-col a, .footer-bottom a { font-size: 0.75rem !important; }
+            .footer-bottom { flex-direction: column !important; gap: 0.5rem !important; text-align: center !important; padding-top: 0.75rem !important; }
+        
             .footer-links { flex-direction: column; }
         }
     </style>

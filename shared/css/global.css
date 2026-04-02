@@ -646,7 +646,21 @@ picture {
 
     /* Footer Optimization */
     footer {
-        padding: 30px 0;
+        padding: 1rem 0.75rem !important;
+    }
+    
+    .footer-grid { 
+        gap: 0.5rem !important; 
+        grid-template-columns: 1fr !important; 
+    }
+    
+    .footer-col { 
+        padding: 0.75rem 0 !important; 
+        text-align: center !important; 
+    }
+    
+    .footer-col a, footer a { 
+        font-size: 0.75rem !important; 
     }
 
     .footer-nav {

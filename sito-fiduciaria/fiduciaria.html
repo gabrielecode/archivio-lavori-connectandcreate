@@ -598,8 +598,13 @@
             .section { padding: 2rem 1rem; }
             .col-4, .col-6, .col-8 { grid-column: span 12; }
             .card { padding: 1.5rem; }
-            footer { padding: 1.5rem; }
-            .footer-content { gap: 1rem; }
+            
+            /* Footer Optimization */
+            footer { padding: 1rem 0.75rem !important; }
+            .footer-grid { gap: 0.5rem !important; grid-template-columns: 1fr !important; }
+            .footer-col { padding: 0.75rem 0 !important; text-align: center !important; }
+            .footer-col a { font-size: 0.75rem !important; }
+            .footer-content { gap: 1rem !important; flex-direction: column !important; }
         }
     </style>
 </head>
