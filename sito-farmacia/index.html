@@ -1,351 +1,725 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Farmacia Asclepio a Morbio Inferiore: Eccellenza farmaceutica e servizi di telemedicina avanzata nel Mendrisiotto.">
-    <title>Farmacia Asclepio | Morbio Inferiore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
-    <link rel="stylesheet" href="../../shared/css/global.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <!-- SEO Optimization -->
+    <title>Fantasy Farmacia Mendrisio | Galenica, Esami Sangue e Vista</title>
+    <meta name="description" content="Fantasy Farmacia a Mendrisio in via fantasia. Specializzati in preparazioni galeniche, esami del sangue, udito e vista. Consegna a domicilio rapida in tutto il Mendrisiotto.">
+    <meta name="keywords" content="farmacia Mendrisio, galenica Mendrisio, consegna a domicilio farmacia, esami del sangue Ticino, esami udito Mendrisio, esami vista, salute Svizzera, Fantasy Farmacia">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Pharmacy",
+      "name": "Fantasy Farmacia",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "via fantasia",
+        "addressLocality": "Mendrisio",
+        "addressRegion": "TI",
+        "postalCode": "6850",
+        "addressCountry": "CH"
+      },
+      "description": "Farmacia d'eccellenza a Mendrisio specializzata in galenica, analisi cliniche e servizi di prevenzione visiva e uditiva.",
+      "telephone": "+4178123456",
+      "openingHours": "Mo-Fr 08:00-18:30, Sa 08:30-17:00",
+      "image": "https://images.unsplash.com/photo-1586015555751-63bb77f4322a?q=80&w=1000",
+      "priceRange": "$$",
+      "url": "https://fantasyfarmacia.ch"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Quali tipi di esami si possono fare in farmacia a Mendrisio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Presso Fantasy Farmacia a Mendrisio è possibile effettuare esami del sangue rapidi, test dell'udito e screening completi della vista con macchinari di ultima generazione."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Come funziona il servizio di consegna a domicilio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Offriamo un servizio di consegna a domicilio rapido per farmaci e preparazioni galeniche in tutta l'area di Mendrisio. Basta contattarci via telefono o WhatsApp."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Siete specializzati in galenica?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì, disponiamo di un laboratorio galenico all'avanguardia per la creazione di farmaci personalizzati su prescrizione medica."
+        }
+      }]
+    }
+    </script>
 
     <style>
-        /* Integrazione Font Miso */
-        @font-face {
-            font-family: 'Miso';
-            src: url('uploaded:miso-regular.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
+        :root {
+            --primary: #1a4d2e;
+            --accent: #48c9b0;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg-body: #f8fafc;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        html { scroll-behavior: smooth; }
-        
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: #fffafb; 
-            color: #1c1917; 
+        .dark-mode {
+            --bg-body: #0f172a;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --glass-bg: rgba(30, 41, 59, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --white: #1e293b;
         }
 
-        h1, h2, h3, .font-miso {
-            font-family: 'Miso', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background 0.3s ease;
         }
 
-        /* Hero Background con Immagine Utente */
-        .hero-section {
-            position: relative;
-            background-image: url('https://i.postimg.cc/6Q5rr7Nk/immagine-per-hero.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
+
+        /* Glassmorphism Styles */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
         }
 
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(28, 25, 23, 0.5); /* Overlay al 50% scuro per leggibilità */
+        /* Navigation & Burger Menu */
+        nav {
+            position: fixed;
+            top: 0; width: 100%; z-index: 2000;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
         }
 
-        /* Effetto Floating Tilt 3D per le Card */
-        .service-card {
-            transform-style: preserve-3d;
-            transform: perspective(1000px);
-            transition: box-shadow 0.3s ease;
+        nav.scrolled {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            padding: 0.8rem 1.5rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .service-card:hover {
-            box-shadow: 0 25px 50px -12px rgba(190, 18, 60, 0.25);
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            z-index: 2100;
+            color: var(--primary);
+            text-decoration: none;
         }
 
-        .card-content {
-            transform: translateZ(50px); /* Distacco 3D del contenuto */
+        .nav-links {
+            display: none;
+            gap: 2.5rem;
         }
 
-        .glass-nav {
-            background: rgba(255, 250, 251, 0.85);
-            backdrop-filter: blur(15px);
-        }
-        
-        /* Tailwind Replacements */
-        .max-w-7xl { max-width: 80rem; margin-left: auto; margin-right: auto; }
-        .max-w-4xl { max-width: 56rem; margin-left: auto; margin-right: auto; }
-        .max-w-2xl { max-width: 42rem; margin-left: auto; margin-right: auto; }
-        .mx-auto { margin-left: auto; margin-right: auto; }
-        .py-32 { padding-top: 8rem; padding-bottom: 8rem; }
-        .py-24 { padding-top: 6rem; padding-bottom: 6rem; }
-        .px-8 { padding-left: 2rem; padding-right: 2rem; }
-        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-        .px-12 { padding-left: 3rem; padding-right: 3rem; }
-        .p-10 { padding: 2.5rem; }
-        .p-12 { padding: 3rem; }
-        .mb-6 { margin-bottom: 1.5rem; }
-        .mb-12 { margin-bottom: 3rem; }
-        .mb-24 { margin-bottom: 6rem; }
-        .mt-4 { margin-top: 1rem; }
-        .mt-8 { margin-top: 2rem; }
-        .gap-3 { gap: 0.75rem; }
-        .gap-5 { gap: 1.25rem; }
-        .gap-8 { gap: 2rem; }
-        .gap-12 { gap: 3rem; }
-        .gap-20 { gap: 5rem; }
-        .flex { display: flex; }
-        .grid { display: grid; }
-        .flex-col { flex-direction: column; }
-        .items-center { align-items: center; }
-        .items-start { align-items: flex-start; }
-        .justify-center { justify-content: center; }
-        .justify-between { justify-content: space-between; }
-        .text-center { text-align: center; }
-        .text-white { color: white; }
-        .text-primary { color: #be123c; }
-        .text-accent { color: #fb7185; }
-        .text-4xl { font-size: 2.25rem; }
-        .text-5xl { font-size: 3rem; }
-        .text-6xl { font-size: 3.75rem; }
-        .text-7xl { font-size: 4.5rem; }
-        .text-9xl { font-size: 8rem; }
-        .text-3xl { font-size: 1.875rem; }
-        .font-bold { font-weight: 700; }
-        .font-light { font-weight: 300; }
-        .uppercase { text-transform: uppercase; }
-        .italic { font-style: italic; }
-        .h-full { height: 100%; }
-        .h-screen { height: 100vh; }
-        .h-48 { height: 12rem; }
-        .w-full { width: 100%; }
-        .w-5 { width: 1.25rem; }
-        .w-8 { width: 2rem; }
-        .w-16 { width: 4rem; }
-        .h-16 { height: 4rem; }
-        .rounded-lg { border-radius: 0.5rem; }
-        .rounded-2xl { border-radius: 1rem; }
-        .rounded-3xl { border-radius: 1.5rem; }
-        .rounded-full { border-radius: 9999px; }
-        .bg-white { background-color: white; }
-        .bg-asclepio_black { background-color: #1c1917; }
-        .bg-white\/10 { background-color: rgba(255, 255, 255, 0.1); }
-        .bg-white\/20 { background-color: rgba(255, 255, 255, 0.2); }
-        .border-b { border-bottom: 1px solid; }
-        .border { border: 1px solid; }
-        .fixed { position: fixed; }
-        .relative { position: relative; }
-        .top-0 { top: 0; }
-        .left-0 { left: 0; }
-        .right-0 { right: 0; }
-        .z-50 { z-index: 50; }
-        .transition-all { transition: all 0.3s ease; }
-        .hover\:scale-105:hover { transform: scale(1.05); }
-        .hover\:text-primary:hover { color: #be123c; }
-        .hover\:bg-white\/20:hover { background-color: rgba(255, 255, 255, 0.2); }
-        .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
-        .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
-        
-        @media (min-width: 768px) {
-            .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-            .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .md\:text-7xl { font-size: 4.5rem; }
-            .md\:text-9xl { font-size: 8rem; }
-            .md\:text-2xl { font-size: 1.5rem; }
-            .md\:p-24 { padding: 6rem; }
-        }
-        
         @media (min-width: 1024px) {
-            .lg\:flex { display: flex; }
-            .lg\:hidden { display: none; }
-            .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .nav-links { display: flex; align-items: center; }
+            .burger-btn { display: none; }
         }
 
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Burger Menu Mobile */
+        .burger-btn {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 2100;
+            border: none;
+            background: transparent;
+        }
+
+        .burger-btn span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .burger-btn.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .burger-btn.active span:nth-child(2) { opacity: 0; }
+        .burger-btn.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0; right: -100%;
+            width: 80%; height: 100vh;
+            background: var(--white);
+            z-index: 2050;
+            display: flex;
+            flex-direction: column;
+            padding: 6rem 2rem;
+            gap: 2rem;
+            transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        }
+
+        .mobile-menu.active { right: 0; }
+
+        .mobile-menu a {
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--text-main);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?q=80&w=2000') center/cover no-repeat;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .cta-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(72, 201, 176, 0.3); }
+
+        /* Services Grid */
+        .services-section { padding: 6rem 1.5rem; max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 3rem; margin-bottom: 1rem; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            border-radius: 30px;
+            transition: var(--transition);
+            text-align: left;
+        }
+
+        .service-card:hover { transform: translateY(-10px); }
+
+        .service-card .icon-container {
+            width: 60px; height: 60px;
+            background: var(--accent);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        /* Testimonials */
+        .testimonials-section { background: rgba(72, 201, 176, 0.05); padding: 6rem 1.5rem; }
+        .testimonial-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 2rem 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+        .testimonial-card {
+            min-width: 300px;
+            padding: 2rem;
+            border-radius: 20px;
+            scroll-snap-align: center;
+        }
+
+        /* Widgets */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            z-index: 1500;
+            width: 56px; height: 56px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transition: var(--transition);
+        }
+        .whatsapp-widget:hover { transform: scale(1.1); }
+
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1500;
+            width: 50px; height: 50px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #f1f5f9;
+            padding: 5rem 1.5rem 2rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; display: block; }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 44px; height: 44px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-icon:hover { background: var(--accent); transform: translateY(-3px); }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* Utility */
+        .mb-1 { margin-bottom: 1rem; }
+        .text-accent { color: var(--accent); }
+
+        /* MOBILE-FIRST OPTIMIZATION */
         @media (max-width: 480px) {
-            body { font-size: 14px; }
-            h1 { font-size: 1.8rem; line-height: 1.2; }
-            h2 { font-size: 1.4rem; line-height: 1.2; }
-            h3 { font-size: 1.1rem; }
+            nav { padding: 0.8rem 1rem; }
+            .logo { font-size: 0.9rem; gap: 6px; }
             
-            /* Navigation compact */
-            nav { padding: 0.5rem 0.5rem !important; }
-            nav .max-w-7xl { max-width: 100% !important; width: 100% !important; }
-            nav .px-8 { padding-left: 0.25rem !important; padding-right: 0.25rem !important; }
-            nav .py-4 { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; }
-            nav .gap-8 { gap: 0.25rem !important; }
-            nav .gap-3 { gap: 0.25rem !important; }
-            nav .flex { flex-wrap: wrap; }
-            nav .text-3xl { font-size: 0.9rem !important; }
-            nav .hidden { display: none !important; }
-            nav .lg\:flex { display: none !important; }
-            nav [class*="text-[11px]"] { font-size: 0.65rem !important; }
-            nav [class*="text-[10px]"] { font-size: 0.65rem !important; }
-            nav a, nav button { padding: 0.4rem 0.6rem !important; margin: 0 !important; font-size: 0.75rem !important; }
+            .mobile-menu {
+                width: 100%;
+                right: -100%;
+                padding: 5rem 1.5rem 2rem;
+                gap: 1.5rem;
+            }
+
+            .mobile-menu a {
+                font-size: 1.2rem;
+                padding: 0.8rem 0;
+            }
+
+            .mobile-menu .social-links {
+                display: flex;
+                gap: 0.8rem;
+                flex-wrap: wrap;
+            }
+
+            .mobile-menu .social-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .hero-section { min-height: 100vh; }
+            .hero-content h1 { font-size: clamp(1.8rem, 7vw, 3rem); margin-bottom: 1rem; }
+            .hero-content p { font-size: clamp(0.9rem, 2vw, 1rem); margin-bottom: 1.5rem; }
+            .cta-primary { padding: 0.8rem 1.8rem; font-size: 0.85rem; }
+
+            .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .services-section { padding: 3rem 1rem; }
+            .section-header h2 { font-size: 1.8rem; margin-bottom: 2rem; }
+            .section-header p { font-size: 0.95rem; }
+
+            .service-card { padding: 1.5rem; border-radius: 20px; }
+            .service-card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; }
+            .service-card .icon-container { width: 50px; height: 50px; }
+
+            .testimonials-section { padding: 3rem 1rem; }
+            .testimonial-card { min-width: 100%; padding: 1.5rem; margin-right: 1rem; }
+
+            .whatsapp-widget { bottom: 15px; left: 15px; width: 50px; height: 50px; }
+            .whatsapp-widget svg { width: 25px; height: 25px; }
+
+            .dark-mode-toggle { bottom: 15px; right: 15px; width: 45px; height: 45px; }
+
+            #faq { padding: 3rem 1rem; }
+            #faq h2 { font-size: 1.8rem; margin-bottom: 2rem; }
+
+            #contact { padding: 3rem 1rem; }
+            #contact .glass { padding: 2rem !important; }
+            #contact .glass > div { padding: 2rem !important; }
+            #contact .glass h2 { font-size: 1.5rem; }
+
+            footer { padding: 3rem 1rem 1rem; }
+            .footer-grid { gap: 2rem; margin-bottom: 2rem; }
+            .footer-logo { font-size: 1.2rem; }
+
+            #chi-siamo { padding: 3rem 1rem; }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
             
-            .logo { font-size: 1rem; }
-            .hero { padding: 2rem 1rem; }
-            .hero h1 { font-size: 1.8rem; }
-            section { padding: 2rem 1rem; }
-            .container { padding: 0 1rem; }
-            .grid, .grid-cols-2, .grid-cols-3 { grid-template-columns: 1fr !important; }
-            .btn { padding: 0.8rem 1.2rem; font-size: 0.9rem; width: 100%; }
-            
-            /* Footer Optimization */
-            footer { padding: 1rem 0.75rem !important; }
-            footer section { padding: 1.5rem 0.5rem !important; }
-            .footer-grid, .footer-nav { gap: 0.5rem !important; grid-template-columns: 1fr !important; display: flex; flex-direction: column; }
-            .footer-col { padding: 0.75rem 0 !important; text-align: center !important; }
-            .footer-col h4, .footer-col h5 { font-size: 0.7rem !important; margin-bottom: 0.4rem !important; }
-            .footer-col a { font-size: 0.75rem !important; padding: 0.2rem 0 !important; }
-            .footer-col p { font-size: 0.8rem !important; margin: 0.2rem 0 !important; }
-            .footer-bottom, .footer-bottom-links { flex-direction: column !important; gap: 0.5rem !important; text-align: center !important; padding-top: 0.75rem !important; }
-            .footer-bottom a, .footer-bottom-links a { font-size: 0.75rem !important; display: block !important; }
-            .footer-bottom p { font-size: 0.75rem !important; }
+            .mobile-menu {
+                width: 70%;
+                padding: 5rem 2rem;
+                gap: 1.5rem;
+            }
+
+            .hero-content h1 { font-size: clamp(2rem, 7vw, 3.5rem); }
+            .hero-content p { font-size: clamp(0.95rem, 2.2vw, 1.1rem); }
+
+            .services-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+            .services-section { padding: 4rem 1.5rem; }
+            .section-header h2 { font-size: 2.2rem; }
+
+            .testimonials-section { padding: 4rem 1.5rem; }
+            .testimonial-card { min-width: 280px; }
+
+            #faq { padding: 4rem 1.5rem; }
+            #contact { padding: 4rem 1.5rem; }
+            footer { padding: 4rem 1.5rem 2rem; }
+        }
+
+        @media (min-width: 769px) {
+            nav { padding: 1.5rem 2rem; }
+            .nav-links { display: flex !important; }
+        }
+
+        @media (max-width: 768px) {
+            .section-header h2 { font-size: 2.2rem; }
+            .hero-content h1 { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-rose-100/30">
-        <div class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="bg-primary p-2 rounded-lg">
-                    <i data-lucide="cross" class="w-5 h-5 text-white"></i>
-                </div>
-                <span class="font-miso text-3xl font-bold text-asclepio_black tracking-tighter">ASCLEPIO_</span>
-            </div>
-            
-            <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-asclepio_black/70">
-                <a href="#servizi" class="hover:text-primary transition-all">Servizi</a>
-                <a href="#chi-siamo" class="hover:text-primary transition-all">Filosofia</a>
-                <a href="#recensioni" class="hover:text-primary transition-all">Pazienti</a>
-                <a href="#contatti" class="hover:text-primary transition-all">Contatti</a>
-            </div>
-
-            <a href="tel:+41911234567" class="bg-asclepio_black text-white px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary transition-all">
-                +41 91 123 45 67
-            </a>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M2 12h20M12 9a3 3 0 1 0 0 6 3 3 0 1 0 0-6z"/></svg>
+            <span>FANTASY FARMACIA</span>
+        </a>
+        <div class="nav-links">
+            <a href="#servizi">Servizi</a>
+            <a href="#chi-siamo">Filosofia</a>
+            <a href="#recensioni">Recensioni</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact" class="cta-primary" style="padding: 0.6rem 1.5rem;">Contatti</a>
         </div>
+        <button class="burger-btn" onclick="toggleMenu()" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
-    <header class="hero-section h-screen flex items-center justify-center text-center px-8">
-        <div class="hero-overlay"></div>
-        <div class="relative z-10 max-w-4xl">
-            <h1 class="text-7xl md:text-9xl font-bold text-white mb-6 leading-none">
-                Salute. <span class="text-accent italic">Scienza.</span> <br> Svizzera.
-            </h1>
-            <p class="text-xl md:text-2xl text-white/80 font-light mb-12 max-w-2xl mx-auto leading-relaxed">
-                Farmacia Asclepio Morbio Inferiore: Consulenza d'eccellenza e innovazione diagnostica nel Mendrisiotto.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-5 justify-center">
-                <a href="#servizi" class="bg-primary text-white px-12 py-5 rounded-2xl font-bold uppercase text-[10px] tracking-widest shadow-2xl hover:scale-105 transition-all">
-                    I Nostri Servizi
-                </a>
-                <a href="#contatti" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-12 py-5 rounded-2xl font-bold uppercase text-[10px] tracking-widest hover:bg-white/20 transition-all">
-                    Dove Siamo
-                </a>
-            </div>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#" onclick="toggleMenu()">🏠 Home</a>
+        <a href="#servizi" onclick="toggleMenu()">Servizi</a>
+        <a href="#chi-siamo" onclick="toggleMenu()">Chi Siamo</a>
+        <a href="#recensioni" onclick="toggleMenu()">Testimonianze</a>
+        <a href="#faq" onclick="toggleMenu()">FAQ</a>
+        <a href="#contact" onclick="toggleMenu()">Contatti</a>
+        <div class="social-links" style="margin-top: auto;">
+            <a href="https://facebook.com/fantasyfarmacia" class="social-icon" aria-label="Facebook">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+            </a>
+            <a href="https://instagram.com/fantasyfarmacia" class="social-icon" aria-label="Instagram">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/></svg>
+            </a>
+            <a href="https://wa.me/4178123456" class="social-icon" aria-label="WhatsApp">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>Prevenzione,<br><i>Passione, Salute.</i></h1>
+            <p>Esperti in preparazioni galeniche e diagnostica avanzata. La tua farmacia di fiducia nel cuore di Mendrisio.</p>
+            <a href="#contact" class="cta-primary">Prenota un Esame</a>
         </div>
     </header>
 
-    <section id="servizi" class="py-32 px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-24">
-                <h2 class="text-5xl md:text-7xl font-miso font-bold italic tracking-tighter">Servizi <span class="text-primary">Premium</span></h2>
-                <div class="h-1 w-20 bg-primary mx-auto mt-4"></div>
+    <!-- Intro / About -->
+    <section id="chi-siamo" style="padding: 8rem 1.5rem; text-align: center;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <span class="text-accent" style="font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Mendrisio, via fantasia</span>
+            <h2 style="margin: 1.5rem 0;">La salute ha un nuovo volto</h2>
+            <p style="font-size: 1.2rem; color: var(--text-muted);">Fantasy Farmacia non è solo un luogo di cura, ma un centro di consulenza dove l'innovazione degli esami del sangue e della vista si fonde con la tradizione del laboratorio galenico.</p>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="servizi" class="services-section">
+        <div class="section-header">
+            <h2>I Nostri Servizi</h2>
+            <p>Soluzioni complete per il tuo benessere quotidiano.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card glass">
+                <div class="icon-container">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+                </div>
+                <h3>Galenica</h3>
+                <p>Preparazioni personalizzate realizzate nel nostro laboratorio interno per dosaggi e formulazioni uniche.</p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="service-card bg-rose-50/30 rounded-[3rem] p-10 border border-rose-100 h-full" data-tilt>
-                    <div class="card-content">
-                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm">
-                            <i data-lucide="heart-pulse" class="w-8 h-8 text-primary"></i>
-                        </div>
-                        <h3 class="text-4xl font-miso font-bold mb-4">Telemedicina</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-8">ECG e Holter cardiaci con refertazione immediata in collaborazione con centri specialistici svizzeri.</p>
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600" class="rounded-3xl h-48 w-full object-cover">
-                    </div>
+            <div class="service-card glass" style="background: var(--primary); color: white;">
+                <div class="icon-container" style="background: white; color: var(--primary);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
                 </div>
-
-                <div class="service-card bg-asclepio_black text-white rounded-[3rem] p-10 h-full" data-tilt>
-                    <div class="card-content">
-                        <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-8 shadow-sm">
-                            <i data-lucide="flask-conical" class="w-8 h-8 text-accent"></i>
-                        </div>
-                        <h3 class="text-4xl font-miso font-bold mb-4 text-accent">Galenica</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-8">Il nostro laboratorio prepara rimedi su misura, integrando l'antica sapienza farmaceutica con standard moderni.</p>
-                        <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=600" class="rounded-3xl h-48 w-full object-cover opacity-80">
-                    </div>
+                <h3>Consegna a Domicilio</h3>
+                <p>Non puoi muoverti? Portiamo noi i tuoi farmaci a Mendrisio e dintorni in tempi record.</p>
+            </div>
+            <div class="service-card glass">
+                <div class="icon-container">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                 </div>
-
-                <div class="service-card bg-rose-50/30 rounded-[3rem] p-10 border border-rose-100 h-full" data-tilt>
-                    <div class="card-content">
-                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm">
-                            <i data-lucide="microscope" class="w-8 h-8 text-primary"></i>
-                        </div>
-                        <h3 class="text-4xl font-miso font-bold mb-4">Analisi Sangue</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-8">Test rapidi per la misurazione di glicemia, colesterolo e parametri metabolici con estrema precisione.</p>
-                        <img src="https://images.unsplash.com/photo-1579152276503-346747d6928e?auto=format&fit=crop&q=80&w=600" class="rounded-3xl h-48 w-full object-cover">
-                    </div>
-                </div>
+                <h3>Check-up Completo</h3>
+                <p>Esami del sangue rapidi, controllo udito e vista per una prevenzione senza attese.</p>
             </div>
         </div>
     </section>
 
-    <section id="recensioni" class="py-32 px-8 max-w-7xl mx-auto">
-        <h2 class="text-5xl font-miso font-bold text-center mb-20 italic">Recensioni <span class="text-primary">Pazienti</span></h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div class="bg-white p-12 rounded-[3.5rem] border border-rose-100 shadow-sm">
-                <div class="flex gap-1 mb-6 text-primary">
-                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                </div>
-                <p class="text-xl italic text-gray-700 leading-relaxed">"Farmacia Asclepio è sinonimo di fiducia. Il Dr. Asclepio e il suo team sono sempre pronti a fornire una consulenza di alto livello."</p>
-                <p class="mt-8 font-bold uppercase text-[10px] tracking-widest">— Laura M., Morbio Inferiore</p>
+    <!-- Testimonials -->
+    <section id="recensioni" class="testimonials-section">
+        <div class="section-header">
+            <h2>Cosa dicono di noi</h2>
+        </div>
+        <div class="testimonial-slider">
+            <div class="testimonial-card glass">
+                <p>"Professionalità eccellente. L'esame della vista è stato accurato e il personale molto gentile."</p>
+                <h4 style="margin-top: 1rem;">- Elena B., Mendrisio</h4>
             </div>
-            <div class="bg-rose-50/50 p-12 rounded-[3.5rem] border border-rose-100">
-                <div class="flex gap-1 mb-6 text-primary">
-                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                </div>
-                <p class="text-xl italic text-gray-700 leading-relaxed">"Servizio di telemedicina impeccabile. Referto Holter ricevuto in pochissimo tempo. Professionalità assoluta."</p>
-                <p class="mt-8 font-bold uppercase text-[10px] tracking-widest">— Pietro R., Chiasso</p>
+            <div class="testimonial-card glass">
+                <p>"Il laboratorio galenico è il loro punto di forza. Hanno preparato un farmaco specifico introvabile altrove."</p>
+                <h4 style="margin-top: 1rem;">- Marco S., Chiasso</h4>
+            </div>
+            <div class="testimonial-card glass">
+                <p>"Servizio a domicilio impeccabile. Ordinato via WhatsApp e ricevuto in 2 ore."</p>
+                <h4 style="margin-top: 1rem;">- Giulia P., Riva San Vitale</h4>
+            </div>
+            <div class="testimonial-card glass">
+                <p>"Esami del sangue rapidi e indolori. Risultati spiegati con grande chiarezza."</p>
+                <h4 style="margin-top: 1rem;">- Roberto F., Mendrisio</h4>
+            </div>
+            <div class="testimonial-card glass">
+                <p>"Farmacia moderna con uno spirito umano. Mi sento sempre ascoltata e consigliata al meglio."</p>
+                <h4 style="margin-top: 1rem;">- Laura V., Mendrisio</h4>
             </div>
         </div>
     </section>
 
-    <section id="contatti" class="py-24 px-8">
-        <div class="max-w-7xl mx-auto bg-asclepio_black rounded-[4rem] p-12 md:p-24 text-white grid grid-cols-1 lg:grid-cols-2 gap-20">
+    <!-- FAQ -->
+    <section id="faq" style="padding: 6rem 1.5rem; max-width: 900px; margin: 0 auto;">
+        <h2 style="text-align: center; margin-bottom: 3rem;">Domande Frequenti</h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <details class="glass" style="padding: 1.5rem; border-radius: 15px; cursor: pointer;">
+                <summary style="font-weight: 700;">Bisogna prenotare per gli esami del sangue?</summary>
+                <p style="margin-top: 1rem;">Consigliamo la prenotazione per ridurre i tempi di attesa, ma siamo disponibili anche per urgenze durante gli orari di apertura.</p>
+            </details>
+            <details class="glass" style="padding: 1.5rem; border-radius: 15px; cursor: pointer;">
+                <summary style="font-weight: 700;">Effettuate anche test dell'udito gratuiti?</summary>
+                <p style="margin-top: 1rem;">Sì, organizziamo regolarmente giornate dedicate allo screening gratuito dell'udito con tecnici specializzati.</p>
+            </details>
+            <details class="glass" style="padding: 1.5rem; border-radius: 15px; cursor: pointer;">
+                <summary style="font-weight: 700;">In quali zone consegnate a domicilio?</summary>
+                <p style="margin-top: 1rem;">Copriamo tutta Mendrisio e le frazioni limitrofe (Capolago, Genestrerio, Rancate, Arzo).</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" style="padding: 6rem 1.5rem;">
+        <div class="glass" style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); border-radius: 40px; overflow: hidden;">
+            <div style="padding: 4rem;">
+                <h2>Parliamo della tua salute</h2>
+                <p class="mb-1" style="margin-top: 2rem;"><b>Indirizzo:</b> via fantasia, Mendrisio</p>
+                <p class="mb-1"><b>Telefono:</b> +41 78 123 45 6</p>
+                <p class="mb-1"><b>E-mail:</b> info@fantasyfarmacia.ch</p>
+                <div style="margin-top: 2rem;">
+                    <h4 class="mb-1">Orari di Apertura</h4>
+                    <p>Lun - Ven: 08:00 - 18:30</p>
+                    <p>Sabato: 08:30 - 17:00</p>
+                </div>
+            </div>
+            <div style="background: url('https://images.unsplash.com/photo-1579152276503-346747d6928e?q=80&w=800') center/cover;"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
             <div>
-                <h2 class="text-6xl font-miso font-bold mb-12 italic text-primary">Contatti</h2>
-                <div class="space-y-12">
-                    <div>
-                        <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-4">Location</p>
-                        <p class="text-2xl font-light">Via Al Funti 17, 6834 <br> Morbio Inferiore, Svizzera</p>
-                    </div>
-                    <div>
-                        <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-4">Telefono</p>
-                        <p class="text-4xl font-bold">+41 91 123 45 67</p>
-                    </div>
-                    <div>
-                        <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-4">Orari</p>
-                        <p class="text-xl">Lun-Ven: 08:00 - 18:30 <br> Sab: 08:30 - 17:00</p>
-                    </div>
+                <span class="footer-logo">FANTASY FARMACIA</span>
+                <p style="color: #94a3b8;">La tua eccellenza galenica a Mendrisio. Salute su misura per ogni paziente.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com" class="social-icon" aria-label="Facebook">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                    </a>
+                    <a href="https://instagram.com" class="social-icon" aria-label="Instagram">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
+                    </a>
                 </div>
             </div>
-            <div class="h-[600px] rounded-[3rem] overflow-hidden border border-white/10 grayscale">
-                <iframe src="http://googleusercontent.com/maps.google.com/7" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div>
+                <h4 class="mb-1">Servizi Rapidi</h4>
+                <ul style="list-style: none; color: #94a3b8;">
+                    <li><a href="#servizi" style="color: inherit; text-decoration: none;">Laboratorio Galenico</a></li>
+                    <li><a href="#servizi" style="color: inherit; text-decoration: none;">Consegna Farmaci</a></li>
+                    <li><a href="#servizi" style="color: inherit; text-decoration: none;">Esami del Sangue</a></li>
+                    <li><a href="#servizi" style="color: inherit; text-decoration: none;">Controllo Vista</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="mb-1">Contatti</h4>
+                <p style="color: #94a3b8;">via fantasia, Mendrisio<br>Svizzera</p>
+                <p style="color: #94a3b8; margin-top: 1rem;">Tel: +41 78 123 45 6</p>
             </div>
         </div>
-    </section>
-
-    <footer class="py-12 text-center text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">
-        © 2026 Farmacia Asclepio Morbio Inferiore • Swiss Healthcare Excellence
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fantasy Farmacia. Tutti i diritti riservati. | Design by SitiTicino.ch</p>
+        </div>
     </footer>
 
+    <!-- Widgets -->
+    <a href="https://wa.me/4178123456" class="whatsapp-widget" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Dark Mode">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+
     <script>
-        lucide.createIcons();
-        // Inizializzazione Vanilla Tilt per l'effetto 3D
-        VanillaTilt.init(document.querySelectorAll(".service-card"), {
-            max: 15,
-            speed: 400,
-            glare: true,
-            "max-glare": 0.2,
-            scale: 1.05
+        // Scroll Effect for Navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const btn = document.querySelector('.burger-btn');
+            const menu = document.getElementById('mobileMenu');
+            btn.classList.toggle('active');
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // Smooth reveal on scroll (optional lightweight version)
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
         });
     </script>
 </body>
