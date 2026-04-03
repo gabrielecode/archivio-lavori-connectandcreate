@@ -2,457 +2,461 @@
 <html lang="it" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lugano Express | Green Logistics Biciclette</title>
-    <link rel="stylesheet" href="../shared/css/global.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        background: '#0F1110',
-                        foreground: '#F7F8F6',
-                        'muted-foreground': '#B0B3B0',
-                        primary: '#F0EEE1',
-                        secondary: '#1A1D1C',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Outfit', 'sans-serif'],
-                    },
-                    animation: {
-                        pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                }
-            }
-        }
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    <!-- SEO METADATA -->
+    <title>Lugano Pony Express | Consegne Elettriche Veloci in Via Nassa</title>
+    <meta name="description" content="Lugano Pony Express: superiamo il traffico di Lugano con corrieri in bicicletta 100% elettrici. Semplifica le tue consegne urbane in Via Nassa oggi stesso.">
+    <meta name="keywords" content="Pony Express Lugano, Corriere Elettrico Lugano, Consegne Veloci Ticino, Bike Messenger Lugano, Consegne Via Nassa, Eco-logistica Svizzera">
+    <meta name="author" content="Lugano Pony Express">
+    <link rel="canonical" href="https://luganoponyexpress.ch">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+    <!-- STYLES -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary: #00ff88; /* Electric Green */
+            --background: #ffffff;
+            --foreground: #0a0a0a;
+            --muted: #f9f9f9;
+            --accent: #111111;
+            --text-gray: #666666;
+            --footer-bg: #0a0a0a;
+            --footer-text: #ffffff;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+        .dark-mode {
+            --background: #0a0a0a;
+            --foreground: #ffffff;
+            --muted: #1a1a1a;
+            --accent: #ffffff;
+            --text-gray: #a0a0a0;
+            --footer-bg: #000000;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: #0F1110;
-            color: #F7F8F6;
             font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
             overflow-x: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
-        /* Typewriter Effect */
-        .typewriter-cursor {
-            display: inline-block;
-            width: 2px;
-            background-color: #F0EEE1;
-            margin-left: 4px;
-            animation: blink 1s infinite;
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.1; }
+
+        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 5%; }
+
+        /* MINIMALIST HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 2rem 0;
+            background: transparent;
+            transition: var(--transition);
         }
 
-        @keyframes blink {
-            0%, 49%, 100% { opacity: 1; }
-            50%, 99% { opacity: 0; }
+        header.scrolled {
+            background: var(--background);
+            padding: 1rem 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
         }
 
-        .typewriter {
-            min-height: 1.2em;
-            display: inline-block;
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.2rem; font-weight: 800; color: var(--foreground); text-decoration: none; text-transform: uppercase; letter-spacing: -0.02em; }
+        
+        .nav-links { display: flex; gap: 3rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--foreground); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600; transition: var(--transition); }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* HERO - MINIMALIST ASYMMETRY */
+        .hero-section { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
+        .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 4rem; width: 100%; }
+        
+        .hero-tagline { color: var(--primary); font-weight: 800; text-transform: uppercase; letter-spacing: 0.4em; font-size: 0.75rem; margin-bottom: 2rem; display: block; }
+        .hero-title { font-size: clamp(2.5rem, 8vw, 6rem); margin-bottom: 2.5rem; letter-spacing: -0.03em; }
+        .hero-description { font-size: 1.25rem; color: var(--text-gray); max-width: 500px; margin-bottom: 3rem; }
+
+        .hero-image-wrapper { position: relative; height: 75vh; overflow: hidden; clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%); }
+        .hero-image { width: 100%; height: 100%; object-fit: cover; transition: 2s ease; transform: scale(1.1); }
+        .hero-image-wrapper:hover .hero-image { transform: scale(1); }
+
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            padding: 1.25rem 3.5rem;
+            background: var(--foreground);
+            color: var(--background);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            transition: var(--transition);
+            border: 1px solid var(--foreground);
+        }
+        .cta-primary:hover { background: var(--primary); color: #000; border-color: var(--primary); transform: translateY(-5px); }
+
+        /* SECTIONS */
+        .section-padding { padding: 10rem 0; }
+        .section-title { font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 4rem; }
+
+        /* SERVICES GRID */
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .service-card { padding: 4rem 2rem; background: var(--muted); transition: var(--transition); border-top: 4px solid transparent; }
+        .service-card:hover { border-top-color: var(--primary); transform: translateY(-10px); background: var(--background); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .service-card h3 { font-size: 1.75rem; margin-bottom: 1.5rem; }
+        .service-card p { color: var(--text-gray); }
+
+        /* TESTIMONIALS - HIGH VOLUME */
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+        .testimonial-card { padding: 2.5rem; background: var(--muted); position: relative; }
+        .testimonial-card::before { content: '"'; font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--primary); position: absolute; top: 10px; left: 20px; opacity: 0.3; }
+        .testimonial-text { font-style: italic; margin-bottom: 1.5rem; font-size: 1rem; position: relative; z-index: 1; }
+        .testimonial-author { font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--foreground); }
+
+        /* FAQ */
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--text-gray); padding: 2rem 0; }
+        .faq-question { font-family: 'Playfair Display', serif; font-size: 1.5rem; cursor: pointer; position: relative; padding-right: 30px; }
+        .faq-question::after { content: '+'; position: absolute; right: 0; transition: transform 0.3s; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: var(--text-gray); margin-top: 0; }
+        .faq-item.active .faq-answer { max-height: 200px; margin-top: 1rem; }
+        .faq-item.active .faq-question::after { transform: rotate(45deg); }
+
+        /* CONTACT SECTION */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; }
+        .contact-info h2 { font-size: 3rem; margin-bottom: 2rem; }
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 1.5rem 0; background: transparent; border: none; border-bottom: 1px solid var(--foreground);
+            color: var(--foreground); font-size: 1rem; margin-bottom: 2rem; outline: none; font-family: 'Inter', sans-serif;
         }
 
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
+        /* FOOTER - LEGIBILITY IMPROVEMENTS */
+        footer {
+            padding: 8rem 0 4rem 0;
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            position: relative;
+        }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 4rem; margin-bottom: 6rem; }
+        .footer-logo { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5rem; display: block; color: var(--primary); }
+        .footer-heading { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 2rem; color: #fff; opacity: 0.5; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 1rem; }
+        .footer-links a { color: var(--footer-text); text-decoration: none; transition: 0.3s; font-weight: 300; }
+        .footer-links a:hover { color: var(--primary); padding-left: 5px; }
+        
+        .footer-bottom {
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #ffffff; /* Explicit high contrast */
+        }
+        .footer-bottom a { color: var(--primary); text-decoration: none; font-weight: 700; }
+
+        /* WIDGETS */
+        .whatsapp-widget {
+            position: fixed; bottom: 30px; left: 30px; z-index: 1000;
+            width: 60px; height: 60px; background: #25D366; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: var(--transition);
+        }
+        .whatsapp-widget:hover { transform: scale(1.1) rotate(10deg); }
+        .whatsapp-widget svg { width: 30px; height: 30px; fill: white; }
+
+        .theme-toggle {
+            position: fixed; bottom: 30px; right: 30px; z-index: 1000;
+            width: 50px; height: 50px; background: var(--foreground); color: var(--background);
+            border: none; border-radius: 0; cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; transition: var(--transition);
         }
 
-        /* Hero Image Overlay */
-        .hero-overlay::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, #0F1110, transparent);
-            z-index: 2;
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 1024px) {
+            .hero-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
+            .hero-image-wrapper { height: 40vh; clip-path: none; order: -1; }
+            .nav-links { display: none; }
+            .services-grid { grid-template-columns: 1fr; }
+            .section-padding { padding: 6rem 0; }
+            .hero-title { font-size: 3.5rem; }
         }
 
-        .hero-image {
-            object-fit: cover;
-            filter: brightness(0.4);
-        }
-
-        /* Glow Effect */
-        .glow-primary {
-            box-shadow: 0 0 40px rgba(240, 238, 225, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .hero-text {
-                font-size: 2.5rem;
-            }
-            
-            .section-padding {
-                padding: 60px 24px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-text {
-                font-size: 1.8rem;
-                line-height: 1.1;
-            }
-            
-            .section-padding {
-                padding: 40px 12px;
-            }
-            
-            body {
-                font-size: 14px;
-                padding-top: 60px;
-            }
-            
-            header {
-                padding: 0.5rem 0.5rem !important;
-                height: auto !important;
-            }
-            
-            nav {
-                flex-direction: column;
-                gap: 0.25rem !important;
-                padding: 0.5rem 0 !important;
-            }
-            
-            nav ul {
-                flex-direction: column !important;
-                gap: 0 !important;
-            }
-            
-            nav li {
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-            
-            nav a {
-                padding: 0.3rem 0.5rem !important;
-                font-size: 0.65rem !important;
-                display: block !important;
-            }
-            
-            .container {
-                padding: 1rem;
-            }
-            
-            button, .btn {
-                padding: 0.75rem 1rem;
-                font-size: 0.9rem;
-                width: 100%;
-            }
-            
-            h1 {
-                font-size: 1.6rem;
-            }
-            
-            h2 {
-                font-size: 1.4rem;
-            }
-            
-            p {
-                font-size: 0.9rem;
-            }
-            
-            /* Footer Optimization */
-            footer { padding: 1rem 0.75rem !important; }
-            .footer-grid { gap: 0.5rem !important; grid-template-columns: 1fr !important; }
-            .footer-col { padding: 0.75rem 0 !important; text-align: center !important; }
-            .footer-col h4, .footer-col h5 { font-size: 0.7rem !important; }
-            .footer-col a { font-size: 0.75rem !important; }
-            .footer-bottom { flex-direction: column !important; gap: 0.5rem !important; text-align: center !important; }
-        }
-
-        @media (min-width: 769px) {
-            .hero-text {
-                font-size: 4.5rem;
-            }
-
-            .section-padding {
-                padding: 128px 24px;
-            }
-        }
+        /* ANIMATIONS */
+        [data-reveal] { opacity: 0; transform: translateY(30px); transition: 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        [data-reveal].active { opacity: 1; transform: translateY(0); }
     </style>
-</head>
-<body class="bg-background text-foreground">
 
-    <!-- HEADER -->
-    <header class="fixed top-0 left-0 w-full z-50 py-6 transition-all duration-300 bg-background/50 backdrop-blur-md">
-        <nav class="container mx-auto px-6 flex justify-between items-center">
-            <div class="text-xl font-extrabold tracking-tighter">
-                LUGANO <span class="text-muted-foreground font-light">EXPRESS</span>
-            </div>
-            <ul class="hidden md:flex gap-10 text-xs font-bold uppercase tracking-widest opacity-70">
-                <li><a href="#services" class="hover:opacity-100 transition-opacity hover:text-primary">Servizi</a></li>
-                <li><a href="#flotta" class="hover:opacity-100 transition-opacity hover:text-primary">Flotta</a></li>
-                <li><a href="#contact" class="hover:opacity-100 transition-opacity hover:text-primary">Contatti</a></li>
+    <!-- SCHEMA.ORG -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Lugano Pony Express",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Nassa",
+        "addressLocality": "Lugano",
+        "addressRegion": "Ticino",
+        "postalCode": "6900",
+        "addressCountry": "CH"
+      },
+      "description": "Corrieri in bicicletta 100% elettrici a Lugano. Consegne rapide, sostenibili e senza traffico nel centro città e Via Nassa.",
+      "url": "https://luganoponyexpress.ch",
+      "telephone": "+4178123456",
+      "priceRange": "$$",
+      "image": "https://images.unsplash.com/photo-1620455805861-796a444d701b?q=80&w=2000&auto=format&fit=crop",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "46.0037",
+        "longitude": "8.9511"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <header id="header">
+        <nav class="container nav-inner">
+            <a href="#" class="logo">Lugano Pony Express</a>
+            <ul class="nav-links">
+                <li><a href="#about">Chi Siamo</a></li>
+                <li><a href="#services">Servizi</a></li>
+                <li><a href="#testimonials">Feedback</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contatti</a></li>
             </ul>
-            <button class="hidden sm:inline-flex px-6 py-2 border border-muted-foreground/20 text-xs tracking-widest uppercase font-bold hover:bg-primary/10 transition-colors">
-                Prenota Ora
-            </button>
         </nav>
     </header>
 
-    <!-- MAIN -->
     <main>
+        <!-- HERO -->
+        <section class="hero-section container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="hero-tagline">Mobilità Urbana Elettrica</span>
+                    <h1 class="hero-title">Velocità Verde nel Cuore di Lugano.</h1>
+                    <p class="hero-description">
+                        Superiamo il traffico di Lugano con corrieri in bicicletta 100% elettrici. Semplifica le tue consegne urbane in Via Nassa e in tutto il Ticino oggi stesso.
+                    </p>
+                    <a href="#contact" class="cta-primary">Richiedi un Rider ora</a>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Corriere Green Lugano" class="hero-image">
+                </div>
+            </div>
+        </section>
 
-        <!-- 1. HERO SECTION -->
-        <section class="relative h-screen flex items-center overflow-hidden hero-overlay">
-            <img 
-                src="https://images.unsplash.com/photo-1571068316344-75bc76f77891?q=80&w=2070&auto=format&fit=crop" 
-                alt="Bicycle Delivery" 
-                class="absolute inset-0 w-full h-full hero-image z-0"
-            >
-            
-            <div class="container mx-auto px-6 relative z-10">
-                <h1 class="hero-text font-black tracking-tighter text-primary leading-[0.9] mb-8">
-                    Logistica Urbana.<br>
-                    <span class="typewriter text-primary" id="typewriter">
-                        Sostenibile.
-                        <span class="typewriter-cursor"></span>
-                    </span>
-                </h1>
-                <p class="max-w-xl text-xl text-muted-foreground font-light mb-12">
-                    Superiamo il traffico di Lugano con corrieri in bicicletta 100% elettrici.
-                    Semplifica le tue consegne urbane oggi stesso.
+        <!-- ABOUT -->
+        <section id="about" class="container section-padding" data-reveal>
+            <div style="max-width: 800px;">
+                <h2 class="section-title">Zero Emissioni. <br>Zero Attese.</h2>
+                <p style="font-size: 1.5rem; line-height: 1.4; color: var(--text-gray); margin-bottom: 3rem;">
+                    Nati nel cuore di <strong>Via Nassa</strong>, abbiamo una missione chiara: rendere la logistica di Lugano fluida come una pedalata assistita. Mentre gli altri restano bloccati sul lungolago, i nostri rider scivolano tra i vicoli portando il tuo business a destinazione.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <button class="h-14 px-10 bg-primary text-background text-sm tracking-widest uppercase font-bold hover:bg-primary/90 transition-colors rounded">
-                        Spedisci Ora
-                    </button>
-                    <button class="h-14 px-10 border border-white/10 text-sm tracking-widest uppercase font-bold hover:border-white transition-colors rounded">
-                        Scopri AE.1
-                    </button>
-                </div>
-            </div>
-
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-10 left-10 flex flex-col gap-4 text-[10px] font-black tracking-[0.2em] text-white/40 uppercase">
-                <span>Scroll to discover</span>
-                <div class="w-px h-16 bg-gradient-to-b from-white/40 to-transparent"></div>
-            </div>
-        </section>
-
-        <!-- 2. URGENT CALL SECTION -->
-        <section class="py-24">
-            <div class="container mx-auto px-6">
-                <div class="bg-primary text-background p-12 md:p-20 rounded-xl flex flex-col md:flex-row justify-between items-center gap-10">
+                <div style="display: flex; gap: 4rem;">
                     <div>
-                        <h2 class="text-4xl md:text-5xl font-black tracking-tighter leading-none mb-6">
-                            Hai un'emergenza?<br>Chiama subito.
-                        </h2>
-                        <p class="text-lg opacity-80 max-w-md">
-                            Corriere assegnato in 2 minuti. Consegna garantita entro 20 minuti nel centro città.
-                        </p>
+                        <span style="font-size: 3rem; font-weight: 800; color: var(--primary);">100%</span>
+                        <p style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.2em;">Flotta Elettrica</p>
                     </div>
-                    <div class="text-center md:text-right">
-                        <a href="tel:+41911234567" class="inline-flex items-center gap-4 bg-background text-primary px-10 py-6 rounded-lg text-2xl font-black tracking-tighter hover:scale-105 transition-transform">
-                            📞 +41 91 123 45 67
-                        </a>
-                        <p class="mt-4 text-xs font-bold uppercase tracking-widest text-background/60">
-                            Attivo dalle 08:00 alle 19:00
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. SERVICES SECTION -->
-        <section id="services" class="py-32 border-t border-white/5">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-extrabold tracking-tighter mb-20 text-center">I Nostri Servizi</h2>
-                <div class="grid md:grid-cols-3 gap-10">
-                    <!-- Service 1 -->
-                    <div class="p-12 bg-secondary/50 rounded-lg hover:bg-secondary transition-colors border border-white/5">
-                        <div class="text-primary mb-8 text-4xl">⚡</div>
-                        <h3 class="text-2xl font-bold mb-4">Pony Express</h3>
-                        <p class="text-muted-foreground leading-relaxed">Documenti e piccoli pacchi in 15 minuti nel centro di Lugano.</p>
-                    </div>
-                    <!-- Service 2 -->
-                    <div class="p-12 bg-secondary/50 rounded-lg hover:bg-secondary transition-colors border border-white/5">
-                        <div class="text-primary mb-8 text-4xl">🌱</div>
-                        <h3 class="text-2xl font-bold mb-4">Eco-Business</h3>
-                        <p class="text-muted-foreground leading-relaxed">Piani abbonamento per aziende a zero emissioni CO2.</p>
-                    </div>
-                    <!-- Service 3 -->
-                    <div class="p-12 bg-secondary/50 rounded-lg hover:bg-secondary transition-colors border border-white/5">
-                        <div class="text-primary mb-8 text-4xl">🚴</div>
-                        <h3 class="text-2xl font-bold mb-4">Cargo AE.1</h3>
-                        <p class="text-muted-foreground leading-relaxed">Trasporto merci ingombranti fino a 300kg in sicurezza.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. FLEET SECTION -->
-        <section id="flotta" class="py-32 bg-secondary/20">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-extrabold tracking-tighter mb-12 text-center">Flotta AE.1</h2>
-                <p class="text-center text-lg text-muted-foreground max-w-2xl mx-auto mb-16">
-                    La nostra flotta di biciclette elettriche di ultima generazione garantisce consegne rapide, silenziose e a zero emissioni CO2.
-                </p>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1000&auto=format&fit=crop" alt="E-Bike Fleet" class="rounded-lg">
-                    <div class="space-y-6">
-                        <div>
-                            <h3 class="text-2xl font-bold mb-2">Batteria 72V | 500W</h3>
-                            <p class="text-muted-foreground">Autonomia fino a 80km con una singola carica.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold mb-2">Sistema GPS Integrato</h3>
-                            <p class="text-muted-foreground">Tracciamento in tempo reale di ogni consegna.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold mb-2">Cestello Cargo | 300kg</h3>
-                            <p class="text-muted-foreground">Trasporto sicuro di merci ingombranti.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. CONTACT SECTION -->
-        <section id="contact" class="py-32">
-            <div class="container mx-auto px-6 max-w-6xl">
-                <div class="grid md:grid-cols-2 gap-20">
                     <div>
-                        <h2 class="text-5xl font-black tracking-tighter mb-8 leading-none">Preventivo<br>Gratuito.</h2>
-                        <p class="text-lg text-muted-foreground font-light mb-12">
-                            Compila il modulo per ricevere una quotazione immediata per le tue spedizioni a Lugano e Ticino.
-                        </p>
-                        <ul class="space-y-6 text-sm font-medium">
-                            <li class="flex items-center gap-4">📍 Piazza della Riforma, Lugano</li>
-                            <li class="flex items-center gap-4">📧 info@luganoexpress.ch</li>
-                            <li class="flex items-center gap-4">📞 +41 91 123 45 67</li>
-                        </ul>
+                        <span style="font-size: 3rem; font-weight: 800; color: var(--primary);">~12min</span>
+                        <p style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.2em;">Tempo Medio in Centro</p>
                     </div>
-                    <form class="space-y-6">
-                        <input type="text" placeholder="Nome Completo" class="w-full h-14 px-4 bg-secondary/50 border border-white/10 rounded text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary">
-                        <input type="email" placeholder="Email Aziendale" class="w-full h-14 px-4 bg-secondary/50 border border-white/10 rounded text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary">
-                        <textarea placeholder="Dettagli spedizione (Origine / Destinazione)" rows="6" class="w-full px-4 py-3 bg-secondary/50 border border-white/10 rounded text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary resize-none"></textarea>
-                        <button type="submit" class="w-full h-16 bg-primary text-background text-sm tracking-widest uppercase font-black hover:bg-primary/90 transition-colors rounded">
-                            Invia Richiesta
-                        </button>
-                    </form>
                 </div>
             </div>
         </section>
 
+        <!-- SERVICES -->
+        <section id="services" class="container section-padding" data-reveal>
+            <h2 class="section-title">Servizi su Misura</h2>
+            <div class="services-grid">
+                <article class="service-card">
+                    <h3>Documenti Flash</h3>
+                    <p>Contratti, pratiche legali e plichi riservati consegnati con priorità assoluta tra uffici e banche di Lugano.</p>
+                </article>
+                <article class="service-card">
+                    <h3>Retail & Boutique</h3>
+                    <p>Supportiamo le boutique di Via Nassa con consegne a domicilio per i clienti più esigenti in giornata.</p>
+                </article>
+                <article class="service-card">
+                    <h3>Cargo Voluminoso</h3>
+                    <p>Le nostre cargo-bike possono trasportare fino a 150kg di merce, perfette per rifornimenti e pacchi multipli.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section id="testimonials" class="container section-padding" data-reveal>
+            <h2 class="section-title" style="text-align: center;">Dicono di Noi</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Incredibili. Consegnano in Via Nassa mentre tutti gli altri sono fermi in colonna. Un servizio essenziale."</p>
+                    <p class="testimonial-author">Marco R. — Boutique Via Nassa</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Puntuali e professionali. Usiamo Lugano Pony Express per tutti i nostri atti legali urgenti."</p>
+                    <p class="testimonial-author">Studio Legale Bianchi</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Il miglior corriere green del Ticino. Rapidità e rispetto per l'ambiente in un unico servizio."</p>
+                    <p class="testimonial-author">Elena V. — Eco Store</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Abbiamo ridotto i tempi di attesa dei nostri clienti del 50% grazie ai loro corrieri in bici."</p>
+                    <p class="testimonial-author">Ristorante Centrale</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Gentili, veloci e sempre col sorriso. Lugano Pony Express è una garanzia di qualità."</p>
+                    <p class="testimonial-author">Ufficio Fiduciario Lugano</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"La soluzione perfetta per chi lavora in centro. Non dobbiamo più preoccuparci dei parcheggi."</p>
+                    <p class="testimonial-author">Arch. Stefano M.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="container section-padding" data-reveal>
+            <h2 class="section-title">Domande Frequenti</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Quali zone coprite a Lugano?</div>
+                    <div class="faq-answer">Copriamo l'intero centro città, Via Nassa, Paradiso, Castagnola e le zone limitrofe del distretto di Lugano.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Quanto peso potete trasportare?</div>
+                    <div class="faq-answer">Le nostre bici cargo standard supportano fino a 80kg, mentre le unità speciali arrivano a 150kg di carico utile.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Consegnate anche in caso di pioggia?</div>
+                    <div class="faq-answer">Assolutamente sì. I nostri rider sono equipaggiati per ogni condizione meteo e i box di carico sono 100% impermeabili.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">È possibile tracciare la consegna?</div>
+                    <div class="faq-answer">Sì, riceverai una notifica in tempo reale al momento del ritiro e della consegna avvenuta con firma digitale.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="container section-padding" data-reveal>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Mettiamoci <br>in Moto.</h2>
+                    <p style="margin-bottom: 2rem; color: var(--text-gray);">Hai una consegna urgente o vuoi attivare un piano fiduciario per la tua azienda? Scrivici ora.</p>
+                    <p><strong>Indirizzo:</strong> Via Nassa, 6900 Lugano</p>
+                    <p><strong>Telefono:</strong> +41 78 123 45 67</p>
+                    <p><strong>Email:</strong> info@luganoponyexpress.ch</p>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Nome / Azienda" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Dettagli della consegna (Punto A -> Punto B)" rows="4" required></textarea>
+                    <button type="submit" class="cta-primary" style="cursor: pointer;">Invia Richiesta</button>
+                </form>
+            </div>
+        </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="border-t border-white/5 bg-secondary/30 py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 mb-8">
+    <!-- FOOTER - IMPROVED READABILITY -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
                 <div>
-                    <h3 class="text-lg font-bold mb-4">Lugano Express</h3>
-                    <p class="text-muted-foreground text-sm">Logistica green per Lugano.</p>
+                    <span class="footer-logo">Lugano <br>Pony Express</span>
+                    <p style="font-weight: 300; opacity: 0.8;">La logistica urbana del futuro, oggi a Lugano. Sostenibile, rapida, elettrica.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Link Rapidi</h3>
-                    <nav class="space-y-2 text-sm">
-                        <a href="#services" class="block text-muted-foreground hover:text-primary transition-colors">Servizi</a>
-                        <a href="#flotta" class="block text-muted-foreground hover:text-primary transition-colors">Flotta</a>
-                        <a href="#contact" class="block text-muted-foreground hover:text-primary transition-colors">Contatti</a>
-                    </nav>
+                    <h4 class="footer-heading">Navigazione</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">Mission</a></li>
+                        <li><a href="#services">Servizi</a></li>
+                        <li><a href="#testimonials">Recensioni</a></li>
+                        <li><a href="#contact">Contatti</a></li>
+                    </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Contattaci</h3>
-                    <address class="space-y-2 text-sm not-italic text-muted-foreground">
-                        <p>Piazza della Riforma</p>
-                        <p>6900 Lugano, Svizzera</p>
-                        <p>📞 +41 91 123 45 67</p>
-                    </address>
+                    <h4 class="footer-heading">Legale</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Termini e Condizioni</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Seguici</h3>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary/10 transition-colors">f</a>
-                        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary/10 transition-colors">𝕏</a>
-                        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary/10 transition-colors">in</a>
-                    </div>
+                    <h4 class="footer-heading">Social</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="border-t border-white/5 pt-8 text-center text-xs text-muted-foreground">
-                <p>&copy; 2026 Lugano Express. Tutti i diritti riservati.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lugano Pony Express. Tutti i diritti riservati.</p>
+                <p>Design by <a href="https://sititicino.ch" target="_blank">SitiTicino.ch</a></p>
             </div>
         </div>
     </footer>
 
-    <!-- MOBILE STICKY BAR -->
-    <div class="md:hidden fixed bottom-0 left-0 w-full h-20 grid grid-cols-2 z-50">
-        <a href="tel:+41911234567" class="bg-primary text-background flex flex-col items-center justify-center gap-1 border-t border-white/5">
-            <span class="text-2xl">📞</span>
-            <span class="text-[10px] font-black uppercase tracking-widest">Chiama</span>
-        </a>
-        <a href="https://wa.me/41911234567" class="bg-background text-primary flex flex-col items-center justify-center gap-1 border-t border-l border-white/5">
-            <span class="text-2xl">💬</span>
-            <span class="text-[10px] font-black uppercase tracking-widest">WhatsApp</span>
-        </a>
-    </div>
+    <!-- WIDGETS -->
+    <a href="https://wa.me/+4178123456" class="whatsapp-widget" target="_blank" aria-label="Contattaci su WhatsApp">
+        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.1 0-65.6-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.4 2.4-11.2 2.5-2.5 5.5-6.4 8.2-9.7 2.8-3.3 3.7-5.6 5.6-9.3 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+    </a>
 
-    <!-- TYPEWRITER SCRIPT -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">🌓</button>
+
+    <!-- SCRIPTS -->
     <script>
-        const words = ['Sostenibile.', 'Puntuale.', 'Agile.', 'Lugano Express.'];
-        const typewriterEl = document.getElementById('typewriter');
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let isPaused = false;
+        // Scroll Header Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
 
-        function typewriter() {
-            if (isPaused) {
-                setTimeout(typewriter, 200);
-                return;
-            }
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
 
-            const currentWord = words[wordIndex];
-            const displayText = currentWord.substring(0, charIndex + (isDeleting ? 0 : 1));
-            
-            typewriterEl.textContent = displayText;
-
-            if (!isDeleting && charIndex < currentWord.length) {
-                charIndex++;
-                isPaused = false;
-            } else if (isDeleting && charIndex > 0) {
-                charIndex--;
-                isPaused = false;
-            } else {
-                if (!isDeleting) {
-                    isPaused = true;
-                    setTimeout(() => {
-                        isDeleting = true;
-                        isPaused = false;
-                        typewriter();
-                    }, 2000);
-                    return;
-                } else {
-                    isDeleting = false;
-                    wordIndex = (wordIndex + 1) % words.length;
-                    charIndex = 0;
+        // Reveal Animations
+        const revealElements = document.querySelectorAll('[data-reveal]');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.85) {
+                    el.classList.add('active');
                 }
-            }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Trigger initial
 
-            const speed = isDeleting ? 50 : 100;
-            setTimeout(typewriter, speed);
-        }
-
-        typewriter();
-
-        // Add cursor back after text is updated
-        setInterval(() => {
-            if (!typewriterEl.querySelector('.typewriter-cursor')) {
-                const cursor = document.createElement('span');
-                cursor.className = 'typewriter-cursor';
-                typewriterEl.appendChild(cursor);
-            }
-        }, 100);
+        // FAQ Toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
     </script>
-
 </body>
 </html>
