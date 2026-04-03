@@ -1,477 +1,540 @@
 <!DOCTYPE html>
-<html lang="it-CH">
+<html lang="it-CH" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Symecom SA | Soluzioni Tecniche Ticino | SIA & Minergie</title>
-    <meta name="description" content="Symecom SA: leader in Ticino per sistemi di chiusura certificati SIA 342 e isolamento termico standard Minergie. Qualità svizzera garantita.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Fantasy Metal | Metalcostruzioni e Serrande a Bellinzona, Ticino</title>
+    <meta name="description" content="Fantasy Metal a Bellinzona: specialisti in porte basculanti, serrande industriali, porte veloci e cancelli. Soluzioni su misura in Ticino con qualità svizzera.">
+    <meta name="keywords" content="metalcostruzioni Bellinzona, porte basculanti Ticino, serrande industriali, porte veloci, cancelli Ticino, recinzioni metalliche, fabbro Bellinzona, Fantasy Metal Ticino">
     
-    <link rel="stylesheet" href="../../shared/css/global.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Local SEO Hreflang -->
+    <link rel="alternate" hreflang="it-ch" href="https://fantasymetal.ch/">
+    <link rel="alternate" hreflang="de-ch" href="https://fantasymetal.ch/de/">
+    <link rel="alternate" hreflang="fr-ch" href="https://fantasymetal.ch/fr/">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
     
-    <style>
-        :root { --blue-swiss: #2563eb; --dark-swiss: #0f172a; }
-        html { scroll-behavior: smooth; }
-        
-        /* Tailwind Replacement Classes */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, -apple-system, sans-serif; }
-        
-        /* Utilities - Spacing */
-        .px-4 { padding-left: 1rem; padding-right: 1rem; }
-        .px-5 { padding-left: 1.25rem; padding-right: 1.25rem; }
-        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-        .px-8 { padding-left: 2rem; padding-right: 2rem; }
-        .px-10 { padding-left: 2.5rem; padding-right: 2.5rem; }
-        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-        .py-5 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
-        .py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-        .p-4 { padding: 1rem; }
-        .p-5 { padding: 1.25rem; }
-        .p-6 { padding: 1.5rem; }
-        .p-10 { padding: 2.5rem; }
-        .p-12 { padding: 3rem; }
-        
-        .gap-2 { gap: 0.5rem; }
-        .gap-4 { gap: 1rem; }
-        .gap-5 { gap: 1.25rem; }
-        .gap-6 { gap: 1.5rem; }
-        .gap-8 { gap: 2rem; }
-        .gap-10 { gap: 2.5rem; }
-        
-        /* Colors */
-        .bg-white { background-color: #fff; }
-        .bg-blue-600 { background-color: #2563eb; }
-        .bg-blue-700 { background-color: #1d4ed8; }
-        .bg-slate-50 { background-color: #f8fafc; }
-        .bg-slate-900 { background-color: #0f172a; }
-        .bg-white\/10 { background-color: rgba(255, 255, 255, 0.1); }
-        .bg-white\/20 { background-color: rgba(255, 255, 255, 0.2); }
-        
-        .text-white { color: #fff; }
-        .text-slate-900 { color: #0f172a; }
-        .text-slate-200 { color: #e2e8f0; }
-        .text-slate-300 { color: #cbd5e1; }
-        .text-slate-600 { color: #475569; }
-        .text-blue-400 { color: #60a5fa; }
-        .text-blue-600 { color: #2563eb; }
-        
-        .text-xs { font-size: 0.75rem; }
-        .text-sm { font-size: 0.875rem; }
-        .text-base { font-size: 1rem; }
-        .text-lg { font-size: 1.125rem; }
-        .text-xl { font-size: 1.25rem; }
-        .text-2xl { font-size: 1.5rem; }
-        .text-3xl { font-size: 1.875rem; }
-        .text-5xl { font-size: 3rem; }
-        .text-7xl { font-size: 4.5rem; }
-        
-        .font-bold { font-weight: 700; }
-        .font-black { font-weight: 900; }
-        .font-light { font-weight: 300; }
-        
-        .uppercase { text-transform: uppercase; }
-        .tracking-tighter { letter-spacing: -0.05em; }
-        .tracking-tight { letter-spacing: -0.025em; }
-        .tracking-widest { letter-spacing: 0.1em; }
-        .tracking-[0.3em] { letter-spacing: 0.3em; }
-        
-        /* Layout */
-        .max-w-7xl { max-width: 80rem; }
-        .max-w-4xl { max-width: 56rem; }
-        .max-w-3xl { max-width: 48rem; }
-        .max-w-2xl { max-width: 42rem; }
-        .mx-auto { margin-left: auto; margin-right: auto; }
-        
-        .w-full { width: 100%; }
-        .h-full { height: 100%; }
-        .min-h-screen { min-height: 100vh; }
-        
-        .flex { display: flex; }
-        .grid { display: grid; }
-        .block { display: block; }
-        .inline-flex { display: inline-flex; }
-        .hidden { display: none !important; }
-        
-        .flex-col { flex-direction: column; }
-        .flex-row { flex-direction: row; }
-        .items-center { align-items: center; }
-        .items-start { align-items: flex-start; }
-        .justify-center { justify-content: center; }
-        .justify-between { justify-content: space-between; }
-        
-        .text-center { text-align: center; }
-        .text-left { text-align: left; }
-        .text-right { text-align: right; }
-        
-        /* Border & Shadows */
-        .rounded-lg { border-radius: 0.5rem; }
-        .rounded-2xl { border-radius: 1rem; }
-        .rounded-3xl { border-radius: 1.5rem; }
-        .rounded-full { border-radius: 9999px; }
-        
-        .border { border: 1px solid; }
-        .border-slate-100 { border-color: #f1f5f9; }
-        .border-white\/10 { border-color: rgba(255, 255, 255, 0.1); }
-        .border-white\/20 { border-color: rgba(255, 255, 255, 0.2); }
-        
-        .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
-        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-        .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
-        
-        /* Transitions */
-        .transition { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-        .transition-all { transition-property: all; }
-        .transition-colors { transition-property: color, background-color, border-color; }
-        .transition-transform { transition-property: transform; }
-        
-        .duration-300 { transition-duration: 300ms; }
-        .hover\:bg-blue-700:hover { background-color: #1d4ed8; }
-        .hover\:shadow-2xl:hover { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
-        .hover\:-translate-y-2:hover { transform: translateY(-0.5rem); }
-        .hover\:bg-white\/20:hover { background-color: rgba(255, 255, 255, 0.2); }
-        .hover\:text-blue-600:hover { color: #2563eb; }
-        
-        /* Responsive */
-        @media (min-width: 768px) {
-            .md\:flex { display: flex; }
-            .md\:grid { display: grid; }
-            .md\:hidden { display: none; }
-            .md\:flex-row { flex-direction: row; }
-            .md\:text-sm { font-size: 0.875rem; }
-            .md\:text-lg { font-size: 1.125rem; }
-            .md\:text-xl { font-size: 1.25rem; }
-            .md\:text-left { text-align: left; }
-            .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        industrial: {
+                            900: '#111111',
+                            800: '#1A1A1A',
+                            100: '#F4F4F4',
+                        },
+                        accent: '#F97316' // Safety Orange for Brutalist feel
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
         }
-        
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); }
-        
-        /* Messenger Widget Logic */
-        #chatWidget { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .chat-hidden { opacity: 0; transform: scale(0.8) translateY(40px); pointer-events: none; }
-        .chat-visible { opacity: 1; transform: scale(1) translateY(0); pointer-events: auto; }
-        
-        /* FAQ Accordion */
-        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
-        .faq-active .faq-content { max-height: 300px; }
-        .faq-active i { transform: rotate(180deg); }
-
-        /* Cookie Banner */
-        #cookieBanner { transition: transform 0.5s ease-in-out; }
-
-        .typing-dot { width: 4px; height: 4px; background: #94a3b8; border-radius: 50%; animation: blink 1.4s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
-
-        /* Custom Scrollbar for Chat */
-        #chatWindow::-webkit-scrollbar { width: 4px; }
-        #chatWindow::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
-        
-        .fixed { position: fixed; }
-        .relative { position: relative; }
-        .absolute { position: absolute; }
-        .bottom-0 { bottom: 0; }
-        .right-0 { right: 0; }
-        .left-0 { left: 0; }
-        .top-0 { top: 0; }
-        .inset-0 { inset: 0; }
-        .z-\[300\] { z-index: 300; }
-        .z-50 { z-index: 50; }
-        .z-40 { z-index: 40; }
-        .z-10 { z-index: 10; }
-
-        @media (max-width: 480px) {
-            /* Navigation compact */
-            header, nav { padding: 0.5rem 0.5rem !important; height: auto !important; }
-            nav a, header a { padding: 0.3rem 0.5rem !important; font-size: 0.65rem !important; margin: 0 !important; }
-            
-            body { font-size: 14px; }
-            h1 { font-size: 1.8rem; line-height: 1.2; }
-            h2 { font-size: 1.4rem; line-height: 1.2; }
-            h3 { font-size: 1.1rem; }
-            header { padding: 1rem 0.75rem; }
-            nav { flex-direction: column; gap: 0.5rem; }
-            section { padding: 2rem 1rem; }
-            .container { padding: 1rem; }
-            .feature-card { padding: 1.5rem 1rem; }
-            .grid, .grid-cols-2 { grid-template-columns: 1fr !important; }
-            .btn { padding: 0.8rem 1.2rem; font-size: 0.9rem; width: 100%; }
-            
-            /* Footer Optimization */
-            footer { padding: 1rem 0.75rem !important; }
-            .footer-grid { gap: 0.5rem !important; grid-template-columns: 1fr !important; }
-            .footer-col { padding: 0.75rem 0 !important; text-align: center !important; }
-            .footer-col a { font-size: 0.75rem !important; }
-        }
-    </style>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "Quali normative seguono le porte garage di Symecom SA?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Tutte le nostre installazioni in Ticino seguono rigorosamente la norma SIA 342 per garantire sicurezza e durata nel tempo."
-        }
-      }]
-    }
     </script>
-</head>
-<body class="bg-white text-slate-900 font-sans antialiased">
 
-    <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 z-[300] p-4 bg-slate-900 text-white shadow-2xl">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-            <p class="text-xs md:text-sm text-slate-300">
-                Questo sito utilizza cookie per migliorare l'esperienza in conformità con la **nuova Legge Federale sulla Protezione dei Dati (revLPD)**. <a href="#" onclick="togglePrivacy()" class="underline text-blue-400 ml-1">Privacy Policy</a>.
-            </p>
-            <button onclick="acceptCookies()" class="bg-blue-600 px-8 py-2 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-blue-700 transition shrink-0">Accetto</button>
+    <style type="text/css">
+        /* BRUTALIST ARCHITECTURE & UI */
+        :root {
+            --border-width: 2px;
+            --brutal-shadow: 6px 6px 0px 0px #111111;
+            --brutal-shadow-hover: 10px 10px 0px 0px #111111;
+        }
+        
+        body { 
+            line-height: 1.6; 
+            font-family: 'Inter', sans-serif;
+            background-color: #F4F4F4;
+            color: #111111;
+        }
+
+        .dark body { background-color: #111111; color: #F4F4F4; }
+
+        h1, h2, h3 { 
+            font-family: 'Playfair Display', serif; 
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        /* Brutalist Components */
+        .brutalist-card {
+            border: var(--border-width) solid #111111;
+            border-radius: 0 !important;
+            background: white;
+            transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .dark .brutalist-card { border-color: #F4F4F4; background: #1A1A1A; }
+        
+        .brutalist-shadow { box-shadow: var(--brutal-shadow); }
+        .brutalist-shadow:hover { box-shadow: var(--brutal-shadow-hover); transform: translate(-2px, -2px); }
+
+        .btn-brutal {
+            border: var(--border-width) solid #111111;
+            border-radius: 0 !important;
+            padding: 1rem 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            display: inline-block;
+            background: #F97316;
+            color: white;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .dark .btn-brutal { border-color: #F4F4F4; }
+        .btn-brutal:hover { box-shadow: 4px 4px 0px 0px #111111; transform: translate(-2px, -2px); }
+        .dark .btn-brutal:hover { box-shadow: 4px 4px 0px 0px #F4F4F4; }
+
+        /* Fluid Typography */
+        .hero-title { font-size: clamp(2.5rem, 10vw, 7rem); line-height: 0.85; }
+        
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.77,0,0.175,1);
+            transform: translateX(100%);
+        }
+        #mobile-menu.active { transform: translateX(0); }
+
+        /* FAQ Accordion */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .faq-item.active .faq-content { max-height: 300px; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+
+        /* Widgets */
+        .wa-float {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 90;
+            background: #25D366;
+            border: 2px solid #111111;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 4px 4px 0px #111111;
+        }
+
+        /* SGE Optimized Content Blocks */
+        .sge-block { font-size: 1.125rem; line-height: 1.8; }
+
+        input, textarea {
+            border: 2px solid #111111 !important;
+            border-radius: 0 !important;
+            padding: 12px !important;
+            background: #fff !important;
+            color: #111111 !important;
+        }
+        .dark input, .dark textarea { background: #1A1A1A !important; color: #fff !important; border-color: #F4F4F4 !important; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- MOBILE MENU OVERLAY (FIXED BUG) -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-accent flex flex-col p-8 md:hidden">
+        <div class="flex justify-between items-center mb-12">
+            <span class="text-2xl font-black uppercase text-industrial-900">Menu</span>
+            <button onclick="toggleMenu()" class="text-4xl font-black text-industrial-900">✕</button>
+        </div>
+        <nav class="flex flex-col gap-6 text-4xl font-black uppercase italic">
+            <a href="#about" onclick="toggleMenu()" class="hover:translate-x-4 transition-transform">Chi Siamo</a>
+            <a href="#servizi" onclick="toggleMenu()" class="hover:translate-x-4 transition-transform">Servizi</a>
+            <a href="#faq" onclick="toggleMenu()" class="hover:translate-x-4 transition-transform">FAQ</a>
+            <a href="#contact" onclick="toggleMenu()" class="hover:translate-x-4 transition-transform">Contatti</a>
+        </nav>
+        <div class="mt-auto flex gap-6">
+            <a href="https://facebook.com" class="w-12 h-12 bg-industrial-900 text-white flex items-center justify-center border-2 border-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://instagram.com" class="w-12 h-12 bg-industrial-900 text-white flex items-center justify-center border-2 border-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
         </div>
     </div>
 
-    <nav class="fixed w-full z-50 glass border-b border-slate-100 px-6 py-4">
+    <!-- WHATSAPP WIDGET -->
+    <a href="https://wa.me/41790000000" target="_blank" class="wa-float hover:scale-110 transition-transform" aria-label="Chat su WhatsApp">
+        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <!-- DARK MODE TOGGLE -->
+    <button onclick="document.documentElement.classList.toggle('dark')" class="fixed bottom-6 right-6 z-[90] w-14 h-14 brutalist-card brutalist-shadow flex items-center justify-center bg-white dark:bg-industrial-900 border-2">
+        <svg class="w-6 h-6 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.364-6.364l.707-.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.364l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+    </button>
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-industrial-900 border-b-4 border-industrial-900 dark:border-industrial-100 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="text-xl font-black tracking-tighter uppercase">Symecom<span class="text-blue-600">SA</span></div>
-            <div class="flex items-center gap-4">
-                <div class="flex gap-2 text-[10px] font-bold border-r pr-4 border-slate-200">
-                    <button class="text-blue-600">IT</button>
-                    <button class="text-slate-400 hover:text-blue-600 transition">DE</button>
-                    <button class="text-slate-400 hover:text-blue-600 transition">EN</button>
+            <a href="#" class="flex flex-col group">
+                <span class="text-3xl font-black uppercase tracking-tighter leading-none group-hover:text-accent transition-colors">Fantasy</span>
+                <span class="text-3xl font-black uppercase tracking-tighter leading-none text-accent group-hover:text-industrial-900 dark:group-hover:text-white transition-colors">Metal</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex gap-8 items-center font-black uppercase text-sm">
+                <a href="#about" class="hover:text-accent transition">Chi Siamo</a>
+                <a href="#servizi" class="hover:text-accent transition">Servizi</a>
+                <a href="#progetti" class="hover:text-accent transition">Progetti</a>
+                <div class="flex gap-4 ml-4 border-l-2 border-industrial-900 pl-4 h-6 items-center">
+                    <a href="https://facebook.com" class="hover:text-accent"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    <a href="https://instagram.com" class="hover:text-accent"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
                 </div>
-                <a href="#contatti" class="bg-slate-900 text-white px-5 py-2 rounded-full text-xs font-bold uppercase hover:bg-blue-600 transition shadow-lg">Preventivo</a>
-            </div>
-        </div>
-    </nav>
+                <a href="#contact" class="btn-brutal text-xs py-2 px-6 ml-4">Preventivo</a>
+            </nav>
 
-    <header class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&q=80" 
-                 class="w-full h-full object-cover" alt="Symecom SA Background">
-            <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-[1px]"></div>
-        </div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
-            <div class="max-w-3xl">
-                <span class="text-blue-400 font-bold text-sm uppercase tracking-[0.3em] block mb-4">Swiss Engineering Ticino</span>
-                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight text-white uppercase tracking-tight">
-                    Precisione svizzera,<br>
-                    <span class="text-blue-500">visione globale.</span>
-                </h1>
-                <p class="text-slate-200 text-lg md:text-xl mb-10 leading-relaxed antialiased max-w-2xl">
-                    Sistemi di chiusura certificati SIA e isolamento termico standard Minergie. 
-                    Dal 2024, la tua sicurezza industriale in tutto il Ticino ha un nuovo punto di riferimento.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-5">
-                    <a href="#servizi" class="px-10 py-4 bg-blue-600 text-white text-center rounded-2xl font-bold shadow-2xl hover:bg-blue-700 transition transform hover:scale-105">
-                        Esplora i Pilastri
-                    </a>
-                    <a href="tel:+41916961060" class="px-10 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white text-center rounded-2xl font-bold hover:bg-white/20 transition">
-                        <i class="fas fa-phone mr-2"></i>Contatto Diretto
-                    </a>
-                </div>
-            </div>
+            <!-- Mobile Trigger (FIXED) -->
+            <button class="md:hidden p-2 brutalist-card brutalist-shadow bg-accent" onclick="toggleMenu()" aria-label="Toggle Menu">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
         </div>
     </header>
 
-    <section id="servizi" class="py-24 bg-slate-50 px-6">
-        <div class="max-w-7xl mx-auto text-center mb-16">
-            <h2 class="text-sm font-bold text-blue-600 uppercase tracking-[0.3em] mb-4">Competenza e Certificazioni</h2>
-            <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight mb-8">I Nostri Pilastri Operativi</h2>
-            <p class="text-slate-600 max-w-4xl mx-auto text-base md:text-lg leading-relaxed antialiased">
-                Dalla consulenza tecnica alla posa in opera, portiamo in tutto il <strong>Ticino</strong> le tecnologie più avanzate per l'efficienza energetica e la sicurezza industriale. Integriamo sistemi conformi agli standard <strong>Minergie-P</strong> e alle normative <strong>SIA 342</strong>, assicurando un isolamento termico d'eccellenza e protezioni meccaniche di ultima generazione.
-            </p>
-        </div>
-        
-        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-            <article class="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition duration-300">
-                <div class="text-blue-600 text-4xl mb-8"><i class="fas fa-warehouse"></i></div>
-                <h3 class="text-2xl font-bold mb-4 text-slate-900">Sistemi di Chiusura</h3>
-                <ul class="text-sm text-slate-600 space-y-4">
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Porte sezionali a taglio termico certificato</li>
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Sistemi antieffrazione conformi RC2/RC3</li>
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Automazioni industriali norma SIA 342</li>
-                </ul>
-            </article>
-            <article class="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition duration-300">
-                <div class="text-blue-600 text-4xl mb-8"><i class="fas fa-shield-virus"></i></div>
-                <h3 class="text-2xl font-bold mb-4">Isolamento Termico</h3>
-                <ul class="text-sm text-slate-600 space-y-4">
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Pannelli sandwich PIR alta densità</li>
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Efficienza conforme Minergie-P</li>
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Materiali ignifughi e barriere acustiche</li>
-                </ul>
-            </article>
-            <article class="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition duration-300">
-                <div class="text-blue-600 text-4xl mb-8"><i class="fas fa-tools"></i></div>
-                <h3 class="text-2xl font-bold mb-4">Meccanica & Export</h3>
-                <ul class="text-sm text-slate-600 space-y-4">
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Minuteria galvanica di precisione</li>
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Supporto import-export articoli tecnici</li>
-                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i>Logistica Just-In-Time a Novazzano</li>
-                </ul>
-            </article>
-        </div>
-    </section>
-
-    <section class="py-24 px-6 max-w-4xl mx-auto">
-        <h2 class="text-3xl font-black text-center mb-12 uppercase tracking-tight">Domande Frequenti</h2>
-        <div class="space-y-4">
-            <div class="border border-slate-200 rounded-3xl overflow-hidden cursor-pointer bg-white transition" onclick="this.classList.toggle('faq-active')">
-                <div class="p-6 flex justify-between items-center font-bold text-slate-800">
-                    Symecom SA opera in tutto il Canton Ticino?
-                    <i class="fas fa-chevron-down text-blue-600 transition"></i>
+    <main>
+        <!-- HERO SECTION -->
+        <section class="relative min-h-[95vh] flex items-center bg-industrial-900 overflow-hidden">
+            <div class="absolute inset-0 grayscale opacity-40 mix-blend-overlay">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80" class="w-full h-full object-cover" alt="Fantasy Metal Work">
+            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-6 py-20">
+                <div class="bg-accent text-industrial-900 font-black inline-block px-4 py-1 mb-8 text-sm uppercase tracking-widest border-2 border-industrial-900">
+                    Swiss Steel Excellence • Bellinzona
                 </div>
-                <div class="faq-content bg-slate-50 px-6 text-sm text-slate-600 leading-relaxed">
-                    <p class="py-6">Sì, sebbene la nostra sede tecnica sia a Novazzano, forniamo e installiamo sistemi di chiusura e isolamento in tutto il Ticino, garantendo interventi rapidi da Chiasso a Bellinzona.</p>
+                <h1 class="hero-title font-black text-white mb-10">SICUREZZA<br><span class="text-accent italic">CERTIFICATA.</span></h1>
+                <p class="text-xl md:text-3xl text-slate-200 mb-12 max-w-3xl font-medium leading-tight border-l-8 border-accent pl-8">
+                    Progettiamo e installiamo porte basculanti, serrande industriali e recinzioni ad alta resistenza per il Ticino residenziale e commerciale.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="#contact" class="btn-brutal text-xl py-6 px-12 brutalist-shadow">Richiedi Sopralluogo</a>
+                    <a href="#servizi" class="btn-brutal bg-white text-industrial-900 text-xl py-6 px-12 border-2 border-industrial-900">Esplora Sistemi</a>
                 </div>
             </div>
-            <div class="border border-slate-200 rounded-3xl overflow-hidden cursor-pointer bg-white transition" onclick="this.classList.toggle('faq-active')">
-                <div class="p-6 flex justify-between items-center font-bold text-slate-800">
-                    Cosa significa conformità SIA 342 per le porte garage?
-                    <i class="fas fa-chevron-down text-blue-600 transition"></i>
+        </section>
+
+        <!-- TRUST CLUSTER -->
+        <section class="bg-white dark:bg-industrial-800 border-y-4 border-industrial-900 py-12 px-6">
+            <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-items-center opacity-80 font-black italic text-xl md:text-2xl uppercase">
+                <span class="hover:text-accent cursor-default">Bellinzona</span>
+                <span class="text-accent hover:text-industrial-900 dark:hover:text-white cursor-default">Lugano</span>
+                <span class="hover:text-accent cursor-default">Locarno</span>
+                <span class="text-accent hover:text-industrial-900 dark:hover:text-white cursor-default">Mendrisio</span>
+                <span class="hover:text-accent cursor-default">Chiasso</span>
+            </div>
+        </section>
+
+        <!-- ABOUT (SGE OPTIMIZED) -->
+        <section id="about" class="py-32 px-6 bg-industrial-100 dark:bg-industrial-900">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-5xl md:text-7xl font-black mb-10 leading-none">Solidità Svizzera dal <span class="text-accent underline">Cuore del Ticino</span></h2>
+                    <div class="sge-block space-y-6 text-industrial-900 dark:text-gray-300">
+                        <p class="font-bold text-2xl">
+                            Fantasy Metal è il partner strategico a Bellinzona per chi cerca metalcostruzioni di precisione e chiusure di sicurezza.
+                        </p>
+                        <p>
+                            Dalla nostra sede in Viale Stazione 15, serviamo l'intero Canton Ticino con soluzioni su misura: porte basculanti per garage, serrande motorizzate, porte veloci per la logistica e recinzioni perimetrali certificate. Uniamo la robustezza industriale del metallo con un design pulito e funzionale, rispettando i più alti standard di sicurezza SIA.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+                            <div class="brutalist-card p-6 bg-white dark:bg-industrial-800 border-2">
+                                <span class="block text-4xl font-black text-accent mb-2">15+</span>
+                                <span class="text-xs uppercase font-black">Anni di Esperienza</span>
+                            </div>
+                            <div class="brutalist-card p-6 bg-white dark:bg-industrial-800 border-2">
+                                <span class="block text-4xl font-black text-accent mb-2">24h</span>
+                                <span class="text-xs uppercase font-black">Assistenza Rapida</span>
+                            </div>
+                            <div class="brutalist-card p-6 bg-white dark:bg-industrial-800 border-2">
+                                <span class="block text-4xl font-black text-accent mb-2">ISO</span>
+                                <span class="text-xs uppercase font-black">Qualità Garantita</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="faq-content bg-slate-50 px-6 text-sm text-slate-600 leading-relaxed">
-                    <p class="py-6">La norma SIA 342 stabilisce i requisiti svizzeri per i sistemi di protezione solare e chiusura, assicurando che ogni installazione sia sicura contro gli infortuni, resistente alle intemperie e durevole nel tempo.</p>
+                <div class="order-1 lg:order-2 relative">
+                    <div class="brutalist-card brutalist-shadow overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80" alt="Lavorazione Metalli Bellinzona" class="w-full grayscale hover:grayscale-0 transition-all duration-700 aspect-square object-cover">
+                    </div>
+                    <div class="absolute -bottom-8 -right-8 bg-accent p-10 brutalist-card border-4 hidden md:block">
+                        <p class="text-industrial-900 font-black text-2xl uppercase leading-none">Viale Stazione 15<br><span class="text-white">Bellinzona</span></p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contatti" class="py-24 bg-slate-900 text-white px-6">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <!-- SERVICES GRID -->
+        <section id="servizi" class="py-32 px-6 border-t-4 border-industrial-900 dark:border-industrial-100">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-20">
+                    <h2 class="text-6xl md:text-8xl font-black mb-4 uppercase italic">Sistemi <span class="text-accent">Industrial</span></h2>
+                    <p class="text-2xl font-bold text-industrial-800 dark:text-gray-400">Soluzioni di chiusura per ogni esigenza architettonica.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 border-4 border-industrial-900 dark:border-industrial-100">
+                    <!-- Service 1 -->
+                    <article class="p-12 bg-white dark:bg-industrial-800 border-b-4 md:border-r-4 border-industrial-900 dark:border-industrial-100 flex flex-col group hover:bg-industrial-100 dark:hover:bg-industrial-700 transition-colors">
+                        <div class="mb-8 text-accent"><svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg></div>
+                        <h3 class="text-4xl font-black mb-6 uppercase">Porte Basculanti</h3>
+                        <p class="mb-10 flex-1 text-lg">Porte per garage a contrappeso o a molla. Massima fluidità di movimento e pannelli coibentati per un isolamento termico ottimale in Ticino.</p>
+                        <a href="#contact" class="btn-brutal text-center py-4 bg-industrial-900">Preventivo Gratuito</a>
+                    </article>
+
+                    <!-- Service 2 -->
+                    <article class="p-12 bg-industrial-900 text-white border-b-4 lg:border-r-4 border-industrial-100 flex flex-col group hover:bg-black transition-colors">
+                        <div class="mb-8 text-accent"><svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg></div>
+                        <h3 class="text-4xl font-black mb-6 uppercase text-accent">Porte Veloci</h3>
+                        <p class="mb-10 flex-1 text-lg text-gray-300">Ideali per magazzini e transiti frequenti. Apertura automatizzata ultra-rapida con radar di prossimità e teli in PVC rinforzato.</p>
+                        <a href="#contact" class="btn-brutal text-center py-4 bg-accent">Dati Tecnici</a>
+                    </article>
+
+                    <!-- Service 3 -->
+                    <article class="p-12 bg-white dark:bg-industrial-800 border-b-4 border-industrial-900 dark:border-industrial-100 flex flex-col group hover:bg-industrial-100 dark:hover:bg-industrial-700 transition-colors">
+                        <div class="mb-8 text-accent"><svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg></div>
+                        <h3 class="text-4xl font-black mb-6 uppercase">Cancelli & Chiusure</h3>
+                        <p class="mb-10 flex-1 text-lg">Cancelli scorrevoli o a battente in ferro battuto o stile moderno brutalista. Automazioni silenziose e sistemi di controllo smartphone.</p>
+                        <a href="#contact" class="btn-brutal text-center py-4 bg-industrial-900">Custom Design</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="py-32 px-6 bg-industrial-900 text-white overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-5xl font-black mb-20 text-center uppercase tracking-tighter">Fiducia sul Territorio</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="brutalist-card p-10 bg-industrial-800 border-white text-white">
+                        <div class="flex gap-1 mb-6 text-accent">★★★★★</div>
+                        <p class="text-lg italic mb-8">"Installazione impeccabile della nostra serranda industriale a Lugano. Fantasy Metal ha rispettato i tempi e la qualità è superiore alla media."</p>
+                        <div class="font-black uppercase">— Marco Riva, Logistica Ticino</div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="brutalist-card p-10 bg-accent border-industrial-900 text-industrial-900">
+                        <div class="flex gap-1 mb-6 text-white">★★★★★</div>
+                        <p class="text-lg italic mb-8 text-industrial-900 font-bold">"Il cancello automatico progettato per la nostra villa a Bellinzona è un'opera d'arte metalmeccanica. Assistenza post-vendita eccellente."</p>
+                        <div class="font-black uppercase">— Elena Bianchi</div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="brutalist-card p-10 bg-industrial-800 border-white text-white">
+                        <div class="flex gap-1 mb-6 text-accent">★★★★★</div>
+                        <p class="text-lg italic mb-8">"Serietà e precisione svizzera. Hanno sostituito la vecchia basculante in mezza giornata. Consigliatissimi per tutto il Mendrisiotto."</p>
+                        <div class="font-black uppercase">— Pietro Grassi</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section id="faq" class="py-32 px-6 bg-white dark:bg-industrial-900">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-5xl font-black mb-16 uppercase text-center">Domande <span class="text-accent">Frequenti</span></h2>
+                <div class="space-y-4">
+                    <div class="faq-item brutalist-card border-2 cursor-pointer p-6" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-xl font-black uppercase">Quanto tempo richiede l'installazione di una serranda?</h4>
+                            <span class="faq-icon text-3xl font-black transition-transform">+</span>
+                        </div>
+                        <div class="faq-content mt-4 text-gray-600 dark:text-gray-400">
+                            Un'installazione standard richiede solitamente dalle 4 alle 6 ore. Per sistemi industriali complessi, forniamo un cronoprogramma dettagliato in fase di preventivo.
+                        </div>
+                    </div>
+                    <div class="faq-item brutalist-card border-2 cursor-pointer p-6" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-xl font-black uppercase">Fornite assistenza tecnica in tutto il Ticino?</h4>
+                            <span class="faq-icon text-3xl font-black transition-transform">+</span>
+                        </div>
+                        <div class="faq-content mt-4 text-gray-600 dark:text-gray-400">
+                            Sì, le nostre squadre operano quotidianamente da Chiasso ad Airolo. Garantiamo interventi di emergenza entro 24 ore dalla chiamata per blocchi di porte industriali.
+                        </div>
+                    </div>
+                    <div class="faq-item brutalist-card border-2 cursor-pointer p-6" onclick="toggleFaq(this)">
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-xl font-black uppercase">I vostri prodotti sono conformi alle norme SIA?</h4>
+                            <span class="faq-icon text-3xl font-black transition-transform">+</span>
+                        </div>
+                        <div class="faq-content mt-4 text-gray-600 dark:text-gray-400">
+                            Assolutamente sì. Tutti i nostri sistemi di chiusura e le carpenterie metalliche sono certificate secondo le vigenti normative svizzere SIA per sicurezza e isolamento.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-32 px-6 border-t-4 border-industrial-900 bg-industrial-100 dark:bg-industrial-800">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
+                <div>
+                    <h2 class="text-6xl font-black mb-8 uppercase leading-none">Mettiamoci al <span class="text-accent italic">Lavoro.</span></h2>
+                    <p class="text-xl mb-12 font-bold uppercase tracking-widest text-industrial-800 dark:text-gray-400">Viale Stazione 15, 6500 Bellinzona</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-center gap-6">
+                            <div class="w-16 h-16 bg-industrial-900 text-white flex items-center justify-center border-2 border-accent">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            </div>
+                            <span class="text-2xl font-black">+41 79 000 00 00</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="w-16 h-16 bg-industrial-900 text-white flex items-center justify-center border-2 border-accent">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <span class="text-2xl font-black">info@fantasymetal.ch</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-16 grayscale brutalist-card h-80 brutalist-shadow">
+                        <!-- Placeholder for Map -->
+                        <div class="w-full h-full bg-industrial-200 flex items-center justify-center font-black uppercase text-gray-500">
+                            [ Mappa Interattiva: Bellinzona ]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="brutalist-card p-10 bg-white dark:bg-industrial-900 brutalist-shadow">
+                    <form action="#" method="POST" class="flex flex-col gap-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="flex flex-col gap-2">
+                                <label class="font-black uppercase text-sm">Nome & Cognome</label>
+                                <input type="text" placeholder="Mario Rossi" required>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="font-black uppercase text-sm">Email</label>
+                                <input type="email" placeholder="mario@esempio.ch" required>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="font-black uppercase text-sm">Servizio di interesse</label>
+                            <select class="p-3 border-2 border-industrial-900 bg-white dark:bg-industrial-800 font-bold uppercase text-xs">
+                                <option>Porte Basculanti</option>
+                                <option>Serrande Industriali</option>
+                                <option>Porte Veloci</option>
+                                <option>Cancelli & Recinzioni</option>
+                                <option>Altro / Carpenteria</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="font-black uppercase text-sm">Messaggio</label>
+                            <textarea rows="5" placeholder="Descrivi il tuo progetto..."></textarea>
+                        </div>
+                        <div class="flex items-start gap-3 mt-4">
+                            <input type="checkbox" id="privacy" class="mt-1 w-5 h-5 cursor-pointer" required>
+                            <label for="privacy" class="text-xs font-bold leading-tight uppercase">
+                                Acconsento al trattamento dei dati secondo la nuova LPD svizzera per fini di preventivazione.
+                            </label>
+                        </div>
+                        <button type="submit" class="btn-brutal text-2xl py-6 mt-4">Invia Richiesta</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-industrial-900 text-white py-20 px-6 border-t-4 border-accent">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+            <div class="col-span-2">
+                <span class="text-4xl font-black uppercase italic text-accent">Fantasy Metal</span>
+                <p class="mt-6 text-gray-400 max-w-sm text-lg">
+                    L'eccellenza nelle metalcostruzioni in Ticino. Precisione, sicurezza e design industriale dal 2008.
+                </p>
+                <div class="flex gap-6 mt-8">
+                    <a href="https://facebook.com" class="hover:text-accent transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    <a href="https://instagram.com" class="hover:text-accent transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                    <a href="https://linkedin.com" class="hover:text-accent transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                </div>
+            </div>
             <div>
-                <h2 class="text-4xl font-black mb-8 uppercase tracking-tighter">Richiedi un Sopralluogo</h2>
-                <form class="space-y-4">
-                    <input type="text" placeholder="Azienda / Nome" class="w-full bg-slate-800 p-5 rounded-2xl border-none outline-none focus:ring-2 focus:ring-blue-600 transition">
-                    <input type="email" placeholder="Email di contatto" class="w-full bg-slate-800 p-5 rounded-2xl border-none outline-none focus:ring-2 focus:ring-blue-600 transition">
-                    <textarea placeholder="Descrizione del progetto (misure indicative, località...)" class="w-full bg-slate-800 p-5 rounded-2xl border-none h-32 outline-none focus:ring-2 focus:ring-blue-600 transition"></textarea>
-                    <button type="button" onclick="alert('Inviato con successo!')" class="w-full bg-blue-600 py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-blue-700 shadow-2xl transition transform hover:scale-[1.02]">Invia Richiesta Tecnica</button>
-                </form>
+                <h4 class="font-black uppercase mb-6 text-accent">Links Rapidi</h4>
+                <nav class="flex flex-col gap-4 font-bold text-sm uppercase">
+                    <a href="#about" class="hover:underline">Chi Siamo</a>
+                    <a href="#servizi" class="hover:underline">Servizi</a>
+                    <a href="#faq" class="hover:underline">FAQ</a>
+                    <a href="#contact" class="hover:underline">Contatti</a>
+                </nav>
             </div>
-            <div class="h-[450px] rounded-[3rem] overflow-hidden grayscale contrast-125 border border-slate-700 shadow-2xl">
-                <iframe src="http://googleusercontent.com/maps.google.com/6" class="w-full h-full border-none" loading="lazy"></iframe>
+            <div>
+                <h4 class="font-black uppercase mb-6 text-accent">Sede Ticino</h4>
+                <address class="not-italic text-gray-400 font-bold leading-relaxed">
+                    Viale Stazione 15<br>
+                    6500 Bellinzona<br>
+                    Canton Ticino, CH
+                </address>
+                <p class="mt-6 font-black text-xs">Design by <a href="https://sititicino.ch" class="underline hover:text-accent">SitiTicino.ch</a></p>
             </div>
         </div>
-    </section>
-
-    <footer class="py-12 bg-slate-950 text-slate-500 text-center px-6 border-t border-slate-900">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.2em] font-bold">
-            <p>Symecom SA • Via Roncaglia 15, 6883 Novazzano</p>
-            <div class="flex gap-8">
-                <a href="#" onclick="togglePrivacy()" class="hover:text-white transition">Privacy Policy (revLPD)</a>
-                <a href="#" class="hover:text-white transition">Note Legali</a>
-            </div>
-            <p>© 2026 Swiss Excellence</p>
+        <div class="max-w-7xl mx-auto mt-20 pt-10 border-t border-industrial-800 text-center text-xs font-bold text-gray-600">
+            © 2024 Fantasy Metal. Tutti i diritti riservati. P.IVA CHE-000.000.000
         </div>
     </footer>
 
-    <div class="fixed bottom-6 right-6 z-[200]">
-        <button onclick="toggleChat()" class="w-16 h-16 bg-blue-600 text-white rounded-full shadow-2xl flex items-center justify-center text-3xl hover:scale-110 active:scale-95 transition transform">
-            <i class="fas fa-comment-dots"></i>
-        </button>
-
-        <div id="chatWidget" class="chat-hidden absolute bottom-20 right-0 w-[360px] max-w-[calc(100vw-2rem)] h-[550px] bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-slate-100 overflow-hidden flex flex-col">
-            <div class="p-6 bg-slate-900 text-white flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                    <span class="text-xs font-bold uppercase tracking-widest">Syme-AI Assistant</span>
-                </div>
-                <button onclick="toggleChat()"><i class="fas fa-times"></i></button>
-            </div>
-            <div id="chatWindow" class="flex-1 p-6 overflow-y-auto space-y-4 bg-slate-50 text-sm">
-                <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm text-slate-700 leading-relaxed border border-slate-100">
-                    Buongiorno! Come posso supportarti oggi nella tua ricerca di soluzioni tecniche in Ticino?
-                </div>
-            </div>
-            <div id="typing" class="hidden px-6 py-2 flex gap-1"><div class="typing-dot"></div><div class="typing-dot" style="animation-delay:0.2s"></div><div class="typing-dot" style="animation-delay:0.4s"></div></div>
-            <div class="p-5 bg-white border-t border-slate-100">
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <button onclick="quickReply('Preventivo')" class="text-[10px] bg-blue-50 text-blue-600 px-4 py-2 rounded-full font-bold hover:bg-blue-100 transition">Richiedi Preventivo</button>
-                    <button onclick="quickReply('SIA 342')" class="text-[10px] bg-blue-50 text-blue-600 px-4 py-2 rounded-full font-bold hover:bg-blue-100 transition">Info Normativa SIA</button>
-                </div>
-                <div class="flex gap-2">
-                    <input id="chatInput" type="text" placeholder="Scrivi un messaggio..." class="flex-1 bg-slate-100 border-none rounded-2xl px-5 py-4 text-xs focus:ring-1 focus:ring-blue-600 outline-none transition">
-                    <button onclick="handleChat()" class="bg-blue-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center hover:bg-blue-700 transition">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="privacyModal" class="fixed inset-0 z-[400] bg-slate-900/90 flex items-center justify-center p-6 hidden">
-        <div class="bg-white w-full max-w-2xl rounded-[3rem] p-10 max-h-[85vh] overflow-y-auto shadow-2xl">
-            <h2 class="text-3xl font-black mb-6 uppercase tracking-tight">Informativa Privacy Symecom SA</h2>
-            <div class="text-sm text-slate-600 space-y-5 leading-relaxed">
-                <p><strong>Responsabile:</strong> Symecom SA, Via Roncaglia 15, 6883 Novazzano.</p>
-                <p>In linea con la **Legge Federale sulla Protezione dei Dati (revLPD)**, i dati inseriti nei moduli di contatto sono trattati unicamente per l'evasione delle richieste tecnico-commerciali.</p>
-                <p>Non effettuiamo profilazione invasiva e non cediamo dati a terze parti. I dati sono protetti e conservati su server sicuri. Potete richiedere l'accesso o la cancellazione scrivendo a: <a href="mailto:info@symecom.ch" class="text-blue-600 underline">info@symecom.ch</a>.</p>
-            </div>
-            <button onclick="togglePrivacy()" class="mt-10 bg-blue-600 text-white w-full py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-blue-700 transition">Ho Capito</button>
-        </div>
-    </div>
-
+    <!-- SCRIPTS -->
     <script>
-        // Cookie Banner Logic
-        if(localStorage.getItem('symecomCookies')) {
-            document.getElementById('cookieBanner').style.display = 'none';
-        }
-        function acceptCookies() {
-            localStorage.setItem('symecomCookies', 'true');
-            document.getElementById('cookieBanner').style.transform = 'translateY(100%)';
-            setTimeout(() => document.getElementById('cookieBanner').style.display = 'none', 500);
-        }
-
-        // Privacy Modal
-        function togglePrivacy() { document.getElementById('privacyModal').classList.toggle('hidden'); }
-
-        // Chatbot Advanced Logic
-        const widget = document.getElementById('chatWidget');
-        const chatWindow = document.getElementById('chatWindow');
-        const input = document.getElementById('chatInput');
-        const typing = document.getElementById('typing');
-
-        function toggleChat() { 
-            widget.classList.toggle('chat-hidden'); 
-            widget.classList.toggle('chat-visible'); 
-        }
-        
-        async function quickReply(t) { input.value = t; await handleChat(); }
-
-        async function handleChat() {
-            const val = input.value.trim();
-            if(!val) return;
-            appendMsg(val, true);
-            input.value = '';
-            
-            typing.classList.remove('hidden');
-            chatWindow.scrollTop = chatWindow.scrollHeight;
-            
-            // Simula il "pensiero" del bot
-            await new Promise(r => setTimeout(r, 1500));
-            typing.classList.add('hidden');
-
-            let r = "Ottima richiesta. Symecom SA offre supporto specifico su <strong>" + val + "</strong> in tutto il Ticino. Vuoi fissare un sopralluogo tecnico gratuito?";
-            const low = val.toLowerCase();
-            if(low.includes('preventivo')) r = "Per un preventivo accurato, un nostro tecnico di Novazzano effettuerà una misurazione gratuita. Lascia la tua mail nel form contatti!";
-            if(low.includes('sia')) r = "La norma SIA 342 è il nostro standard qualitativo. Garantiamo che ogni porta garage e sistema di chiusura sia certificato a norma di legge svizzera.";
-            
-            appendMsg(r, false);
+        // Toggle Mobile Menu (FIXED)
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+            // Prevent body scroll when menu is open
+            if (menu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
         }
 
-        function appendMsg(t, u) {
-            const d = document.createElement('div');
-            d.className = u ? "flex justify-end" : "flex justify-start";
-            d.innerHTML = `<div class="${u ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 shadow-sm text-slate-700'} p-4 rounded-3xl ${u ? 'rounded-tr-none' : 'rounded-tl-none'} max-w-[85%] leading-relaxed">${t}</div>`;
-            chatWindow.appendChild(d);
-            chatWindow.scrollTop = chatWindow.scrollHeight;
+        // Toggle FAQ
+        function toggleFaq(element) {
+            const isActive = element.classList.contains('active');
+            // Close all first
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            // Open clicked if it wasn't active
+            if (!isActive) {
+                element.classList.add('active');
+            }
         }
 
-        input.addEventListener('keypress', (e) => { if(e.key === 'Enter') handleChat(); });
+        // Smooth Scroll for local anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 
+    <!-- SCHEMA DATA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Fantasy Metal",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Viale Stazione 15",
+        "addressLocality": "Bellinzona",
+        "addressRegion": "Ticino",
+        "postalCode": "6500",
+        "addressCountry": "CH"
+      },
+      "description": "Specialisti in metalcostruzioni, porte basculanti, serrande industriali e cancelli a Bellinzona e in tutto il Ticino.",
+      "url": "https://fantasymetal.ch",
+      "telephone": "+41790000000",
+      "openingHours": "Mo-Fr 08:00-18:00",
+      "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "46.1928",
+        "longitude": "9.0227"
+      }
+    }
+    </script>
 </body>
 </html>

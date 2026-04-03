@@ -1,513 +1,564 @@
 <!DOCTYPE html>
-<html lang="it" class="scroll-smooth">
+<html lang="it-CH" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
-    <title>Nuvola di Fusa | Boutique Felina Lugano, Mendrisio e Bellinzona</title>
-    <meta name="description" content="L'atelier d'eccellenza per gatti in Ticino. Design svizzero e accessori d'élite a Lugano, Mendrisio e Bellinzona. Qualità e stile in Via Nassa.">
-    <meta name="geo.region" content="CH-TI" />
-    <meta name="geo.placename" content="Lugano, Mendrisio, Bellinzona" />
+    <!-- SEO & GEOTARGETING -->
+    <title>Fantasy Cat | Pet Shop d'Élite a Balerna | Ticino</title>
+    <meta name="description" content="Fantasy Cat è il punto di riferimento a Balerna per amanti degli animali. Accessori di design, cibo biologico e consulenza esperta nel Mendrisiotto. Scopri l'eccellenza svizzera.">
+    <meta name="keywords" content="Pet Shop Balerna, Negozio animali Ticino, Accessori gatti Mendrisio, Cibo cani Chiasso, Fantasy Cat Balerna, Articoli animali Lugano, Benessere animale Bellinzona, Shop Locarno">
+    
+    <link rel="alternate" hreflang="it-ch" href="https://fantasycat.ch/">
+    <link rel="alternate" hreflang="de-ch" href="https://fantasycat.ch/de/">
+    <link rel="alternate" hreflang="fr-ch" href="https://fantasycat.ch/fr/">
 
-    <link rel="stylesheet" href="../../shared/css/global.css">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+    <!-- TAILWIND & ICONS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand_forest: '#1B4332',
+                        brand_gold: '#D4AF37',
+                        brand_cream: '#F9F7F2',
+                        brand_dark: '#0B1A14',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        body { background-color: #FDFCFB; color: #1A1A2E; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-        
-        /* Spaziature Mobile-First */
-        .section-padding { padding: 80px 24px; }
-        @media (min-width: 1024px) { .section-padding { padding: 140px 10%; } }
-
-        /* Hero Grid */
-        .hero-grid {
-            background-image: linear-gradient(#1A1A2E08 1.5px, transparent 1.5px), linear-gradient(to right, #1A1A2E08 1.5px, transparent 1.5px);
-            background-size: 3rem 3rem;
-        }
-
-        /* Reveal Animations */
-        .reveal { opacity: 0; transform: translateY(20px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* Review Stack 3D */
-        .stack-area { height: 400vh; }
-        .sticky-stack { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .review-card { position: absolute; width: 90%; max-width: 480px; will-change: transform, opacity; }
-
-        /* Mobile Menu Overlay */
-        #mobile-menu { transform: translateY(-100%); transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1); }
-        #mobile-menu.open { transform: translateY(0); }
-
-        .wa-pulse { animation: pulse-shadow 2s infinite; }
-        @keyframes pulse-shadow { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
-
-        /* CSS Variables for Custom Tailwind Config */
         :root {
-            --brand_bg: #FDFCFB;
-            --brand_dark: #1A1A2E;
-            --brand_accent: #D47D7D;
-            --brand_muted: #4A4A6A;
-            --brand_light: #F4F1EE;
+            --brand-forest: #1B4332;
+            --brand-gold: #D4AF37;
         }
 
-        /* Tailwind Replacement Utilities */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        .font-sans { font-family: 'Inter', sans-serif; }
-        .font-serif { font-family: 'DM Serif Display', serif; }
-        .antialiased { -webkit-font-smoothing: antialiased; }
-        .scroll-smooth { scroll-behavior: smooth; }
-        .text-brand_dark { color: var(--brand_dark); }
-        .text-brand_accent { color: var(--brand_accent); }
-        .text-brand_muted { color: var(--brand_muted); }
-        .bg-brand_bg { background-color: var(--brand_bg); }
-        .bg-brand_dark { background-color: var(--brand_dark); }
-        .bg-brand_accent { background-color: var(--brand_accent); }
-        .text-white { color: white; }
-        .text-4xl { font-size: 2.25rem; }
-        .text-8xl { font-size: 6rem; }
-        .text-9xl { font-size: 8rem; }
-        .text-xl { font-size: 1.25rem; }
-        .text-2xl { font-size: 1.5rem; }
-        .text-3xl { font-size: 1.875rem; }
-        .text-5xl { font-size: 3rem; }
-        .text-\[9px\] { font-size: 0.5625rem; }
-        .text-\[10px\] { font-size: 0.625rem; }
-        .tracking-tighter { letter-spacing: -0.05em; }
-        .tracking-tight { letter-spacing: -0.025em; }
-        .tracking-\[0.2em\] { letter-spacing: 0.2em; }
-        .tracking-\[0.25em\] { letter-spacing: 0.25em; }
-        .font-bold { font-weight: 700; }
-        .font-serif { font-family: 'DM Serif Display', serif; }
-        .uppercase { text-transform: uppercase; }
-        .italic { font-style: italic; }
-        .leading-tight { line-height: 1.25; }
-        .leading-\[1\] { line-height: 1; }
-        .px-5 { padding-left: 1.25rem; padding-right: 1.25rem; }
-        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-        .px-8 { padding-left: 2rem; padding-right: 2rem; }
-        .px-\[8\%\] { padding-left: 8%; padding-right: 8%; }
-        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
-        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-        .py-5 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
-        .pt-32 { padding-top: 8rem; }
-        .pt-56 { padding-top: 14rem; }
-        .pb-16 { padding-bottom: 4rem; }
-        .pb-32 { padding-bottom: 8rem; }
-        .mb-6 { margin-bottom: 1.5rem; }
-        .mb-10 { margin-bottom: 2.5rem; }
-        .mb-12 { margin-bottom: 3rem; }
-        .gap-2 { gap: 0.5rem; }
-        .gap-8 { gap: 2rem; }
-        .gap-10 { gap: 2.5rem; }
-        .gap-16 { gap: 4rem; }
-        .gap-24 { gap: 6rem; }
-        .flex { display: flex; }
-        .items-center { align-items: center; }
-        .justify-between { justify-content: space-between; }
-        .justify-center { justify-content: center; }
-        .flex-col { flex-direction: column; }
-        .flex-row { flex-direction: row; }
-        .fixed { position: fixed; }
-        .relative { position: relative; }
-        .absolute { position: absolute; }
-        .inset-0 { inset: 0; }
-        .top-0 { top: 0; }
-        .top-8 { top: 2rem; }
-        .right-8 { right: 2rem; }
-        .w-full { width: 100%; }
-        .w-3\/5 { width: 60%; }
-        .size-5 { width: 1.25rem; height: 1.25rem; }
-        .size-7 { width: 1.75rem; height: 1.75rem; }
-        .size-10 { width: 2.5rem; height: 2.5rem; }
-        .overflow-hidden { overflow: hidden; }
-        .rounded-full { border-radius: 9999px; }
-        .rounded-lg { border-radius: 0.5rem; }
-        .z-50 { z-index: 50; }
-        .z-\[60\] { z-index: 60; }
-        .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-        .transition-colors { transition-property: color, background-color, border-color; }
-        .duration-500 { transition-duration: 500ms; }
-        .p-2 { padding: 0.5rem; }
-        .p-4 { padding: 1rem; }
-        .hidden { display: none !important; }
-        .container { width: 100%; margin-left: auto; margin-right: auto; }
-        .hover\:text-brand_accent:hover { color: var(--brand_accent); }
-        .hover\:bg-brand_accent:hover { background-color: var(--brand_accent); }
-        .hover\:scale-105:hover { transform: scale(1.05); }
-        .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-        
-        @media (min-width: 768px) {
-            .md\:text-2xl { font-size: 1.5rem; }
-            .md\:text-8xl { font-size: 6rem; }
-            .md\:text-\[10px\] { font-size: 0.625rem; }
-            .md\:mb-10 { margin-bottom: 2.5rem; }
-            .md\:leading-\[1\] { line-height: 1; }
-        }
-        
-        @media (min-width: 1024px) {
-            .lg\:px-\[8\%\] { padding-left: 8%; padding-right: 8%; }
-            .lg\:pt-56 { padding-top: 14rem; }
-            .lg\:pb-32 { padding-bottom: 8rem; }
-            .lg\:hidden { display: none; }
-            .lg\:flex { display: flex; }
-            .lg\:flex-row { flex-direction: row; }
-            .lg\:w-3\/5 { width: 60%; }
-            .lg\:text-left { text-align: left; }
-            .lg\:gap-24 { gap: 6rem; }
+        body {
+            line-height: 1.6;
+            font-size: 18px;
+            color: #1a1a1a;
         }
 
-        @media (max-width: 480px) {
-            /* Navigation compact */
-            header, nav { padding: 0.5rem 0.5rem !important; height: auto !important; }
-            nav a, header a { padding: 0.3rem 0.5rem !important; font-size: 0.65rem !important; margin: 0 !important; }
-            
-            body { font-size: 14px; }
-            h1 { font-size: 1.8rem; line-height: 1.2; }
-            h2 { font-size: 1.4rem; line-height: 1.2; }
-            h3 { font-size: 1.1rem; }
-            p { font-size: 0.9rem; }
-            nav { padding: 1rem 1rem; }
-            .logo { font-size: 1rem; }
-            .hero { padding: 2rem 1rem; }
-            .hero h1 { font-size: 1.8rem; }
-            .hero p { font-size: 0.9rem; }
-            section { padding: 2rem 1rem; }
-            .container { padding: 0 1rem; }
-            .grid, .grid-cols-2, .grid-cols-3 { grid-template-columns: 1fr !important; }
-            .btn { padding: 0.75rem 1.2rem; font-size: 0.9rem; width: 100%; }
-            
-            /* Footer Optimization */
-            footer { padding: 1rem 0.75rem !important; }
-            .footer-grid { gap: 0.5rem !important; grid-template-columns: 1fr !important; }
-            .footer-col { padding: 0.75rem 0 !important; text-align: center !important; }
-            .footer-col a { font-size: 0.75rem !important; }
+        .dark body {
+            background-color: #0B1A14;
+            color: #F9F7F2;
         }
+
+        h1, h2, h3 {
+            font-size: clamp(1.5rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .cta-primary {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            min-height: 48px;
+            min-width: 48px;
+        }
+
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 999;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-widget:hover { transform: scale(1.1); }
+
+        .nav-glass {
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .dark .nav-glass {
+            background: rgba(11, 26, 20, 0.9);
+        }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+            transform: translateX(100%);
+        }
+        #mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Form Inputs */
+        input, textarea { font-size: 16px !important; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: var(--brand-forest); }
     </style>
+
+    <!-- SCHEMA DATA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PetStore",
+      "name": "Fantasy Cat",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via fantasia",
+        "addressLocality": "Balerna",
+        "addressRegion": "Ticino",
+        "postalCode": "6828",
+        "addressCountry": "CH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "45.8471",
+        "longitude": "9.0028"
+      },
+      "url": "https://fantasycat.ch",
+      "telephone": "+41790000000",
+      "priceRange": "CHF",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "09:00",
+          "closes": "18:30"
+        }
+      ]
+    }
+    </script>
 </head>
-<body class="font-sans antialiased text-brand_dark">
 
-    <nav id="navbar" class="fixed top-0 w-full z-50 px-6 lg:px-[8%] py-5 flex justify-between items-center transition-all duration-500">
-        <div class="flex items-center gap-2 font-serif text-xl md:text-2xl tracking-tighter text-brand_dark">
-            <i data-lucide="cat" class="text-brand_accent size-5 md:size-7"></i> Nuvola di Fusa
-        </div>
-        <div class="hidden lg:flex items-center gap-10 font-bold text-[10px] uppercase tracking-[0.25em]">
-            <a href="#about" class="hover:text-brand_accent transition-colors">L'Atelier</a>
-            <a href="#prodotti" class="hover:text-brand_accent transition-colors">Collezione</a>
-            <a href="#journey" class="hover:text-brand_accent transition-colors">Storia</a>
-            <a href="#contatti" class="bg-brand_dark text-white px-8 py-4 rounded-full hover:bg-brand_accent transition-all shadow-xl">Boutique Lugano</a>
-        </div>
-        <button id="menu-open" class="lg:hidden p-2" aria-label="Apri menu"><i data-lucide="menu" class="size-7"></i></button>
-    </nav>
+<body class="bg-brand_cream font-sans transition-colors duration-500 overflow-x-hidden">
 
-    <div id="mobile-menu" class="fixed inset-0 bg-brand_dark z-[60] flex flex-col items-center justify-center gap-8 text-white">
-        <button id="menu-close" class="absolute top-8 right-8 p-4"><i data-lucide="x" class="size-10"></i></button>
-        <a href="#about" class="font-serif text-4xl m-link">L'Atelier</a>
-        <a href="#prodotti" class="font-serif text-4xl m-link">Collezione</a>
-        <a href="#journey" class="font-serif text-4xl m-link">La Storia</a>
-        <a href="#contatti" class="font-serif text-4xl m-link text-brand_accent">Contatti</a>
-    </div>
+    <!-- WHATSAPP WIDGET -->
+    <a href="https://wa.me/41790000000" class="whatsapp-widget" aria-label="Contattaci su WhatsApp">
+        <i data-lucide="message-circle" class="size-8"></i>
+    </a>
 
-    <header class="relative w-full overflow-hidden bg-brand_bg pt-32 pb-16 lg:pt-56 lg:pb-32">
-        <div class="absolute inset-0 hero-grid"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-brand_bg/10 via-transparent to-brand_bg"></div>
-        
-        <div class="relative container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-            <div class="lg:w-3/5 z-10 text-center lg:text-left">
-                <div class="reveal inline-block px-5 py-2 rounded-full bg-brand_dark text-white text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
-                    L'atelier Felino del Ticino
+    <!-- DARK MODE TOGGLE -->
+    <button id="dark-toggle" class="fixed bottom-6 right-6 z-[1000] p-4 bg-brand_forest text-white rounded-full shadow-2xl hover:bg-brand_gold transition-colors" aria-label="Cambia Modalità">
+        <i data-lucide="moon" id="dark-icon" class="size-6"></i>
+    </button>
+
+    <!-- HEADER & NAV -->
+    <nav class="fixed top-0 w-full z-[900] nav-glass border-b border-brand_forest/10 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2 font-serif text-2xl font-bold text-brand_forest dark:text-brand_gold">
+                <i data-lucide="cat" class="size-8"></i>
+                Fantasy Cat
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-8 font-semibold text-xs uppercase tracking-widest text-brand_forest dark:text-white">
+                <a href="#about" class="hover:text-brand_gold transition-colors">Chi Siamo</a>
+                <a href="#servizi" class="hover:text-brand_gold transition-colors">Servizi</a>
+                <a href="#prodotti" class="hover:text-brand_gold transition-colors">Shop</a>
+                <a href="#faq" class="hover:text-brand_gold transition-colors">FAQ</a>
+                <div class="flex items-center gap-4 ml-4">
+                    <a href="https://facebook.com" aria-label="Facebook"><i data-lucide="facebook" class="size-5 hover:text-brand_gold"></i></a>
+                    <a href="https://instagram.com" aria-label="Instagram"><i data-lucide="instagram" class="size-5 hover:text-brand_gold"></i></a>
                 </div>
-                <h1 class="reveal font-serif text-4xl md:text-8xl leading-tight md:leading-[1] tracking-tighter mb-6 md:mb-10">
-                    L'eleganza di Lugano,<br class="hidden md:block" /> <span class="text-brand_accent italic">cuore del Ticino.</span>
-                </h1>
-                <p class="reveal text-base md:text-2xl text-brand_muted max-w-xl mx-auto lg:mx-0 font-light leading-relaxed mb-10 md:mb-14">
-                    Design esclusivo e materiali nobili a <strong>Lugano</strong>. Spedizioni rapide a <strong>Mendrisio</strong> e <strong>Bellinzona</strong>.
-                </p>
-                <div class="reveal flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <a href="#prodotti" class="bg-brand_accent text-white h-14 md:h-16 px-10 md:px-12 rounded-full font-bold text-lg flex items-center justify-center gap-3 shadow-2xl hover:scale-105 transition-transform">
-                        Scopri lo Shop <i data-lucide="chevron-right" class="size-5"></i>
-                    </a>
-                </div>
+                <a href="#contact" class="bg-brand_forest text-white px-6 py-3 rounded-full hover:bg-brand_gold transition-all">Contattaci</a>
             </div>
 
-            <div class="relative lg:w-2/5 w-full h-[320px] md:h-[550px] flex items-center justify-center z-10 scale-90 lg:scale-110">
-                <div class="reveal absolute w-56 md:w-80 p-3 bg-white shadow-xl border transform -rotate-6 translate-x-8 md:translate-x-12" style="transition-delay: 0.2s;">
-                    <img src="https://images.unsplash.com/photo-1513245533418-297f299b6052?auto=format&fit=crop&q=80&w=800" class="w-full aspect-square object-cover mb-4" alt="Lugano Store">
-                    <p class="font-serif text-brand_dark text-center text-[10px] font-bold uppercase tracking-widest">Via Nassa, Lugano</p>
-                </div>
-                <div class="reveal absolute w-56 md:w-80 p-3 bg-white shadow-2xl border transform rotate-6 -translate-x-8 md:-translate-x-12 z-20" style="transition-delay: 0.4s;">
-                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=1000" class="w-full aspect-square object-cover mb-4" alt="Ticino Cat">
-                    <p class="font-serif text-brand_dark text-center text-[10px] font-bold uppercase tracking-widest">Atmosfera Ticinese</p>
+            <!-- Burger Button (Fixed Implementation) -->
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-brand_forest dark:text-white relative z-[1001]" aria-label="Apri Menu">
+                <i data-lucide="menu" id="burger-icon" class="size-8"></i>
+                <i data-lucide="x" id="close-icon" class="size-8 hidden"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand_forest z-[950] flex flex-col justify-center items-center gap-8 text-white lg:hidden">
+        <a href="#about" class="mobile-link text-3xl font-serif">Chi Siamo</a>
+        <a href="#servizi" class="mobile-link text-3xl font-serif">Servizi</a>
+        <a href="#prodotti" class="mobile-link text-3xl font-serif">Shop</a>
+        <a href="#faq" class="mobile-link text-3xl font-serif">FAQ</a>
+        <a href="#contact" class="mobile-link bg-brand_gold text-brand_dark px-10 py-4 rounded-full font-bold text-xl">Contattaci</a>
+        
+        <div class="flex gap-8 mt-8">
+            <a href="https://facebook.com" aria-label="Facebook"><i data-lucide="facebook" class="size-8"></i></a>
+            <a href="https://instagram.com" aria-label="Instagram"><i data-lucide="instagram" class="size-8"></i></a>
+            <a href="https://x.com" aria-label="X"><i data-lucide="twitter" class="size-8"></i></a>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <header class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-brand_forest">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=2000" 
+                 alt="Benessere animale Balerna" 
+                 class="w-full h-full object-cover opacity-50">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand_dark/60 via-transparent to-brand_dark/80"></div>
+        </div>
+
+        <div class="relative z-10 container mx-auto px-6 py-12">
+            <div class="max-w-4xl">
+                <span class="inline-block px-4 py-1 rounded-full bg-brand_gold text-brand_dark text-xs font-bold uppercase tracking-[0.2em] mb-6 animate-pulse">
+                    Eccellenza Svizzera nel Mendrisiotto
+                </span>
+                <h1 class="font-serif text-white mb-8">
+                    Fantasy Cat: Dove la <span class="text-brand_gold italic">Perfezione</span> incontra la Natura.
+                </h1>
+                <p class="text-white/90 text-lg md:text-2xl mb-12 font-light leading-relaxed max-w-2xl">
+                    Dal 2010 selezioniamo solo il meglio per la salute dei vostri animali a <strong>Balerna</strong>. Cibo biologico, accessori d'élite e consulenza professionale per gatti e cani felici in tutto il Ticino.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="#contact" class="cta-primary bg-brand_gold text-brand_dark px-10 py-5 rounded-full font-bold text-lg flex items-center justify-center gap-3 shadow-2xl hover:scale-105 active:scale-95">
+                        Inizia il Viaggio <i data-lucide="arrow-right" class="size-5"></i>
+                    </a>
+                    <a href="#servizi" class="border-2 border-white/40 text-white px-10 py-5 rounded-full font-bold text-lg flex items-center justify-center gap-3 hover:bg-white/10 backdrop-blur-md">
+                        Esplora i Servizi
+                    </a>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="about" class="section-padding bg-white rounded-t-[40px] md:rounded-t-[120px] shadow-2xl">
-        <div class="grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
-            <div class="reveal order-2 lg:order-1">
-                <span class="text-brand_accent font-bold tracking-[0.3em] uppercase text-[10px]">L'Atelier di Via Nassa</span>
-                <h2 class="font-serif text-3xl md:text-7xl mt-4 mb-8 leading-tight">Artigianato Svizzero per anime feline.</h2>
-                <div class="space-y-6 text-brand_muted text-base md:text-xl leading-relaxed font-light">
-                    <p>Nuvola di Fusa nasce nel 2018 a <strong>Lugano</strong> per portare l'eccellenza nel mondo degli animali domestici. Ogni nostra creazione è pensata per le case più eleganti di <strong>Bellinzona</strong>, <strong>Mendrisio</strong> e di tutto il Canton Ticino.</p>
-                </div>
-                <div class="mt-10 p-6 md:p-10 bg-brand_light rounded-[30px] md:rounded-[50px] italic font-serif text-brand_dark text-lg md:text-2xl border-l-4 md:border-l-8 border-brand_accent">
-                    "Curiamo il benessere del tuo gatto con la precisione svizzera e il calore di una carezza."
-                </div>
-            </div>
-            <div class="reveal order-1 lg:order-2">
-                <img src="https://images.unsplash.com/photo-1520315342629-6ea920342047?auto=format&fit=crop&q=80&w=1000" class="rounded-[30px] md:rounded-[80px] shadow-3xl" alt="Atelier">
+    <!-- TRUST SIGNALS -->
+    <section class="py-16 bg-white dark:bg-brand_dark border-y border-brand_forest/10 overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center items-center gap-10 md:gap-20 grayscale hover:grayscale-0 transition-all duration-700 opacity-70 hover:opacity-100">
+                <div class="flex items-center gap-2 text-xl font-bold font-serif dark:text-white"><i data-lucide="shield-check" class="text-brand_gold"></i> BIO SUISSE</div>
+                <div class="flex items-center gap-2 text-xl font-bold font-serif dark:text-white"><i data-lucide="wallet" class="text-brand_gold"></i> TWINT</div>
+                <div class="flex items-center gap-2 text-xl font-bold font-serif dark:text-white"><i data-lucide="truck" class="text-brand_gold"></i> POSTFINANCE</div>
+                <div class="flex items-center gap-2 text-xl font-bold font-serif dark:text-white"><i data-lucide="award" class="text-brand_gold"></i> TICINO QUALITY</div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding bg-brand_light">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
-            <div class="reveal bg-white p-8 md:p-12 rounded-[40px] text-center border border-brand_dark/5 shadow-sm">
-                <i data-lucide="shield-check" class="text-brand_accent mx-auto size-10 mb-6"></i>
-                <h4 class="font-serif text-xl md:text-2xl mb-2">Qualità Lugano</h4>
-                <p class="text-brand_muted text-sm font-light leading-relaxed">Standard elevati e materiali atossici certificati.</p>
-            </div>
-            <div class="reveal bg-white p-8 md:p-12 rounded-[40px] text-center border border-brand_dark/5 shadow-sm" style="transition-delay: 0.1s;">
-                <i data-lucide="truck" class="text-brand_accent mx-auto size-10 mb-6"></i>
-                <h4 class="font-serif text-xl md:text-2xl mb-2">Local Delivery</h4>
-                <p class="text-brand_muted text-sm font-light leading-relaxed">Consegne veloci a Mendrisio e Bellinzona in 24h.</p>
-            </div>
-            <div class="reveal bg-white p-8 md:p-12 rounded-[40px] text-center border border-brand_dark/5 shadow-sm" style="transition-delay: 0.2s;">
-                <i data-lucide="leaf" class="text-brand_accent mx-auto size-10 mb-6"></i>
-                <h4 class="font-serif text-xl md:text-2xl mb-2">Sostenibilità</h4>
-                <p class="text-brand_muted text-sm font-light leading-relaxed">Packaging biodegradabile e filiera ticinese corta.</p>
-            </div>
-            <div class="reveal bg-white p-8 md:p-12 rounded-[40px] text-center border border-brand_dark/5 shadow-sm" style="transition-delay: 0.3s;">
-                <i data-lucide="heart" class="text-brand_accent mx-auto size-10 mb-6"></i>
-                <h4 class="font-serif text-xl md:text-2xl mb-2">Consulenza</h4>
-                <p class="text-brand_muted text-sm font-light leading-relaxed">Esperti felini locali pronti ad ascoltare ogni esigenza.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="journey" class="section-padding bg-brand_bg">
-        <div class="max-w-4xl mx-auto mb-16 md:mb-24 text-center reveal">
-            <h2 class="font-serif text-4xl md:text-8xl mb-4">Il nostro viaggio.</h2>
-            <p class="text-brand_muted text-base md:text-xl font-light italic">Dalla prima fusa in Via Nassa alla conquista del Cantone.</p>
-        </div>
-        
-        <div class="relative max-w-5xl mx-auto pb-10">
-            <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-brand_dark/10 md:-translate-x-1/2"></div>
-            
-            <div class="reveal flex flex-col md:flex-row justify-between items-center mb-20 md:mb-32 w-full">
-                <div class="md:w-5/12 text-left md:text-right pr-0 md:pr-16 pl-16 md:pl-0">
-                    <h3 class="font-serif text-3xl md:text-4xl text-brand_accent">2018</h3>
-                    <p class="text-brand_dark font-bold mt-1 uppercase tracking-widest text-[10px]">L'Atelier Lugano</p>
-                    <p class="text-brand_muted mt-4 text-sm md:text-lg font-light">Apertura della prima boutique boutique in Via Nassa a <strong>Lugano</strong>.</p>
+    <!-- MISSION SECTION (SGE Answer Block) -->
+    <section id="about" class="py-24 bg-brand_cream dark:bg-brand_dark">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal">
+                    <h2 class="font-serif text-brand_forest dark:text-brand_gold mb-8">Passione Svizzera per i tuoi Amici a Quattro Zampe</h2>
+                    <div class="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <p>
+                            Situato strategicamente in <strong>Via fantasia a Balerna</strong>, Fantasy Cat è diventato il punto di riferimento per chi cerca il massimo per il proprio animale nel Mendrisiotto. Non siamo solo un pet shop, ma un centro di competenza che serve quotidianamente clienti da <strong>Chiasso, Mendrisio e Lugano</strong>.
+                        </p>
+                        <p>
+                            Ogni prodotto è frutto di una selezione rigorosa: dalla nutrizione grain-free agli accessori di design realizzati con materiali sostenibili. La nostra filosofia unisce la precisione svizzera alla cura empatica per ogni singolo gatto e cane che varca la nostra soglia.
+                        </p>
+                    </div>
+                    <div class="mt-12 grid grid-cols-2 gap-6">
+                        <div class="p-8 bg-white dark:bg-brand_forest/20 rounded-3xl border-l-4 border-brand_gold shadow-sm">
+                            <span class="block text-5xl font-bold text-brand_forest dark:text-brand_gold mb-2">14+</span>
+                            <span class="text-sm uppercase tracking-widest font-bold text-brand_forest dark:text-brand_gold">Anni di Eccellenza</span>
+                        </div>
+                        <div class="p-8 bg-white dark:bg-brand_forest/20 rounded-3xl border-l-4 border-brand_gold shadow-sm">
+                            <span class="block text-5xl font-bold text-brand_forest dark:text-brand_gold mb-2">8k+</span>
+                            <span class="text-sm uppercase tracking-widest font-bold text-brand_forest dark:text-brand_gold">Pet Curati</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="absolute left-6 md:left-1/2 w-6 h-6 bg-white border-4 border-brand_accent rounded-full z-10 md:-translate-x-1/2"></div>
-                <div class="md:w-5/12"></div>
-            </div>
-
-            <div class="reveal flex flex-col md:flex-row justify-between items-center mb-20 md:mb-32 w-full">
-                <div class="md:w-5/12"></div>
-                <div class="absolute left-6 md:left-1/2 w-6 h-6 bg-white border-4 border-brand_dark rounded-full z-10 md:-translate-x-1/2"></div>
-                <div class="md:w-5/12 text-left pl-16 md:pl-16">
-                    <h3 class="font-serif text-3xl md:text-4xl text-brand_dark">2021</h3>
-                    <p class="text-brand_accent font-bold mt-1 uppercase tracking-widest text-[10px]">Bellinzona</p>
-                    <p class="text-brand_muted mt-4 text-sm md:text-lg font-light">Inaugurazione del servizio logistico per tutto il Sopraceneri.</p>
-                </div>
-            </div>
-            
-            <div class="reveal flex flex-col md:flex-row justify-between items-center w-full">
-                <div class="md:w-5/12 text-left md:text-right pr-0 md:pr-16 pl-16 md:pl-0">
-                    <h3 class="font-serif text-3xl md:text-4xl text-brand_muted">2026</h3>
-                    <p class="text-brand_dark font-bold mt-1 uppercase tracking-widest text-[10px]">Mendrisio</p>
-                    <p class="text-brand_muted mt-4 text-sm md:text-lg font-light">Nuova sede digitale e fisica per servire il <strong>Mendrisiotto</strong>.</p>
-                </div>
-                <div class="absolute left-6 md:left-1/2 w-6 h-6 bg-white border-4 border-brand_accent rounded-full z-10 md:-translate-x-1/2"></div>
-                <div class="md:w-5/12"></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="prodotti" class="section-padding bg-white">
-        <div class="text-center mb-16 md:mb-24 reveal">
-            <h2 class="font-serif text-4xl md:text-7xl">Collezione d'Élite</h2>
-            <div class="w-16 md:w-24 h-1.5 md:h-2 bg-brand_accent mx-auto mt-6 md:mt-8 rounded-full"></div>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16">
-            <div class="reveal group">
-                <div class="overflow-hidden rounded-[40px] md:rounded-[60px] mb-6 md:mb-8 shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1605343433139-3c72b834455f?auto=format&fit=crop&q=80&w=600" class="w-full h-72 md:h-[500px] object-cover" alt="Cuccia Design">
-                </div>
-                <div class="flex justify-between items-center px-4">
-                    <h3 class="font-serif text-xl md:text-3xl tracking-tight text-brand_dark">Giaciglio Nuvola</h3>
-                    <span class="text-brand_accent font-bold text-lg md:text-xl">CHF 145.—</span>
-                </div>
-            </div>
-            <div class="reveal group" style="transition-delay: 0.1s;">
-                <div class="overflow-hidden rounded-[40px] md:rounded-[60px] mb-6 md:mb-8 shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=600" class="w-full h-72 md:h-[500px] object-cover" alt="Ciotola">
-                </div>
-                <div class="flex justify-between items-center px-4">
-                    <h3 class="font-serif text-xl md:text-3xl tracking-tight text-brand_dark">Set Zen Ceramica</h3>
-                    <span class="text-brand_accent font-bold text-lg md:text-xl">CHF 58.—</span>
-                </div>
-            </div>
-            <div class="reveal group" style="transition-delay: 0.2s;">
-                <div class="overflow-hidden rounded-[40px] md:rounded-[60px] mb-6 md:mb-8 shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1548546738-8502ce9a0102?auto=format&fit=crop&q=80&w=600" class="w-full h-72 md:h-[500px] object-cover" alt="Gioco">
-                </div>
-                <div class="flex justify-between items-center px-4">
-                    <h3 class="font-serif text-xl md:text-3xl tracking-tight text-brand_dark">Bacchetta Faggio</h3>
-                    <span class="text-brand_accent font-bold text-lg md:text-xl">CHF 24.—</span>
-                </div>
-            </div>
-            <div class="reveal group" style="transition-delay: 0.3s;">
-                <div class="overflow-hidden rounded-[40px] md:rounded-[60px] mb-6 md:mb-8 shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1589924691106-3481229cae59?auto=format&fit=crop&q=80&w=600" class="w-full h-72 md:h-[500px] object-cover" alt="Cibo">
-                </div>
-                <div class="flex justify-between items-center px-4">
-                    <h3 class="font-serif text-xl md:text-3xl tracking-tight text-brand_dark">Pappa Gourmet</h3>
-                    <span class="text-brand_accent font-bold text-lg md:text-xl">CHF 4.50</span>
-                </div>
-            </div>
-            <div class="reveal group" style="transition-delay: 0.4s;">
-                <div class="overflow-hidden rounded-[40px] md:rounded-[60px] mb-6 md:mb-8 shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&q=80&w=600" class="w-full h-72 md:h-[500px] object-cover" alt="Grattatoio">
-                </div>
-                <div class="flex justify-between items-center px-4">
-                    <h3 class="font-serif text-xl md:text-3xl tracking-tight text-brand_dark">Scratcher Arredo</h3>
-                    <span class="text-brand_accent font-bold text-lg md:text-xl">CHF 210.—</span>
-                </div>
-            </div>
-            <div class="reveal group" style="transition-delay: 0.5s;">
-                <div class="overflow-hidden rounded-[40px] md:rounded-[60px] mb-6 md:mb-8 shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=600" class="w-full h-72 md:h-[500px] object-cover" alt="Igiene">
-                </div>
-                <div class="flex justify-between items-center px-4">
-                    <h3 class="font-serif text-xl md:text-3xl tracking-tight text-brand_dark">Kit Spazzola Seta</h3>
-                    <span class="text-brand_accent font-bold text-lg md:text-xl">CHF 32.—</span>
+                <div class="relative reveal order-first lg:order-last">
+                    <div class="aspect-square overflow-hidden rounded-[60px] shadow-3xl">
+                        <img src="https://images.unsplash.com/photo-1513245533418-297f299b6052?auto=format&fit=crop&q=80&w=1000" 
+                             alt="Interno Pet Shop Balerna" 
+                             class="w-full h-full object-cover transition-transform duration-1000 hover:scale-110">
+                    </div>
+                    <div class="absolute -bottom-10 -left-10 bg-brand_gold p-10 rounded-3xl hidden md:block max-w-xs shadow-2xl">
+                        <i data-lucide="quote" class="text-brand_forest size-12 mb-4"></i>
+                        <p class="font-serif italic text-brand_dark text-xl leading-snug">"La salute del vostro pet è il battito del nostro cuore."</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="stack-area bg-brand_dark">
-        <div class="sticky-stack">
-            <div class="absolute top-20 text-center z-30 px-6 reveal">
-                <h2 class="font-serif text-4xl md:text-7xl text-white mb-4 leading-tight">La voce dei mici.</h2>
-                <p class="text-brand_accent font-bold uppercase tracking-widest text-xs">Testimonianze dal Cantone</p>
+    <!-- SERVICES -->
+    <section id="servizi" class="py-24 bg-brand_forest text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mb-20">
+                <h2 class="font-serif mb-6">Servizi d'Élite per Animali Felici</h2>
+                <p class="text-brand_gold font-semibold tracking-[0.3em] uppercase text-sm">Specialisti in nutrizione e cura</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="reveal bg-white/5 p-10 rounded-[40px] border border-white/10 hover:bg-brand_gold hover:text-brand_dark transition-all group">
+                    <i data-lucide="utensils" class="text-brand_gold group-hover:text-brand_dark size-12 mb-8"></i>
+                    <h3 class="text-2xl font-serif mb-4">Nutrizione Gourmet</h3>
+                    <p class="opacity-80">Diete personalizzate e cibo biologico selezionato dai migliori produttori ticinesi e internazionali.</p>
+                </div>
+                <div class="reveal bg-white/5 p-10 rounded-[40px] border border-white/10 hover:bg-brand_gold hover:text-brand_dark transition-all group">
+                    <i data-lucide="scissors" class="text-brand_gold group-hover:text-brand_dark size-12 mb-8"></i>
+                    <h3 class="text-2xl font-serif mb-4">Grooming SPA</h3>
+                    <p class="opacity-80">Trattamenti estetici e igienici eseguiti con prodotti naturali per un benessere che si vede e si sente.</p>
+                </div>
+                <div class="reveal bg-white/5 p-10 rounded-[40px] border border-white/10 hover:bg-brand_gold hover:text-brand_dark transition-all group">
+                    <i data-lucide="home" class="text-brand_gold group-hover:text-brand_dark size-12 mb-8"></i>
+                    <h3 class="text-2xl font-serif mb-4">Design & Habitat</h3>
+                    <p class="opacity-80">Cucce e tiragraffi di lusso che si integrano armoniosamente nell'arredo moderno della tua casa.</p>
+                </div>
+                <div class="reveal bg-white/5 p-10 rounded-[40px] border border-white/10 hover:bg-brand_gold hover:text-brand_dark transition-all group">
+                    <i data-lucide="brain" class="text-brand_gold group-hover:text-brand_dark size-12 mb-8"></i>
+                    <h3 class="text-2xl font-serif mb-4">Etologia Applicata</h3>
+                    <p class="opacity-80">Supporto professionale per risolvere problemi comportamentali a Balerna e in tutto il Canton Ticino.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 bg-brand_cream dark:bg-brand_dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="font-serif text-brand_forest dark:text-brand_gold">Voci dal Ticino</h2>
+                <div class="w-24 h-1 bg-brand_gold mx-auto mt-6"></div>
             </div>
             
-            <div class="review-card bg-brand_bg p-10 md:p-16 rounded-[40px] md:rounded-[60px] shadow-3xl border-b-[8px] md:border-b-[12px] border-brand_accent text-center flex flex-col items-center gap-6 md:gap-10" data-index="0">
-                <div class="text-brand_accent text-2xl font-bold">★★★★★</div>
-                <p class="text-xl md:text-4xl font-serif italic text-brand_dark leading-tight">"Un atelier unico a Lugano. Design e amore per i gatti si fondono perfettamente. Via Nassa ha una gemma."</p>
-                <div class="flex items-center gap-4">
-                    <img src="https://i.pravatar.cc/150?u=1" class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-brand_accent">
-                    <div class="text-left font-bold text-brand_dark text-sm md:text-base">Elena Riva<br><span class="text-brand_muted font-light text-xs italic">Lugano, CH</span></div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="reveal p-10 bg-white dark:bg-brand_forest/10 rounded-[40px] shadow-xl border border-brand_forest/5">
+                    <div class="flex gap-1 text-brand_gold mb-6">
+                        <i data-lucide="star" class="fill-current size-5"></i><i data-lucide="star" class="fill-current size-5"></i><i data-lucide="star" class="fill-current size-5"></i><i data-lucide="star" class="fill-current size-5"></i><i data-lucide="star" class="fill-current size-5"></i>
+                    </div>
+                    <p class="italic text-xl mb-8 leading-relaxed">"Fantasy Cat è la nostra fermata fissa quando scendiamo da Lugano. Hanno accessori di design che non trovo da nessun'altra parte."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="size-14 bg-brand_forest text-white rounded-full flex items-center justify-center font-bold text-lg">MF</div>
+                        <div>
+                            <p class="font-bold text-brand_forest dark:text-white">Marco Ferrari</p>
+                            <p class="text-sm text-brand_gold uppercase font-bold">Lugano, CH</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="review-card bg-brand_bg p-10 md:p-16 rounded-[40px] md:rounded-[60px] shadow-3xl border-b-[8px] md:border-b-[12px] border-brand_dark text-center flex flex-col items-center gap-6 md:gap-10" data-index="1">
-                <div class="text-brand_accent text-2xl font-bold">★★★★★</div>
-                <p class="text-xl md:text-4xl font-serif italic text-brand_dark leading-tight">"Spedizione a Mendrisio rapidissima. Packaging ecosostenibile e prodotti di una qualità introvabile altrove."</p>
-                <div class="flex items-center gap-4">
-                    <img src="https://i.pravatar.cc/150?u=2" class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-brand_dark">
-                    <div class="text-left font-bold text-brand_dark text-sm md:text-base">Paolo B.<br><span class="text-brand_muted font-light text-xs italic">Mendrisio, CH</span></div>
+                <!-- Testimonial 2 -->
+                <div class="reveal p-10 bg-white dark:bg-brand_forest/10 rounded-[40px] shadow-xl border border-brand_forest/5">
+                    <div class="flex gap-1 text-brand_gold mb-6">
+                        <i data-lucide="star" class="fill-current size-5"></i><i data-lucide="star" class="fill-current size-5"></i><i data-lucide="star" class="fill-current size-5"></i><i data-lucide="star" class="fill-current size-5"></i><i data-lucide="star" class="fill-current size-5"></i>
+                    </div>
+                    <p class="italic text-xl mb-8 leading-relaxed">"La consulenza nutrizionale a Balerna è stata la salvezza per il mio gatto allergico. Professionali e gentilissimi."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="size-14 bg-brand_gold text-brand_dark rounded-full flex items-center justify-center font-bold text-lg">EB</div>
+                        <div>
+                            <p class="font-bold text-brand_forest dark:text-white">Elena Bianchi</p>
+                            <p class="text-sm text-brand_gold uppercase font-bold">Mendrisio, CH</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="reveal p-10 bg-white dark:bg-brand_forest/10 rounded-[40px] shadow-xl border border-brand_forest/5">
+                    <div class="flex gap-1 text-brand_gold mb-6">
+                        <i data-lucide="star" class="fill-current size-5"></i><i data-lucide="star" class="fill-current size-5"></i><i data-lucide="star" class="fill-current size-5"></i><i data-lucide="star" class="fill-current size-5"></i><i data-lucide="star" class="fill-current size-5"></i>
+                    </div>
+                    <p class="italic text-xl mb-8 leading-relaxed">"Il miglior shop del Mendrisiotto. Qualità svizzera e cura per i dettagli davvero incredibile. Lo consiglio a tutti!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="size-14 bg-brand_forest text-white rounded-full flex items-center justify-center font-bold text-lg">GR</div>
+                        <div>
+                            <p class="font-bold text-brand_forest dark:text-white">Giuseppe Riva</p>
+                            <p class="text-sm text-brand_gold uppercase font-bold">Chiasso, CH</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contatti" class="section-padding bg-brand_bg">
-        <div class="bg-brand_dark p-10 md:p-24 rounded-[40px] md:rounded-[100px] text-white flex flex-col lg:grid lg:grid-cols-2 gap-16 md:gap-20 shadow-4xl">
-            <div class="reveal">
-                <h2 class="font-serif text-4xl md:text-8xl mb-10 leading-tight text-white">Contattaci.</h2>
-                <div class="space-y-8 opacity-90 text-base md:text-2xl font-light">
-                    <p class="flex items-center gap-5"><i data-lucide="map-pin" class="text-brand_accent size-6 md:size-8"></i> Via Nassa 42, 6900 Lugano</p>
-                    <p class="flex items-center gap-5"><i data-lucide="phone" class="text-brand_accent size-6 md:size-8"></i> +41 91 923 00 00</p>
-                    <p class="flex items-center gap-5"><i data-lucide="mail" class="text-brand_accent size-6 md:size-8"></i> ciao@nuvoladifusa.ch</p>
+    <!-- FAQ -->
+    <section id="faq" class="py-24 bg-white dark:bg-brand_dark">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="font-serif text-center mb-16 text-brand_forest dark:text-brand_gold">Domande Frequenti</h2>
+            <div class="space-y-6">
+                <div class="reveal p-8 rounded-3xl border border-brand_forest/10 bg-brand_cream dark:bg-brand_forest/5">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-3"><i data-lucide="help-circle" class="text-brand_gold"></i> Effettuate consegne a domicilio in Ticino?</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Sì, consegniamo regolarmente in tutto il Mendrisiotto (Balerna, Chiasso, Mendrisio) e su richiesta anche a Lugano e Bellinzona.</p>
+                </div>
+                <div class="reveal p-8 rounded-3xl border border-brand_forest/10 bg-brand_cream dark:bg-brand_forest/5">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-3"><i data-lucide="help-circle" class="text-brand_gold"></i> I vostri prodotti sono Bio Suisse?</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Collaboriamo con fornitori che rispettano gli standard Bio Suisse per garantire la massima purezza delle materie prime alimentari.</p>
+                </div>
+                <div class="reveal p-8 rounded-3xl border border-brand_forest/10 bg-brand_cream dark:bg-brand_forest/5">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-3"><i data-lucide="help-circle" class="text-brand_gold"></i> Serve un appuntamento per la consulenza?</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Per consulenze etologiche o nutrizionali approfondite consigliamo di scriverci su WhatsApp per riservare un momento dedicato.</p>
                 </div>
             </div>
-            <form class="reveal space-y-6" style="transition-delay: 0.2s;">
-                <input type="text" placeholder="Nome" class="w-full bg-white/5 border-b border-white/20 p-4 md:p-6 focus:border-brand_accent focus:outline-none transition-all placeholder:text-white/30 text-base md:text-xl">
-                <input type="email" placeholder="Email" class="w-full bg-white/5 border-b border-white/20 p-4 md:p-6 focus:border-brand_accent focus:outline-none transition-all placeholder:text-white/30 text-base md:text-xl">
-                <textarea placeholder="Parlaci del tuo micio..." rows="3" class="w-full bg-white/5 border-b border-white/20 p-4 md:p-6 focus:border-brand_accent focus:outline-none transition-all placeholder:text-white/30 text-base md:text-xl"></textarea>
-                <button class="bg-brand_accent text-white w-full py-5 md:py-6 rounded-full font-bold text-lg md:text-2xl hover:scale-[1.03] transition-transform shadow-3xl">Invia Messaggio</button>
-            </form>
         </div>
     </section>
 
-    <footer class="py-16 md:py-24 px-6 text-center">
-        <div class="font-serif text-3xl md:text-4xl text-brand_dark flex justify-center items-center gap-3 mb-10 reveal">
-            <i data-lucide="cat" class="text-brand_accent size-8 md:size-10"></i> Nuvola di Fusa
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 bg-brand_forest text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20">
+                <div class="reveal">
+                    <h2 class="font-serif mb-8">Vieni a Trovarci a Balerna</h2>
+                    <p class="text-xl text-white/80 mb-12">Siamo aperti dal lunedì al sabato per accogliere te e il tuo pet con professionalità e un sorriso.</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-center gap-6">
+                            <div class="size-14 bg-brand_gold/20 rounded-2xl flex items-center justify-center text-brand_gold"><i data-lucide="map-pin"></i></div>
+                            <div>
+                                <p class="font-bold">Indirizzo</p>
+                                <p class="text-white/70">Via fantasia, 6828 Balerna (TI)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="size-14 bg-brand_gold/20 rounded-2xl flex items-center justify-center text-brand_gold"><i data-lucide="phone"></i></div>
+                            <div>
+                                <p class="font-bold">Telefono</p>
+                                <p class="text-white/70">+41 79 000 00 00</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="size-14 bg-brand_gold/20 rounded-2xl flex items-center justify-center text-brand_gold"><i data-lucide="mail"></i></div>
+                            <div>
+                                <p class="font-bold">Email</p>
+                                <p class="text-white/70">info@fantasycat.ch</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 flex gap-4">
+                        <a href="https://facebook.com" class="p-4 bg-white/10 rounded-full hover:bg-brand_gold hover:text-brand_dark transition-all"><i data-lucide="facebook"></i></a>
+                        <a href="https://instagram.com" class="p-4 bg-white/10 rounded-full hover:bg-brand_gold hover:text-brand_dark transition-all"><i data-lucide="instagram"></i></a>
+                        <a href="https://linkedin.com" class="p-4 bg-white/10 rounded-full hover:bg-brand_gold hover:text-brand_dark transition-all"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="reveal bg-white p-10 rounded-[40px] text-brand_dark shadow-3xl">
+                    <form action="#" method="POST" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold uppercase tracking-widest mb-2">Nome</label>
+                                <input type="text" placeholder="Mario Rossi" class="w-full px-6 py-4 rounded-2xl bg-brand_cream border-none focus:ring-2 focus:ring-brand_gold outline-none" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold uppercase tracking-widest mb-2">Email</label>
+                                <input type="email" placeholder="mario@esempio.ch" class="w-full px-6 py-4 rounded-2xl bg-brand_cream border-none focus:ring-2 focus:ring-brand_gold outline-none" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold uppercase tracking-widest mb-2">Messaggio</label>
+                            <textarea rows="4" placeholder="Come possiamo aiutarti?" class="w-full px-6 py-4 rounded-2xl bg-brand_cream border-none focus:ring-2 focus:ring-brand_gold outline-none resize-none" required></textarea>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <input type="checkbox" id="privacy" class="mt-1 accent-brand_forest" required>
+                            <label for="privacy" class="text-sm text-gray-500">Acconsento al trattamento dei dati secondo la nuova <strong>LPD svizzera</strong>.</label>
+                        </div>
+                        <button type="submit" class="w-full bg-brand_forest text-white py-5 rounded-2xl font-bold text-lg hover:bg-brand_gold hover:text-brand_dark transition-all shadow-xl">Invia Messaggio</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="flex flex-wrap justify-center gap-8 text-[10px] font-bold uppercase tracking-[0.3em] text-brand_muted mb-12">
-            <a href="#" class="hover:text-brand_accent">Instagram</a>
-            <a href="#" class="hover:text-brand_accent">Facebook</a>
-            <a href="#" class="hover:text-brand_accent">Privacy Policy</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-brand_dark text-white border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-2 font-serif text-2xl font-bold text-brand_gold">
+                    <i data-lucide="cat"></i> Fantasy Cat
+                </div>
+                <div class="flex gap-8 text-sm uppercase tracking-widest opacity-60">
+                    <a href="#" class="hover:text-brand_gold transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-brand_gold transition-colors">Impressum</a>
+                    <a href="#" class="hover:text-brand_gold transition-colors">Cookie Policy</a>
+                </div>
+                <div class="text-sm opacity-40">
+                    &copy; 2024 Fantasy Cat Balerna. Design by <a href="https://sititicino.ch" class="underline">SitiTicino.ch</a>
+                </div>
+            </div>
         </div>
-        <p class="text-slate-300 text-[10px] uppercase tracking-widest">&copy; 2026 Boutique Ticino. Ogni micio è un re.</p>
     </footer>
 
-    <a href="https://wa.me/41919230000" target="_blank" class="fixed bottom-6 right-6 md:bottom-10 md:right-10 bg-[#25D366] text-white p-4 md:p-5 rounded-full shadow-3xl z-[100] flex items-center gap-3 group wa-pulse">
-        <i data-lucide="message-circle" class="size-7 md:size-8"></i>
-        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-700 font-bold text-base md:text-lg">Assistenza Ticino</span>
-    </a>
-
+    <!-- SCRIPTS -->
     <script>
+        // Lucide Icons
         lucide.createIcons();
 
-        // Mobile Menu Logic
-        const mOpen = document.getElementById('menu-open');
-        const mClose = document.getElementById('menu-close');
-        const mMenu = document.getElementById('mobile-menu');
-        mOpen.onclick = () => mMenu.classList.add('open');
-        mClose.onclick = () => mMenu.classList.remove('open');
-        document.querySelectorAll('.m-link').forEach(l => l.onclick = () => mMenu.classList.remove('open'));
+        // Fixed Mobile Burger Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const burgerIcon = document.getElementById('burger-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            window.scrollY > 40 ? nav.classList.add('bg-brand_bg/90', 'backdrop-blur-xl', 'py-4', 'shadow-xl') : nav.classList.remove('bg-brand_bg/90', 'backdrop-blur-xl', 'py-4', 'shadow-xl');
+        function toggleMenu() {
+            mobileMenu.classList.toggle('active');
+            burgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
         });
 
-        // Reveal Observer
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(e => e.isIntersecting && e.target.classList.add('active'));
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        // Dark Mode Logic
+        const darkToggle = document.getElementById('dark-toggle');
+        const darkIcon = document.getElementById('dark-icon');
+        const html = document.documentElement;
 
-        // Review Stack 3D Logic (Optimized for performance)
-        const stackCards = document.querySelectorAll('.review-card');
-        const stackContainer = document.querySelector('.stack-area');
-        
-        const updateStack = () => {
-            const top = stackContainer.offsetTop;
-            const height = stackContainer.offsetHeight - window.innerHeight;
-            let progress = (window.scrollY - top) / height;
-            progress = Math.max(0, Math.min(1, progress));
+        darkToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            darkIcon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+            lucide.createIcons();
+        });
 
-            stackCards.forEach((card, i) => {
-                const step = 1 / stackCards.length;
-                let cardProgress = (progress - (i * step)) / step;
-                cardProgress = Math.max(0, Math.min(1, cardProgress));
-
-                const y = -cardProgress * 150;
-                const rot = (1 - cardProgress) * (i * -10 + 5);
-                const scale = 1 - (progress - (i * step)) * 0.15;
-                const opacity = 1 - Math.max(0, (progress - (i + 1) * step) * 5);
-
-                if (progress >= i * step) {
-                    card.style.transform = `translateY(${y}%) rotate(${rot}deg) scale(${scale})`;
-                    card.style.opacity = opacity;
-                } else {
-                    card.style.transform = `translateY(0%) rotate(${i * -10 + 5}deg) scale(1)`;
-                    card.style.opacity = 1;
+        // Reveal Animations on Scroll
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
                 }
-                card.style.zIndex = stackCards.length - i;
             });
-            requestAnimationFrame(updateStack);
-        };
-        requestAnimationFrame(updateStack);
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Sticky Navbar state
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-lg');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('py-2', 'shadow-lg');
+                nav.classList.add('py-4');
+            }
+        });
     </script>
 </body>
 </html>
