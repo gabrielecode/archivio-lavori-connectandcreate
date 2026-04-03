@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         /* ==========================================================================
@@ -196,8 +197,78 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
+        .nav-social {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 1.2rem;
+        }
+        .nav-social a {
+            transition: var(--transition-fast);
+            opacity: 0.8;
+        }
+        .nav-social a:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+        .hamburger-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #fff;
+            pointer-events: auto;
+            transition: var(--transition-fast);
+        }
+        .hamburger-btn:hover {
+            transform: scale(1.1);
+        }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            flex-direction: column;
+            gap: 1rem;
+            padding: 2rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 99;
+        }
+        .mobile-menu.active {
+            display: flex;
+        }
+        .mobile-menu a {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition-fast);
+        }
+        .mobile-menu a:hover {
+            color: var(--accent);
+        }
+        .mobile-menu-social {
+            display: flex;
+            gap: 1.5rem;
+            padding-top: 1rem;
+            justify-content: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .mobile-menu-social a {
+            font-size: 1.5rem;
+            border: none;
+            padding: 0;
+        }
         @media (max-width: 768px) {
             .nav-links { display: none; }
+            .nav-social { display: none; }
+            .hamburger-btn { display: block; }
         }
 
         /* Dark Mode Toggle */
@@ -527,6 +598,47 @@
             letter-spacing: 0.05em;
         }
 
+        /* WhatsApp Widget */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background-color: #25D366;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            transition: var(--transition-fast);
+            animation: waPulse 2.5s infinite;
+        }
+        .whatsapp-widget:hover {
+            transform: scale(1.08) translateY(-5px);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+            background-color: #20ba5a;
+        }
+        .whatsapp-widget i {
+            font-size: 1.5rem;
+        }
+        @keyframes waPulse {
+            0%, 100% { box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); }
+            50% { box-shadow: 0 10px 35px rgba(37, 211, 102, 0.6); }
+        }
+        @media (max-width: 768px) {
+            .whatsapp-widget {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 16px;
+                font-size: 0.85rem;
+            }
+        }
+
         /* ==========================================================================
            ANIMATIONS (DRAMATIC ENTRY)
            ========================================================================== */
@@ -578,7 +690,35 @@
             <a href="#pricing">Tariffe</a>
             <a href="#contact">Contatti</a>
         </nav>
+        <div class="nav-social">
+            <a href="https://www.linkedin.com/company/locarnocare" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.facebook.com/locarnocare" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/locarnocare" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu mobile">
+        <a href="#about">Filosofia</a>
+        <a href="#services">Servizi</a>
+        <a href="#pricing">Tariffe</a>
+        <a href="#contact">Contatti</a>
+        <div class="mobile-menu-social">
+            <a href="https://www.linkedin.com/company/locarnocare" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/locarnocare" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/locarnocare" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/41910000000" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
 
     <button id="theme-toggle" class="theme-toggle-btn" aria-label="Attiva/Disattiva Dark Mode">
         <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -756,6 +896,12 @@
         </section>
     </main>
 
+    <!-- WhatsApp Widget -->
+    <a href="https://wa.me/41910000000?text=Ciao%20Locarno%20Care!%20Vorrei%20informazioni%20sui%20vostri%20servizi%20infermieristici." class="whatsapp-widget" target="_blank" rel="noopener" aria-label="Contattaci su WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span>Scrivici</span>
+    </a>
+
     <footer>
         <div>
             &copy; 2026 Locarno Care Studio. <br> Tutti i diritti riservati.
@@ -767,6 +913,31 @@
     </footer>
 
     <script>
+        // Hamburger Menu Toggle
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            hamburgerBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('header') && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
         // Dark Mode Logic
         const themeToggleBtn = document.getElementById('theme-toggle');
         const body = document.body;
