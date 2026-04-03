@@ -1,301 +1,623 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it-CH">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CleanStudio Mendrisio | Servizi Professionali di Igiene Certificata</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Fantasy Cleaning Bellinzona | Servizi di Pulizia e Sanificazione Professionale</title>
+    <meta name="description" content="Impresa di pulizie leader a Bellinzona. Specialisti in sanificazione, camere bianche e pulizie industriali. Qualità svizzera e conformità nLPD. Richiedi un preventivo!">
+    <meta name="keywords" content="pulizie Bellinzona, impresa pulizie Ticino, sanificazione professionale, camere bianche Svizzera, pulizie industriali, servizi custode Bellinzona">
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+    <!-- Local SEO & Social Tags -->
+    <link rel="alternate" hreflang="it-ch" href="https://fantasycleaning.ch/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary: #00a8cc;
-            --secondary: #005f73;
-            --dark: #0f172a;
-            --gradient-main: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
-            /* Nuovo gradiente differente per la sezione Perché Sceglierci */
-            --gradient-why: linear-gradient(135deg, #e0f2f1 0%, #b2ebf2 100%);
-            --shadow: 0 20px 40px rgba(0,0,0,0.08);
-            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+            /* Ukiyo-e Palette: Indigo, Vermillion, Ochre, Off-white */
+            --primary: #1a2a44; /* Indigo */
+            --accent: #d64541;  /* Vermillion */
+            --bg-paper: #fdf5e6; /* Traditional Paper */
+            --gold: #c5a059;
+            --text-dark: #2c2c2c;
+            --text-light: #f4f4f4;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --radius: 2px; /* Sharp, woodblock-like edges */
         }
 
-        /* BASE */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: var(--dark); line-height: 1.6; background: #fff; overflow-x: hidden; }
-
-        nav {
-            position: fixed; width: 100%; padding: 15px 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+        [data-theme='dark'] {
+            --bg-paper: #121212;
+            --text-dark: #e0e0e0;
+            --primary: #2a3d5e;
         }
-        .logo { font-weight: 900; font-size: 1.4rem; background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -1px; }
 
-        /* HERO */
-        .hero {
-            min-height: 100vh; display: flex; align-items: center; padding: 100px 5% 50px;
-            background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.7)), 
-                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920');
-            background-size: cover; background-position: center;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
         }
-        .hero h1 { font-size: 2.8rem; font-weight: 900; color: var(--secondary); line-height: 1.1; margin-bottom: 20px; }
 
-        .btn { display: inline-block; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: var(--ease); border: none; cursor: pointer; }
-        .btn-main { background: var(--gradient-main); color: white; box-shadow: 0 10px 20px rgba(0, 114, 255, 0.2); }
+        html {
+            scroll-behavior: smooth;
+        }
 
-        section { padding: 80px 5%; }
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 2.2rem; color: var(--secondary); font-weight: 800; text-transform: uppercase; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-paper);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-        /* PERCHÉ SCEGLIERCI (NUOVO GRADIENTE) */
-        .why-us { background: var(--gradient-why); border-radius: 50px; margin: 0 2%; }
-        .why-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
-        .why-card { background: white; padding: 40px; border-radius: 30px; box-shadow: var(--shadow); border: 1px solid rgba(0,168,204,0.1); text-align: center; }
-        .why-card h3 { color: var(--primary); margin-bottom: 15px; font-weight: 800; }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
 
-        /* SERVIZI PROFESSIONALI */
-        .service-card { margin-bottom: 80px; display: flex; flex-direction: column; gap: 30px; }
-        .service-img { height: 350px; border-radius: 30px; overflow: hidden; box-shadow: var(--shadow); }
-        .service-img img { width: 100%; height: 100%; object-fit: cover; }
-        .service-text h3 { font-size: 1.8rem; color: var(--secondary); margin-bottom: 15px; font-weight: 900; }
-        .service-text ul { list-style: none; padding: 0; }
-        .service-text li { position: relative; padding-left: 25px; margin-bottom: 10px; font-weight: 500; }
-        .service-text li::before { content: '→'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+        /* --- Header & Navigation --- */
+        header.nav-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(253, 245, 230, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--primary);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        /* TESTIMONIALS */
-        .testimonials { background: var(--gradient-main); color: white; border-radius: 50px; margin: 0 2%; }
-        .review-card { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 25px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); margin-bottom: 20px; }
+        .logo {
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            border: 2px solid var(--primary);
+            padding: 5px 10px;
+            font-weight: bold;
+        }
 
-        /* CONTACT FORM */
-        .contact-box { max-width: 600px; margin: 0 auto; background: #f0f9ff; padding: 40px; border-radius: 30px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 1px solid #d1e9ff; border-radius: 12px; font-family: inherit; }
-
-        /* FLOATERS */
-        .whatsapp-btn { position: fixed; bottom: 20px; left: 20px; z-index: 999; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); animation: pulse 2s infinite; text-decoration: none; }
-        .chat-toggle { position: fixed; bottom: 20px; right: 20px; background: var(--primary); color: white; padding: 15px 25px; border-radius: 50px; cursor: pointer; z-index: 998; font-weight: 700; box-shadow: var(--shadow); }
-        .chat-container { position: fixed; bottom: 90px; right: 20px; width: 350px; background: white; border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); z-index: 1000; display: none; flex-direction: column; overflow: hidden; }
-        .chat-header { background: var(--gradient-main); color: white; padding: 20px; font-weight: bold; display: flex; justify-content: space-between; }
-        .chat-body { height: 300px; padding: 20px; overflow-y: auto; background: #fcfdfe; display: flex; flex-direction: column; gap: 10px; }
-        .msg { padding: 12px; border-radius: 15px; font-size: 0.9rem; }
-        .bot-msg { background: #f0f0f0; align-self: flex-start; }
-        .user-msg { background: var(--primary); color: white; align-self: flex-end; }
-
-        /* LEGAL (nLPD) */
-        .cookie-banner { position: fixed; bottom: 0; width: 100%; background: var(--dark); color: white; padding: 20px; z-index: 2000; text-align: center; font-size: 0.8rem; }
-        .legal-btn { background: var(--primary); border: none; padding: 8px 15px; border-radius: 20px; color: white; cursor: pointer; margin-left: 10px; }
+        .nav-links {
+            display: none;
+        }
 
         @media (min-width: 1024px) {
-            .hero h1 { font-size: 4.5rem; }
-            .service-card { flex-direction: row; align-items: center; gap: 80px; }
-            .service-card:nth-child(even) { flex-direction: row-reverse; }
-            .service-img { flex: 1; }
-            .service-text { flex: 1; }
-            .why-grid { grid-template-columns: repeat(3, 1fr); }
-            .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+            }
+            .nav-links a {
+                text-decoration: none;
+                color: var(--text-dark);
+                font-weight: 600;
+                font-size: 0.9rem;
+                transition: var(--transition);
+            }
+            .nav-links a:hover {
+                color: var(--accent);
+            }
         }
 
-        @media (max-width: 768px) {
-            body { padding-top: 80px; }
-            nav { padding: 12px 3%; }
-            .logo { font-size: 1.1rem; }
-            .hero { padding: 80px 5% 40px; min-height: auto; }
-            .hero h1 { font-size: 2.2rem; line-height: 1.2; }
-            .hero p { font-size: 0.95rem; }
-            .btn { padding: 12px 24px; font-size: 0.9rem; }
-            section { padding: 60px 5%; }
-            .section-title h2 { font-size: 1.8rem; }
-            .why-grid { grid-template-columns: 1fr; gap: 20px; }
-            .why-card { padding: 30px 20px; }
-            .why-card h3 { font-size: 1.3rem; }
-            .service-card { flex-direction: column !important; gap: 20px; margin-bottom: 50px; }
-            .service-img { height: 250px; }
-            .service-text h3 { font-size: 1.5rem; }
-            .reviews-grid { grid-template-columns: 1fr; }
-            .review-card { padding: 20px; }
-            .contact-box { margin: 0 5%; padding: 30px 20px; }
-            .form-group input, .form-group textarea { padding: 12px; font-size: 16px; }
-            .chat-container { width: calc(100% - 40px); }
+        /* --- Hero Section --- */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 5% 60px;
+            background: 
+                linear-gradient(rgba(253,245,230,0.7), rgba(253,245,230,0.7)),
+                url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop') center/cover;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         }
 
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 8px solid var(--accent);
+            display: inline-block;
+        }
+
+        .hero-content p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            font-weight: 700;
+            border: 2px solid var(--primary);
+            transition: var(--transition);
+            min-width: 250px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cta-primary:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+
+        /* --- Sections General --- */
+        section {
+            padding: 100px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        /* --- SGE Answer Block (About) --- */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .about-section {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .fact-density-block {
+            background: white;
+            padding: 2rem;
+            border-left: 10px solid var(--primary);
+            box-shadow: 10px 10px 0px var(--gold);
+        }
+
+        /* --- Services Grid (Ukiyo-e Style) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            border: 1px solid var(--primary);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            filter: grayscale(0.5);
+        }
+
+        /* --- Testimonials --- */
+        .testimonials-slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            font-style: italic;
+        }
+
+        /* --- Contact Form --- */
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 3px solid var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .nlpd-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.85rem;
+            margin: 1.5rem 0;
+        }
+
+        .nlpd-checkbox input {
+            width: auto;
+            margin-top: 4px;
+        }
+
+        /* --- Floating Elements --- */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+
+        .social-icons svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--accent);
+        }
+
+        .footer-credit {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1rem;
+        }
+
+        .faq-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Mobile Improvements --- */
         @media (max-width: 480px) {
-            /* Navigation compact */
-            header, nav { padding: 0.5rem 0.5rem !important; height: auto !important; }
-            nav a, header a { padding: 0.3rem 0.5rem !important; font-size: 0.65rem !important; margin: 0 !important; }
-            
-            .hero h1 { font-size: 1.8rem; }
-            .hero p { font-size: 0.9rem; margin-bottom: 20px; }
-            .btn { padding: 10px 20px; font-size: 0.85rem; width: 100%; }
-            nav { padding: 10px 2%; }
-            .logo { font-size: 0.95rem; }
-            section { padding: 40px 3%; }
-            .section-title h2 { font-size: 1.5rem; margin-bottom: 30px; }
-            .why-card { padding: 20px 15px; }
-            .why-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
-            .why-card p { font-size: 0.85rem; line-height: 1.5; }
-            .service-img { height: 200px; }
-            .service-text h3 { font-size: 1.3rem; margin-bottom: 10px; }
-            .service-text li { font-size: 0.85rem; padding-left: 20px; margin-bottom: 8px; }
-            .review-card { padding: 15px; font-size: 0.85rem; }
-            .contact-box { margin: 0 3%; padding: 20px 15px; }
-            .form-group { margin-bottom: 15px; }
-            .form-group input, .form-group textarea { padding: 10px; font-size: 16px; }
-            .whatsapp-btn { width: 50px; height: 50px; bottom: 15px; left: 15px; }
-            .chat-toggle { padding: 12px 20px; font-size: 0.9rem; }
-            .chat-container { width: calc(100% - 30px); bottom: 80px; right: 15px; }
-            
-            /* Footer Optimization */
-            footer { padding: 1rem 0.75rem !important; }
-            .footer-grid { gap: 0.5rem !important; grid-template-columns: 1fr !important; }
-            .footer-col { padding: 0.75rem 0 !important; text-align: center !important; }
-            .footer-col a { font-size: 0.75rem !important; }
-            .footer-bottom { flex-direction: column !important; gap: 0.5rem !important; text-align: center !important; }
+            section { padding: 60px 20px; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .cta-primary { width: 100%; text-align: center; }
         }
-
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
     </style>
 </head>
 <body>
 
-    <div class="cookie-banner" id="cookieBanner">
-        Questo sito rispetta la Nuova Legge Federale sulla Protezione dei Dati (nLPD). Utilizziamo cookie tecnici per migliorare la tua esperienza.
-        <button class="legal-btn" onclick="document.getElementById('cookieBanner').style.display='none'">Ho capito</button>
-    </div>
-
-    <a href="https://wa.me/41910000000" class="whatsapp-btn" target="_blank">
-        <svg width="30" height="30" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/></svg>
-    </a>
-
-    <div class="chat-toggle" onclick="toggleChat()">Assistenza Sofia 👋</div>
-    <div class="chat-container" id="chatBox">
-        <div class="chat-header"><span>Sofia - CleanStudio</span><span style="cursor:pointer" onclick="toggleChat()">✕</span></div>
-        <div class="chat-body" id="chatContent">
-            <div class="msg bot-msg">Buongiorno! Sono Sofia. Come posso aiutarla oggi con i servizi di CleanStudio Mendrisio?</div>
-        </div>
-        <div style="padding:15px; border-top:1px solid #eee;">
-            <button onclick="ask('Preventivo Imprese', 'Certamente. Effettuiamo sopralluoghi tecnici gratuiti per realtà industriali e uffici nel Mendrisiotto.')" style="width:100%; padding:10px; margin-bottom:5px; border-radius:10px; cursor:pointer;">Preventivo Imprese</button>
-            <button onclick="ask('Privacy nLPD', 'Gestiamo i dati dei nostri clienti secondo gli standard svizzeri nLPD per la massima sicurezza.')" style="width:100%; padding:10px; border-radius:10px; cursor:pointer;">Sicurezza Dati</button>
-        </div>
-    </div>
-
-    <nav>
-        <div class="logo">CleanStudio.</div>
-        <a href="#contatti" class="btn btn-main" style="padding: 10px 25px; font-size: 0.8rem;">CONTATTI</a>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-content" data-aos="fade-up">
-            <h1>Igiene Rigorosa.<br>Efficienza Svizzera.</h1>
-            <p>Sistemi di Facility Management per industrie, uffici e complessi residenziali nel Canton Ticino. Standard nLPD e precisione millimetrica.</p>
-            <a href="#servizi" class="btn btn-main">I NOSTRI PROTOCOLLI</a>
+    <!-- Accessibility Navigation -->
+    <header class="nav-container">
+        <a href="#" class="logo">FANTASY CLEANING</a>
+        <nav class="nav-links">
+            <a href="#about">Chi Siamo</a>
+            <a href="#servizi">Servizi</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contatti</a>
+        </nav>
+        <div class="social-icons" style="color: var(--primary);">
+            <a href="https://facebook.com" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="https://instagram.com" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
         </div>
     </header>
 
-    <section class="why-us" data-aos="fade-up">
-        <div class="section-title"><h2>Perché Sceglierci</h2></div>
-        <div class="why-grid">
-            <div class="why-card" data-aos="zoom-in" data-aos-delay="100">
-                <h3>Affidabilità Ticinese</h3>
-                <p>Puntualità svizzera e gestione professionale delle scadenze per non interferire con il vostro workflow aziendale.</p>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>L'Arte della Pulizia</h1>
+                <p>Esperienza, precisione e sanificazione professionale a Bellinzona. Dalle camere bianche agli spazi industriali, garantiamo l'eccellenza svizzera.</p>
+                <a href="#contact" class="cta-primary">Richiedi Sopralluogo</a>
             </div>
-            <div class="why-card" data-aos="zoom-in" data-aos-delay="200">
-                <h3>Sicurezza Garantita</h3>
-                <p>Personale assicurato, formato e dotato dei più moderni dispositivi di protezione individuale (DPI).</p>
-            </div>
-            <div class="why-card" data-aos="zoom-in" data-aos-delay="300">
-                <h3>Eco-Sostenibilità</h3>
-                <p>Utilizzo esclusivo di detergenti biodegradabili certificati, conformi alle normative ambientali vigenti.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="servizi">
-        <div class="section-title" data-aos="fade-up"><h2>I Nostri Servizi</h2></div>
-        
-        <div class="service-card" data-aos="fade-right">
-            <div class="service-img">
-                <img src="https://images.unsplash.com/photo-1581578731117-104f8a3d46a8?auto=format&fit=crop&q=80&w=1200" alt="Igiene Industriale">
+        <!-- About / SGE Block -->
+        <section id="about" class="about-section">
+            <div class="fact-density-block">
+                <h2>Eccellenza a Bellinzona</h2>
+                <p><strong>Fantasy Cleaning</strong> è un'impresa di servizi generali specializzata in pulizie professionali con sede in <em>Viale Stazione, 6500 Bellinzona</em>. Offriamo soluzioni certificate per la <strong>sanificazione</strong>, la gestione di <strong>camere bianche</strong> e la manutenzione di complessi industriali in tutto il Canton Ticino.</p>
+                <p>Il nostro approccio combina la tradizione del Facility Management svizzero con tecnologie di sterilizzazione all'avanguardia, operando nel pieno rispetto della Nuova Legge Federale sulla Protezione dei Dati (nLPD).</p>
             </div>
-            <div class="service-text">
-                <h3>Sanificazione Industriale</h3>
-                <p>Gestione igienica avanzata per magazzini logistici, stabilimenti produttivi e officine meccaniche.</p>
-                <ul>
-                    <li>Trattamento pavimentazioni in resina e cemento</li>
-                    <li>Sgrassatura profonda linee di produzione</li>
-                    <li>Gestione rifiuti e decontaminazione aree tecniche</li>
+            <div style="position:relative;">
+                <img src="https://images.unsplash.com/photo-1581578731117-104f8a3d46a8?q=80&w=1200&auto=format&fit=crop" alt="Sanificazione Professionale" style="width:100%; border: 5px solid var(--primary);">
+                <div style="position:absolute; bottom:-20px; right:-20px; background:var(--accent); color:white; padding:20px; font-weight:bold;">QUALITÀ TICINESE</div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section id="servizi" style="background:#fff;">
+            <div class="section-title">
+                <h2>I Nostri Servizi</h2>
+            </div>
+            <div class="services-grid">
+                <article class="service-card">
+                    <img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?q=80&w=800&auto=format&fit=crop" alt="Camere Bianche">
+                    <h3>Sterilizzazione & Camere Bianche</h3>
+                    <p>Protocolli rigorosi per ambienti controllati, laboratori e settori farmaceutici ad alto requisito igienico.</p>
+                </article>
+                <article class="service-card">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="Pulizia Industriale">
+                    <h3>Pulizie Industriali</h3>
+                    <p>Manutenzione di magazzini, officine e siti produttivi con attrezzature pesanti e sgrassatura profonda.</p>
+                </article>
+                <article class="service-card">
+                    <img src="https://images.unsplash.com/photo-1563390221-180004639d86?q=80&w=800&auto=format&fit=crop" alt="Servizi Custode">
+                    <h3>Servizi da Custode</h3>
+                    <p>Gestione integrata di immobili residenziali e commerciali, portineria e manutenzione ordinaria.</p>
+                </article>
+                <article class="service-card">
+                    <img src="https://images.unsplash.com/photo-1584622781564-1d9876a13d00?q=80&w=800&auto=format&fit=crop" alt="Sanificazione">
+                    <h3>Sanificazione Certificata</h3>
+                    <p>Trattamenti virucidi e battericidi per uffici, negozi e spazi pubblici per la massima sicurezza dei collaboratori.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Social Proof / Testimonials -->
+        <section style="background: var(--bg-paper);">
+            <div class="section-title">
+                <h2>Cosa dicono di noi</h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="review-card">
+                    <p>"Affidabilità totale. Hanno pulito la nostra camera bianca con una precisione chirurgica. Bellinzona ha finalmente un'impresa di livello."</p>
+                    <p><strong>- Roberto T. (Settore Pharma)</strong></p>
+                </div>
+                <div class="review-card">
+                    <p>"Utilizziamo i loro servizi da custode per tre stabili. Puntualità svizzera e cortesia rara."</p>
+                    <p><strong>- Immobiliare Bellinzona</strong></p>
+                </div>
+                <div class="review-card">
+                    <p>"La sanificazione post-cantiere è stata impeccabile. Fantasy Cleaning è diventata il nostro partner di fiducia."</p>
+                    <p><strong>- Elena M. (Studio Architettura)</strong></p>
+                </div>
+                <div class="review-card">
+                    <p>"Servizio industriale impeccabile. I nostri capannoni non sono mai stati così puliti e sicuri."</p>
+                    <p><strong>- Giovanni S. (Logistica Ticino)</strong></p>
+                </div>
+                <div class="review-card">
+                    <p>"Personale discreto e formato. Un ringraziamento speciale per la gestione dell'ufficio centrale."</p>
+                    <p><strong>- Banca Locale</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq">
+            <div class="section-title">
+                <h2>Domande Frequenti</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <h4>Operate fuori Bellinzona?</h4>
+                    <p>Sì, copriamo tutto il Canton Ticino, con particolare focus sulle zone di Giubiasco, Rivera e Lugano.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>I vostri prodotti sono ecologici?</h4>
+                    <p>Utilizziamo detergenti biodegradabili certificati Bio Suisse, riducendo l'impatto ambientale senza compromettere l'igiene.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Come garantite la privacy dei dati?</h4>
+                    <p>Ogni nostra operazione e contatto segue rigorosamente la Nuova Legge Federale sulla Protezione dei Dati (nLPD).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="background: var(--primary); color: white;">
+            <div class="section-title">
+                <h2 style="color: white;">Iniziamo a collaborare</h2>
+            </div>
+            <div class="contact-container">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label style="color:var(--text-dark)">Nome e Cognome / Azienda</label>
+                        <input type="text" placeholder="Es: Fantasy Cleaning SA" required>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:var(--text-dark)">Email di contatto</label>
+                        <input type="email" placeholder="nome@azienda.ch" required>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:var(--text-dark)">Tipologia di Servizio</label>
+                        <select style="width:100%; padding:1rem;">
+                            <option>Pulizia Industriale</option>
+                            <option>Sanificazione</option>
+                            <option>Camere Bianche</option>
+                            <option>Custodia Immobili</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:var(--text-dark)">Messaggio / Dettagli</label>
+                        <textarea rows="5" placeholder="Descriva le sue necessità..."></textarea>
+                    </div>
+                    <div class="nlpd-checkbox" style="color:var(--text-dark)">
+                        <input type="checkbox" id="privacy" required>
+                        <label for="privacy">Acconsento al trattamento dei dati personali secondo la normativa svizzera nLPD per la gestione della richiesta.</label>
+                    </div>
+                    <button type="submit" class="cta-primary" style="width:100%;">Invia Richiesta Gratuita</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>FANTASY CLEANING</h3>
+                <p>Viale Stazione<br>6500 Bellinzona, Svizzera</p>
+                <div class="social-icons">
+                    <a href="https://facebook.com" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="https://instagram.com" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="https://linkedin.com" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg></a>
+                </div>
+            </div>
+            <div>
+                <h4>Navigazione</h4>
+                <ul style="list-style:none;">
+                    <li><a href="#about" style="color:white; text-decoration:none;">Chi Siamo</a></li>
+                    <li><a href="#servizi" style="color:white; text-decoration:none;">Servizi</a></li>
+                    <li><a href="#faq" style="color:white; text-decoration:none;">FAQ</a></li>
+                    <li><a href="#contact" style="color:white; text-decoration:none;">Contatti</a></li>
                 </ul>
             </div>
-        </div>
-
-        <div class="service-card" data-aos="fade-left">
-            <div class="service-img">
-                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1200" alt="Facility Management Uffici">
-            </div>
-            <div class="service-text">
-                <h3>Facility Management Uffici</h3>
-                <p>Manutenzione conservativa per centri direzionali, banche e studi professionali del Mendrisiotto.</p>
-                <ul>
-                    <li>Igienizzazione postazioni IT e sale riunioni</li>
-                    <li>Trattamento vetrate e facciate continue</li>
-                    <li>Fornitura materiali igienico-sanitari nLPD compliant</li>
-                </ul>
+            <div>
+                <h4>Trust Signals</h4>
+                <p>✓ Partner Bio Suisse</p>
+                <p>✓ Pagamenti via Twint & PostFinance</p>
+                <p>✓ Certificato nLPD 2024</p>
             </div>
         </div>
-    </section>
-
-    <section class="testimonials" data-aos="fade-up">
-        <div class="section-title"><h2 style="color:white;">Riprova Sociale</h2></div>
-        <div class="reviews-grid">
-            <div class="review-card" data-aos="flip-up">
-                <p>"Precisione e discrezione assoluta. Un partner fondamentale per la pulizia del nostro magazzino a Chiasso."</p>
-                <strong>- Marco R. (Logistica SA)</strong>
-            </div>
-            <div class="review-card" data-aos="flip-up" data-aos-delay="100">
-                <p>"Hanno trasformato il nostro ufficio dopo la ristrutturazione. Non una macchia, tutto perfetto."</p>
-                <strong>- Studio Architettura Mendrisio</strong>
-            </div>
-            <div class="review-card" data-aos="flip-up" data-aos-delay="200">
-                <p>"Azienda seria, personale cordiale e rispetto totale delle norme di sicurezza svizzere."</p>
-                <strong>- Giulia B. (Amministratrice)</strong>
-            </div>
+        <div class="footer-credit">
+            © 2026 Fantasy Cleaning Bellinzona | Design by SitiTicino.ch | P.IVA CHE-000.000.000
         </div>
-    </section>
-
-    <section id="contatti">
-        <div class="section-title" data-aos="fade-up"><h2>Richiedi Consulenza</h2></div>
-        <div class="contact-box" data-aos="fade-up">
-            <form action="mailto:sestitogabriele@gmail.com" method="post" enctype="text/plain">
-                <div class="form-group"><input type="text" name="Nome" placeholder="Soggetto / Azienda" required></div>
-                <div class="form-group"><input type="tel" name="Recapito" placeholder="Telefono Ticino" required></div>
-                <div class="form-group"><textarea name="Dettagli" rows="4" placeholder="Descriva le sue necessità..."></textarea></div>
-                <button type="submit" class="btn btn-main" style="width:100%;">INVIA EMAIL DIRETTA</button>
-            </form>
-        </div>
-    </section>
-
-    <footer style="background:var(--dark); color:white; padding: 40px 5%; text-align:center;">
-        <p>&copy; 2026 CleanStudio Mendrisio | Svizzera | Conformità nLPD</p>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Floating Widgets -->
+    <a href="https://wa.me/41790000000" class="whatsapp-widget" target="_blank" aria-label="Chat su WhatsApp">
+        <svg width="30" height="30" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"></path></svg>
+    </a>
+
+    <div class="dark-mode-toggle" id="themeToggle">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+    </div>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Fantasy Cleaning",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Viale Stazione",
+        "addressLocality": "Bellinzona",
+        "postalCode": "6500",
+        "addressCountry": "CH"
+      },
+      "description": "Servizi di pulizia professionali, sanificazione e camere bianche a Bellinzona.",
+      "telephone": "+41790000000",
+      "openingHours": "Mo-Fr 08:00-18:00",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "46.1928",
+        "longitude": "9.0223"
+      },
+      "priceRange": "$$"
+    }
+    </script>
+
     <script>
-        AOS.init({ duration: 1000, once: true });
+        // Dark Mode Logic
+        const toggle = document.getElementById('themeToggle');
+        toggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', targetTheme);
+        });
 
-        function toggleChat() {
-            const chat = document.getElementById('chatBox');
-            chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex';
-        }
-
-        function ask(q, a) {
-            const content = document.getElementById('chatContent');
-            content.innerHTML += `<div class="msg user-msg">${q}</div>`;
-            setTimeout(() => {
-                content.innerHTML += `<div class="msg bot-msg">${a}</div>`;
-                content.scrollTop = content.scrollHeight;
-            }, 1000);
-        }
+        // Simple Scroll Animation for Header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '0.5rem 5%';
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.padding = '1rem 5%';
+                header.style.boxShadow = 'none';
+            }
+        });
     </script>
 </body>
 </html>
