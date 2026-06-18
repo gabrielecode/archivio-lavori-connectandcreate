@@ -675,25 +675,11 @@
         });
 
         // Intersection Observer for Scroll Animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+</script>
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+    <!-- Shared Utilities -->
+    <script src="../shared/js/scroll-reveal.js"></script>
+    <script src="../shared/js/dark-mode.js" data-toggle-selector=".dark-mode-toggle" data-strategy="class"></script>
 
-        document.querySelectorAll('.animate-up').forEach((el) => {
-            el.style.animationPlayState = 'paused';
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>

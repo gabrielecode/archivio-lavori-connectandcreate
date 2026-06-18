@@ -904,14 +904,16 @@
     </button>
 
     <script>
-        function toggleTheme() {
-            const body = document.documentElement;
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-            } else {
+else {
                 body.setAttribute('data-theme', 'dark');
             }
         }
     </script>
+
+
+    <!-- Shared Utilities -->
+    <script src="../shared/js/dark-mode.js" data-strategy="attribute"></script>
+    <script src="../shared/js/whatsapp-widget.js"></script>
+
 </body>
 </html>
