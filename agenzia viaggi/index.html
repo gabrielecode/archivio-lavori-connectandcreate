@@ -577,6 +577,9 @@
                 const fetchGlobeData = async () => {
                     try {
                         const res = await fetch("https://raw.githubusercontent.com/martynafford/natural-earth-geojson/refs/heads/master/110m/physical/ne_110m_land.json");
+                        if (!res.ok) {
+                            throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+                        }
                         landFeatures = await res.json();
                         
                         setTimeout(() => {
@@ -589,7 +592,10 @@
                                 }
                             });
                         }, 100);
-                    } catch (err) { console.error("Globe Error", err); }
+                    } catch (err) {
+                        console.error("Globe Error:", err);
+                        wrapper.classList.add('is-loaded');
+                    }
                 };
 
                 let resizeTimer;

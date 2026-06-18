@@ -774,7 +774,9 @@
             // Parallax Hero (solo desktop per performance)
             if (!isTouchDevice) {
                 const heroBg = document.getElementById('heroBg');
-                heroBg.style.transform = `translateY(${window.scrollY * 0.4}px)`;
+                if (heroBg) {
+                    heroBg.style.transform = `translateY(${window.scrollY * 0.4}px)`;
+                }
             }
         });
 

@@ -264,20 +264,20 @@
 
             init() {
                 // Eventi Mouse
-                window.addEventListener('mousemove', (e) => this.handleCursor(e));
+                if (this.dot && this.outline) {
+                    window.addEventListener('mousemove', (e) => this.handleCursor(e));
+                }
                 
                 // Eventi Scroll
                 window.addEventListener('scroll', () => {
                     this.handleTimeline();
                     this.handleParallax();
                 });
-                
-                // Analytics Sim
-                setTimeout(() => console.info("SaaS Analytics: Activation moment reached via SEO content."), 8000);
             }
 
             handleCursor(e) {
                 const { clientX: x, clientY: y } = e;
+                if (!this.dot || !this.outline) return;
                 this.dot.style.left = `${x}px`;
                 this.dot.style.top = `${y}px`;
                 
@@ -296,7 +296,7 @@
             }
 
             handleTimeline() {
-                if (!this.timelineBody) return;
+                if (!this.timelineBody || !this.progressLine) return;
                 const rect = this.timelineBody.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
                 

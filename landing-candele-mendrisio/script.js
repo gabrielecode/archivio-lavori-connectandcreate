@@ -5,19 +5,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         // Header
-        if (window.scrollY > 50) {
-            header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
-            header.style.padding = '10px 0';
-        } else {
-            header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
-            header.style.padding = '15px 0';
+        if (header) {
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                header.style.padding = '10px 0';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
+                header.style.padding = '15px 0';
+            }
         }
 
         // Back to top
-        if (window.scrollY > 500) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
+        if (backToTop) {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
         }
     });
 
@@ -25,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         const formValidator = initFormValidator('.contact-form');
+        if (!formValidator) return;
         
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();

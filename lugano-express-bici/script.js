@@ -81,6 +81,7 @@ const initFormHandling = () => {
     if (!form) return;
 
     const formValidator = initFormValidator('#express-contact-form');
+    if (!formValidator) return;
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
