@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Connect & Create</title>
+  <meta name="description" content="Portfolio completo dei progetti web Connect & Create." />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap");
+
+    :root {
+      --bg: #f6f1e7;
+      --bg-soft: #fdf9f1;
+      --text: #1f2421;
+      --muted: #5f6b64;
+      --accent: #0f766e;
+      --accent-2: #d97706;
+      --card: #fffdfa;
+      --border: #dfd4c3;
+      --shadow: 0 10px 30px rgba(32, 25, 10, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(217, 119, 6, 0.16), transparent 32%),
+        radial-gradient(circle at 80% 90%, rgba(15, 118, 110, 0.18), transparent 28%),
+        linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 18px 64px;
+    }
+
+    .hero {
+      border: 1px solid var(--border);
+      background: rgba(255, 253, 250, 0.82);
+      backdrop-filter: blur(4px);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      animation: slideIn 0.7s ease-out both;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      background: #fff;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Fraunces", serif;
+      font-size: clamp(2rem, 4.7vw, 3.8rem);
+      line-height: 1.05;
+      max-width: 900px;
+    }
+
+    .lead {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      max-width: 760px;
+    }
+
+    .top-meta {
+      margin-top: 22px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      color: var(--text);
+      background: #fff;
+    }
+
+    .controls {
+      margin-top: 22px;
+      border: 1px solid var(--border);
+      background: rgba(255, 253, 250, 0.9);
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .search-wrap {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .search-input {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font: inherit;
+      background: #fff;
+      color: var(--text);
+    }
+
+    .search-input:focus-visible {
+      outline: 2px solid rgba(15, 118, 110, 0.35);
+      outline-offset: 1px;
+      border-color: var(--accent);
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font: inherit;
+      font-size: 0.86rem;
+      color: var(--text);
+      background: #fff;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn:focus-visible {
+      border-color: var(--accent);
+      background: #f0fbf9;
+      outline: none;
+    }
+
+    .filter-btn.active {
+      border-color: var(--accent);
+      background: #dcf7f4;
+      color: #0a5953;
+      font-weight: 700;
+    }
+
+    .result-count {
+      margin: 10px 0 0;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .grid {
+      margin-top: 26px;
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    .card {
+      grid-column: span 12;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      transform: translateY(16px);
+      opacity: 0;
+      animation: rise 0.6s ease forwards;
+      animation-delay: calc(var(--i, 0) * 0.04s);
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .category-badge {
+      margin-top: 8px;
+      display: inline-block;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 9px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      background: #fff;
+    }
+
+    .folder {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      word-break: break-word;
+    }
+
+    .links {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    a.project-link {
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 12px;
+      color: var(--text);
+      background: #fff;
+      font-size: 0.88rem;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    a.project-link:hover,
+    a.project-link:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      background: #f0fbf9;
+      outline: none;
+    }
+
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    @media (min-width: 680px) {
+      .card {
+        grid-column: span 6;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .card {
+        grid-column: span 4;
+      }
+
+      .hero {
+        padding: 36px;
+      }
+
+      .controls {
+        padding: 16px;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes rise {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <span class="tag">Portfolio Completo</span>
+      <h1>Connect &amp; Create<br />Raccolta Progetti Web</h1>
+      <p class="lead">
+        Una pagina unica da pubblicare su GitHub Pages con tutti i lavori presenti in archivio, pronti da aprire con un click.
+      </p>
+      <div class="top-meta">
+        <span class="chip">33 progetti</span>
+        <span class="chip">HTML / Landing / Siti vetrina</span>
+        <span class="chip">Aggiornato: 06/07/2026</span>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Ricerca e filtri portfolio">
+      <div class="search-wrap">
+        <input
+          id="searchInput"
+          class="search-input"
+          type="search"
+          placeholder="Cerca progetto per nome o cartella..."
+          aria-label="Cerca progetti"
+        />
+      </div>
+      <div class="filters" id="filters">
+        <button type="button" class="filter-btn active" data-filter="all">Tutti</button>
+        <button type="button" class="filter-btn" data-filter="landing">Landing</button>
+        <button type="button" class="filter-btn" data-filter="business">Business</button>
+        <button type="button" class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+        <button type="button" class="filter-btn" data-filter="mobilita">Mobilita</button>
+        <button type="button" class="filter-btn" data-filter="salute">Salute</button>
+        <button type="button" class="filter-btn" data-filter="creativo">Creativo</button>
+      </div>
+      <p id="resultCount" class="result-count">33 progetti visibili</p>
+    </section>
+
+    <section class="grid" aria-label="Elenco progetti">
+      <article class="card" style="--i: 1"><h2>10consulenze</h2><p class="folder">cartella: 10consulenze</p><div class="links"><a class="project-link" href="10consulenze/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 2"><h2>ag-car-balerna</h2><p class="folder">cartella: ag-car-balerna</p><div class="links"><a class="project-link" href="ag-car-balerna/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 3"><h2>Agenzia Moda</h2><p class="folder">cartella: Agenzia Moda</p><div class="links"><a class="project-link" href="Agenzia%20Moda/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 4"><h2>agenzia viaggi</h2><p class="folder">cartella: agenzia viaggi</p><div class="links"><a class="project-link" href="agenzia%20viaggi/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 5"><h2>architetti-lugano</h2><p class="folder">cartella: architetti-lugano</p><div class="links"><a class="project-link" href="architetti-lugano/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 6"><h2>aura-minimal-ascona</h2><p class="folder">cartella: aura-minimal-ascona</p><div class="links"><a class="project-link" href="aura-minimal-ascona/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 7"><h2>erboristeria</h2><p class="folder">cartella: erboristeria</p><div class="links"><a class="project-link" href="erboristeria/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 8"><h2>fantasia-garden</h2><p class="folder">cartella: fantasia-garden</p><div class="links"><a class="project-link" href="fantasia-garden/fantasia_garden.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 9"><h2>goth-clothes</h2><p class="folder">cartella: goth-clothes</p><div class="links"><a class="project-link" href="goth-clothes/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 10"><h2>Hero Animata BarberShop</h2><p class="folder">cartella: Hero Animata BarberShop</p><div class="links"><a class="project-link" href="Hero%20Animata%20BarberShop/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 11"><h2>Hero Section</h2><p class="folder">cartella: Hero Section</p><div class="links"><a class="project-link" href="Hero%20Section/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 12"><h2>impresa-costruzioni</h2><p class="folder">cartella: impresa-costruzioni</p><div class="links"><a class="project-link" href="impresa-costruzioni/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 13"><h2>Landing Page One_Page</h2><p class="folder">cartella: Landing Page One_Page</p><div class="links"><a class="project-link" href="Landing%20Page%20One_Page/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 14"><h2>landing-candele-mendrisio</h2><p class="folder">cartella: landing-candele-mendrisio</p><div class="links"><a class="project-link" href="landing-candele-mendrisio/index.html" target="_blank" rel="noopener">Versione base</a><a class="project-link" href="landing-candele-mendrisio/index_single.html" target="_blank" rel="noopener">Versione single</a><a class="project-link" href="landing-candele-mendrisio/landing_completa.html" target="_blank" rel="noopener">Versione completa</a><a class="project-link" href="landing-candele-mendrisio/landing_immersiva.html" target="_blank" rel="noopener">Versione immersiva</a></div></article>
+      <article class="card" style="--i: 15"><h2>lugano-express-bici</h2><p class="folder">cartella: lugano-express-bici</p><div class="links"><a class="project-link" href="lugano-express-bici/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 16"><h2>minimal-corrieri</h2><p class="folder">cartella: minimal-corrieri</p><div class="links"><a class="project-link" href="minimal-corrieri/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 17"><h2>nurse-locarno</h2><p class="folder">cartella: nurse-locarno</p><div class="links"><a class="project-link" href="nurse-locarno/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 18"><h2>organizzatore-eventi</h2><p class="folder">cartella: organizzatore-eventi</p><div class="links"><a class="project-link" href="organizzatore-eventi/newevents.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 19"><h2>palestra</h2><p class="folder">cartella: palestra</p><div class="links"><a class="project-link" href="palestra/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 20"><h2>Sito Bar Balerna</h2><p class="folder">cartella: Sito Bar Balerna</p><div class="links"><a class="project-link" href="Sito%20Bar%20Balerna/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 21"><h2>Sito Candele Lux</h2><p class="folder">cartella: Sito Candele Lux</p><div class="links"><a class="project-link" href="Sito%20Candele%20Lux/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 22"><h2>Sito Gatti</h2><p class="folder">cartella: Sito Gatti</p><div class="links"><a class="project-link" href="Sito%20Gatti/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 23"><h2>Sito Night Club</h2><p class="folder">cartella: Sito Night Club</p><div class="links"><a class="project-link" href="Sito%20Night%20Club/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 24"><h2>Sito Pittori</h2><p class="folder">cartella: Sito Pittori</p><div class="links"><a class="project-link" href="Sito%20Pittori/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 25"><h2>Sito SolArte</h2><p class="folder">cartella: Sito SolArte</p><div class="links"><a class="project-link" href="Sito%20SolArte/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 26"><h2>sito-farmacia</h2><p class="folder">cartella: sito-farmacia</p><div class="links"><a class="project-link" href="sito-farmacia/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 27"><h2>sito-fiduciaria</h2><p class="folder">cartella: sito-fiduciaria</p><div class="links"><a class="project-link" href="sito-fiduciaria/fiduciaria.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 28"><h2>sito-pasticceria</h2><p class="folder">cartella: sito-pasticceria</p><div class="links"><a class="project-link" href="sito-pasticceria/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 29"><h2>sito-pulizie</h2><p class="folder">cartella: sito-pulizie</p><div class="links"><a class="project-link" href="sito-pulizie/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 30"><h2>sito-symecom</h2><p class="folder">cartella: sito-symecom</p><div class="links"><a class="project-link" href="sito-symecom/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 31"><h2>studio-legale</h2><p class="folder">cartella: studio-legale</p><div class="links"><a class="project-link" href="studio-legale/index.html" target="_blank" rel="noopener">Home</a><a class="project-link" href="studio-legale/about.html" target="_blank" rel="noopener">About</a><a class="project-link" href="studio-legale/contatti.html" target="_blank" rel="noopener">Contatti</a></div></article>
+      <article class="card" style="--i: 32"><h2>take-away</h2><p class="folder">cartella: take-away</p><div class="links"><a class="project-link" href="take-away/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+      <article class="card" style="--i: 33"><h2>vendita auto</h2><p class="folder">cartella: vendita auto</p><div class="links"><a class="project-link" href="vendita%20auto/index.html" target="_blank" rel="noopener">Apri progetto</a></div></article>
+    </section>
+
+    <footer>
+      Portfolio Connect &amp; Create - pagina unica pronta per la pubblicazione su GitHub Pages.
+    </footer>
+  </main>
+  <script>
+    (function () {
+      const cards = Array.from(document.querySelectorAll(".card"));
+      const searchInput = document.getElementById("searchInput");
+      const filters = document.getElementById("filters");
+      const resultCount = document.getElementById("resultCount");
+      let activeFilter = "all";
+
+      function classifyProject(text) {
+        const value = text.toLowerCase();
+
+        if (value.includes("landing") || value.includes("hero")) return "landing";
+        if (value.includes("auto") || value.includes("car") || value.includes("bici") || value.includes("corrieri")) return "mobilita";
+        if (value.includes("nurse") || value.includes("farmacia")) return "salute";
+        if (
+          value.includes("bar") ||
+          value.includes("pasticceria") ||
+          value.includes("take-away") ||
+          value.includes("candele") ||
+          value.includes("erboristeria")
+        ) return "lifestyle";
+        if (
+          value.includes("moda") ||
+          value.includes("goth") ||
+          value.includes("garden") ||
+          value.includes("eventi")
+        ) return "creativo";
+        return "business";
+      }
+
+      function categoryLabel(category) {
+        const labels = {
+          landing: "Landing",
+          business: "Business",
+          lifestyle: "Lifestyle",
+          mobilita: "Mobilita",
+          salute: "Salute",
+          creativo: "Creativo"
+        };
+        return labels[category] || "Business";
+      }
+
+      function setupCards() {
+        cards.forEach((card) => {
+          const title = card.querySelector("h2")?.textContent || "";
+          const folder = card.querySelector(".folder")?.textContent || "";
+          const combined = (title + " " + folder).trim();
+          const category = classifyProject(combined);
+          card.dataset.search = combined.toLowerCase();
+          card.dataset.category = category;
+
+          const badge = document.createElement("span");
+          badge.className = "category-badge";
+          badge.textContent = categoryLabel(category);
+          card.insertBefore(badge, card.querySelector(".links"));
+        });
+      }
+
+      function updateResultsCount(visible) {
+        const label = visible === 1 ? "progetto visibile" : "progetti visibili";
+        resultCount.textContent = visible + " " + label;
+      }
+
+      function applyFilters() {
+        const query = (searchInput.value || "").trim().toLowerCase();
+        let visible = 0;
+
+        cards.forEach((card) => {
+          const matchesCategory = activeFilter === "all" || card.dataset.category === activeFilter;
+          const matchesSearch = !query || (card.dataset.search || "").includes(query);
+          const show = matchesCategory && matchesSearch;
+          card.style.display = show ? "" : "none";
+          if (show) visible += 1;
+        });
+
+        updateResultsCount(visible);
+      }
+
+      filters.addEventListener("click", (event) => {
+        const button = event.target.closest(".filter-btn");
+        if (!button) return;
+
+        activeFilter = button.dataset.filter || "all";
+        filters.querySelectorAll(".filter-btn").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        applyFilters();
+      });
+
+      searchInput.addEventListener("input", applyFilters);
+
+      setupCards();
+      applyFilters();
+    })();
+  </script>
+</body>
+</html>
