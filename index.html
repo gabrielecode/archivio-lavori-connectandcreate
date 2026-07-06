@@ -210,6 +210,35 @@
       word-break: break-word;
     }
 
+    .preview {
+      margin-top: 10px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #f7f2e8;
+      overflow: hidden;
+    }
+
+    .preview-frame {
+      width: 100%;
+      height: 170px;
+      border: 0;
+      display: block;
+      background: #fff;
+    }
+
+    .preview-fallback {
+      display: none;
+      padding: 10px 12px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .preview-fallback.is-visible {
+      display: block;
+    }
+
     .links {
       margin-top: 12px;
       display: flex;
@@ -247,6 +276,10 @@
       .card {
         grid-column: span 6;
       }
+
+      .preview-frame {
+        height: 190px;
+      }
     }
 
     @media (min-width: 1024px) {
@@ -260,6 +293,10 @@
 
       .controls {
         padding: 16px;
+      }
+
+      .preview-frame {
+        height: 210px;
       }
     }
 
@@ -407,6 +444,7 @@
           const folder = card.querySelector(".folder")?.textContent || "";
           const combined = (title + " " + folder).trim();
           const category = classifyProject(combined);
+          const firstLink = card.querySelector(".project-link");
           card.dataset.search = combined.toLowerCase();
           card.dataset.category = category;
 
@@ -414,6 +452,34 @@
           badge.className = "category-badge";
           badge.textContent = categoryLabel(category);
           card.insertBefore(badge, card.querySelector(".links"));
+
+          if (firstLink && firstLink.getAttribute("href")) {
+            const preview = document.createElement("div");
+            preview.className = "preview";
+
+            const frame = document.createElement("iframe");
+            frame.className = "preview-frame";
+            frame.loading = "lazy";
+            frame.referrerPolicy = "no-referrer";
+            frame.src = firstLink.getAttribute("href");
+            frame.title = "Anteprima " + title;
+
+            const fallback = document.createElement("div");
+            fallback.className = "preview-fallback";
+            fallback.textContent = "Anteprima non disponibile in iframe. Usa 'Apri progetto'.";
+
+            frame.addEventListener("error", () => {
+              fallback.classList.add("is-visible");
+            });
+
+            preview.appendChild(frame);
+            preview.appendChild(fallback);
+
+            const folderNode = card.querySelector(".folder");
+            if (folderNode) {
+              folderNode.insertAdjacentElement("afterend", preview);
+            }
+          }
         });
       }
 
