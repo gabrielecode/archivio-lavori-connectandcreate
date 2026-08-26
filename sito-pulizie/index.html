@@ -601,15 +601,18 @@
     <script>
         // Dark Mode Logic
         const toggle = document.getElementById('themeToggle');
-        toggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', targetTheme);
-        });
+        if (toggle) {
+            toggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', targetTheme);
+            });
+        }
 
         // Simple Scroll Animation for Header
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
+            if (!header) return;
             if (window.scrollY > 50) {
                 header.style.padding = '0.5rem 5%';
                 header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';

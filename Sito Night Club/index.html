@@ -306,8 +306,13 @@
             const current = document.getElementById(curr);
             const next = document.getElementById(nxt);
             
+            if (!current || !next) {
+                console.warn(`changeScene: element not found ("${curr}" or "${nxt}")`);
+                return;
+            }
+
             current.style.opacity = '0';
-            current.style.transition = 'opacity 0.8s ease'; // Transizione più lenta
+            current.style.transition = 'opacity 0.8s ease';
             
             setTimeout(() => {
                 current.classList.add('hidden');

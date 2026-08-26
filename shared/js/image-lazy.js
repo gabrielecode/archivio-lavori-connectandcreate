@@ -72,11 +72,8 @@ class LazyImageLoader {
         tempImg.onerror = () => {
             img.classList.remove(this.config.loadingClass);
             img.classList.add(this.config.errorClass);
-            
-            // Fallback to original src if data-src fails
-            if (img.src !== src) {
-                img.src = src;
-            }
+            img.removeAttribute('data-src');
+            console.warn(`LazyImageLoader: failed to load image "${src}"`);
         };
 
         // Set source and trigger load

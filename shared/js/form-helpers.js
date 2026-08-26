@@ -62,6 +62,9 @@ window.showNotification = (message, type = 'info', duration = 5000, position = '
 
 class FormValidator {
     constructor(formElement) {
+        if (!formElement) {
+            throw new Error('FormValidator: form element is required');
+        }
         this.form = formElement;
         this.fields = {};
         this.isValid = true;
@@ -72,6 +75,7 @@ class FormValidator {
         // Get all form inputs
         const inputs = this.form.querySelectorAll('input, textarea, select');
         inputs.forEach(input => {
+            if (!input.name) return;
             this.fields[input.name] = input;
             input.addEventListener('blur', () => this.validateField(input));
             input.addEventListener('change', () => this.validateField(input));
@@ -109,8 +113,12 @@ class FormValidator {
         }
         // Check pattern
         else if (pattern && value) {
-            const regex = new RegExp(pattern);
-            if (!regex.test(value)) {
+            try {
+                const regex = new RegExp(pattern);
+                if (!regex.test(value)) {
+                    error = 'Formato non valido';
+                }
+            } catch (e) {
                 error = 'Formato non valido';
             }
         }
@@ -176,7 +184,10 @@ class FormValidator {
 // Global form helper function
 window.initFormValidator = (formSelector) => {
     const form = document.querySelector(formSelector);
-    if (!form) return null;
+    if (!form) {
+        console.warn(`initFormValidator: form not found for selector "${formSelector}"`);
+        return null;
+    }
     return new FormValidator(form);
 };
 
