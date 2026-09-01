@@ -427,12 +427,7 @@
         });
 
         // Cookie Banner Logic
-        function acceptCookies() {
-            document.getElementById('cookie-banner').style.transform = 'translateY(100%)';
-            localStorage.setItem('solbar_cookies', 'accepted');
-        }
-
-        // Check Cookie on Load
+// Check Cookie on Load
         window.addEventListener('load', () => {
             if (!localStorage.getItem('solbar_cookies')) {
                 setTimeout(() => {
@@ -441,5 +436,11 @@
             }
         });
     </script>
+
+
+    <!-- Shared Utilities -->
+    <script src="../shared/js/whatsapp-widget.js" data-phone="41779493452"></script>
+    <script src="../shared/js/cookie-banner.js"></script>
+
 </body>
 </html>

@@ -739,67 +739,17 @@
 
     <!-- INTERACTIVITY SCRIPTS -->
     <script>
-        // Dark Mode Logic
-        const html = document.documentElement;
-        const toggleBtn = document.getElementById('dark-mode-toggle');
-        const sunIcon = document.getElementById('sun-icon');
-        const moonIcon = document.getElementById('moon-icon');
-
-        // Set default to dark mode for better Aurora effect
-        html.classList.add('dark');
-        sunIcon.classList.remove('hidden');
-        moonIcon.classList.add('hidden');
-
-        toggleBtn.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            if (html.classList.contains('dark')) {
-                sunIcon.classList.remove('hidden');
-                moonIcon.classList.add('hidden');
-            } else {
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-            }
-        });
-
-        // Mobile Menu Logic
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu on link click
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Scroll Reveal Animation
-        const revealElements = document.querySelectorAll('.reveal');
-
-        const revealCallback = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        };
-
-        const revealOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
-        
-        revealElements.forEach(el => revealObserver.observe(el));
-    </script>
+</script>
 
     <!-- Shared Form Helpers & UI Utilities -->
     <script src="../../shared/js/form-helpers.js"></script>
     <script src="../../shared/js/image-lazy.js"></script>
+
+    <!-- Shared Utilities -->
+    <script src="../shared/js/scroll-reveal.js"></script>
+    <script src="../shared/js/mobile-menu.js"></script>
+    <script src="../shared/js/dark-mode.js" data-toggle-selector=".dark-mode-toggle" data-strategy="class"></script>
+    <script src="../shared/js/whatsapp-widget.js" data-phone="41790000000"></script>
+
 </body>
 </html>

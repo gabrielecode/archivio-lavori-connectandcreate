@@ -519,13 +519,7 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        function toggleMenu() {
-            burgerBtn.classList.toggle('active');
-            mobileMenu.classList.toggle('open');
-            document.body.classList.toggle('overflow-hidden');
-        }
-
-        burgerBtn.addEventListener('click', toggleMenu);
+burgerBtn.addEventListener('click', toggleMenu);
 
         // Close menu on link click
         mobileLinks.forEach(link => {
@@ -557,14 +551,15 @@
         });
 
         // 4. SMOOTH SCROLL ENHANCEMENT
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+});
         });
     </script>
+
+
+    <!-- Shared Utilities -->
+    <script src="../shared/js/mobile-menu.js"></script>
+    <script src="../shared/js/dark-mode.js" data-toggle-selector=".dark-mode-toggle" data-strategy="class"></script>
+    <script src="../shared/js/whatsapp-widget.js" data-phone="41790000000"></script>
+
 </body>
 </html>

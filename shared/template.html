@@ -192,13 +192,22 @@
     </footer>
 
     <!-- Form Helpers & UI Utilities -->
-    <script src="../shared/js/form-helpers.js"></script>
-    <script src="../shared/js/image-lazy.js"></script>
+    <script src="js/form-helpers.js"></script>
+    <script src="js/image-lazy.js"></script>
+
+    <!-- Shared Utilities (add only the ones you need) -->
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/navbar-scroll.js"></script>
+    <script src="js/scroll-reveal.js" data-selector=".glass-panel, .reveal-on-scroll"></script>
+    <script src="js/faq-accordion.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/dark-mode.js" data-toggle-selector=".theme-toggle" data-strategy="class"></script>
+    <script src="js/whatsapp-widget.js" data-phone="41XXXXXXXXX"></script>
+    <!-- <script src="js/cookie-banner.js"></script> -->
 
     <!-- Page-specific Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Inizialize form validator
             const contactForm = document.getElementById('contact-form');
             if (contactForm) {
                 const validator = initFormValidator('#contact-form');
@@ -206,52 +215,30 @@
                 contactForm.addEventListener('submit', (e) => {
                     e.preventDefault();
                     
-                    // Validate form
                     if (!validator.validateAll()) {
                         showNotification('Per favore, compila tutti i campi correttamente', 'error');
                         return;
                     }
                     
-                    // Get form data
                     const data = validator.getFormData();
-                    
-                    // Show loading state
                     const submitBtn = contactForm.querySelector('button');
                     const originalText = submitBtn.textContent;
                     
                     submitBtn.textContent = 'Inviando...';
                     submitBtn.disabled = true;
                     
-                    // Simulate form submission (replace with actual backend call)
                     setTimeout(() => {
-                        // Success notification
                         showNotification(
                             `Grazie ${data.name}! Il tuo messaggio è stato inviato con successo. Ti contatteremo presto.`,
                             'success',
                             5000
                         );
-                        
-                        // Reset form
                         validator.reset();
-                        
-                        // Reset button
                         submitBtn.textContent = originalText;
                         submitBtn.disabled = false;
                     }, 1500);
                 });
             }
-            
-            // Scroll reveal
-            document.querySelectorAll('.glass-panel').forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = `opacity 0.8s ease-out ${index * 100}ms, transform 0.8s ease-out ${index * 100}ms`;
-                
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, 100);
-            });
         });
     </script>
 </body>
