@@ -16,6 +16,12 @@ class Notification {
         this.element = null;
     }
 
+    static escapeHtml(str) {
+        const div = document.createElement('div');
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
+    }
+
     show() {
         // Create notification element
         this.element = document.createElement('div');
@@ -28,11 +34,17 @@ class Notification {
             'warning': '⚠',
             'info': 'ℹ'
         };
-        
-        this.element.innerHTML = `
-            <span style="font-size: 1.2em; font-weight: bold;">${iconMap[this.type]}</span>
-            <span>${this.message}</span>
-        `;
+
+        const iconSpan = document.createElement('span');
+        iconSpan.style.fontSize = '1.2em';
+        iconSpan.style.fontWeight = 'bold';
+        iconSpan.textContent = iconMap[this.type] || 'ℹ';
+
+        const msgSpan = document.createElement('span');
+        msgSpan.textContent = this.message;
+
+        this.element.appendChild(iconSpan);
+        this.element.appendChild(msgSpan);
         
         document.body.appendChild(this.element);
         
